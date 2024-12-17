@@ -34,7 +34,7 @@ const Faqs = () => {
             <button className="px-6 py-3 rounded-full border border-gray-700 hover:border-[#4848FF] transition-colors">
               More Questions
             </button>
-            <button className="h-6 border-b-[0.5px] border-white">Contact Us</button>
+           
           </div>
         </div>
 

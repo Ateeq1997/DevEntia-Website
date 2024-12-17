@@ -228,7 +228,7 @@ export default function ITProcess() {
                   `}
                   >
                     <div
-                      className={`p-1  text-[5px] xs:text-[8px] md:text-[70%] rounded-lg px-1 transition-all duration-700 flex ${
+                      className={`p-1  text-[5px] xs:text-[8px] md:text-[70%] rounded-lg px-1 transition-all duration-700 flex cursor-pointer ${
                         activeIndex === index
                           ? "bg-[#4848FF] text-white"
                           : "bg-gray-700 text-[#CCCCCC]"
