@@ -126,15 +126,15 @@ const Footer = () => {
             rel="stylesheet"
             href="Mansehra, kpk 21300, PK"
           >
-            Mansehra, kpk 21300, PK
+            Siran Plaza Mansehra, Khyber Pakhtunkhwa, Pakistan
           </a>
         </div>
         <div className="">
           <a
-            href="mailto:deventialimited@gmail.com"
+            href="mailto:prosper@deventiatech.com"
             className="block mt-12 hover:underline hover:text-[#7471E6]"
           >
-            deventialimited@gmail.com
+            prosper@deventiatech.com
           </a>
           <h4 className="font-semibold text-xl text-white/35 my-4 md:mt-20">
             Let’s chat

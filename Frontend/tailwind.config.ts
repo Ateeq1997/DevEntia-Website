@@ -17,6 +17,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '490px', // Define your custom breakpoint
+      },
       keyframes: {
         blob: {
           '0%': {
@@ -137,7 +140,15 @@ const config: Config = {
     require('tailwind-scrollbar'),
   ],
   darkMode: 'class',
+
+  safelist: [
+    "bg-blue-500",
+    "bg-[#77DAFE]",
+    "bg-[#9C78DB]", // Add any other dynamic classes you use
+  ],
 };
+
+
 
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme('colors'));

@@ -1,14 +1,16 @@
-import ChooseUs from '@/components/home/ChooseUs';
+
 import Hero from '@/components/home/Hero';
-import { ScrollView } from '@/components/home/ScrollView';
 import Services from '@/components/home/Services';
 import StatsAndPartners from '@/components/home/Stats';
-import WhoWeAre from '@/components/home/WhoWeAre';
 import { TracingBeam } from '@/components/ui/tracingbeam';
 import { users } from '@/data/data';
 import React from 'react';
 import { Metadata } from 'next';
-import GetInTouch from '@/components/AboutUs/GetInTouch';
+import WhyDeventia from '@/components/home/Why-chose-deventia/WhyDeventia';
+import OurExpertise from '@/components/home/OurExpertise';
+import Projects from '@/components/home/Projects/Projects';
+import ITProcesses from '@/components/home/ITProcesses';
+import Faqs from '@/components/home/Faqs';
 
 export const metadata: Metadata = {
   title: 'DevEntia Tech Pvt. Ltd',
@@ -35,32 +37,19 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
-      <TracingBeam>
+      
         <Hero />
-        <WhoWeAre />
+        <WhyDeventia />
+        <OurExpertise/>
         <Services />
-        <ChooseUs />
+        <Projects />
         <StatsAndPartners />
-        <ScrollView
-          users={users}
-          titleComponent={
-            <>
-              <h3 className={`text-[2rem] text-white z-10 font-[200]`}>
-                Portfolio{' '}
-              </h3>
-              <h1 className="text-xl font-semibold text-white">
-                30+ Completed Projects <br />
-                <span className="text-3xl md:text-[5rem] font-bold mt-1 leading-none">
-                  And Counting ....
-                </span>
-              </h1>
-            </>
-          }
-        />
+        
+        <ITProcesses />
         {/* <Testimonial /> */}
         {/* <Portfolio /> */}
-        <GetInTouch />
-      </TracingBeam>
+       <Faqs />
+      
     </>
   );
 };
