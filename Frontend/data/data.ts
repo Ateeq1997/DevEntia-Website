@@ -91,8 +91,8 @@ export const carouselData = [
     heroImage: HeroImage1,
   },
   {
-    title: "Innovative AI Services Designed",
-    titleBr: "for Your Success",
+    title: "Innovative AI Services ",
+    titleBr: "Designed for Your Success",
     description:
       "Tailored AI solutions to streamline operations, enhance insights, and drive growth.",
     descriptionBr: "Empower your business with intelligent innovation.",
@@ -179,7 +179,7 @@ export const projects = [
     title: 'Makewell landing page design',
     subtitle: 'Web Landing page',
     image: projectdesktop1,
-    link: 'https://makewell.life/',
+    link: 'https://gogetwell.ai/',
   },
   {
     title: 'Telegram landing page design',
