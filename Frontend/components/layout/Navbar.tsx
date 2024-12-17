@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import logoImg from '@/assets/images/logoImg.gif';
-import Link from 'next/link';
-import { MdOutlineArrowOutward } from 'react-icons/md';
-import { RiMenu4Line } from 'react-icons/ri';
-import { inter } from '@/utils/fonts';
-import { usePathname } from 'next/navigation';
-import { FaAngleDown } from 'react-icons/fa6';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import logoImg from "@/assets/images/logoImg.gif";
+import Link from "next/link";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { RiMenu4Line } from "react-icons/ri";
+import { inter } from "@/utils/fonts";
+import { usePathname } from "next/navigation";
+import { FaAngleDown } from "react-icons/fa6";
 
 const Navbar = () => {
-  const [hovered, setHovered] = useState({ hover: false, name: '' });
+  const [hovered, setHovered] = useState({ hover: false, name: "" });
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -24,8 +24,9 @@ const Navbar = () => {
     setHovered({ hover: hover, name: name });
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleScroll = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY) {
         setShowNavbar(false);
@@ -37,24 +38,24 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleScroll);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
 
       return () => {
-        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener("scroll", handleScroll);
       };
     }
-  }, [lastScrollY]);
+  }, [handleScroll, lastScrollY]);
 
   return (
     <div
-      className={`navbar bg-[#7571e67c] fixed bg-opacity-5 backdrop-filter backdrop-blur-sm shadow-sm z-20 !p-0 w-[96%] left-[2%] right-[2%] top-4 max-w-[1750px] ${
+      className={`navbar top-1 xs:top-0 lg:h-24  backdrop-blur-md sticky m-auto shadow-sm z-20 flex lg:justify-center  !p-0 w-[100%]   max-w-[1750px] ${
         inter.className
       } !font-[400] transition-transform duration-300 ${
-        showNavbar ? 'translate-y-0' : '!top-0 -translate-y-full '
+        showNavbar ? "translate-y-0" : "!top-0 -translate-y-full "
       }`}
     >
-      <div className="navbar-start">
+      <div className="navbar-center">
         <div className="dropdown">
           <div
             tabIndex={0}
@@ -69,62 +70,62 @@ const Navbar = () => {
           >
             <li
               className={`p-3 ${
-                isActive('/Services') ||
-                isActive('/Careers') ||
-                isActive('/Our-Portfolio') ||
-                isActive('/About-us')
-                  ? 'text-white'
-                  : 'bg-[#7471E680]'
+                isActive("/Services") ||
+                isActive("/Careers") ||
+                isActive("/Our-Portfolio") ||
+                isActive("/About-us")
+                  ? "text-white"
+                  : "bg-[#7471E680]"
               }`}
             >
-              <Link href={'/'}>Home</Link>
+              <Link href={"/"}>Home</Link>
             </li>
             <li
               onClick={() => {
-                handleHover('Services', !hovered.hover);
+                handleHover("Services", !hovered.hover);
               }}
               className={`p-3 relative ${
-                isActive('/Services') ? 'bg-[#7471E680]' : 'text-white'
+                isActive("/Services") ? "bg-[#7471E680]" : "text-white"
               }`}
             >
-              <Link className="flex gap-2 items-center" href={'/Services'}>
-                Services{' '}
+              <Link className="flex gap-2 items-center" href={"/Services"}>
+                Services{" "}
                 <FaAngleDown
                   className={`${
-                    hovered.hover && hovered.name === 'Services'
-                      ? 'rotate-180'
-                      : ''
+                    hovered.hover && hovered.name === "Services"
+                      ? "rotate-180"
+                      : ""
                   }`}
                 />
               </Link>
               <div
                 className={`${
-                  hovered.hover && hovered.name === 'Services'
-                    ? 'flex'
-                    : 'hidden'
+                  hovered.hover && hovered.name === "Services"
+                    ? "flex"
+                    : "hidden"
                 } flex-col items-start mt-2 gap-2 bg-[#7471E6] w-fit h-fit rounded-lg shadow-md py-4 px-8 transition-all duration-700 ease-in-out`}
               >
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Services/Plan'}
+                  href={"/Services/Plan"}
                 >
                   Plan
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Services/Design-service'}
+                  href={"/Services/Design-service"}
                 >
                   Design
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Services/Development'}
+                  href={"/Services/Development"}
                 >
                   Development
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Services/Testing'}
+                  href={"/Services/Testing"}
                 >
                   Testing
                 </Link>
@@ -132,69 +133,69 @@ const Navbar = () => {
             </li>
             <li
               className={`p-3 ${
-                isActive('/Careers') ? 'bg-[#7471E680]' : 'text-white'
+                isActive("/Careers") ? "bg-[#7471E680]" : "text-white"
               }`}
             >
-              <Link href={'/Careers'}>Careers</Link>
+              <Link href={"/Careers"}>Careers</Link>
             </li>
             <li
               onClick={() => {
-                handleHover('Portfolio', !hovered.hover);
+                handleHover("Portfolio", !hovered.hover);
               }}
               className={`p-3 ${
-                isActive('/Our-Portfolio') ? 'bg-[#7471E680]' : 'text-white'
+                isActive("/Our-Portfolio") ? "bg-[#7471E680]" : "text-white"
               }`}
             >
-              <Link className="flex gap-2 items-center" href={'/Our-Portfolio'}>
+              <Link className="flex gap-2 items-center" href={"/Our-Portfolio"}>
                 Our Portfolio
                 <FaAngleDown
                   className={`${
-                    hovered.hover && hovered.name === 'Portfolio'
-                      ? 'rotate-180'
-                      : ''
+                    hovered.hover && hovered.name === "Portfolio"
+                      ? "rotate-180"
+                      : ""
                   }`}
                 />
               </Link>
               <div
                 className={`${
-                  hovered.hover && hovered.name === 'Portfolio'
-                    ? 'flex'
-                    : 'hidden'
+                  hovered.hover && hovered.name === "Portfolio"
+                    ? "flex"
+                    : "hidden"
                 } flex-col items-start mt-2 gap-2 bg-[#7471E6] w-fit h-fit rounded-lg shadow-md py-4 px-8`}
               >
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Our-Portfolio/Projects/RS-Global-Ties'}
+                  href={"/Our-Portfolio/Projects/RS-Global-Ties"}
                 >
                   RS Global Ties
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Our-Portfolio/Projects/Private-CPA'}
+                  href={"/Our-Portfolio/Projects/Private-CPA"}
                 >
                   Private CPA
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Our-Portfolio/Projects/ISA'}
+                  href={"/Our-Portfolio/Projects/ISA"}
                 >
                   ISA Consulting
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Our-Portfolio/Projects/Makewell.life'}
+                  href={"/Our-Portfolio/Projects/Makewell.life"}
                 >
                   Makewell.life
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Our-Portfolio/Projects/origin.com'}
+                  href={"/Our-Portfolio/Projects/origin.com"}
                 >
                   origin.com
                 </Link>
                 <Link
                   className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-                  href={'/Our-Portfolio/Projects/Dadi-Rent-Boat'}
+                  href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
                 >
                   Dadi Rent Boat
                 </Link>
@@ -202,15 +203,15 @@ const Navbar = () => {
             </li>
             <li
               className={`p-3 ${
-                isActive('/About-us') ? 'bg-[#7471E680]' : 'text-white'
+                isActive("/About-us") ? "bg-[#7471E680]" : "text-white"
               }`}
             >
-              <Link href={'/About-us'}>About Us</Link>
+              <Link href={"/About-us"}>About Us</Link>
             </li>
 
             <Link
-              href={'/Contact-us'}
-              className=" ml-2 p-3 bg-[#7471E680] text-white/70 flex items-center gap-2"
+              href={"/Contact-us"}
+              className=" ml-2 p-3 bg-[#7471E680] text-white/70 rounded-md flex items-center gap-2"
             >
               Contact Us <MdOutlineArrowOutward size={25} />
             </Link>
@@ -221,71 +222,76 @@ const Navbar = () => {
           src={logoImg}
           width={100}
           alt="deventia logo"
-          className="lg:ml-6 mr-auto"
+          className=" mr-auto"
         />
       </div>
-      <ul className="navbar-end w-full hidden lg:flex px-1 items-center">
+
+      <ul className="navbar-start  justify-center w-[67%] hidden lg:flex px-1 items-center">
         <li
-          className={`p-3 ${
-            isActive('/Services') ||
-            isActive('/Careers') ||
-            isActive('/Our-Portfolio') ||
-            isActive('/About-us')
-              ? 'text-white'
-              : 'bg-[#7471E680]'
+          className={`p-3  ${
+            isActive("/Services") ||
+            isActive("/Careers") ||
+            isActive("/Our-Portfolio") ||
+            isActive("/About-us")
+              ? "hover:text-[#7471E6] hover:scale-x-110 transition-all duration-700 ease-in-out"
+              : "text-[#7471E6] "
           }`}
         >
-          <Link href={'/'}>Home</Link>
+          <Link className="hover:text-[#7471E6] hover:scale-x-110" href={"/"}>
+            Home
+          </Link>
         </li>
         <li className="text-[#7471E6]">|</li>
         <li
           onMouseEnter={() => {
-            handleHover('services', true);
+            handleHover("services", true);
           }}
           onMouseLeave={() => {
-            handleHover('services', false);
+            handleHover("services", false);
           }}
           className={`p-3 relative inline-block ${
-            isActive('/Services') ? 'bg-[#7471E680]' : 'text-white'
+            isActive("/Services")
+              ? "text-[#7471E6]"
+              : "text-white hover:text-[#7471E6] hover:scale-x-110 transition-all duration-700 ease-in-out"
           }`}
         >
-          <Link className="flex gap-2 items-center" href={'/Services'}>
-            Services{' '}
+          <Link className="flex gap-2 items-center " href={"/Services"}>
+            Services{" "}
             <FaAngleDown
               className={`${
-                hovered.hover && hovered.name === 'services' ? 'rotate-180' : ''
+                hovered.hover && hovered.name === "services" ? "rotate-180" : ""
               }`}
             />
           </Link>
           <div
             onMouseLeave={() => {
-              handleHover('services', false);
+              handleHover("services", false);
             }}
             className={`absolute top-12 -left-4 ${
-              hovered.hover && hovered.name === 'services' ? 'flex' : 'hidden'
-            }  flex-col gap-2 bg-[#7471E6] w-fit h-fit rounded-lg shadow-md py-4 px-8 transition-all duration-700 ease-in-out`}
+              hovered.hover && hovered.name === "services" ? "flex" : "hidden"
+            }  flex-col gap-2 bg-[#7471E6] w-fit h-fit text-white rounded-lg shadow-md py-4 px-8 transition-all duration-700 ease-in-out`}
           >
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Services/Plan'}
+              href={"/Services/Plan"}
             >
               Plan
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Services/Design-service'}
+              href={"/Services/Design-service"}
             >
               Design
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Services/Development'}
+              href={"/Services/Development"}
             >
               Development
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Services/Testing'}
+              href={"/Services/Testing"}
             >
               Testing
             </Link>
@@ -295,75 +301,79 @@ const Navbar = () => {
 
         <li
           className={`p-3 ${
-            isActive('/Careers') ? 'bg-[#7471E680]' : 'text-white'
+            isActive("/Careers")
+              ? "text-[#7471E6]"
+              : "text-white hover:text-[#7471E6] hover:scale-x-110 transition-all duration-700 ease-in-out"
           }`}
         >
-          <Link href={'/Careers'}>Careers</Link>
+          <Link href={"/Careers"}>Careers</Link>
         </li>
         <li className="text-[#7471E6]">|</li>
 
         <li
           onMouseEnter={() => {
-            handleHover('Portfolio', true);
+            handleHover("Portfolio", true);
           }}
           onMouseLeave={() => {
-            handleHover('Portfolio', false);
+            handleHover("Portfolio", false);
           }}
           className={`p-3 relative ${
-            isActive('/Our-Portfolio') ? 'bg-[#7471E680]' : 'text-white'
+            isActive("/Our-Portfolio")
+              ? "text-[#7471E6]"
+              : "text-white hover:text-[#7471E6] hover:scale-x-110 transition-all duration-700 ease-in-out"
           }`}
         >
-          <Link className="flex gap-2 items-center" href={'/Our-Portfolio'}>
+          <Link className="flex gap-2 items-center" href={"/Our-Portfolio"}>
             Our Portfolio
             <FaAngleDown
               className={`${
-                hovered.hover && hovered.name === 'Portfolio'
-                  ? 'rotate-180'
-                  : ''
+                hovered.hover && hovered.name === "Portfolio"
+                  ? "rotate-180"
+                  : ""
               }`}
             />
           </Link>
           <div
             onMouseLeave={() => {
-              handleHover('Portfolio', false);
+              handleHover("Portfolio", false);
             }}
             className={`absolute whitespace-pre top-12 -left-4 ${
-              hovered.hover && hovered.name === 'Portfolio' ? 'flex' : 'hidden'
-            } flex-col gap-2 bg-[#7471E6] w-fit h-fit rounded-lg shadow-md py-4 px-8`}
+              hovered.hover && hovered.name === "Portfolio" ? "flex" : "hidden"
+            } flex-col gap-2 bg-[#7471E6] w-fit h-fit text-white rounded-lg shadow-md py-4 px-8`}
           >
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Our-Portfolio/Projects/RS-Global-Ties'}
+              href={"/Our-Portfolio/Projects/RS-Global-Ties"}
             >
               RS Global Ties
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Our-Portfolio/Projects/Private-CPA'}
+              href={"/Our-Portfolio/Projects/Private-CPA"}
             >
               Private CPA
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Our-Portfolio/Projects/ISA'}
+              href={"/Our-Portfolio/Projects/ISA"}
             >
               ISA Consulting
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Our-Portfolio/Projects/Makewell.life'}
+              href={"/Our-Portfolio/Projects/Makewell.life"}
             >
               Makewell.life
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Our-Portfolio/Projects/origin.com'}
+              href={"/Our-Portfolio/Projects/origin.com"}
             >
               origin.com
             </Link>
             <Link
               className="hover:font-medium hover:scale-110 transition-all duration-700 ease-in-out"
-              href={'/Our-Portfolio/Projects/Dadi-Rent-Boat'}
+              href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
             >
               Dadi Rent Boat
             </Link>
@@ -373,19 +383,22 @@ const Navbar = () => {
 
         <li
           className={`p-3 ${
-            isActive('/About-us') ? 'bg-[#7471E680]' : 'text-white'
+            isActive("/About-us")
+              ? "text-[#7471E6]"
+              : "text-white hover:text-[#7471E6] hover:scale-x-110 transition-all duration-700 ease-in-out"
           }`}
         >
-          <Link href={'/About-us'}>About Us</Link>
+          <Link href={"/About-us"}>About Us</Link>
         </li>
-
-        <Link
-          href={'/Contact-us'}
-          className="ml-2 p-3 bg-[#7471E680] text-white/70 flex items-center gap-2 hover:font-medium  transition-all duration-700 ease-in-out"
-        >
-          Contact Us <MdOutlineArrowOutward size={25} />
-        </Link>
       </ul>
+      <Link
+        href={"/Contact-us"}
+        className="ml-2 p-2 bg-[#4848FF]  text-white hidden rounded-md lg:flex items-center gap-2 hover:font-medium  transition-all duration-700 ease-in-out"
+      >
+        Contact Us <MdOutlineArrowOutward size={25} />
+      </Link>
+
+      <hr className="bg-[#FFFFFF17] h-1 -z-10 lg:w-[86%] w-[100%] m-auto opacity-5  absolute bottom-0" />
     </div>
   );
 };
