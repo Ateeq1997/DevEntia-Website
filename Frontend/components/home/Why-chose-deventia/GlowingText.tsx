@@ -14,7 +14,7 @@ const GlowingText: React.FC<glowingtText> = ({ glowingTitle, title }) => {
         <div
           className=" whitespace-nowrap"
         >
-          <h1 className="glow  animate-marquee"> {glowingTitle}</h1>
+          <h1 className="glow animate-marquee"> {glowingTitle}</h1>
          
           
         </div>

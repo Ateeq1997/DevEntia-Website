@@ -8,19 +8,19 @@ import { motion } from "framer-motion";
 
 const WhyDeventia = () => {
   return (
-    <div className="min-h-[80vh] py-4 mb-5  relative">
+    <div className="min-h-[80vh]  py-4 mb-5  relative">
       {/* Blue lighting */}
       <BlueGlowEffect
-        className="top-5 right-14 xs:right-0"
-        size={400}
-        blur={90}
-        opacity={0.4}
+        className="top-5 right-14  z-50 xs:right-0"
+        size={250}
+        blur={120}
+        opacity={0.7}
         rotate={0}
       />
 
       <GlowingText
         glowingTitle=" WHY CHOOSE SERVICES FROM DEVENTIA?"
-        title=" Why Choose Services From DeVentia?"
+        title=" Why Choose Services From DevEntia?"
       />
 
       {/* Services grid */}
