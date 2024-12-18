@@ -24,7 +24,7 @@ export default function ServiceCards() {
           Our Services
         </h1>
         <p className="text-xs md:text-sm">
-          DeVentia transforms ideas into digital experiences through expert
+          DevEntia transforms ideas into digital experiences through expert
           UI/UX design, web development, and motion graphics.
         </p>
       </div>

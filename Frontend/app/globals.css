@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Sora:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,25 +7,25 @@
 body {
   background: #0B0B0B;
   color: white;
+  
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Sora:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap');
 
 /* Define utility classes */
-.font-bai {
-  font-family: 'Bai Jamjuree', sans-serif;
-}
+ .font-bai {
+  font-family: "Bai Jamjuree", serif !important;
+} 
 
 .font-montserrat {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .font-sora {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Sora', sans-serif !important;
 }
 
 .font-manrope {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Manrope', sans-serif !important;
 }
 * {
   box-sizing: border-box;
@@ -520,4 +522,38 @@ font-weight: 700;
   height: 100%;
   background: linear-gradient(to top, #000052, #4848ff);
 }
+
+
+.bgc-hero {
+  border-radius: 19px;
+  padding: 1.5px; /* Simulated border width */
+  background: linear-gradient(
+    106.76deg,
+    rgba(173, 106, 255, 0.52) 2.83%,
+    rgba(122, 219, 120, 0.53) 101.83%
+  );
+}
+
+.bgc-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0B0B0B; /* Same as container background */
+  border-radius: inherit; /* Inherit border radius */
+  z-index: 1; /* Place it above the background */
+  margin: 1.5px; /* Adjust for the simulated border */
+}
+
+
+.text-shadow{
+  text-shadow:0px -0.7px 2px #4848FF
+ 
+}
+.hover\:text-shadow:hover{
+  text-shadow:0px -0.7px 2px #4848FF
+}
+
 
