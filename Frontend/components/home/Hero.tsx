@@ -133,7 +133,7 @@ const Hero = () => {
               </Link>
 
               <Link href={"/Our-Portfolio"}>
-                <button className="flex items-center gap-2 text-white text-xs md:text-sm lg:text-lg px-4 md:px-6 lg:px-8 py-1 md:py-2 lg:py-3 hover:bg-white/10 transition-colors">
+                <button className="flex items-center gap-2 text-white text-xs md:text-sm lg:text-lg px-4 md:px-6 lg:px-8 py-1 md:py-2 lg:py-3 hover:bg-white/10 transition-colors rounded-lg">
                   <MdPlayArrow
                     size={24} // Adjust icon size for responsiveness
                     className="border-2 rounded-md border-[#4848FF]"
@@ -198,7 +198,6 @@ const Hero = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          
         </div>
         <div className="hero-pagination flex gap-4  justify-center absolute mx-auto bottom-0"></div>
         {/* Adjust Pagination Position */}
@@ -207,9 +206,9 @@ const Hero = () => {
             background-color: white !important; /* Style for non-active bullets */
             width: 7px;
             height: 7px;
-            bottom:30px;
+            bottom: 30px;
             position: relative;
-            opacity:100%;
+            opacity: 100%;
           }
 
           .hero-pagination .swiper-pagination-bullet-active {
@@ -227,7 +226,6 @@ const Hero = () => {
             padding: 6.5px;
           }
         `}</style>
-
       </div>
     </div>
   );
