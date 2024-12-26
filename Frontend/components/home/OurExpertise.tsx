@@ -13,7 +13,7 @@ const OurExpertise: React.FC = () => {
   });
 
   return (
-    <div className="bg-[#141414] py-10">
+    <div className="bg-[#141414] py-5">
       <GlowingText
         glowingTitle="ENHANCE EFFICIENCY, OPEN DOORS WITH OUR EXPERTISE"
         title="Enhance efficiency, open doors with our Expertise ?"
@@ -23,7 +23,7 @@ const OurExpertise: React.FC = () => {
         ref={containerRef}
         className="container font-montserrat mx-auto w-[90%] py-3 px-3"
       >
-        <div className="mb-5">
+        <div className="mb-5 -mt-8">
           <p className="text-[10px] lg:text-[14px] text-gray-300">
             We&apos;re a team of strategic software developers working globally
             with the largest brands. We believe that progress only happens when
