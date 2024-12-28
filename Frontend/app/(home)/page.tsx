@@ -1,4 +1,5 @@
 
+import HeroSection from '@/components/home/HeroSection';
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
 import StatsAndPartners from '@/components/home/Stats';
@@ -11,6 +12,7 @@ import OurExpertise from '@/components/home/OurExpertise';
 import Projects from '@/components/home/Projects/Projects';
 import ITProcesses from '@/components/home/ITProcesses';
 import Faqs from '@/components/home/Faqs';
+import PositiveImpactSection from '@/components/home/PositiveImpactSection';
 
 export const metadata: Metadata = {
   title: 'DevEntia Tech Pvt. Ltd',
@@ -37,13 +39,14 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
-      
-        <Hero />
+        <HeroSection />
+        {/* <Hero /> */}
         <WhyDeventia />
         <OurExpertise/>
         <Services />
         <Projects />
-        <StatsAndPartners />
+        <PositiveImpactSection />
+        {/* <StatsAndPartners /> */}
         
         <ITProcesses />
         {/* <Testimonial /> */}

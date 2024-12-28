@@ -24,13 +24,12 @@ export default function ServiceCards() {
           Our Services
         </h1>
         <p className="text-xs md:text-sm">
-          DeVentia transforms ideas into digital experiences through expert
-          UI/UX design, web development, and motion graphics.
+        Empowering businesses with innovative solutions, cutting-edge technology, and exceptional design to drive progress and unlock new opportunities.
         </p>
       </div>
       {/* Cards parent */}
       <div className=" mx-auto ">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-3">
           {ourServiceData.map((service, index) => (
             <motion.div
               key={index}
