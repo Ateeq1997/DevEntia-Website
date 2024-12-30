@@ -71,7 +71,7 @@ const HeroSection = () => {
           </p>
           <div className="flex gap-6">
             <button className="px-8 py-3 bg-[#4848FF] rounded-full hover:bg-[#4e4ed3] transition-colors">
-              Let's Connect
+              Let&apos;s Connect
             </button>
            
           </div>

@@ -24,7 +24,7 @@ const PositiveImpactSection = () => {
           </h2>
           <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
             Our approach allows us to deliver exceptional experiences that drive growth
-            and success for all stakeholders. Let's rise to new heights with the power of
+            and success for all stakeholders. Let&apos;s rise to new heights with the power of
             digital transformation.
           </p>
         </div>
