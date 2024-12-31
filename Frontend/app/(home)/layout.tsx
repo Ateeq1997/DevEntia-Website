@@ -2,6 +2,7 @@ import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
 import Head from 'next/head';
 import { Metadata } from 'next';
+import Header from '@/components/layout/Header';
 // dd
 export const metadata: Metadata = {
   icons: {
@@ -20,7 +21,8 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
+      <Header />
       {children}
       <Footer />
     </div>

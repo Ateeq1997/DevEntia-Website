@@ -1,6 +1,7 @@
 import ourserviceImage1 from "../assets/images/services-software-development.png";
 import ourserviceImage2 from "../assets/images/services-ui.png";
 import ourserviceImage3 from "../assets/images/servicess-degital-markering.png";
+import ourserviceImage4 from "../assets/images/image (1).png";
 
 /* hero section carousel images */
 import HeroImage1 from "../assets/images/Hero-technology-innovation1.png";
@@ -75,6 +76,15 @@ export const ourServiceData = [
       "Pay-Per-Click (PPC) Advertising",
       "Content Marketing",
       "Email Markeeting"
+    ]
+  },
+  {
+    title: "Emerging Technologies",
+    image: ourserviceImage4,
+    details: [
+      "Blockchain Solutions",
+      "AI and ML Solutions",
+      "AR and VR Solutions",
     ]
   }
 ]
