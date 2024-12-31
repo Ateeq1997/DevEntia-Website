@@ -1,6 +1,7 @@
 import ourserviceImage1 from "../assets/images/services-software-development.png";
 import ourserviceImage2 from "../assets/images/services-ui.png";
 import ourserviceImage3 from "../assets/images/servicess-degital-markering.png";
+import ourserviceImage4 from "../assets/images/image (1).png";
 
 /* hero section carousel images */
 import HeroImage1 from "../assets/images/Hero-technology-innovation1.png";
@@ -75,6 +76,15 @@ export const ourServiceData = [
       "Pay-Per-Click (PPC) Advertising",
       "Content Marketing",
       "Email Markeeting"
+    ]
+  },
+  {
+    title: "Emerging Technologies",
+    image: ourserviceImage4,
+    details: [
+      "Blockchain Solutions",
+      "AI and ML Solutions",
+      "AR and VR Solutions",
     ]
   }
 ]
@@ -203,19 +213,19 @@ export interface FAQItem {
 
 export const faqs: FAQItem[] = [
   {
-    question: "Can Deventia help with both web and mobile applications?",
-    answer: "How can I start working with Deventia? Does Deventia provide services internationally? How does Deventia ensure client confidentiality? What industries does Deventia specialize in? What are Deventia's core values? What support does Deventia offer post-launch? Can Deventia handle both small and large scale projects? What makes Deventia's approach to design unique?"
+    question: "Can DevEntia help with both web and mobile applications?",
+    answer: "How can I start working with DevEntia? Does DevEntia provide services internationally? How does DevEntia ensure client confidentiality? What industries does Deventia specialize in? What are Deventia's core values? What support does Deventia offer post-launch? Can Deventia handle both small and large scale projects? What makes Deventia's approach to design unique?"
   },
   {
     question: "What services does DevEntia offer?",
     answer: "We offer a comprehensive range of digital services including web development, mobile app development, UI/UX design, cloud solutions, and digital transformation consulting."
   },
   {
-    question: "How does the project planning process work at Deventia?",
+    question: "How does the project planning process work at DevEntia?",
     answer: "Our project planning process involves detailed requirement gathering, timeline estimation, resource allocation, and regular client consultations to ensure project success."
   },
   {
-    question: "What is the average duration for a project with Deventia?",
+    question: "What is the average duration for a project with DevEntia?",
     answer: "Project duration varies based on complexity and requirements, typically ranging from 3-6 months for medium-sized projects."
   }
 ];

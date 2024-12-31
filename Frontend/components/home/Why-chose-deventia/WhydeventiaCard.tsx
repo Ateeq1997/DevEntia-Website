@@ -1,9 +1,9 @@
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import { StaticImageData } from "next/image";
 import vector from "../../../assets/images/Vector.png";
 interface CardProps {
-  image: string  | StaticImageData; // Type for the icon component
+  image: string | StaticImageData; // Type for the icon component
   title: string;
   description: string;
   borderGradient: string;
@@ -27,20 +27,16 @@ const WhyDeventiaCard: React.FC<CardProps> = ({
       }}
     >
       <div className={`w-12  h-12 ${iconBg} rounded-lg p-3 mb-4`}>
-       <Image src={image}
-       alt=""
-       >
-        
-       </Image>
+        <Image src={image} alt=""></Image>
       </div>
-      <h3 className="text-xl md:text-sm lg:text-xl font-sora font-semibold text-white mb-3">
+      <h3 className="text-xl md:text-[0.8rem] lg:text-lg font-sora font-medium text-white mb-3">
         {title}
       </h3>
-      <p className="font-manrope text-sm md:text-xs lg:text-[0.9rem] text-gray-300 md:min-h-[70px] mb-4">
+      <p className="font-manrope text-sm md:text-xs lg:text-[10] font-medium text-gray-300 md:min-h-[70px] mb-4">
         {description}
       </p>
-      <button className="text-white font-sora  text-[14px] flex items-center gap-2 hover:gap-3 transition-all duration-300">
-        Read More
+      {/* <button className="text-white font-sora  text-[14px] flex items-center gap-2 hover:gap-3 transition-all duration-300">
+        <span className="hover:text-shadow duration-300">Read More</span>
         <span className="m-auto ">
           <Image
           src={vector}
@@ -48,7 +44,7 @@ const WhyDeventiaCard: React.FC<CardProps> = ({
           >
           </Image>
         </span>
-      </button>
+      </button> */}
     </div>
   );
 };

@@ -3,14 +3,14 @@ import Founder from '../../assets/images/founder.png';
 
 const MeetOurCoFounder = () => {
   return (
-    <section className="flex gap-12 flex-col md:flex-row p-[5%] co-founder-bg">
+    <section className="flex gap-12 flex-col lg:flex-row p-[5%] co-founder-bg">
       <Image
         src={Founder}
         alt="Co Founder"
-        className="w-full md:w-[45%] h-[80svh] md:h-screen max-h-[30rem]"
+        className=" w-full  lg:w-[45%] xs:h-[50svh] sm:h-[80svh] md:h-screen max-h-[30rem]"
       />
       <div>
-        <h1 className="font-bold text-3xl lg:text-4xl">Meet Founder</h1>
+        <h1 className="font-bold text-3xl lg:text-4xl">Meet Our Founder</h1>
         <p className="text-lg text-[#BBBBBB] mt-4">
           As a versatile professional,{' '}
           <span className="text-[#8A88EC] font-semibold">Huzaifa Shad</span>{' '}

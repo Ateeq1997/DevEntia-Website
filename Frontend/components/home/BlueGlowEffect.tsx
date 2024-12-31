@@ -26,7 +26,7 @@ const BlueGlowEffect: React.FC<BlueGlowEffectProps> = ({
       className={`absolute  ${className}`}
       style={{
         width: size,
-        height: size * 0.825, // Maintain the aspect ratio from your example
+        height: size , // Maintain the aspect ratio from your example
         backgroundColor: color,
         filter: `blur(${blur}px)`,
         transform: `rotate(${rotate}deg)`,

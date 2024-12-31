@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import Navbar from "@/components/layout/Navbar";
 
 export default function RootLayout({
@@ -8,7 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className="max-w-[1750px] mx-auto">
-      <Navbar />
+      <Header />
       {children}
       <Footer />
     </div>

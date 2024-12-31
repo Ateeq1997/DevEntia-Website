@@ -42,28 +42,30 @@ const Hero = () => {
   };
 
   return (
-    <div className=" relative bg-[#0B0B0B] h-[650px] md:h-[800px]  lg:h-[912px]">
+    <div className=" relative bg-[#0B0B0B]  h-[650px] md:h-[800px]  lg:h-[912px]">
       {/* Gradient Background */}
 
       {/* lighting effect */}
-      <BlueGlowEffect
-        className="-top-10 -left-4  "
-        size={200}
-        blur={100}
-        opacity={0.5}
-        rotate={0}
-      />
+      {
+        <BlueGlowEffect
+          className="-top-10 -left-4  "
+          size={200}
+          blur={100}
+          opacity={0.5}
+          rotate={0}
+        />
+      }
 
       {/* Floating Orbs */}
       <div className="absolute top-[60px] right-10 md:right-40 w-[25px] h-[25px] rounded-[41px] bg-gradient-to-b from-[#AD6AFF] to-[#AD6AFF00]" />
 
-      <div className="relative flex justify-center   mx-auto w-[90%] md:w-[80%] lg:w-[777px] h-[630px] md:h-[800px] lg:h-[900px]">
+      <div className="relative flex justify-center  mx-auto w-[90%] md:w-[80%] lg:w-[777px] h-[630px] md:h-[800px]  lg:h-[900px]">
         <div className="absolute top-[120px] md:top-[125px] left-10 md:left-0 w-4 h-4 rounded-full bg-gradient-to-b from-[#FAC977] to-[#FAC97700]" />
         <div className="absolute top-[390px] lg:top-[420px] left-1 lg:-left-[4%] w-[13px] h-[13px] rounded-[21px] bg-gradient-to-b from-[#7ADB78] to-[#7ADB7800]" />
         <div className="absolute top-[250px] lg:top-[261px] right-[5%] lg:-right-[14px] w-[13px] h-[13px] rounded-[21px] bg-gradient-to-b from-[#7ADB78] to-[#7ADB7800]" />
 
         {/* Circular Gradient */}
-        <div className="absolute top-[300px] md:top-[385px] lg:top-[430px] flex justify-center rounded-full bg-blue-900/20 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] lg:w-[100%] h-[500px] md:h-[670px] lg:h-[775px]">
+        <div className="absolute top-[300px] md:top-[385px]  lg:top-[430px] flex justify-center rounded-full bg-blue-900/20 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] lg:w-[100%] h-[500px] md:h-[670px] lg:h-[775px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -131,7 +133,7 @@ const Hero = () => {
               </Link>
 
               <Link href={"/Our-Portfolio"}>
-                <button className="flex items-center gap-2 text-white text-xs md:text-sm lg:text-lg px-4 md:px-6 lg:px-8 py-1 md:py-2 lg:py-3 hover:bg-white/10 transition-colors">
+                <button className="flex items-center gap-2 text-white text-xs md:text-sm lg:text-lg px-4 md:px-6 lg:px-8 py-1 md:py-2 lg:py-3 hover:bg-white/10 transition-colors rounded-lg">
                   <MdPlayArrow
                     size={24} // Adjust icon size for responsiveness
                     className="border-2 rounded-md border-[#4848FF]"
@@ -144,7 +146,7 @@ const Hero = () => {
         </div>
 
         {/* Swiper Carousel */}
-        <div className="absolute rounded-xl   bottom-20 w-[80%]  h-[230px] md:h-[350px] lg:h-[400px] lg:w-[100%]   mx-auto">
+        <div className="absolute rounded-[19px] bgc-hero bottom-20 w-[80%]  h-[230px] md:h-[350px] lg:h-[400px] lg:w-[100%] overflow-hidden  ">
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={30}
@@ -170,7 +172,7 @@ const Hero = () => {
                 }
               }
             }}
-            className=" overflow-hidden rounded-xl w-[100%] h-[200px] md:h-[330px] lg:h-[400px] "
+            className=" w-[100%] h-[100%] rounded-[19px] "
           >
             {carouselVideos.map((video, index) => (
               <SwiperSlide key={index}>
@@ -190,25 +192,23 @@ const Hero = () => {
                   }}
                   onEnded={handleVideoEnd} // Trigger next slide on video end
                   /* loop */
-                  width={400}
-                  height={200}
-                  className="w-[100%] bg-blue-500 h-[90%] mx-auto rounded-xl  object-cover"
+
+                  className="w-[100%]  h-[100%] object-cover "
                 />
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {
-            <div className="hero-pagination flex gap-4   justify-center absolute mx-auto bottom-0"></div>
-          }
         </div>
-
+        <div className="hero-pagination flex gap-4  justify-center absolute mx-auto bottom-0"></div>
         {/* Adjust Pagination Position */}
         <style jsx global>{`
           .hero-pagination .swiper-pagination-bullet {
-            bottom: 2px !important; /* Move outside carousel */
-            background-color: white !important;
+            background-color: white !important; /* Style for non-active bullets */
+            width: 7px;
+            height: 7px;
+            bottom: 30px;
             position: relative;
+            opacity: 100%;
           }
 
           .hero-pagination .swiper-pagination-bullet-active {
@@ -217,13 +217,13 @@ const Hero = () => {
           .hero-pagination .swiper-pagination-bullet-active::after {
             content: "";
             border: 1px solid white;
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             position: absolute;
             top: -4px;
             left: -4px;
-            padding: 4px;
+            padding: 6.5px;
           }
         `}</style>
       </div>

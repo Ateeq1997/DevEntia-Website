@@ -9,7 +9,7 @@ import BlueGlowEffect from "./BlueGlowEffect";
 
 export default function ServiceCards() {
   return (
-    <div className="relative min-h-screen lg:min-h-[80vh] bg-[#141414] px-14 overflow-hidden  py-12">
+    <div className="relative   bg-[#141414] px-14 overflow-hidden  py-12">
       <BlueGlowEffect
         className="top-5 right-0  "
         size={400}
@@ -24,13 +24,13 @@ export default function ServiceCards() {
           Our Services
         </h1>
         <p className="text-xs md:text-sm">
-          DeVentia transforms ideas into digital experiences through expert
+          DevEntia transforms ideas into digital experiences through expert
           UI/UX design, web development, and motion graphics.
         </p>
       </div>
       {/* Cards parent */}
       <div className=" mx-auto ">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-3">
           {ourServiceData.map((service, index) => (
             <motion.div
               key={index}
@@ -53,8 +53,6 @@ export default function ServiceCards() {
               {/* Content */}
               <div className="absolute inset-0 p-5  flex flex-col  transition-all duration-300 group-hover:justify-start">
                 <div className="space-y-2 transform transition-all duration-700 group-hover:translate-y-0 translate-y-[200px]">
-                 
-
                   <h3 className="text.[20px] xs:text-[24px]  lg:text-[23px] font-bold text-[#4848FF]">
                     {service.title}
                   </h3>
@@ -74,7 +72,9 @@ export default function ServiceCards() {
                         className="flex items-center gap-3 text-white"
                       >
                         <FaRegSquareCheck className="h-5 w-5 text-[#5865F2]" />
-                        <span className="text-[10px] xs:text-[13px]">{item}</span>
+                        <span className="text-[10px] xs:text-[13px]">
+                          {item}
+                        </span>
                       </li>
                     ))}
                   </ul>
