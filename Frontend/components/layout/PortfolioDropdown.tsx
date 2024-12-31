@@ -17,22 +17,22 @@ interface Project {
 const projects: Project[] = [
   {
     img: testImg,
-    text: "Project: Love Diet",
+    text: "RS Global Ties",
     href: "/Our-Portfolio/Projects/RS-Global-Ties",
   },
   {
     img: testImg2,
-    text: "Project: Entergram CRM",
+    text: "Entergram CRM",
     href: "/Our-Portfolio/Projects/Private-CPA",
   },
   {
     img: testImg1,
-    text: "Project: B2B",
+    text: "ISA Consulting",
     href: "/Our-Portfolio/Projects/ISA",
   },
   {
     img: testImg4,
-    text: "Project: Make Well",
+    text: "GoGetWell",
     href: "/Our-Portfolio/Projects/Makewell.life",
   },
 ];

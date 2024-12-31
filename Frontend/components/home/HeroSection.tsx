@@ -32,13 +32,13 @@ const HeroSection = () => {
         setCurrentIndex((prev) => (prev + 1) % heroContents.length);
         setIsChanging(false);
       }, 500);
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative h-[50rem] w-full bg-black text-white overflow-hidden">
+    <section className="relative h-[48rem] w-full bg-black text-white overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -47,13 +47,13 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-            isChanging ? 'opacity-0' : 'opacity-50'
+          className={`absolute inset-0 w-full h-full object-cover  transition-opacity duration-500 ${
+            isChanging ? 'opacity-10' : 'opacity-60'
           }`}
         >
           <source src={heroContents[currentIndex].video} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 " />
       </div>
 
       {/* Hero Content */}
