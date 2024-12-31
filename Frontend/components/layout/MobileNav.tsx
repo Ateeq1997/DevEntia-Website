@@ -14,18 +14,18 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { title: "Home", link: "/" },
   { title: "Services", link: "/Services" },
-  { title: "Careers", link: "/Careers" },
   {
     title: "Our Portfolio",
     submenu: [
       { title: "RS Global Ties", link: "/Our-Portfolio/Projects/RS-Global-Ties" },
       { title: "Private CPA", link: "/Our-Portfolio/Projects/Private-CPA" },
-      { title: " ISA Consulting", link: "/Our-Portfolio/Projects/ISA" },
-      { title: "Make Well Life", link: "/Our-Portfolio/Projects/Makewell.life" },
+      { title: "ISA Consulting", link: "/Our-Portfolio/Projects/ISA" },
+      { title: "GoGetWell", link: "/Our-Portfolio/Projects/Makewell.life" },
       { title: "See All", link: "/#see-all-services" },
     ],
   },
   { title: "About Us", link: "/About-us" },
+  { title: "Careers", link: "/Careers" },
   { title: "Contact Us", link: "/Contact-us" },
 ];
 
@@ -61,7 +61,7 @@ const MobileSidebar = () => {
               <a
                 key={subItem.title}
                 href={subItem.link}
-                className="block py-3 px-8 text-gray-300 hover:bg-gray-800 transition-colors duration-200"
+                className="block py-3 px-8 text-gray-300 hover:bg-gray-800 transition-colors duration-200 "
               >
                 {subItem.title}
               </a>

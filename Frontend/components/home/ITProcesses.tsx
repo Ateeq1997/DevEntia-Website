@@ -111,9 +111,9 @@ export default function ITProcess() {
     activeProcess === "staff" ? staffAugmentationSteps : developmentSteps;
 
   return (
-    <div className="min-h-screen  lg:min-h-[100%] font-bai bg-[#0B0B14] px-4 md:px-12 text-white">
+    <div className="font-bai bg-[#0B0B14] px-4 md:px-12 text-white">
       {/* Top Navigation */}
-      <div className="max-w-[1400px] mx-auto px-6 pt-8">
+      <div className="max-w-[1400px] mx-auto px-6 pt-16">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-4 lg:items-center border-b border-[#404040] pb-4">
           <div className="flex items-center gap-2">
             <span className="text-[#4848FF]">•</span>
@@ -152,19 +152,17 @@ export default function ITProcess() {
           {activeProcess === "staff" ? "Staff Augmentation" : "Development"}{" "}
           Process
         </h1>
-     <Link
-      href={"/Contact-us"}
-     >
-        <button className="bg-[#4848FF] px-3 py-1 md:px-4 md:py-2  rounded-full flex items-center gap-2 mb-12 hover:bg-[#4848FF]/90 transition-colors">
-          Book Consultation
-          <TiArrowRight className="w-5 h-5" />
-        </button>
+        <Link href={"/Contact-us"}>
+          <button className="bg-[#4848FF] px-3 py-1 md:px-4 md:py-2  rounded-full flex items-center gap-2 mb-12 hover:bg-[#4848FF]/90 transition-colors">
+            Book Consultation
+            <TiArrowRight className="w-5 h-5" />
+          </button>
         </Link>
         <div className=" border-t border-t-[#404040] flex flex-col lg:flex-row">
           {/* Left Side - Carousel */}
           <div className="relative  w-full md:w-[80%] lg:w-[44%]  h-[310px] transition-all duration-700 ease-in-out">
             <div className="relative h-full">
-              <div className="absolute top-0 right-0 text-[90px] font-bold text-[#525252] leading-none">
+              <div className="absolute top-0 right-0 text-[90px]  text-[#525252] leading-none">
                 {currentSteps[activeIndex].number}.
               </div>
               <div className="pt-28 ">

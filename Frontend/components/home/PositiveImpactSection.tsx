@@ -15,7 +15,7 @@ const PositiveImpactSection = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-12 lg:px-24 h-[35rem] flex justify-center ">
+    <section className="bg-black text-white py-16 px-6 md:px-12 lg:px-24 sm:h-[35rem] h-[42rem] flex justify-center ">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-12">
         {/* Left Content */}
         <div className="lg:w-1/2 pr-7">

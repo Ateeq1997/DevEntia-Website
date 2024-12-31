@@ -32,7 +32,7 @@ const HeroSection = () => {
         setCurrentIndex((prev) => (prev + 1) % heroContents.length);
         setIsChanging(false);
       }, 500);
-    }, 8000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, []);

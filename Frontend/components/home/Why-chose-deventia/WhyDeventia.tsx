@@ -8,24 +8,24 @@ import { motion } from "framer-motion";
 
 const WhyDeventia = () => {
   return (
-    <div className="min-h-[80vh] py-4 mb-5  relative">
+    <div className="py-20 mb-5  relative">
       {/* Blue lighting */}
       <BlueGlowEffect
-        className="top-5 right-14 xs:right-0"
-        size={400}
-        blur={90}
-        opacity={0.4}
+        className="top-5 right-14  z-50 xs:right-0"
+        size={250}
+        blur={120}
+        opacity={0.7}
         rotate={0}
       />
 
       <GlowingText
         glowingTitle=" WHY CHOOSE SERVICES FROM DEVENTIA?"
-        title=" Why Choose Services From DeVentia?"
+        title=" Why Choose Services From DevEntia?"
       />
 
       {/* Services grid */}
       <div className="container flex justify-center items-center mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 -mt-4">
           {whyDeventiaData.map((item, index) => (
             <motion.div
               key={index}

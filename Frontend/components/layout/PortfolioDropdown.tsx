@@ -22,7 +22,7 @@ const projects: Project[] = [
   },
   {
     img: testImg2,
-    text: "Entergram CRM",
+    text: "Privae CPA",
     href: "/Our-Portfolio/Projects/Private-CPA",
   },
   {
@@ -33,7 +33,7 @@ const projects: Project[] = [
   {
     img: testImg4,
     text: "GoGetWell",
-    href: "/Our-Portfolio/Projects/Makewell.life",
+    href: "/Our-Portfolio/Projects/GoGetWell",
   },
 ];
 
@@ -42,7 +42,7 @@ const PortfolioDropdown: React.FC = () => {
     <div className="bg-black text-white p-4 rounded-lg shadow-lg">
       <div className="flex flex-col md:flex-row justify-between gap-8">
         {/* Left section with links */}
-        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0 border-r-2 border-gray-400 pr-6">
+        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-6 w-1/4">
           <Link
             href="/Our-Portfolio/Projects/RS-Global-Ties"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
@@ -68,7 +68,7 @@ const PortfolioDropdown: React.FC = () => {
             href="/Our-Portfolio/Projects/Makewell.life"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
-            Patient / Doctor
+           GoGetWell
             <span>&rarr;</span>
           </Link>
           <Link
