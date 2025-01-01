@@ -27,7 +27,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   { title: "About Us", link: "/About-us" },
-  { title: "Careers", link: "/Careers" },
+  // { title: "Careers", link: "/Careers" },
   { title: "Contact Us", link: "/Contact-us" },
 ];
 
