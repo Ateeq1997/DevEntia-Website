@@ -126,7 +126,7 @@ const HeroSection = () => {
           </div>
         </div>
         {/* Vertical Progress Lines */}
-        <div className="hidden lg:flex absolute lg:top-1/2 lg:-right-40 transform -translate-y-1/2 flex-col gap-6">
+        <div className="hidden lg:flex absolute lg:top-1/2 lg:-right-56 transform -translate-y-1/2 flex-col gap-6">
           {heroContents.map((_, index) => (
             <div 
               key={index} 

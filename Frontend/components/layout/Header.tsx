@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container  px-[5%] lg:px-[5%] py-4">
-        <div className="flex items-center ">
+        <div className="flex items-center justify-between  ">
           {/* Logo Section */}
           <div className="flex-shrink-0">
             <Link href={"/"}>
