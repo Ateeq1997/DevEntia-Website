@@ -9,7 +9,9 @@ interface MenuItem {
   title: string;
   link?: string;
   submenu?: MenuItem[];
-}
+} 
+
+// just checking changes
 
 const menuItems: MenuItem[] = [
   { title: "Home", link: "/" },
