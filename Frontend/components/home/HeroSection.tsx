@@ -141,7 +141,7 @@ const HeroSection = () => {
                   index === currentIndex || isHovered === index 
                     ? 'bg-white/30' 
                     : 'bg-white/10'
-                } transition-all duration-300`} />
+                } transition-all duration-300 rounded-full`} />
                 
                 {/* Progress Line */}
                 {index === currentIndex && (
