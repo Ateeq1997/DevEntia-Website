@@ -36,7 +36,7 @@ const PositiveImpactSection = () => {
             {/* Top line */}
             <div className="h-[68px] w-px bg-white"></div>
             {/* Notch */}
-            <div className="w-3 h-3 bg-black border-t border-r border-white rotate-45 absolute -left-[5px] top-[58px]"></div>
+            <div className="w-3 h-3 bg-black border-t border-r border-white rotate-45 absolute -left-[6px] top-[58px]"></div>
             {/* Bottom line */}
             <div className="h-[calc(100%-68px)] w-px bg-white absolute top-[72px]"></div>
           </div>
