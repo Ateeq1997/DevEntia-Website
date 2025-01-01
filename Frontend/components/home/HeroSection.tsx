@@ -78,7 +78,7 @@ const HeroSection = () => {
         </div>
 
         {/* Navigation Dots */}
-        <div className="hidden lg:flex absolute lg:top-1/2 lg:-right-24 transform -translate-y-1/2 flex-col gap-3">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
           {heroContents.map((_, index) => (
             <button
               key={index}
@@ -89,10 +89,10 @@ const HeroSection = () => {
                   setIsChanging(false);
                 }, 500);
               }}
-              className={`h-2 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all ${
                 currentIndex === index
-                  ? 'bg-[#4848FF] h-8'
-                  : 'bg-white/50 hover:bg-white/80 h-2 w-2'
+                  ? 'bg-[#4848FF] w-8'
+                  : 'bg-white/50 hover:bg-white/80'
               }`}
               aria-label={`Show slide ${index + 1}`}
             />

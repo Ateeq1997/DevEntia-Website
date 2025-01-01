@@ -27,20 +27,10 @@ const PositiveImpactSection = () => {
             and success for all stakeholders. Let&apos;s rise to new heights with the power of
             digital transformation.
           </p>
-        </div> 
-        
-        {/* Right Content */}
-        <div className="lg:w-1/2 grid grid-cols-2 gap-6 sm:gap-8 text-center pl-8 h-60 relative">
-          {/* Vertical line with seamless notch */}
-          <div className="absolute left-0 top-0 h-full hidden lg:block">
-            {/* Top line */}
-            <div className="h-[68px] w-px bg-gray-600"></div>
-            {/* Notch */}
-            <div className="w-3 h-3 bg-black border-t border-r border-gray-600 rotate-45 absolute -left-[5px] top-[58px]"></div>
-            {/* Bottom line */}
-            <div className="h-[calc(100%-68px)] w-px bg-gray-600 absolute top-[72px]"></div>
-          </div>
+        </div>
 
+        {/* Right Content */}
+        <div className="lg:w-1/2 grid grid-cols-2 gap-6 sm:gap-8 text-center pl-8 h-60  lg:border-l lg:border-gray-600">
         {stats.map((stat, index) => (
             <div key={index} className="flex flex-col items-center ">
               <span className="text-5xl sm:text-4xl md:font-extrabold md:text-6xl ">{stat.value}</span>

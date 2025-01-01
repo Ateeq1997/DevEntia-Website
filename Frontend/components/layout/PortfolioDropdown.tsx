@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {StaticImageData} from 'next/image'
-import { FaChevronDown } from "react-icons/fa";
+
 import testImg from '@/assets/images/liveDiet.png' 
 import testImg1 from '@/assets/images/B2b.png'
 import testImg2 from '@/assets/images/intergramCRM.png'
@@ -17,22 +17,22 @@ interface Project {
 const projects: Project[] = [
   {
     img: testImg,
-    text: "Love Diet",
+    text: "RS Global Ties",
     href: "/Our-Portfolio/Projects/RS-Global-Ties",
   },
   {
     img: testImg2,
-    text: "Entergram",
+    text: "Privae CPA",
     href: "/Our-Portfolio/Projects/Private-CPA",
   },
   {
     img: testImg1,
-    text: "RS-Global Ties",
+    text: "ISA Consulting",
     href: "/Our-Portfolio/Projects/ISA",
   },
   {
     img: testImg4,
-    text: "GoGetWell.ai",
+    text: "GoGetWell",
     href: "/Our-Portfolio/Projects/GoGetWell",
   },
 ];
@@ -40,48 +40,48 @@ const projects: Project[] = [
 const PortfolioDropdown: React.FC = () => {
   return (
     <div className="bg-black text-white p-4 rounded-lg shadow-lg">
-      <div className="flex flex-col md:flex-row justify-between gap-6">
+      <div className="flex flex-col md:flex-row justify-between gap-8">
         {/* Left section with links */}
-        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-6 w-1/3">
+        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-6 w-1/4">
           <Link
             href="/Our-Portfolio/Projects/RS-Global-Ties"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
             RS Global Ties
-            <FaChevronDown className="-rotate-90" />
-            </Link>
+            <span>&rarr;</span>
+          </Link>
           <Link
             href="/Our-Portfolio/Projects/Private-CPA"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
             Private CPA
-            <FaChevronDown className="-rotate-90" />
-            </Link>
+            <span>&rarr;</span>
+          </Link>
           <Link
             href="/Our-Portfolio/Projects/ISA"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
             ISA Consulting
-            <FaChevronDown className="-rotate-90" />
-            </Link>
+            <span>&rarr;</span>
+          </Link>
           <Link
             href="/Our-Portfolio/Projects/Makewell.life"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
-           Patient / Doctor
-           <FaChevronDown className="-rotate-90" />
-           </Link>
+           GoGetWell
+            <span>&rarr;</span>
+          </Link>
           <Link
             href=""
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
             See All
-            
+            <span>&rarr;</span>
           </Link>
         </div>
 
         {/* Right section with project cards */}
-        <div className="grid grid-cols-2 gap-4 w-[32rem] ">
+        <div className="grid grid-cols-2 gap-4 w-[35rem] ">
           {projects.map((project, index) => (
             <Link
               key={index}
