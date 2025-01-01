@@ -15,8 +15,8 @@ const PositiveImpactSection = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-12 lg:px-24 sm:h-[35rem] h-[42rem] flex justify-center ">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-12">
+    <section className="bg-black text-white py-16 px-[5%] md:px-[5%] lg:px-[5%] sm:h-[35rem] h-[42rem] flex justify-center ">
+      <div className="max-w-7xl  flex flex-col lg:flex-row justify-between items-center gap-24">
         {/* Left Content */}
         <div className="lg:w-1/2 pr-7">
           <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
@@ -34,11 +34,11 @@ const PositiveImpactSection = () => {
           {/* Vertical line with seamless notch */}
           <div className="absolute left-0 top-0 h-full hidden lg:block">
             {/* Top line */}
-            <div className="h-[68px] w-px bg-gray-600"></div>
+            <div className="h-[68px] w-px bg-white"></div>
             {/* Notch */}
-            <div className="w-3 h-3 bg-black border-t border-r border-gray-600 rotate-45 absolute -left-[5px] top-[58px]"></div>
+            <div className="w-3 h-3 bg-black border-t border-r border-white rotate-45 absolute -left-[6px] top-[58px]"></div>
             {/* Bottom line */}
-            <div className="h-[calc(100%-68px)] w-px bg-gray-600 absolute top-[72px]"></div>
+            <div className="h-[calc(100%-68px)] w-px bg-white absolute top-[72px]"></div>
           </div>
 
         {stats.map((stat, index) => (
