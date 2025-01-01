@@ -13,7 +13,7 @@ const Faqs = () => {
   };
 
   return (
-    <div className="relative min-h-screen font-bai lg:min-h-[600px] overflow-hidden bg-[#0B0B14] text-white py-16 lg:py-20 px-4 md:px-8 lg:px-16">
+    <div className="relative min-h-screen font-bai lg:min-h-[600px] overflow-hidden bg-[#0B0B14] text-white py-16 lg:py-20 px-[5%]">
       <BlueGlowEffect
         className="bottom-0 absolute"
         size={250}

@@ -556,4 +556,37 @@ font-weight: 700;
   text-shadow:0px -0.7px 2px #4848FF
 }
 
+/* hero section button */
+.fill-on-hover-btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  color: white;
+  border: 3px solid white;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fill-on-hover-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#4848FF;
+  color: black;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.fill-on-hover-btn:hover::before {
+  transform: translateX(0);
+}
+
+
 

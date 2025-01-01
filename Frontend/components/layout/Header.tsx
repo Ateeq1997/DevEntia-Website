@@ -41,14 +41,15 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 ${
+      className={` fixed top-0 left-0 w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container mx-auto px-4 lg:px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="container  px-[5%] lg:px-[5%] py-4">
+        <div className="flex items-center ">
           {/* Logo Section */}
           <div className="flex-shrink-0">
+            <Link href={"/"}>
             <Image
               unoptimized
               src={logoImg}
@@ -56,6 +57,7 @@ const Header: React.FC = () => {
               alt="deventia logo"
               className="w-auto h-8 lg:h-10"
             />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -95,9 +97,9 @@ const Header: React.FC = () => {
 
             {/* Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <a href="/Careers" className="hover:text-gray-300">
+              {/* <a href="/Careers" className="hover:text-gray-300">
                 Careers
-              </a>
+              </a> */}
               <div className="px-4 py-2 md:px-2 md:py-1 bg-white text-black rounded-full hover:bg-gray-300">
                 <Link href={"/Contact-us"} className="text-black">
                   Contact Us

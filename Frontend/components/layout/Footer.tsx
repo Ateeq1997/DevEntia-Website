@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 const Footer = () => {
   const router = useRouter();
   return (
-    <footer className="p-[5%] bg-[#161616] z-10 relative">
+    <footer className="p-[5%] bg-[#161616] z-10 relative px-[10%]">
       <div className="absolute bottom-0 left-0 footer-bg-img"></div>
       <div className="grid grid-cols-2 md:grid-cols-4 w-full">
         <div>
@@ -134,7 +134,7 @@ const Footer = () => {
             href="mailto:prosper@deventiatech.com"
             className="block mt-12 hover:underline hover:text-[#7471E6]"
           >
-            prosper@deventiatech.com
+            contact@deventiatech.com
           </a>
           <h4 className="font-semibold text-xl text-white/35 my-4 md:mt-20">
             Let’s chat
@@ -158,13 +158,15 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <Link href={"/"}>
         <Image
           src={logoImg}
           alt="deventia logo"
           width={125}
           unoptimized
           className="mr-0 ml-auto"
-        />
+          />
+          </Link>
       </div>
       <div className="mt-20 mb-8">
         <p className="font-medium text-lg text-white/35">

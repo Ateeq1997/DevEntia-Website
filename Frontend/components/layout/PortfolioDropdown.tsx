@@ -39,7 +39,7 @@ const projects: Project[] = [
 
 const PortfolioDropdown: React.FC = () => {
   return (
-    <div className="bg-black text-white p-4 rounded-lg shadow-lg">
+    <div className="bg-black text-white p-4 rounded-lg shadow-md shadow-white">
       <div className="flex flex-col md:flex-row justify-between gap-6">
         {/* Left section with links */}
         <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-6 w-1/3">

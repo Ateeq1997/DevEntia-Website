@@ -9,7 +9,7 @@ import ProjectCard from "./ProjectCard";
 import BlueGlowEffect from "../BlueGlowEffect";
 const Projects = () => {
   return (
-    <div className="h-[100%] font-bai relative  bg-[#141414] px-14 py-20 overflow-hidden">
+    <div className="h-[100%] font-bai relative  bg-[#141414] px-[5%] py-20 overflow-hidden">
       <BlueGlowEffect
         className="top-4 absolute -left-4  "
         size={400}

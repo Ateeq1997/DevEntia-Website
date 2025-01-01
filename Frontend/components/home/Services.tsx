@@ -9,7 +9,7 @@ import BlueGlowEffect from "./BlueGlowEffect";
 
 export default function ServiceCards() {
   return (
-    <div className="relative   bg-[#141414] px-14 overflow-hidden  py-12">
+    <div className="relative   bg-[#141414] px-[5%] overflow-hidden  py-12">
       <BlueGlowEffect
         className="top-5 right-0  "
         size={400}
