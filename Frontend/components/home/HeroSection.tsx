@@ -45,29 +45,25 @@ const HeroSection = () => {
       }
     };
 
-    video.addEventListener('loadedmetadata', handleLoadedMetadata);
-    video.addEventListener('timeupdate', handleTimeUpdate);
-
-    return () => {
-      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      video.removeEventListener('timeupdate', handleTimeUpdate);
-    };
-  }, [currentIndex]);
-
-  useEffect(() => {
-    if (!videoDuration) return;
-
-    const timeout = setTimeout(() => {
+    const handleVideoEnd = () => {
       setIsChanging(true);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % heroContents.length);
         setIsChanging(false);
         setProgress(0);
       }, 500);
-    }, videoDuration * 1000);
+    };
 
-    return () => clearTimeout(timeout);
-  }, [currentIndex, videoDuration]);
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended', handleVideoEnd);
+
+    return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended', handleVideoEnd);
+    };
+  }, [currentIndex]);
 
   const handleSlideChange = (index: number) => {
     if (index === currentIndex) return;
@@ -84,8 +80,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[calc(100vh-5rem)] w-full bg-black text-white overflow-hidden">
-      {/* Video Background */}
+    <section className="relative h-[100vh] w-full bg-black text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
@@ -102,8 +97,7 @@ const HeroSection = () => {
         <div className="absolute inset-0" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-start justify-center h-full  max-w-7xl px-[5%]">
+      <div className="relative z-10 flex flex-col items-start justify-center h-full max-w-7xl px-[5%]">
         <div
           className={`transition-opacity duration-500 ${
             isChanging ? 'opacity-0' : 'opacity-100'
@@ -116,43 +110,41 @@ const HeroSection = () => {
             {heroContents[currentIndex].subtitle}
           </p>
           <div className="flex gap-6">
-          <Link
-          href="/Contact-us"
-          className="fill-on-hover-btn rounded-full hover:text-white font-BaiJamjuree font-semibold w-full lg:w-fit text-center mb-8 md:mb-0"
-        >
-          Let&apos;s Connect
-        </Link>
-
+            <Link
+              href="/Contact-us"
+              className="fill-on-hover-btn rounded-full hover:text-white font-BaiJamjuree font-semibold w-full lg:w-fit text-center mb-8 md:mb-0"
+            >
+              Let&apos;s Connect
+            </Link>
           </div>
         </div>
-        {/* Vertical Progress Lines */}
-        <div className="hidden lg:flex absolute lg:top-1/2 lg:-right-56 transform -translate-y-1/2 flex-col gap-6">
+
+        <div className="hidden lg:flex absolute lg:top-1/2 lg:-right-40 transform -translate-y-1/2 flex-col gap-6">
           {heroContents.map((_, index) => (
             <div 
               key={index} 
-              className="relative h-24 flex items-center cursor-pointer"
+              className={`relative flex items-center cursor-pointer transition-all duration-300 ${
+                index === currentIndex ? 'h-10' : 'h-4'
+              }`}
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(null)}
               onClick={() => handleSlideChange(index)}
             >
-              <div className="w-1.5 h-full rounded-full overflow-hidden">
-                {/* Background Line */}
-                <div className={`absolute inset-0 ${
-                  index === currentIndex || isHovered === index 
-                    ? 'bg-white/30' 
-                    : 'bg-white/10'
-                } transition-all duration-300 rounded-full`} />
-                
-                {/* Progress Line */}
-                {index === currentIndex && (
+              {index === currentIndex ? (
+                <div className="w-2 h-full rounded-full overflow-hidden">
+                  <div className={`absolute inset-0 ${
+                    isHovered === index ? 'bg-white/30' : 'bg-white/10'
+                  } transition-all duration-300 rounded-full`} />
                   <div 
-                    className="absolute bottom-0 left-0 w-full bg-[#4848FF] rounded-full transition-all duration-300 ease-linear"
-                    style={{ 
-                      height: `${progress}%`,
-                    }} 
+                    className="absolute bottom-0 left-0 w-full bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear"
+                    style={{ height: `${progress}%` }} 
                   />
-                )}
-              </div>
+                </div>
+              ) : (
+                <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  isHovered === index ? 'bg-white/30' : 'bg-white/10'
+                }`} />
+              )}
             </div>
           ))}
         </div>
