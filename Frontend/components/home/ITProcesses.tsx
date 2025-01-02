@@ -147,7 +147,7 @@ export default function ITProcess() {
 
       {/* Main Content */}
       <div className="px-[5%] mx-auto  pt-7">
-        <h1 className="text-lg xs:text-2xl md:text-4xl lg:text-5xl font-medium mb-12">
+        <h1 className="font-semibold mb-5 text-3xl md:text-5xl text-[#FFFFFF]">
           Our IT{" "}
           {activeProcess === "staff" ? "Staff Augmentation" : "Development"}{" "}
           Process
@@ -165,11 +165,11 @@ export default function ITProcess() {
               <div className="absolute top-0 right-0 text-[90px]  text-[#525252] leading-none">
                 {currentSteps[activeIndex].number}.
               </div>
-              <div className="pt-28 ">
-                <h2 className="text-lg md:text-2xl lg:text-xl font-bold mb-6">
+              <div className="pt-20 ">
+                <h2 className="text-lg md:text-3xl lg:text-3xl font-bold mb-6">
                   {currentSteps[activeIndex].title}
                 </h2>
-                <p className="text-[#CCCCCC]   text-[12px] md:text-lg lg:text-[12px] max-w-2xl">
+                <p className="text-gray-400 text-lg  max-w-md">
                   {currentSteps[activeIndex].description}
                 </p>
               </div>

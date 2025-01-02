@@ -39,41 +39,46 @@ const projects: Project[] = [
 
 const PortfolioDropdown: React.FC = () => {
   return (
-    <div className="bg-black text-white px-7 py-8 rounded-lg shadow-md shadow-white">
+    <div 
+    style={{
+      boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+    }}
+
+    className="bg-black text-white px-7 py-8 rounded-2xl ">
       <div className="flex flex-col md:flex-row justify-evenly gap-16">
         {/* Left section with links */}
-        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-8 w-1/3">
+        <div className="flex flex-col divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-8 w-1/3">
           <Link
             href="/Our-Portfolio/Projects/RS-Global-Ties"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
             Love Diet
             <FaChevronDown className="-rotate-90" />
             </Link>
           <Link
             href="/Our-Portfolio/Projects/Private-CPA"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
             Entergram
             <FaChevronDown className="-rotate-90" />
             </Link>
           <Link
             href="/Our-Portfolio/Projects/ISA"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
             RS-Global Ties
             <FaChevronDown className="-rotate-90" />
             </Link>
           <Link
             href="/Our-Portfolio/Projects/Makewell.life"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
            GoGetWell.ai
            <FaChevronDown className="-rotate-90" />
            </Link>
           <Link
             href=""
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
             See All
             
@@ -81,12 +86,12 @@ const PortfolioDropdown: React.FC = () => {
         </div>
 
         {/* Right section with project cards */}
-        <div className="grid grid-cols-2 gap-y-4 w-[32vw] ">
+        <div className="grid grid-cols-2 gap-y-4 w-[31vw] ">
           {projects.map((project, index) => (
             <Link
               key={index}
               href={project.href}
-              className="relative group rounded-xl overflow-hidden bg-cover bg-center h-32 w-56 hover:scale-105 transition-transform"
+              className="relative group rounded-xl overflow-hidden bg-cover bg-center h-32 w-48 hover:scale-105 transition-transform"
               style={{
                 backgroundImage: `url(${project.img.src})`,
               }}

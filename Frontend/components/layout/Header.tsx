@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             </ul>
 
             <div className="hidden md:flex items-center space-x-4">
-              <div className="px-4 py-2 md:px-2 md:py-1 bg-white text-black rounded-full hover:bg-gray-300">
+              <div className="px-4 py-2 md:px-5 md:py-1 bg-white text-black rounded-full hover:bg-gray-300">
                 <Link href={"/Contact-us"} className="text-black">
                   Contact Us
                 </Link>
