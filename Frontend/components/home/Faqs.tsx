@@ -21,7 +21,7 @@ const Faqs = () => {
         opacity={0.3}
         rotate={0}
       />
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div className="  grid md:grid-cols-2 gap-12">
         {/* Left Column */}
         <div className="space-y-8">
           <h2 className="text-5xl md:text-6xl  font-medium">FAQs</h2>

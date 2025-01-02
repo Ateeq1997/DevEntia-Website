@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 const Footer = () => {
   const router = useRouter();
   return (
-    <footer className="p-[5%] bg-[#161616] z-10 relative px-[10%]">
+    <footer className="px-[5%] bg-[#161616] z-10 relative py-24">
       <div className="absolute bottom-0 left-0 footer-bg-img"></div>
       <div className="grid grid-cols-2 md:grid-cols-4 w-full">
         <div>

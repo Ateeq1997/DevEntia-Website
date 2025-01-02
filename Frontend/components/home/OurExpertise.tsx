@@ -21,7 +21,7 @@ const OurExpertise: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="container font-montserrat mx-auto w-[90%] py-3 px-3"
+        className="container font-montserrat px-[5%] w-[90%] py-3 "
       >
         <div className="mb-5 -mt-8">
           <p className="text-[10px] lg:text-[14px] text-gray-300">
@@ -86,7 +86,7 @@ const ProcessStep: React.FC<{
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5 }}
-      className={`relative mb-16 md:w-[65vw] lg:w-[90%] w-full group ${
+      className={`relative mb-16 md:w-[65vw] lg:w-[100%] w-full group ${
         index % 2 === 1 ? "md:ml-32" : ""
       }`}
     >

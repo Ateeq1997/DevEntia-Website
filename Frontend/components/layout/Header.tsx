@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { AiOutlineDown } from "react-icons/ai"; 
+import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "@/assets/images/logoImg.gif";
@@ -41,53 +40,49 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={` fixed top-0 left-0 w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container  px-[5%] lg:px-[5%] py-4">
-        <div className="flex items-center justify-between  ">
-          {/* Logo Section */}
+      <div className="container px-[5%] lg:px-[5%] py-4">
+        <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
             <Link href={"/"}>
-            <Image
-              unoptimized
-              src={logoImg}
-              width={100}
-              alt="deventia logo"
-              className="w-auto h-8 lg:h-10"
-            />
+              <Image
+                unoptimized
+                src={logoImg}
+                width={100}
+                alt="deventia logo"
+                className="w-auto h-8 lg:h-10"
+              />
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12 ">
-            {/* Menu Items */}
-            <ul className="flex space-x-8 xl:space-x-12 md:space-x-4 h-full  ">
+          <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">
+            <ul className="flex space-x-8 xl:space-x-12 md:space-x-4 h-full">
               {menuItems.map((item) => (
                 <div
                   key={item.title}
-                  className="relative"
-                  onMouseEnter={() =>
-                    item.title === "Portfolio" && setIsDropdownVisible(true)
-                  }
-                  onMouseLeave={() =>
-                    item.title === "Portfolio" && setIsDropdownVisible(false)
-                  }
+                  className={`relative group ${
+                    item.title === "Portfolio" ? "pb-2" : ""
+                  }`}
                 >
                   <Link
                     href={item.path}
                     className="flex items-center text-white hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base"
+                    onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
                   >
                     {item.title}
                     {item.title === "Portfolio" && (
-                      <AiOutlineDown className="ml-1" /> // Add Chevron Down icon
+                      <AiOutlineDown className="ml-1" />
                     )}
                   </Link>
-                  {/* Dropdown for Portfolio */}
-                  {/* && isDropdownVisible */}
-                  {item.title === "Portfolio"  && isDropdownVisible && (
-                    <div className="absolute -left-6 top-0 mt-2  rounded-full shadow-lg p-4 z-50">
+                  {item.title === "Portfolio" && isDropdownVisible && (
+                    <div 
+                      className="absolute -left-6 top-5 mt-2 rounded-full shadow-lg p-4 z-50"
+                      onMouseEnter={() => setIsDropdownVisible(true)}
+                      onMouseLeave={() => setIsDropdownVisible(false)}
+                    >
                       <PortfolioDropDown />
                     </div>
                   )}
@@ -95,11 +90,7 @@ const Header: React.FC = () => {
               ))}
             </ul>
 
-            {/* Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* <a href="/Careers" className="hover:text-gray-300">
-                Careers
-              </a> */}
               <div className="px-4 py-2 md:px-2 md:py-1 bg-white text-black rounded-full hover:bg-gray-300">
                 <Link href={"/Contact-us"} className="text-black">
                   Contact Us
@@ -108,7 +99,6 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <MobileMenu />
         </div>
       </div>

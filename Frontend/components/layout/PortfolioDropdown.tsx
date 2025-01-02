@@ -39,36 +39,36 @@ const projects: Project[] = [
 
 const PortfolioDropdown: React.FC = () => {
   return (
-    <div className="bg-black text-white p-4 rounded-lg shadow-md shadow-white">
-      <div className="flex flex-col md:flex-row justify-between gap-6">
+    <div className="bg-black text-white px-7 py-8 rounded-lg shadow-md shadow-white">
+      <div className="flex flex-col md:flex-row justify-evenly gap-16">
         {/* Left section with links */}
-        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-6 w-1/3">
+        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-8 w-1/3">
           <Link
             href="/Our-Portfolio/Projects/RS-Global-Ties"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
-            RS Global Ties
+            Love Diet
             <FaChevronDown className="-rotate-90" />
             </Link>
           <Link
             href="/Our-Portfolio/Projects/Private-CPA"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
-            Private CPA
+            Entergram
             <FaChevronDown className="-rotate-90" />
             </Link>
           <Link
             href="/Our-Portfolio/Projects/ISA"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
-            ISA Consulting
+            RS-Global Ties
             <FaChevronDown className="-rotate-90" />
             </Link>
           <Link
             href="/Our-Portfolio/Projects/Makewell.life"
             className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
           >
-           Patient / Doctor
+           GoGetWell.ai
            <FaChevronDown className="-rotate-90" />
            </Link>
           <Link
@@ -81,7 +81,7 @@ const PortfolioDropdown: React.FC = () => {
         </div>
 
         {/* Right section with project cards */}
-        <div className="grid grid-cols-2 gap-4 w-[32rem] ">
+        <div className="grid grid-cols-2 gap-y-4 w-[32vw] ">
           {projects.map((project, index) => (
             <Link
               key={index}

@@ -29,7 +29,7 @@ export default function ServiceCards() {
         </p>
       </div>
       {/* Cards parent */}
-      <div className=" mx-auto ">
+      <div className="  ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-3">
           {ourServiceData.map((service, index) => (
             <motion.div
