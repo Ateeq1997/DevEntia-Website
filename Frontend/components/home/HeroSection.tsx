@@ -79,6 +79,56 @@ const HeroSection = () => {
     }, 300);
   };
 
+  // Mobile Progress Bar Component
+  const MobileProgressBar = ({ index }: { index: number }) => (
+    <div 
+      className={`relative flex items-center cursor-pointer lg:hidden ${
+        index === currentIndex ? 'w-10 h-2' : 'w-2 h-2'
+      }`}
+    >
+      {index === currentIndex ? (
+        <div className="w-full h-full rounded-full overflow-hidden">
+          <div className={`absolute inset-0 ${
+            isHovered === index ? 'bg-white/30' : 'bg-white/10'
+          } rounded-full`} />
+          <div 
+            className="absolute left-0 top-0 h-full bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      ) : (
+        <div className={`w-full h-full rounded-full ${
+          isHovered === index ? 'bg-white/30' : 'bg-white/10'
+        }`} />
+      )}
+    </div>
+  );
+
+  // Desktop Progress Bar Component
+  const DesktopProgressBar = ({ index }: { index: number }) => (
+    <div 
+      className={`relative flex items-center cursor-pointer hidden lg:flex ${
+        index === currentIndex ? 'w-2 h-10' : 'w-2 h-2'
+      }`}
+    >
+      {index === currentIndex ? (
+        <div className="w-full h-full rounded-full overflow-hidden">
+          <div className={`absolute inset-0 ${
+            isHovered === index ? 'bg-white/30' : 'bg-white/10'
+          } rounded-full`} />
+          <div 
+            className="absolute bottom-0 left-0 w-full bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear"
+            style={{ height: `${progress}%` }}
+          />
+        </div>
+      ) : (
+        <div className={`w-full h-full rounded-full ${
+          isHovered === index ? 'bg-white/30' : 'bg-white/10'
+        }`} />
+      )}
+    </div>
+  );
+
   return (
     <section className="relative h-[100vh] w-full bg-black text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -119,32 +169,18 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="hidden lg:flex absolute lg:top-1/2 lg:-right-40 transform -translate-y-1/2 flex-col gap-6">
+        <div 
+          className="flex gap-6 absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-auto lg:bottom-auto lg:translate-x-0 lg:top-1/2 lg:-right-40 lg:-translate-y-1/2 lg:flex-col"
+          onMouseEnter={() => setIsHovered(currentIndex)}
+          onMouseLeave={() => setIsHovered(null)}
+        >
           {heroContents.map((_, index) => (
             <div 
-              key={index} 
-              className={`relative flex items-center cursor-pointer transition-all duration-300 ${
-                index === currentIndex ? 'h-10' : 'h-4'
-              }`}
-              onMouseEnter={() => setIsHovered(index)}
-              onMouseLeave={() => setIsHovered(null)}
+              key={index}
               onClick={() => handleSlideChange(index)}
             >
-              {index === currentIndex ? (
-                <div className="w-2 h-full rounded-full overflow-hidden">
-                  <div className={`absolute inset-0 ${
-                    isHovered === index ? 'bg-white/30' : 'bg-white/10'
-                  } transition-all duration-300 rounded-full`} />
-                  <div 
-                    className="absolute bottom-0 left-0 w-full bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear"
-                    style={{ height: `${progress}%` }} 
-                  />
-                </div>
-              ) : (
-                <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  isHovered === index ? 'bg-white/30' : 'bg-white/10'
-                }`} />
-              )}
+              <MobileProgressBar index={index} />
+              <DesktopProgressBar index={index} />
             </div>
           ))}
         </div>

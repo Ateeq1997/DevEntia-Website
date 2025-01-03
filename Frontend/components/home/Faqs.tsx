@@ -24,7 +24,7 @@ const Faqs = () => {
       <div className="  grid md:grid-cols-2 gap-12">
         {/* Left Column */}
         <div className="space-y-8">
-          <h2 className="text-5xl md:text-6xl  font-medium">FAQs</h2>
+          <h2 className="font-semibold mb-5 text-3xl md:text-5xl text-[#FFFFFF]">FAQs</h2>
           <p className="text-gray-400 text-lg  max-w-md">
             As a leading digital marketing agency, we are dedicated to providing
             comprehensive educational resources and answering frequently asked
