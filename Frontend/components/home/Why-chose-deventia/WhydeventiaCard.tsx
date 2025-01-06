@@ -20,7 +20,7 @@ const WhyDeventiaCard: React.FC<CardProps> = ({
   return (
     <div
       className={`p-6 rounded-lg border ${borderGradient} bg-gradient-to-b to-transparent  backdrop-blur-sm
-        hover:translate-y-[-5px] transition-all duration-300 lg:w-[300px] lg:h-[300px]`}
+        hover:translate-y-[-5px] transition-all duration-300 lg:w-[300px] lg:h-auto `}
       style={{
         border: "1px solid transparent",
         background: `linear-gradient(#141414, #141414) padding-box, ${borderGradient} border-box`,

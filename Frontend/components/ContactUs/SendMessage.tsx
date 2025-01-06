@@ -25,13 +25,16 @@ const SendMessage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    
     try {
+      // console.log(" we are in try block");
       const response = await axiosInstance.post('/mail', messageData, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
+      console.log(response);
+      
       toast.success('Message sent successfully');
       console.log('Success:', response.data);
     } catch (error) {

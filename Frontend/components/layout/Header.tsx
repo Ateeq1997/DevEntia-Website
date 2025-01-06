@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   const menuItems = [
     { title: "Home", path: "/" },
     { title: "Services", path: "/Services" },
-    { title: "Portfolio", path: "/Our-Portfolio" },
+    { title: "Portfolio", path: "" },
     { title: "About Us", path: "/About-us" }
   ];
 
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 ${
+      className={`fixed top-0  w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 navbar-container  lg:!flex  pt-2 text-xs 1100px:text-sm 1300px:text-base max-w-[calc(1750px+5%)] mx-auto ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -71,6 +71,7 @@ const Header: React.FC = () => {
                     href={item.path}
                     className="flex items-center text-white hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base"
                     onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
+                    onClick={()=>setIsDropdownVisible(!isDropdownVisible)}
                   >
                     {item.title}
                     {item.title === "Portfolio" && (

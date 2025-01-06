@@ -7,6 +7,10 @@ import React from "react";
 import { projects } from "@/data/data";
 import ProjectCard from "./ProjectCard";
 import BlueGlowEffect from "../BlueGlowEffect";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+
 const Projects = () => {
   return (
     <div className="h-[100%] font-bai relative  bg-[#141414] px-[5%] py-20 overflow-hidden">
@@ -50,14 +54,24 @@ const Projects = () => {
             </div>
 
             <div className="absolute hidden md:flex bottom-0 right-12 lg:right-20 text-white">
-              <div className="relative w-[130px h-[190px]">
-                <p className="text-2xl italic font-light">Explore More</p>
-                <Image
-                  src={vectorExplore}
-                  alt="vectorexplore"
-                  className="absolute bottom-0 right-0"
-                />
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="space-y-4 ">
+                <div className="relative w-[130px h-[190px]">
+                  <Link href={'/Our-Portfolio'}>
+                    <p className="text-2xl italic font-light
+                hover:translate-y-[-5px] transition-all duration-300" >Explore More</p>
+                  </Link>
+                  <Image
+                    src={vectorExplore}
+                    alt="vectorexplore"
+                    className="absolute bottom-0 right-0"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

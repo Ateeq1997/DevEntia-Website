@@ -16,7 +16,7 @@ const OurExpertise: React.FC = () => {
     <div className="bg-[#141414] py-5">
       <GlowingText
         glowingTitle="ENHANCE EFFICIENCY, OPEN DOORS WITH OUR EXPERTISE"
-        title="Enhance efficiency, open doors with our Expertise ?"
+        title="Enhance Efficiency, Open Doors with Our Expertise"
       />
 
       <div
@@ -25,11 +25,8 @@ const OurExpertise: React.FC = () => {
       >
         <div className="mb-5 -mt-8">
           <p className="text-[10px] lg:text-[14px] text-gray-300">
-            We&apos;re a team of strategic software developers working globally
-            with the largest brands. We believe that progress only happens when
-            you refuse to play it safe. We combine ideas, behaviors, and
-            insights with design, technology, and data to produce brand
-            experiences that customers love.
+          We are a team of strategic software developers partnering globally with leading brands. We believe true progress happens when you dare to innovate. By combining creative ideas, customer behavior insights, and cutting-edge technology, we deliver brand experiences that captivate and inspire.
+
           </p>
         </div>
 
