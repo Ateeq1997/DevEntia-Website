@@ -111,7 +111,7 @@ export default function ITProcess() {
     activeProcess === "staff" ? staffAugmentationSteps : developmentSteps;
 
   return (
-    <div className="font-bai bg-[#0B0B14]  text-white">
+    <div className="font-bai bg-[#0B0B14]  text-white pb-8">
       {/* Top Navigation */}
       <div className="px-[5%] mx-auto  pt-16">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-4 lg:items-center border-b border-[#404040] pb-4">

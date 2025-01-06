@@ -77,7 +77,7 @@ const PortfolioDropdown: React.FC = () => {
            <FaChevronDown className="-rotate-90" />
            </Link>
           <Link
-            href=""
+            href="/Our-Portfolio"
             className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
             See All

@@ -24,12 +24,12 @@ const Hero = () => {
           </div>
           <h3 className="font-bold text-xl text-[#1B2534]">Email</h3>
           <a
-            href="mailto:info@deventiateam.com"
+            href="mailto:contact@deventiatech.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-lg text-[#797979]"
           >
-            info@deventiateam.com
+            contact@deventiatech.com
           </a>
         </div>{' '}
         <div className="bg-white flex flex-wrap gap-4 z-10 items-center p-4">

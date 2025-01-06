@@ -27,16 +27,11 @@ const HeroSection = () => {
   const [isChanging, setIsChanging] = useState(false);
   const [progress, setProgress] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoDuration, setVideoDuration] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<number | null>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-
-    const handleLoadedMetadata = () => {
-      setVideoDuration(video.duration);
-    };
 
     const handleTimeUpdate = () => {
       if (video.duration) {
@@ -54,12 +49,10 @@ const HeroSection = () => {
       }, 500);
     };
 
-    video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('ended', handleVideoEnd);
 
     return () => {
-      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('ended', handleVideoEnd);
     };
@@ -79,114 +72,99 @@ const HeroSection = () => {
     }, 300);
   };
 
-  // Mobile Progress Bar Component
-  const MobileProgressBar = ({ index }: { index: number }) => (
-    <div 
-      className={`relative flex items-center cursor-pointer lg:hidden ${
-        index === currentIndex ? 'w-10 h-2' : 'w-2 h-2'
-      }`}
-    >
-      {index === currentIndex ? (
-        <div className="w-full h-full rounded-full overflow-hidden">
-          <div className={`absolute inset-0 ${
-            isHovered === index ? 'bg-white/30' : 'bg-white/10'
-          } rounded-full`} />
-          <div 
-            className="absolute left-0 top-0 h-full bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      ) : (
-        <div className={`w-full h-full rounded-full ${
-          isHovered === index ? 'bg-white/30' : 'bg-white/10'
-        }`} />
-      )}
-    </div>
-  );
+  const ProgressIndicator = ({ index, isMobile }: { index: number; isMobile: boolean }) => {
+    const baseClasses = "relative cursor-pointer transition-all duration-300";
+    const dimensionClasses = isMobile
+      ? `${index === currentIndex ? 'w-10 h-2' : 'w-2 h-2'}`
+      : `${index === currentIndex ? 'w-2 h-10' : 'w-2 h-2'}`;
 
-  // Desktop Progress Bar Component
-  const DesktopProgressBar = ({ index }: { index: number }) => (
-    <div 
-      className={`relative flex items-center cursor-pointer hidden lg:flex ${
-        index === currentIndex ? 'w-2 h-10' : 'w-2 h-2'
-      }`}
-    >
-      {index === currentIndex ? (
-        <div className="w-full h-full rounded-full overflow-hidden">
-          <div className={`absolute inset-0 ${
+    return (
+      <div className={`${baseClasses} ${dimensionClasses}`}>
+        {index === currentIndex ? (
+          <div className="w-full h-full rounded-full overflow-hidden">
+            <div className={`absolute inset-0 ${
+              isHovered === index ? 'bg-white/30' : 'bg-white/10'
+            } rounded-full`} />
+            <div 
+              className={`absolute bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear
+                ${isMobile ? 'left-0 top-0 h-full' : 'bottom-0 left-0 w-full'}`}
+              style={isMobile 
+                ? { width: `${progress}%` }
+                : { height: `${progress}%` }
+              }
+            />
+          </div>
+        ) : (
+          <div className={`w-full h-full rounded-full ${
             isHovered === index ? 'bg-white/30' : 'bg-white/10'
-          } rounded-full`} />
-          <div 
-            className="absolute bottom-0 left-0 w-full bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear"
-            style={{ height: `${progress}%` }}
-          />
-        </div>
-      ) : (
-        <div className={`w-full h-full rounded-full ${
-          isHovered === index ? 'bg-white/30' : 'bg-white/10'
-        }`} />
-      )}
-    </div>
-  );
+          }`} />
+        )}
+      </div>
+    );
+  };
 
   return (
-    <section className="relative h-[100vh] w-full bg-black text-white overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          key={heroContents[currentIndex].video}
-          autoPlay
-          muted
-          playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-            isChanging ? 'opacity-10' : 'opacity-60'
-          }`}
-        >
-          <source src={heroContents[currentIndex].video} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0" />
-      </div>
-
-      <div className="relative z-10 flex flex-col items-start justify-center h-full max-w-7xl px-[5%]">
-        <div
-          className={`transition-opacity duration-500 ${
-            isChanging ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 max-w-5xl">
-            {heroContents[currentIndex].title}
-          </h1>
-          <p className="text-lg text-gray-300 max-w-2xl mb-10">
-            {heroContents[currentIndex].subtitle}
-          </p>
-          <div className="flex gap-6">
-            <Link
-              href="/Contact-us"
-              className="fill-on-hover-btn rounded-full hover:text-white font-BaiJamjuree font-semibold w-full lg:w-fit text-center mb-8 md:mb-0"
-            >
-              Let&apos;s Connect
-            </Link>
+      <section className="h-[80vh] sm:h-[70vh] md:h-[100vh] max-h-[50rem] relative overflow-hidden max-w-screen">
+        <div className="absolute inset-0 z-0">
+          <video
+            ref={videoRef}
+            key={heroContents[currentIndex].video}
+            autoPlay
+            muted
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              isChanging ? 'opacity-10' : 'opacity-60'
+            }`}
+          >
+            <source src={heroContents[currentIndex].video} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0" />
+        </div>
+  
+        <div className="relative z-10 flex flex-col items-start justify-center h-full w-full px-[5%] mx-auto">
+          <div
+            className={`transition-opacity duration-500 ${
+              isChanging ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 max-w-5xl">
+              {heroContents[currentIndex].title}
+            </h1>
+            <p className="text-lg text-gray-300 max-w-2xl mb-10">
+              {heroContents[currentIndex].subtitle}
+            </p>
+            <div className="flex gap-6">
+              <Link
+                href="/Contact-us"
+                className="fill-on-hover-btn rounded-full hover:text-white font-BaiJamjuree font-semibold w-full lg:w-fit text-center mb-8 md:mb-0"
+              >
+                Let&apos;s Connect
+              </Link>
+            </div>
+          </div>
+  
+          <div 
+            className="flex gap-6 absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-auto lg:bottom-auto lg:translate-x-0 lg:top-1/2 lg:right-8 lg:-translate-y-1/2 lg:flex-col"
+            onMouseEnter={() => setIsHovered(currentIndex)}
+            onMouseLeave={() => setIsHovered(null)}
+          >
+            {heroContents.map((_, index) => (
+              <div 
+                key={index}
+                onClick={() => handleSlideChange(index)}
+              >
+                <div className="lg:hidden">
+                  <ProgressIndicator index={index} isMobile={true} />
+                </div>
+                <div className="hidden lg:block">
+                  <ProgressIndicator index={index} isMobile={false} />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-
-        <div 
-          className="flex gap-6 absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-auto lg:bottom-auto lg:translate-x-0 lg:top-1/2 lg:-right-40 lg:-translate-y-1/2 lg:flex-col"
-          onMouseEnter={() => setIsHovered(currentIndex)}
-          onMouseLeave={() => setIsHovered(null)}
-        >
-          {heroContents.map((_, index) => (
-            <div 
-              key={index}
-              onClick={() => handleSlideChange(index)}
-            >
-              <MobileProgressBar index={index} />
-              <DesktopProgressBar index={index} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  };
 
 export default HeroSection;
