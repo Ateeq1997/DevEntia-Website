@@ -40,9 +40,8 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0  w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 navbar-container  lg:!flex  pt-2 text-xs 1100px:text-sm 1300px:text-base max-w-[calc(1750px+5%)] mx-auto ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`fixed top-0  w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 navbar-container  lg:!flex  pt-2 text-xs 1100px:text-sm 1300px:text-base max-w-[calc(1750px+5%)] mx-auto ${isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <div className="container px-[5%] lg:px-[5%] py-4">
         <div className="flex items-center justify-between">
@@ -63,15 +62,15 @@ const Header: React.FC = () => {
               {menuItems.map((item) => (
                 <div
                   key={item.title}
-                  className={`relative group ${
-                    item.title === "Portfolio" ? "pb-2" : ""
-                  }`}
+                  className={`relative group ${item.title === "Portfolio" ? "pb-4" : ""
+                    }`}
+                  onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
+                  onMouseLeave={() => item.title === "Portfolio" && setIsDropdownVisible(false)}
                 >
                   <Link
                     href={item.path}
                     className="flex items-center text-white hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base"
-                    onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
-                    onClick={()=>item.title === "Portfolio" && setIsDropdownVisible(!isDropdownVisible)}
+                    onClick={() => item.title === "Portfolio" && setIsDropdownVisible(!isDropdownVisible)}
                   >
                     {item.title}
                     {item.title === "Portfolio" && (
@@ -79,10 +78,8 @@ const Header: React.FC = () => {
                     )}
                   </Link>
                   {item.title === "Portfolio" && isDropdownVisible && (
-                    <div 
+                    <div
                       className="absolute -left-6 top-5 mt-2 rounded-full shadow-lg p-4 z-50"
-                      onMouseEnter={() => setIsDropdownVisible(true)}
-                      onMouseLeave={() => setIsDropdownVisible(false)}
                     >
                       <PortfolioDropDown />
                     </div>
