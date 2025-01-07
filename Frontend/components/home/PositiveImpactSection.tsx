@@ -61,7 +61,7 @@ const PositiveImpactSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="bg-black text-white py-16 px-[5%] md:px-[5%] lg:px-[5%] sm:h-[100vh] h-[100vh] lg:h-[70vh] flex justify-center">
+    <section ref={sectionRef} className="bg-black text-white py-16 px-[5%] md:px-[5%] lg:px-[5%] sm:h-[100vh] h-[100vh] lg:h-[70vh] flex justify-center max-h-[50rem]">
       <div className=" flex flex-col lg:flex-row  items-center gap-24">
         <div className="lg:w-1/2 pr-7">
           <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">

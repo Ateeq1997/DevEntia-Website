@@ -30,11 +30,11 @@ const projects: Project[] = [
     text: "RS-Global Ties",
     href: "/Our-Portfolio/Projects/ISA",
   },
-  {
-    img: testImg4,
-    text: "GoGetWell.ai",
-    href: "/Our-Portfolio/Projects/GoGetWell",
-  },
+  // {
+  //   img: testImg4,
+  //   text: "GoGetWell.ai",
+  //   href: "/Our-Portfolio/Projects/GoGetWell",
+  // },
 ];
 
 const PortfolioDropdown: React.FC = () => {
@@ -69,13 +69,13 @@ const PortfolioDropdown: React.FC = () => {
             RS-Global Ties
             <FaChevronDown className="-rotate-90" />
             </Link>
-          <Link
+          {/* <Link
             href="/Our-Portfolio/Projects/Makewell.life"
             className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
            GoGetWell.ai
            <FaChevronDown className="-rotate-90" />
-           </Link>
+           </Link> */}
           <Link
             href="/Our-Portfolio"
             className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
