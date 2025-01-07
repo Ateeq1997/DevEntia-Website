@@ -71,7 +71,7 @@ const Header: React.FC = () => {
                     href={item.path}
                     className="flex items-center text-white hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base"
                     onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
-                    onClick={()=>setIsDropdownVisible(!isDropdownVisible)}
+                    onClick={()=>item.title === "Portfolio" && setIsDropdownVisible(!isDropdownVisible)}
                   >
                     {item.title}
                     {item.title === "Portfolio" && (
