@@ -22,7 +22,7 @@ const menuItems: MenuItem[] = [
       { title: "RS Global Ties", link: "/Our-Portfolio/Projects/RS-Global-Ties" },
       { title: "Private CPA", link: "/Our-Portfolio/Projects/Private-CPA" },
       { title: "ISA Consulting", link: "/Our-Portfolio/Projects/ISA" },
-      { title: "GoGetWell", link: "/Our-Portfolio/Projects/Makewell.life" },
+      // { title: "GoGetWell", link: "/Our-Portfolio/Projects/Makewell.life" },
       { title: "See All", link: "/#see-all-services" },
     ],
   },
