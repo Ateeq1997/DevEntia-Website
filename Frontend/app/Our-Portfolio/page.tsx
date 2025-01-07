@@ -67,7 +67,7 @@ const page = () => {
         img={ISA}
         projectName={'ISA Consulting'}
       />
-      <OurProjects
+      {/* <OurProjects
         flexReverse={true}
         description={
           'Streamline patient management with integrated tools for appointments and medical records effortlessly manage your schedule and patient consultations in real-time.'
@@ -75,9 +75,9 @@ const page = () => {
         projectURL={'/Our-Portfolio/Projects/Makewell.life'}
         img={patientDoctor}
         projectName={'Patient / Doctor'}
-      />
+      /> */}
       <OurProjects
-        flexReverse={false}
+        flexReverse={true}
         description={
           'your go-to platform for hiring expert website designers for any job. Whether it is creating a new site or enhancing an existing one, our talented designers deliver top-quality work tailored to your needs.'
         }
@@ -86,7 +86,7 @@ const page = () => {
         projectName={'origin.com'}
       />
       <OurProjects
-        flexReverse={true}
+        flexReverse={false}
         description={
           'Discover unforgettable adventures with our boat and dinghy rentals. Whether you crave serene cruises, thrilling water sports, or tranquil fishing trips, our fleet offers the perfect vessel for you to explore local waters at your own pace.'
         }
