@@ -127,7 +127,7 @@ const HeroSection = () => {
               isChanging ? 'opacity-0' : 'opacity-100'
             }`}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 max-w-5xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 max-w-screen-md">
               {heroContents[currentIndex].title}
             </h1>
             <p className="text-lg text-gray-300 max-w-2xl mb-10">

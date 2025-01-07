@@ -18,7 +18,7 @@ const ServicesCard = ({
 }) => {
   return (
     <section
-      className={`flex gap-8 lg:gap-28 flex-col ${
+      className={`flex gap-8 lg:gap-28 flex-col my-8 mx-[5%] ${
         flexReverse ? 'md:flex-row-reverse' : 'md:flex-row'
       } services-bg p-[5%]`}
     >
