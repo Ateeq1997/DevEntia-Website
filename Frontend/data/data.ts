@@ -186,22 +186,22 @@ export const whyDeventiaData = [
 /* projects data */
 export const projects = [
   {
-    title: 'GoGetWell landing page design',
+    title: 'GoGetWell.ai',
     subtitle: 'https://gogetwell.ai/',
     image: projectdesktop1,
-    link: 'https://gogetwell.ai/',
+    link: '/Our-Portfolio/Projects/Makewell.life',
   },
   {
-    title: 'Entergram landing page design',
+    title: 'Entergram',
     subtitle: 'https://app.entergram.com',
     image: projectdesktop2,
-    link: 'https://app.entergram.com',
+    link: '/Our-Portfolio/Projects/Private-CPA',
   },
   {
-    title: 'ISA landing page design',
+    title: 'ISA Consulting',
     subtitle: 'https://isaconsulting.com/',
     image: projectdesktop3,
-    link: 'https://isaconsulting.com/',
+    link: '/Our-Portfolio/Projects/ISA',
   },
 ]
 

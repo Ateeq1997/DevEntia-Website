@@ -27,7 +27,7 @@ const SendMessage = () => {
     e.preventDefault();
     
     try {
-      // console.log(" we are in try block");
+      console.log(" we are in try block");
       const response = await axiosInstance.post('/mail', messageData, {
         headers: {
           'Content-Type': 'application/json',
