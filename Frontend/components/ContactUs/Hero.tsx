@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         priority
       />
-      <p>Welcome To <span className='text-[#0077FF] font-bold text-lg'>Deventia Tech</span></p>
+      <p>Welcome To <span className='text-[#0077FF] font-bold text-lg'>DevEntia Tech</span></p>
       <h1 className="z-10 text-white text-center md:text-start text-[3rem] md:text-[5rem] font-bold leading-tight">
         Let&apos;s Talk!
       </h1>
