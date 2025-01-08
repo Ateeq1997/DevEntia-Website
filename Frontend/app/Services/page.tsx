@@ -133,7 +133,7 @@ const page = () => {
         img={services3}
       />
       <ServicesCard
-        title="testing"
+        title="Testing"
         flexReverse={true}
         Checkboxes={
           <>
@@ -166,7 +166,7 @@ const page = () => {
         exploreLink={'/Services/Testing'}
         img={services4}
       />
-      <GetInTouch />
+      {/* <GetInTouch /> */}
     </>
   );
 };
