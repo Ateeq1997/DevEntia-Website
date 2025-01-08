@@ -65,12 +65,10 @@ const PositiveImpactSection = () => {
       <div className=" flex flex-col lg:flex-row  items-center gap-24">
         <div className="lg:w-1/2 pr-7">
           <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-            Translating Technology <br /> Into A Positive Impact
+          Empowering Change Through Innovation and Technology
           </h2>
           <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-            Our approach allows us to deliver exceptional experiences that drive growth
-            and success for all stakeholders. Let&apos;s rise to new heights with the power of
-            digital transformation.
+          We craft digital solutions that spark transformation, fuel growth, and create lasting value. Together, we turn challenges into opportunities, driving success for all through the power of technology.
           </p>
         </div>
         

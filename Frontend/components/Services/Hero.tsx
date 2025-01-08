@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <header className="relative bg-[#161616] h-screen ">
+    <header className="relative bg-[#161616] h-screen max-h-[50rem] ">
       <video
         autoPlay
         playsInline
