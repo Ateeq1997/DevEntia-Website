@@ -1,119 +1,268 @@
 'use client';
+
 import React, { useState } from 'react';
-import axiosInstance from '@/lib/axiosInstance';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axiosInstance from '@/lib/axiosInstance';
+import { CiMail } from "react-icons/ci";
+import { MdOutlinePhone } from "react-icons/md";
+import { CiLocationOn } from "react-icons/ci";
 
-const SendMessage = () => {
-  const [messageData, setMessageData] = useState({
-    fullName: '',
-    senderEmail: '',
-    phoneNumber: '',
-    subject: '',
-    message: '',
+interface ContactFormData {
+  name: string;
+  phone: string;
+  message: string;
+}
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
+    phone: '',
+    message: ''
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setMessageData((prevData) => ({
-      ...prevData,
-      [name]: value,
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
     try {
       console.log(" we are in try block");
-      const response = await axiosInstance.post('/mail', messageData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(response);
-      
-      toast.success('Message sent successfully');
-      console.log('Success:', response.data);
-    } catch (error) {
-      console.error('Error:', error);
-      toast.error('All fields are required.');
-    }
-  };
+      const response = await axiosInstance.post('/mail', formData, {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+            console.log(response);
+            
+            toast.success('Message sent successfully');
+            console.log('Success:', response.data);
+          } catch (error) {
+            console.error('Error:', error);
+            toast.error('All fields are required.');
+          }
+        };
 
-  return (
-    <>
+        return (
+          <div className="bg-black p-8 ">
       <ToastContainer />
-      <form
-        className="relative md:-top-28 bg-[#7571e6d4] p-8 mx-[5%] grid grid-cols-1 md:grid-cols-2 gap-8 py-32"
-        onSubmit={handleSubmit}
-      >
-        <label className="flex flex-col gap-4 text-lg font-semibold w-full">
-          Full Name
-          <input
-            type="text"
-            name="fullName"
-            value={messageData.fullName}
-            onChange={handleChange}
-            placeholder="Enter Your name"
-            className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
-          />
-        </label>
-        <label className="flex flex-col gap-4 text-lg font-semibold w-full">
-          Your email
-          <input
-            type="email"
-            name="senderEmail"
-            value={messageData.senderEmail}
-            onChange={handleChange}
-            placeholder="Enter Your email"
-            className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
-          />
-        </label>
-        <label className="flex flex-col gap-4 text-lg font-semibold w-full">
-          Phone number
-          <input
-            type="tel"
-            name="phoneNumber"
-            value={messageData.phoneNumber}
-            onChange={handleChange}
-            placeholder="Enter Your phone number"
-            className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
-          />
-        </label>
-        <label className="flex flex-col gap-4 text-lg font-semibold w-full">
-          Subject
-          <input
-            type="text"
-            name="subject"
-            value={messageData.subject}
-            onChange={handleChange}
-            placeholder="Enter Your Subject"
-            className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
-          />
-        </label>
-        <label className="flex flex-col gap-4 text-lg font-semibold w-full col-span-1 md:col-span-2">
-          Write Your Message
-          <textarea
-            name="message"
-            value={messageData.message}
-            onChange={handleChange}
-            placeholder="Enter your message here"
-            className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal resize-none"
-            rows={4}
-          ></textarea>
-        </label>
-        <button
-          type="submit"
-          className="bg-[#070707] px-8 py-3 font-semibold text-base w-fit col-span-1 md:col-span-2 block mx-auto"
-        >
-          Send Message
-        </button>
-      </form>
-    </>
+      
+      {/* Contact Info Section */}
+      <div className="max-w-7xl mx-auto my-8">
+        <div className='  mb-16 border-gray-800 border-b pb-14'>
+        <h1 className="text-6xl font-bold text-white ">Let&apos;s Work</h1>
+        <h2 className="text-6xl font-bold text-[#0000C8]  ">Together!</h2>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8 bg-[#FFFFFF0D] p-5 rounded-lg mt-2">
+          {/* Left Column - Contact Details */}
+          <div className="space-y-4">
+            <div className="bg-[#FFFFFF0D] p-6 rounded-md">
+              <div className="mb-4">
+              <CiMail  size={28} />
+              </div>
+              <p className="text-gray-400">info@deventia.com</p>
+            </div>
+            
+            <div className="bg-[#FFFFFF0D] p-6 rounded-md">
+              <div className="mb-4">
+              <MdOutlinePhone size={28}/>
+
+              </div>
+              <div className="space-y-2">
+                <p className="text-gray-400">UK: (+44) 3333 660 173</p>
+                <p className="text-gray-400">US: (+1) 929 946 7607</p>
+              </div>
+            </div>
+            
+            <div className="bg-[#FFFFFF0D] p-6 rounded-md">
+              <div className="mb-4">
+              <CiLocationOn size={28} />
+              </div>
+              <div className="space-y-2">
+                <p className="text-gray-400">UK: 82 King Street, Manchester, M2 4WQ</p>
+                <p className="text-gray-400">US: 82 Nassau St, New York, NY 10038</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Contact Form */}
+          <div className="bg-[#0A0A0A] p-8 rounded-3xl">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full bg-[#FFFFFF4D] rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
+              </div>
+              
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full bg-[#FFFFFF4D] rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  />
+              </div>
+              
+              <div>
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={6}
+                  className="w-full bg-[#FFFFFF4D] rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                />
+              </div>
+              
+              <button
+                type="submit"
+                className="w-full bg-[#0000C8] text-white py-3 rounded-2xl font-medium hover:bg-blue-700 transition-colors"
+                >
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default SendMessage;
+export default ContactForm;
+
+
+
+// 'use client';
+// import React, { useState } from 'react';
+// import axiosInstance from '@/lib/axiosInstance';
+// import { toast, ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+// const SendMessage = () => {
+//   const [messageData, setMessageData] = useState({
+//     fullName: '',
+//     senderEmail: '',
+//     phoneNumber: '',
+//     subject: '',
+//     message: '',
+//   });
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     const { name, value } = e.target;
+//     setMessageData((prevData) => ({
+//       ...prevData,
+//       [name]: value,
+//     }));
+//   };
+
+//   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+//     e.preventDefault();
+    
+//     try {
+//       console.log(" we are in try block");
+//       const response = await axiosInstance.post('/mail', messageData, {
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+//       console.log(response);
+      
+//       toast.success('Message sent successfully');
+//       console.log('Success:', response.data);
+//     } catch (error) {
+//       console.error('Error:', error);
+//       toast.error('All fields are required.');
+//     }
+//   };
+
+//   return (
+//     <>
+//       <ToastContainer />
+//       <form
+//         className="relative md:-top-28 bg-[#7571e6d4] p-8 mx-[5%] grid grid-cols-1 md:grid-cols-2 gap-8 py-32"
+//         onSubmit={handleSubmit}
+//       >
+//         <label className="flex flex-col gap-4 text-lg font-semibold w-full">
+//           Full Name
+//           <input
+//             type="text"
+//             name="fullName"
+//             value={messageData.fullName}
+//             onChange={handleChange}
+//             placeholder="Enter Your name"
+//             className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
+//           />
+//         </label>
+//         <label className="flex flex-col gap-4 text-lg font-semibold w-full">
+//           Your email
+//           <input
+//             type="email"
+//             name="senderEmail"
+//             value={messageData.senderEmail}
+//             onChange={handleChange}
+//             placeholder="Enter Your email"
+//             className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
+//           />
+//         </label>
+//         <label className="flex flex-col gap-4 text-lg font-semibold w-full">
+//           Phone number
+//           <input
+//             type="tel"
+//             name="phoneNumber"
+//             value={messageData.phoneNumber}
+//             onChange={handleChange}
+//             placeholder="Enter Your phone number"
+//             className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
+//           />
+//         </label>
+//         <label className="flex flex-col gap-4 text-lg font-semibold w-full">
+//           Subject
+//           <input
+//             type="text"
+//             name="subject"
+//             value={messageData.subject}
+//             onChange={handleChange}
+//             placeholder="Enter Your Subject"
+//             className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal"
+//           />
+//         </label>
+//         <label className="flex flex-col gap-4 text-lg font-semibold w-full col-span-1 md:col-span-2">
+//           Write Your Message
+//           <textarea
+//             name="message"
+//             value={messageData.message}
+//             onChange={handleChange}
+//             placeholder="Enter your message here"
+//             className="outline-none px-4 py-3 border-[1.5px] border-[#D3D3D3] w-full text-[#797979] font-normal resize-none"
+//             rows={4}
+//           ></textarea>
+//         </label>
+//         <button
+//           type="submit"
+//           className="bg-[#070707] px-8 py-3 font-semibold text-base w-fit col-span-1 md:col-span-2 block mx-auto"
+//         >
+//           Send Message
+//         </button>
+//       </form>
+//     </>
+//   );
+// };
+
+// export default SendMessage;
