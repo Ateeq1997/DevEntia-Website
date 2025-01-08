@@ -68,7 +68,7 @@ const ContactForm = () => {
               <div className="mb-4">
               <CiMail  size={28} />
               </div>
-              <p className="text-gray-400">info@deventia.com</p>
+              <p className="text-gray-400">contact@deventiatech.com</p>
             </div>
             
             <div className="bg-[#FFFFFF0D] p-6 rounded-md">
@@ -77,8 +77,7 @@ const ContactForm = () => {
 
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400">UK: (+44) 3333 660 173</p>
-                <p className="text-gray-400">US: (+1) 929 946 7607</p>
+                <p className="text-gray-400">(+92)316-5910564</p>
               </div>
             </div>
             
@@ -87,8 +86,7 @@ const ContactForm = () => {
               <CiLocationOn size={28} />
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400">UK: 82 King Street, Manchester, M2 4WQ</p>
-                <p className="text-gray-400">US: 82 Nassau St, New York, NY 10038</p>
+                <p className="text-gray-400">Siran Plaza Manshera, Khyber Pakhtunkhwa, Pakistan</p>
               </div>
             </div>
           </div>
