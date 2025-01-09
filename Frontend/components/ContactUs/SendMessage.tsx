@@ -5,7 +5,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axiosInstance from '@/lib/axiosInstance';
 import { CiMail } from "react-icons/ci";
-import { MdOutlinePhone } from "react-icons/md";
+import { MdOutlineArrowOutward, MdOutlinePhone } from "react-icons/md";
+
 import { CiLocationOn } from "react-icons/ci";
 
 interface ContactFormData {
@@ -77,7 +78,8 @@ const ContactForm = () => {
 
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400">(+92)316-5910564</p>
+                <p className="text-gray-400">(+92) 316-5910564</p>
+                <p className="text-gray-400">(+92) 344 8967017</p>
               </div>
             </div>
             
@@ -92,7 +94,7 @@ const ContactForm = () => {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="bg-[#0A0A0A] p-8 rounded-3xl">
+          <div className="bg-[#0A0A0A] p-6 rounded-3xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <input
@@ -126,13 +128,20 @@ const ContactForm = () => {
                   className="w-full bg-[#FFFFFF4D] rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
                 />
               </div>
-              
+              <div className='  flex items-center justify-center'>
+
               <button
-                type="submit"
-                className="w-full bg-[#0000C8] text-white py-3 rounded-2xl font-medium hover:bg-blue-700 transition-colors"
-                >
-                Send
+              type='submit'
+               className="flex items-center gap-2 flex-wrap hover:bg-[#7471E6] hover:scale-110 transition-all duration-700 ease-in-out w-fit "
+                      >
+                        <p className="p-2 bg-[#7571e68c] text-white flex items-center gap-2">
+                          Send
+                        </p>
+                        <div className="p-2 bg-[#7571e68c] flex items-center justify-center">
+                          <MdOutlineArrowOutward size={25} color="#fff" />
+                        </div>
               </button>
+                           </div>
             </form>
           </div>
         </div>

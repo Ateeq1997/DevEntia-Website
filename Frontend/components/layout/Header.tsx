@@ -7,6 +7,7 @@ import Link from "next/link";
 import logoImg from "@/assets/images/logoImg.gif";
 import MobileMenu from "./MobileNav";
 import PortfolioDropDown from "./PortfolioDropdown";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -87,14 +88,20 @@ const Header: React.FC = () => {
                 </div>
               ))}
             </ul>
-
-            <div className="hidden md:flex items-center space-x-4">
-              <div className="px-4 py-2 md:px-5 md:py-1 bg-white text-black rounded-full hover:bg-gray-300">
-                <Link href={"/Contact-us"} className="text-black">
-                  Contact Us
+              
+              
+                <Link
+                  href={'/Contact-us'}
+                  className="flex items-center gap-2 flex-wrap  hover:bg-white hover:scale-110 transition-all duration-700 ease-in-out w-fit"
+                >
+                  <p className="p-2 bg-white text-black  flex items-center gap-2">
+                    Let&apos;s Talk
+                  </p>
+                  <div className="p-2 bg-white flex items-center justify-center">
+                    <MdOutlineArrowOutward size={25} color="black" />
+                  </div>
                 </Link>
-              </div>
-            </div>
+      
           </div>
 
           <MobileMenu />

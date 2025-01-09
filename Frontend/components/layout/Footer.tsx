@@ -137,7 +137,7 @@ const Footer = () => {
             contact@deventiatech.com
           </a>
           <h4 className="font-semibold text-xl text-white/35 my-4 md:mt-20">
-            Let’s chat
+            Let&apos;s chat
           </h4>
           <div className="flex gap-2">
             <a
