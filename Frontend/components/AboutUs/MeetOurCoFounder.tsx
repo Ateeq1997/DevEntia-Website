@@ -30,12 +30,12 @@ const MeetOurCoFounder = () => {
           href="https://www.linkedin.com/in/huzaifa-rajpoot-7a7718289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 flex-wrap hover:bg-[#7471E6] hover:scale-110 transition-all duration-700 ease-in-out w-fit mt-8"
+          className="flex items-center gap-2 flex-wrap hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out w-fit mt-8"
                   >
-                    <p className="p-4 bg-[#7571e68c] text-white flex items-center gap-2">
+                    <p className="p-4 bg-[#4848FF] text-white flex items-center gap-2">
                       Book a call
                     </p>
-                    <div className="p-4 bg-[#7571e68c] flex items-center justify-center">
+                    <div className="p-4 bg-[#4848FF] flex items-center justify-center">
                       <MdOutlineArrowOutward size={25} color="#fff" />
                     </div>
         </a>

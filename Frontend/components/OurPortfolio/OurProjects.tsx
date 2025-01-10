@@ -49,14 +49,14 @@ const OurProjects = ({
         className="w-full md:w-[48%] h-3/4"
       />
       <div>
-        <h3 className="bg-[#7571e694] uppercase px-4 py-3 font-bold rounded-md w-fit">
+        <h3 className="bg-[#4848FF] uppercase px-4 py-3 font-bold rounded-md w-fit">
           Case study
         </h3>
         <h1 className="font-bold text-xl md:text-3xl my-4">{projectName}</h1>
         <p className="text-base">{description}</p>
         <Link
           href={projectURL}
-          className="border-2 border-[#7571e694] text-[#7571e694] hover:text-white hover:bg-[#7571e6d3] px-4 py-3 uppercase flex items-center gap-2 mt-12 font-bold w-fit transition-all ease-in-out duration-700"
+          className="border-2 border-[#4848FF] text-[#4848FF] hover:text-white hover:bg-[#4848FF] px-4 py-3 uppercase flex items-center gap-2 mt-12 font-bold w-fit transition-all ease-in-out duration-700"
         >
           View work
           <IoIosArrowForward size={22} />
