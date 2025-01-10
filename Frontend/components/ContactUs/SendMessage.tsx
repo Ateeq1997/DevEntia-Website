@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axiosInstance from '@/lib/axiosInstance';
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axiosInstance from "@/lib/axiosInstance";
 import { CiMail } from "react-icons/ci";
 import { MdOutlineArrowOutward, MdOutlinePhone } from "react-icons/md";
 
@@ -17,18 +17,18 @@ interface ContactFormData {
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    phone: '',
-    message: ''
+    name: "",
+    phone: "",
+    message: "",
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -36,59 +36,60 @@ const ContactForm = () => {
     e.preventDefault();
     try {
       console.log(" we are in try block");
-      const response = await axiosInstance.post('/mail', formData, {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            });
-            console.log(response);
-            
-            toast.success('Message sent successfully');
-            console.log('Success:', response.data);
-          } catch (error) {
-            console.error('Error:', error);
-            toast.error('All fields are required.');
-          }
-        };
+      const response = await axiosInstance.post("/mail", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(response);
 
-        return (
-          <div className="bg-black p-8 ">
+      toast.success("Message sent successfully");
+      console.log("Success:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("All fields are required.");
+    }
+  };
+
+  return (
+    <div className="bg-black p-8 ">
       <ToastContainer />
-      
+
       {/* Contact Info Section */}
       <div className="max-w-7xl mx-auto my-8">
-        <div className='  mb-16 border-gray-800 border-b pb-14'>
-        <h1 className="text-6xl font-bold text-white ">Let&apos;s Work</h1>
-        <h2 className="text-6xl font-bold text-[#0000C8]  ">Together!</h2>
+        <div className="  mb-16 border-gray-800 border-b pb-14">
+          <h1 className="text-6xl font-bold text-white ">Let&apos;s Work</h1>
+          <h2 className="text-6xl font-bold text-[#0000C8]  ">Together!</h2>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-8 bg-[#FFFFFF0D] p-5 rounded-lg mt-2">
           {/* Left Column - Contact Details */}
           <div className="space-y-4">
             <div className="bg-[#FFFFFF0D] p-6 rounded-md">
               <div className="mb-4">
-              <CiMail  size={28} />
+                <CiMail size={28} />
               </div>
               <p className="text-gray-400">contact@deventiatech.com</p>
             </div>
-            
+
             <div className="bg-[#FFFFFF0D] p-6 rounded-md">
               <div className="mb-4">
-              <MdOutlinePhone size={28}/>
-
+                <MdOutlinePhone size={28} />
               </div>
               <div className="space-y-2">
                 <p className="text-gray-400">(+92) 316-5910564</p>
                 <p className="text-gray-400">(+92) 344 8967017</p>
               </div>
             </div>
-            
+
             <div className="bg-[#FFFFFF0D] p-6 rounded-md">
               <div className="mb-4">
-              <CiLocationOn size={28} />
+                <CiLocationOn size={28} />
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400">Siran Plaza Manshera, Khyber Pakhtunkhwa, Pakistan</p>
+                <p className="text-gray-400">
+                  Siran Plaza Manshera, Khyber Pakhtunkhwa, Pakistan
+                </p>
               </div>
             </div>
           </div>
@@ -104,9 +105,9 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full bg-[#FFFFFF4D] rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
+                />
               </div>
-              
+
               <div>
                 <input
                   type="tel"
@@ -115,9 +116,9 @@ const ContactForm = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full bg-[#FFFFFF4D] rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
+                />
               </div>
-              
+
               <div>
                 <textarea
                   name="message"
@@ -128,20 +129,26 @@ const ContactForm = () => {
                   className="w-full bg-[#FFFFFF4D] rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
                 />
               </div>
-              <div className='  flex items-center justify-center'>
+              <div className="flex items-center justify-center">
+  <button
+    type="submit"
+    className="flex items-center gap-2 hover:bg-[#7471E6] hover:scale-110 transition-all duration-700 ease-in-out"
+  >
+    <p
+      className="p-2 bg-[#7571e68c] text-white flex items-center 
+                 gap-2 w-full md:w-auto md:px-20 lg:px-32"
+    >
+      Send
+    </p>
+    <div
+      className="p-2 bg-[#7571e68c] flex items-center justify-center 
+                 w-auto"
+    >
+      <MdOutlineArrowOutward size={25} color="#fff" />
+    </div>
+  </button>
+</div>
 
-              <button
-              type='submit'
-               className="flex items-center gap-2 flex-wrap hover:bg-[#7471E6] hover:scale-110 transition-all duration-700 ease-in-out w-fit "
-                      >
-                        <p className="p-2 bg-[#7571e68c] text-white flex items-center gap-2">
-                          Send
-                        </p>
-                        <div className="p-2 bg-[#7571e68c] flex items-center justify-center">
-                          <MdOutlineArrowOutward size={25} color="#fff" />
-                        </div>
-              </button>
-                           </div>
             </form>
           </div>
         </div>
@@ -151,8 +158,6 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
-
 
 // 'use client';
 // import React, { useState } from 'react';
@@ -181,7 +186,7 @@ export default ContactForm;
 
 //   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 //     e.preventDefault();
-    
+
 //     try {
 //       console.log(" we are in try block");
 //       const response = await axiosInstance.post('/mail', messageData, {
@@ -190,7 +195,7 @@ export default ContactForm;
 //         },
 //       });
 //       console.log(response);
-      
+
 //       toast.success('Message sent successfully');
 //       console.log('Success:', response.data);
 //     } catch (error) {
