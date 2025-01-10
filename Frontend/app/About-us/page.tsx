@@ -38,7 +38,7 @@ const page = () => {
       <MeetOurCoFounder />
       {/* <MeetOurTeam /> */}
       <OurMissionAndVission />
-      <GetInTouch />
+      {/* <GetInTouch /> */}
     </>
   );
 };

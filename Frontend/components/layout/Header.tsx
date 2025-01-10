@@ -94,7 +94,7 @@ const Header: React.FC = () => {
                   href={'/Contact-us'}
                   className="flex items-center gap-2 flex-wrap  hover:bg-white hover:scale-110 transition-all duration-700 ease-in-out w-fit"
                 >
-                  <p className="p-2 bg-white text-black  flex items-center gap-2">
+                  <p className="p-2 px-4 bg-white text-black  flex items-center gap-2">
                     Let&apos;s Talk
                   </p>
                   <div className="p-2 bg-white flex items-center justify-center">
