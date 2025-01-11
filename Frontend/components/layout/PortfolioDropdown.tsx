@@ -6,7 +6,7 @@ import { FaChevronDown } from "react-icons/fa";
 import testImg from '@/assets/images/liveDiet.png' 
 import testImg1 from '@/assets/images/B2b.png'
 import testImg2 from '@/assets/images/intergramCRM.png'
-import testImg4 from '@/assets/images/Shot.png'
+import testImg4 from '@/assets/images/simpple.png'
 
 interface Project {
   img: StaticImageData;
@@ -30,11 +30,11 @@ const projects: Project[] = [
     text: "RS-Global Ties",
     href: "/Our-Portfolio/Projects/ISA",
   },
-  // {
-  //   img: testImg4,
-  //   text: "GoGetWell.ai",
-  //   href: "/Our-Portfolio/Projects/GoGetWell",
-  // },
+  {
+    img: testImg4,
+    text: "Get Simpple",
+    href: "/Our-Portfolio/Projects/GetSimpple.com",
+  },
 ];
 
 const PortfolioDropdown: React.FC = () => {
@@ -69,13 +69,13 @@ const PortfolioDropdown: React.FC = () => {
             RS-Global Ties
             <FaChevronDown className="-rotate-90" />
             </Link>
-          {/* <Link
-            href="/Our-Portfolio/Projects/Makewell.life"
+          <Link
+            href="/Our-Portfolio/Projects/GetSimpple.com"
             className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
-           GoGetWell.ai
+           GetSimpple
            <FaChevronDown className="-rotate-90" />
-           </Link> */}
+           </Link>
           <Link
             href="/Our-Portfolio"
             className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"

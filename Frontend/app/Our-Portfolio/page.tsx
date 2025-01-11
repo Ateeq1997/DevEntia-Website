@@ -6,6 +6,7 @@ import ISA from '../../assets/images/ISA.webp';
 import patientDoctor from '../../assets/images/patientDoctor.webp';
 import origin from '../../assets/images/origin.webp';
 import DadiRentBoat from '../../assets/images/DadiRentBoat.webp';
+import Simpple from '../../assets/images/simppleList.png';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -93,6 +94,15 @@ const page = () => {
         projectURL={'/Our-Portfolio/Projects/Dadi-Rent-Boat'}
         img={DadiRentBoat}
         projectName={'Dadi Rent Boat'}
+      />
+      <OurProjects
+        flexReverse={true}
+        description={
+          'simpple is taking the stress out of tax filing. We simplify the tax process and make it, well... simple. And you get max refund. We are developing a human based, AI powered, personalized, tax filing experience that helps more Americans take control of their taxes in an easy, user-friendly way.'
+        }
+        projectURL={'/Our-Portfolio/Projects/GetSimpple.com'}
+        img={Simpple}
+        projectName={'Get Simpple.com'}
       />
       <br />
       <br />

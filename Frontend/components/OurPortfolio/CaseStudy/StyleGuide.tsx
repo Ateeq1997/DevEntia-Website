@@ -70,7 +70,7 @@ const StyleGuide = ({
             </div>
             <div
               style={{ background: color3 }}
-              className={`absolute -bottom-6 md:bottom-0 -left-14 md:-left-[80px] size-[110px] lg:size-[160px] rounded-full flex items-center justify-center`}
+              className={`absolute -bottom-6 md:bottom-0 -left-14 md:-left-[80px] size-[110px] lg:size-[160px] rounded-full flex items-center justify-center text-black`}
             >
               {color3}
             </div>
