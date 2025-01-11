@@ -130,24 +130,24 @@ const ContactForm = () => {
                 />
               </div>
               <div className="flex items-center justify-center">
-  <button
-    type="submit"
-    className="flex items-center gap-2 hover:bg-[#7471E6] hover:scale-110 transition-all duration-700 ease-in-out"
-  >
-    <p
-      className="p-2 bg-[#7571e68c] text-white flex items-center 
+                <button
+                  type="submit"
+                  className="flex items-center gap-2 hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
+                >
+                  <p
+                    className="p-2 bg-[#4848FF] text-white flex items-center 
                  gap-2 w-full md:w-auto md:px-20 lg:px-32"
-    >
-      Send
-    </p>
-    <div
-      className="p-2 bg-[#7571e68c] flex items-center justify-center 
+                  >
+                    Send
+                  </p>
+                  <div
+                    className="p-2 bg-[#4848FF] flex items-center justify-center 
                  w-auto"
-    >
-      <MdOutlineArrowOutward size={25} color="#fff" />
-    </div>
-  </button>
-</div>
+                  >
+                    <MdOutlineArrowOutward size={25} color="#fff" />
+                  </div>
+                </button>
+              </div>
 
             </form>
           </div>

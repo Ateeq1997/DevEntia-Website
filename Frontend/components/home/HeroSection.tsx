@@ -86,7 +86,7 @@ const HeroSection = () => {
             <div className={`absolute inset-0 ${isHovered === index ? 'bg-white/30' : 'bg-white/10'
               } rounded-full`} />
             <div
-              className={`absolute bg-[#4848FF80] rounded-full transition-all duration-300 ease-linear
+              className={`absolute bg-[#4848FF] rounded-full transition-all duration-300 ease-linear
                 ${isMobile ? 'left-0 top-0 h-full' : 'bottom-0 left-0 w-full'}`}
               style={isMobile
                 ? { width: `${progress}%` }
@@ -139,7 +139,7 @@ const HeroSection = () => {
               </Link> */}
             <Link
             href={'/Contact-us'}
-            className="flex items-center gap-2 flex-wrap hover:bg-[#7471E6] hover:scale-110 transition-all duration-700 ease-in-out"
+            className="flex items-center gap-2 flex-wrap hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
           >
             <p className=" fill-on-hover-btn  text-white flex items-center ">
               Let&apos;s Connect

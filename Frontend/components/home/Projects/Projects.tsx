@@ -42,7 +42,7 @@ const Projects = () => {
           {/* card */}
           <div className="relative flex md:flex-row flex-col md:gap-0 gap-14 w-full h-full">
             <div className="md:absolute md:left-0 md:bottom-0 w-full md:w-[30%]">
-              {/* <ProjectCard project={projects[0]} /> */}
+              <ProjectCard project={projects[0]} />
             </div>
 
             <div className="md:absolute left-0 md:left-[35%]  md:top-1/2 md:-translate-y-1/2 w-full md:w-[30%]">

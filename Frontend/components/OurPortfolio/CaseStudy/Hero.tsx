@@ -26,12 +26,12 @@ const Hero = ({
         </h1>
         <Link
           href={'/Contact-us'}
-          className="flex items-center gap-2 flex-wrap hover:bg-[#7471E6] hover:scale-110 transition-all duration-700 ease-in-out"
+          className="flex items-center gap-2 flex-wrap hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
         >
-          <p className="p-4 bg-[#7471E6] text-white flex items-center gap-2">
+          <p className="p-4 bg-[#4848FF] text-white flex items-center gap-2">
             Let&apos;s Connect
           </p>
-          <div className="p-4 bg-[#7471E6] flex items-center justify-center">
+          <div className="p-4 bg-[#4848FF] flex items-center justify-center">
             <MdOutlineArrowOutward size={25} color="#fff" />
           </div>
         </Link>
