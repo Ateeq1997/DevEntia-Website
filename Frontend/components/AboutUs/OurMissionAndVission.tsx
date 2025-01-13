@@ -4,7 +4,7 @@ import vission from '../../assets/images/vission.png';
 
 const OurMissionAndVission = () => {
   return (
-    <section className="about-us-bg px-[5%] py-12 flex-col justify-center items-center ">
+    <section className="about-us-bg px-[5%]  py-12 flex-col justify-center items-center ">
       <div className="flex gap-12 flex-col md:flex-row md:items-center ">
         <div>
           <h1 className="font-bold text-2xl lg:text-4xl">Our mission</h1>
@@ -18,10 +18,10 @@ const OurMissionAndVission = () => {
         <Image
           src={mission}
           alt="mission"
-          className="w-full h-auto md:w-[45%]"
+          className="w-full h-auto md:w-[45%] "
         />
       </div>
-      <div className="flex gap-12 flex-col md:flex-row-reverse mt-12 md:items-center">
+      <div className="flex gap-12 flex-col md:flex-row-reverse mt-12 md:items-center justify-center items-center ">
         <div>
           <h1 className="font-bold text-2xl lg:text-4xl">Our Vision</h1>
           <p className="text-lg text-[#ffffffc2] mt-4 text-justify">
@@ -35,7 +35,7 @@ const OurMissionAndVission = () => {
         <Image
           src={vission}
           alt="vission"
-          className="w-full h-auto md:w-[45%]"
+          className="w-full h-auto md:w-[45%] "
         />
       </div>
     </section>

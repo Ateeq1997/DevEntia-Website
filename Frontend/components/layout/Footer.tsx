@@ -69,7 +69,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div>
+        <div className="pr-6">
           <h4 className="font-semibold text-xl text-white/35 mb-4">
             Contact us
           </h4>
@@ -79,6 +79,12 @@ const Footer = () => {
             href="tel:+92316-5910564"
           >
             +92316-5910564
+          </a>
+          <a
+            href="mailto:prosper@deventiatech.com"
+            className="block mt-4  hover:underline hover:text-[#7471E6]"
+          >
+            contact@deventiatech.com
           </a>
           <h4 className="font-semibold text-xl text-white/35 my-4 md:mt-20">
             Follow us
@@ -130,12 +136,6 @@ const Footer = () => {
           </a>
         </div>
         <div className="">
-          <a
-            href="mailto:prosper@deventiatech.com"
-            className="block mt-12 hover:underline hover:text-[#7471E6]"
-          >
-            contact@deventiatech.com
-          </a>
           <h4 className="font-semibold text-xl text-white/35 my-4 md:mt-20">
             Let&apos;s chat
           </h4>

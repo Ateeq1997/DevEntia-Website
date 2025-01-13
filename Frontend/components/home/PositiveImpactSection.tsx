@@ -72,7 +72,8 @@ const PositiveImpactSection = () => {
           </p>
         </div>
         
-        <div className="lg:w-1/2 grid grid-cols-2 gap-6 sm:gap-8 text-center pl-8 h-60 relative">
+        <div className="lg:w-1/2 grid grid-cols-2 gap-6 sm:gap-8 text-center  h-60 relative justify-center">
+           {/* center line */}
           <div className="absolute left-0 top-0 h-full hidden lg:block">
             <div className="h-[68px] w-px bg-white"></div>
             <div className="w-3 h-3 bg-black border-t border-r border-white rotate-45 absolute -left-[6px] top-[58px]"></div>
@@ -80,7 +81,7 @@ const PositiveImpactSection = () => {
           </div>
 
           {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col items-center justify-center">
               <span className="text-5xl sm:text-4xl md:font-extrabold md:text-6xl">
                 {stat.label === "YEARS" 
                   ? counts[index].toFixed(1) + "+"

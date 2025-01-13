@@ -103,7 +103,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="h-[80vh] sm:h-[70vh] md:h-[100vh] max-h-[50rem] relative overflow-hidden max-w-screen">
+    <section className="h-[100vh] max-h-[50rem] relative overflow-hidden max-w-screen">
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
