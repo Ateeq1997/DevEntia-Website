@@ -132,11 +132,11 @@ const ContactForm = () => {
               <div className="flex items-center justify-center">
                 <button
                   type="submit"
-                  className="flex items-center gap-2 hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
+                  className="flex items-center gap-2 hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out  w-full"
                 >
                   <p
                     className="p-2 bg-[#4848FF] text-white flex items-center 
-                 gap-2 w-full md:w-auto md:px-20 lg:px-32"
+                 gap-2 w-full justify-center"
                   >
                     Send
                   </p>
