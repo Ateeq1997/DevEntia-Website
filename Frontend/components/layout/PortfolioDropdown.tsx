@@ -2,11 +2,12 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {StaticImageData} from 'next/image'
-import { FaChevronDown } from "react-icons/fa";
+
 import testImg from '@/assets/images/liveDiet.png' 
 import testImg1 from '@/assets/images/B2b.png'
 import testImg2 from '@/assets/images/intergramCRM.png'
 import testImg4 from '@/assets/images/simpple.png'
+import { FaChevronDown } from "react-icons/fa6";
 
 interface Project {
   img: StaticImageData;
@@ -17,17 +18,17 @@ interface Project {
 const projects: Project[] = [
   {
     img: testImg,
-    text: "Love Diet",
+    text: "RS Global Ties",
     href: "/Our-Portfolio/Projects/RS-Global-Ties",
   },
   {
     img: testImg2,
-    text: "Entergram",
+    text: "Privae CPA",
     href: "/Our-Portfolio/Projects/Private-CPA",
   },
   {
     img: testImg1,
-    text: "RS-Global Ties",
+    text: "ISA Consulting",
     href: "/Our-Portfolio/Projects/ISA",
   },
   {
@@ -81,7 +82,7 @@ const PortfolioDropdown: React.FC = () => {
             className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
             See All
-            
+            <span>&rarr;</span>
           </Link>
         </div>
 

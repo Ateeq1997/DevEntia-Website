@@ -55,7 +55,7 @@ const MobileSidebar = () => {
             />
           </button>
           <div
-            className={`overflow-hidden transition-all duration-300 divide-y divide-[#dfdfdf77] ${
+            className={`overflow-hidden transition-all duration-300 ${
               activeSubmenu === item.title ? "max-h-64" : "max-h-0"
             }`}
           >
