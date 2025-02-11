@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 const Footer = () => {
   const router = useRouter();
   return (
-    <footer className="px-[5%] bg-[#161616] z-10 relative py-24">
+    <footer className="p-[5%] bg-[#161616] z-10 relative">
       <div className="absolute bottom-0 left-0 footer-bg-img"></div>
       <div className="grid grid-cols-2 md:grid-cols-4 w-full">
         <div>
@@ -69,7 +69,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="pr-6">
+        <div>
           <h4 className="font-semibold text-xl text-white/35 mb-4">
             Contact us
           </h4>
@@ -79,12 +79,6 @@ const Footer = () => {
             href="tel:+92316-5910564"
           >
             +92316-5910564
-          </a>
-          <a
-            href="mailto:prosper@deventiatech.com"
-            className="block mt-4  hover:underline hover:text-[#7471E6]"
-          >
-            contact@deventiatech.com
           </a>
           <h4 className="font-semibold text-xl text-white/35 my-4 md:mt-20">
             Follow us
@@ -132,12 +126,18 @@ const Footer = () => {
             rel="stylesheet"
             href="Mansehra, kpk 21300, PK"
           >
-            Siran Plaza Mansehra, Khyber Pakhtunkhwa, Pakistan
+            Office # 7, First Floor, Elanza Mall, D-Markaz, Gulberg Residencia, Islamabad
           </a>
         </div>
         <div className="">
+          <a
+            href="mailto:prosper@deventiatech.com"
+            className="block mt-12 hover:underline hover:text-[#7471E6]"
+          >
+            prosper@deventiatech.com
+          </a>
           <h4 className="font-semibold text-xl text-white/35 my-4 md:mt-20">
-            Let&apos;s chat
+            Let’s chat
           </h4>
           <div className="flex gap-2">
             <a
@@ -158,15 +158,13 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <Link href={"/"}>
         <Image
           src={logoImg}
           alt="deventia logo"
           width={125}
           unoptimized
           className="mr-0 ml-auto"
-          />
-          </Link>
+        />
       </div>
       <div className="mt-20 mb-8">
         <p className="font-medium text-lg text-white/35">

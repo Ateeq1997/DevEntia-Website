@@ -88,7 +88,7 @@ const ContactForm = () => {
               </div>
               <div className="space-y-2">
                 <p className="text-gray-400">
-                  Siran Plaza Manshera, Khyber Pakhtunkhwa, Pakistan
+                Office # 7, First Floor, Elanza Mall, D-Markaz, Gulberg Residencia, Islamabad
                 </p>
               </div>
             </div>
