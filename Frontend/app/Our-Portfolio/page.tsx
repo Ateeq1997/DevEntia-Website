@@ -6,6 +6,7 @@ import ISA from '../../assets/images/ISA.webp';
 import patientDoctor from '../../assets/images/patientDoctor.webp';
 import origin from '../../assets/images/origin.webp';
 import DadiRentBoat from '../../assets/images/DadiRentBoat.webp';
+import Simpple from '../../assets/images/simppleList.png';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -67,7 +68,7 @@ const page = () => {
         img={ISA}
         projectName={'ISA Consulting'}
       />
-      <OurProjects
+      {/* <OurProjects
         flexReverse={true}
         description={
           'Streamline patient management with integrated tools for appointments and medical records effortlessly manage your schedule and patient consultations in real-time.'
@@ -75,9 +76,9 @@ const page = () => {
         projectURL={'/Our-Portfolio/Projects/Makewell.life'}
         img={patientDoctor}
         projectName={'Patient / Doctor'}
-      />
+      /> */}
       <OurProjects
-        flexReverse={false}
+        flexReverse={true}
         description={
           'your go-to platform for hiring expert website designers for any job. Whether it is creating a new site or enhancing an existing one, our talented designers deliver top-quality work tailored to your needs.'
         }
@@ -86,13 +87,22 @@ const page = () => {
         projectName={'origin.com'}
       />
       <OurProjects
-        flexReverse={true}
+        flexReverse={false}
         description={
           'Discover unforgettable adventures with our boat and dinghy rentals. Whether you crave serene cruises, thrilling water sports, or tranquil fishing trips, our fleet offers the perfect vessel for you to explore local waters at your own pace.'
         }
         projectURL={'/Our-Portfolio/Projects/Dadi-Rent-Boat'}
         img={DadiRentBoat}
         projectName={'Dadi Rent Boat'}
+      />
+      <OurProjects
+        flexReverse={true}
+        description={
+          'simpple is taking the stress out of tax filing. We simplify the tax process and make it, well... simple. And you get max refund. We are developing a human based, AI powered, personalized, tax filing experience that helps more Americans take control of their taxes in an easy, user-friendly way.'
+        }
+        projectURL={'/Our-Portfolio/Projects/GetSimpple.com'}
+        img={Simpple}
+        projectName={'Get Simpple.com'}
       />
       <br />
       <br />

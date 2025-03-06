@@ -13,7 +13,7 @@ const Faqs = () => {
   };
 
   return (
-    <div className="relative min-h-screen font-bai lg:min-h-[600px] overflow-hidden bg-[#0B0B14] text-white py-16 lg:py-20 px-4 md:px-8 lg:px-16">
+    <div className="relative min-h-screen font-bai lg:min-h-[600px] overflow-hidden bg-[#0B0B14] text-white py-16 lg:py-20 px-[5%]">
       <BlueGlowEffect
         className="bottom-0 absolute"
         size={250}
@@ -21,10 +21,10 @@ const Faqs = () => {
         opacity={0.3}
         rotate={0}
       />
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div className="  grid md:grid-cols-2 gap-12">
         {/* Left Column */}
         <div className="space-y-8">
-          <h2 className="text-5xl md:text-6xl  font-medium">FAQs</h2>
+          <h2 className="font-semibold mb-5 text-3xl md:text-5xl text-[#FFFFFF]">FAQs</h2>
           <p className="text-gray-400 text-lg  max-w-md">
             As a leading digital marketing agency, we are dedicated to providing
             comprehensive educational resources and answering frequently asked

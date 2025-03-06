@@ -126,7 +126,7 @@ const Footer = () => {
             rel="stylesheet"
             href="Mansehra, kpk 21300, PK"
           >
-            Siran Plaza Mansehra, Khyber Pakhtunkhwa, Pakistan
+            Office # 7, First Floor, Elanza Mall, D-Markaz, Gulberg Residencia, Islamabad
           </a>
         </div>
         <div className="">

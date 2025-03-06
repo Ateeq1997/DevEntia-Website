@@ -9,7 +9,9 @@ interface MenuItem {
   title: string;
   link?: string;
   submenu?: MenuItem[];
-}
+} 
+
+// just checking changes
 
 const menuItems: MenuItem[] = [
   { title: "Home", link: "/" },
@@ -20,12 +22,12 @@ const menuItems: MenuItem[] = [
       { title: "RS Global Ties", link: "/Our-Portfolio/Projects/RS-Global-Ties" },
       { title: "Private CPA", link: "/Our-Portfolio/Projects/Private-CPA" },
       { title: "ISA Consulting", link: "/Our-Portfolio/Projects/ISA" },
-      { title: "GoGetWell", link: "/Our-Portfolio/Projects/Makewell.life" },
+      // { title: "GoGetWell", link: "/Our-Portfolio/Projects/Makewell.life" },
       { title: "See All", link: "/#see-all-services" },
     ],
   },
   { title: "About Us", link: "/About-us" },
-  { title: "Careers", link: "/Careers" },
+  // { title: "Careers", link: "/Careers" },
   { title: "Contact Us", link: "/Contact-us" },
 ];
 

@@ -9,7 +9,7 @@ import BlueGlowEffect from "./BlueGlowEffect";
 
 export default function ServiceCards() {
   return (
-    <div className="relative   bg-[#141414] px-14 overflow-hidden  py-12">
+    <div className="relative   bg-[#141414] px-[5%] overflow-hidden  py-12">
       <BlueGlowEffect
         className="top-5 right-0  "
         size={400}
@@ -24,12 +24,11 @@ export default function ServiceCards() {
           Our Services
         </h1>
         <p className="text-xs md:text-sm">
-          DevEntia transforms ideas into digital experiences through expert
-          UI/UX design, web development, and motion graphics.
+        Empowering businesses with innovative solutions, cutting-edge technology, and exceptional design to drive progress and unlock new opportunities.
         </p>
       </div>
       {/* Cards parent */}
-      <div className=" mx-auto ">
+      <div className="  ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-3">
           {ourServiceData.map((service, index) => (
             <motion.div

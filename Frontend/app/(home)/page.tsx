@@ -47,11 +47,10 @@ const page = () => {
         <Projects />
         <PositiveImpactSection />
         {/* <StatsAndPartners /> */}
-        
         <ITProcesses />
         {/* <Testimonial /> */}
         {/* <Portfolio /> */}
-       <Faqs />
+       {/* <Faqs /> */}
       
     </>
   );

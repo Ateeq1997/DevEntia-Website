@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 interface HeroContent {
   video: string;
@@ -24,78 +26,150 @@ const heroContents: HeroContent[] = [
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isHovered, setIsHovered] = useState<number | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      if (video.duration) {
+        const currentProgress = (video.currentTime / video.duration) * 100;
+        setProgress(currentProgress);
+      }
+    };
+
+    const handleVideoEnd = () => {
       setIsChanging(true);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % heroContents.length);
         setIsChanging(false);
+        setProgress(0);
       }, 500);
-    }, 7000);
+    };
 
-    return () => clearInterval(interval);
-  }, []);
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended', handleVideoEnd);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended', handleVideoEnd);
+    };
+  }, [currentIndex]);
+
+  const handleSlideChange = (index: number) => {
+    if (index === currentIndex) return;
+
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+    setIsChanging(true);
+    setTimeout(() => {
+      setCurrentIndex(index);
+      setIsChanging(false);
+      setProgress(0);
+    }, 300);
+  };
+
+  const ProgressIndicator = ({ index, isMobile }: { index: number; isMobile: boolean }) => {
+    const baseClasses = "relative cursor-pointer transition-all duration-300";
+    const dimensionClasses = isMobile
+      ? `${index === currentIndex ? 'w-10 h-2' : 'w-2 h-2'}`
+      : `${index === currentIndex ? 'w-2 h-10' : 'w-2 h-2'}`;
+
+    return (
+      <div className={`${baseClasses} ${dimensionClasses}`}>
+        {index === currentIndex ? (
+          <div className="w-full h-full rounded-full overflow-hidden">
+            <div className={`absolute inset-0 ${isHovered === index ? 'bg-white/30' : 'bg-white/10'
+              } rounded-full`} />
+            <div
+              className={`absolute bg-[#4848FF] rounded-full transition-all duration-300 ease-linear
+                ${isMobile ? 'left-0 top-0 h-full' : 'bottom-0 left-0 w-full'}`}
+              style={isMobile
+                ? { width: `${progress}%` }
+                : { height: `${progress}%` }
+              }
+            />
+          </div>
+        ) : (
+          <div className={`w-full h-full rounded-full ${isHovered === index ? 'bg-white/30' : 'bg-white/10'
+            }`} />
+        )}
+      </div>
+    );
+  };
 
   return (
-    <section className="relative h-[48rem] w-full bg-black text-white overflow-hidden">
-      {/* Video Background */}
+    <section className="h-[100vh] max-h-[50rem] relative overflow-hidden max-w-screen">
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           key={heroContents[currentIndex].video}
           autoPlay
           muted
-          loop
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover  transition-opacity duration-500 ${
-            isChanging ? 'opacity-10' : 'opacity-60'
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isChanging ? 'opacity-10' : 'opacity-60'
+            }`}
         >
           <source src={heroContents[currentIndex].video} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-start justify-center h-full px-8 max-w-7xl mx-auto">
+      <div className="relative z-10 flex flex-col items-start justify-center h-full w-full px-[5%] mx-auto">
         <div
-          className={`transition-opacity duration-500 ${
-            isChanging ? 'opacity-0' : 'opacity-100'
-          }`}
+          className={`transition-opacity duration-500 ${isChanging ? 'opacity-0' : 'opacity-100'
+            }`}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 max-w-5xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 max-w-screen-md">
             {heroContents[currentIndex].title}
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mb-10">
             {heroContents[currentIndex].subtitle}
           </p>
           <div className="flex gap-6">
-            <button className="px-8 py-3 bg-[#4848FF] rounded-full hover:bg-[#4e4ed3] transition-colors">
+            {/* <Link
+                href="/Contact-us"
+                className="fill-on-hover-btn rounded-full hover:text-white font-BaiJamjuree font-semibold w-full lg:w-fit text-center mb-8 md:mb-0"
+              >
+                Let&apos;s Connect
+              </Link> */}
+            <Link
+            href={'/Contact-us'}
+            className="flex items-center gap-2 flex-wrap hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
+          >
+            <p className=" fill-on-hover-btn  text-white flex items-center ">
               Let&apos;s Connect
-            </button>
-           
+            </p>
+            <div className=" fill-on-hover-btn  flex items-center justify-center">
+              <MdOutlineArrowOutward size={25} color="#fff" />
+            </div>
+          </Link>
+
+
           </div>
         </div>
 
-        {/* Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
+        <div
+          className="flex gap-6 absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-auto lg:bottom-auto lg:translate-x-0 lg:top-1/2 lg:right-8 lg:-translate-y-1/2 lg:flex-col"
+          onMouseEnter={() => setIsHovered(currentIndex)}
+          onMouseLeave={() => setIsHovered(null)}
+        >
           {heroContents.map((_, index) => (
-            <button
+            <div
               key={index}
-              onClick={() => {
-                setIsChanging(true);
-                setTimeout(() => {
-                  setCurrentIndex(index);
-                  setIsChanging(false);
-                }, 500);
-              }}
-              className={`w-3 h-3 rounded-full transition-all ${
-                currentIndex === index
-                  ? 'bg-[#4848FF] w-8'
-                  : 'bg-white/50 hover:bg-white/80'
-              }`}
-              aria-label={`Show slide ${index + 1}`}
-            />
+              onClick={() => handleSlideChange(index)}
+            >
+              <div className="lg:hidden">
+                <ProgressIndicator index={index} isMobile={true} />
+              </div>
+              <div className="hidden lg:block">
+                <ProgressIndicator index={index} isMobile={false} />
+              </div>
+            </div>
           ))}
         </div>
       </div>

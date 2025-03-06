@@ -6,7 +6,8 @@ import {StaticImageData} from 'next/image'
 import testImg from '@/assets/images/liveDiet.png' 
 import testImg1 from '@/assets/images/B2b.png'
 import testImg2 from '@/assets/images/intergramCRM.png'
-import testImg4 from '@/assets/images/Shot.png'
+import testImg4 from '@/assets/images/simpple.png'
+import { FaChevronDown } from "react-icons/fa6";
 
 interface Project {
   img: StaticImageData;
@@ -32,48 +33,53 @@ const projects: Project[] = [
   },
   {
     img: testImg4,
-    text: "GoGetWell",
-    href: "/Our-Portfolio/Projects/GoGetWell",
+    text: "Get Simpple",
+    href: "/Our-Portfolio/Projects/GetSimpple.com",
   },
 ];
 
 const PortfolioDropdown: React.FC = () => {
   return (
-    <div className="bg-black text-white p-4 rounded-lg shadow-lg">
-      <div className="flex flex-col md:flex-row justify-between gap-8">
+    <div 
+    style={{
+      boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+    }}
+
+    className="bg-black text-white px-7 py-8 rounded-2xl ">
+      <div className="flex flex-col md:flex-row justify-evenly gap-16">
         {/* Left section with links */}
-        <div className="flex flex-col space-y-4 divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-6 w-1/4">
+        <div className="flex flex-col divide-y divide-[#dfdfdf77] ml-4 md:ml-0  pr-8 w-1/3">
           <Link
             href="/Our-Portfolio/Projects/RS-Global-Ties"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
-            RS Global Ties
-            <span>&rarr;</span>
-          </Link>
+            Love Diet
+            <FaChevronDown className="-rotate-90" />
+            </Link>
           <Link
             href="/Our-Portfolio/Projects/Private-CPA"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
-            Private CPA
-            <span>&rarr;</span>
-          </Link>
+            Entergram
+            <FaChevronDown className="-rotate-90" />
+            </Link>
           <Link
             href="/Our-Portfolio/Projects/ISA"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
-            ISA Consulting
-            <span>&rarr;</span>
-          </Link>
+            RS-Global Ties
+            <FaChevronDown className="-rotate-90" />
+            </Link>
           <Link
-            href="/Our-Portfolio/Projects/Makewell.life"
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            href="/Our-Portfolio/Projects/GetSimpple.com"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
-           GoGetWell
-            <span>&rarr;</span>
-          </Link>
+           GetSimpple
+           <FaChevronDown className="-rotate-90" />
+           </Link>
           <Link
-            href=""
-            className="flex justify-between items-center text-base font-medium py-2 hover:text-gray-300 transition"
+            href="/Our-Portfolio"
+            className="flex justify-between items-center text-base font-medium py-4 hover:text-gray-300 transition"
           >
             See All
             <span>&rarr;</span>
@@ -81,12 +87,12 @@ const PortfolioDropdown: React.FC = () => {
         </div>
 
         {/* Right section with project cards */}
-        <div className="grid grid-cols-2 gap-4 w-[35rem] ">
+        <div className="grid grid-cols-2 gap-y-4 w-[31vw] ">
           {projects.map((project, index) => (
             <Link
               key={index}
               href={project.href}
-              className="relative group rounded-xl overflow-hidden bg-cover bg-center h-32 w-56 hover:scale-105 transition-transform"
+              className="relative group rounded-xl overflow-hidden bg-cover bg-center h-32 w-48 hover:scale-105 transition-transform"
               style={{
                 backgroundImage: `url(${project.img.src})`,
               }}

@@ -16,20 +16,17 @@ const OurExpertise: React.FC = () => {
     <div className="bg-[#141414] py-5">
       <GlowingText
         glowingTitle="ENHANCE EFFICIENCY, OPEN DOORS WITH OUR EXPERTISE"
-        title="Enhance efficiency, open doors with our Expertise ?"
+        title="Enhance Efficiency, Open Doors with Our Expertise"
       />
 
       <div
         ref={containerRef}
-        className="container font-montserrat mx-auto w-[90%] py-3 px-3"
+        className="container font-montserrat px-[5%] w-[90%] py-3 "
       >
         <div className="mb-5 -mt-8">
           <p className="text-[10px] lg:text-[14px] text-gray-300">
-            We&apos;re a team of strategic software developers working globally
-            with the largest brands. We believe that progress only happens when
-            you refuse to play it safe. We combine ideas, behaviors, and
-            insights with design, technology, and data to produce brand
-            experiences that customers love.
+          We are a team of strategic software developers partnering globally with leading brands. We believe true progress happens when you dare to innovate. By combining creative ideas, customer behavior insights, and cutting-edge technology, we deliver brand experiences that captivate and inspire.
+
           </p>
         </div>
 
@@ -86,7 +83,7 @@ const ProcessStep: React.FC<{
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5 }}
-      className={`relative mb-16 md:w-[65vw] lg:w-[90%] w-full group ${
+      className={`relative mb-16 md:w-[65vw] lg:w-[100%] w-full group ${
         index % 2 === 1 ? "md:ml-32" : ""
       }`}
     >

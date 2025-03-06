@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { AiOutlineDown } from "react-icons/ai"; 
+import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "@/assets/images/logoImg.gif";
 import MobileMenu from "./MobileNav";
 import PortfolioDropDown from "./PortfolioDropdown";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const menuItems = [
     { title: "Home", path: "/" },
     { title: "Services", path: "/Services" },
-    { title: "Portfolio", path: "/Our-Portfolio" },
+    { title: "Portfolio", path: "" },
     { title: "About Us", path: "/About-us" }
   ];
 
@@ -41,72 +41,69 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`fixed top-0  w-full bg-transparent bg-opacity-50 text-white z-40 transition-transform duration-300 navbar-container  lg:!flex  pt-2 text-xs 1100px:text-sm 1300px:text-base max-w-[calc(1750px+5%)] mx-auto ${isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
-      <div className="container mx-auto px-4 lg:px-6 py-4">
+      <div className="container px-[5%] lg:px-[5%] py-4">
         <div className="flex items-center justify-between">
-          {/* Logo Section */}
           <div className="flex-shrink-0">
-            <Image
-              unoptimized
-              src={logoImg}
-              width={100}
-              alt="deventia logo"
-              className="w-auto h-8 lg:h-10"
-            />
+            <Link href={"/"}>
+              <Image
+                unoptimized
+                src={logoImg}
+                width={100}
+                alt="deventia logo"
+                className="w-auto h-8 lg:h-10"
+              />
+            </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12 ">
-            {/* Menu Items */}
-            <ul className="flex space-x-8 xl:space-x-12 md:space-x-4 h-full  ">
+          <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">
+            <ul className="flex space-x-8 xl:space-x-12 md:space-x-4 h-full">
               {menuItems.map((item) => (
                 <div
                   key={item.title}
-                  className="relative"
-                  onMouseEnter={() =>
-                    item.title === "Portfolio" && setIsDropdownVisible(true)
-                  }
-                  onMouseLeave={() =>
-                    item.title === "Portfolio" && setIsDropdownVisible(false)
-                  }
+                  className={`relative group ${item.title === "Portfolio" ? "pb-4" : ""
+                    }`}
+                  onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
+                  onMouseLeave={() => item.title === "Portfolio" && setIsDropdownVisible(false)}
                 >
                   <Link
                     href={item.path}
                     className="flex items-center text-white hover:text-gray-300 transition-colors duration-200 text-sm xl:text-base"
+                    onClick={() => item.title === "Portfolio" && setIsDropdownVisible(!isDropdownVisible)}
                   >
                     {item.title}
                     {item.title === "Portfolio" && (
-                      <AiOutlineDown className="ml-1" /> // Add Chevron Down icon
+                      <AiOutlineDown className="ml-1" />
                     )}
                   </Link>
-                  {/* Dropdown for Portfolio */}
-                  {/* && isDropdownVisible */}
-                  {item.title === "Portfolio"  && isDropdownVisible && (
-                    <div className="absolute -left-6 top-0 mt-2  rounded-full shadow-lg p-4 z-50">
+                  {item.title === "Portfolio" && isDropdownVisible && (
+                    <div
+                      className="absolute -left-6 top-5 mt-2 rounded-full shadow-lg p-4 z-50"
+                    >
                       <PortfolioDropDown />
                     </div>
                   )}
                 </div>
               ))}
             </ul>
-
-            {/* Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <a href="/Careers" className="hover:text-gray-300">
-                Careers
-              </a>
-              <div className="px-4 py-2 md:px-2 md:py-1 bg-white text-black rounded-full hover:bg-gray-300">
-                <Link href={"/Contact-us"} className="text-black">
-                  Contact Us
+              
+              
+                <Link
+                  href={'/Contact-us'}
+                  className="flex items-center gap-2 flex-wrap  hover:bg-white hover:scale-110 transition-all duration-700 ease-in-out w-fit"
+                >
+                  <p className="p-2 px-4 bg-white text-black  flex items-center gap-2">
+                    Let&apos;s Talk
+                  </p>
+                  <div className="p-2 bg-white flex items-center justify-center">
+                    <MdOutlineArrowOutward size={25} color="black" />
+                  </div>
                 </Link>
-              </div>
-            </div>
+      
           </div>
 
-          {/* Mobile Menu Button */}
           <MobileMenu />
         </div>
       </div>

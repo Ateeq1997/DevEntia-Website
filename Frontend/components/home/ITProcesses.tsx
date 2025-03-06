@@ -111,9 +111,9 @@ export default function ITProcess() {
     activeProcess === "staff" ? staffAugmentationSteps : developmentSteps;
 
   return (
-    <div className="font-bai bg-[#0B0B14] px-4 md:px-12 text-white">
+    <div className="font-bai bg-[#0B0B14]  text-white pb-8">
       {/* Top Navigation */}
-      <div className="max-w-[1400px] mx-auto px-6 pt-16">
+      <div className="px-[5%] mx-auto  pt-16">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-4 lg:items-center border-b border-[#404040] pb-4">
           <div className="flex items-center gap-2">
             <span className="text-[#4848FF]">•</span>
@@ -146,8 +146,8 @@ export default function ITProcess() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-[1400px] mx-auto px-6 pt-7">
-        <h1 className="text-lg xs:text-2xl md:text-4xl lg:text-5xl font-medium mb-12">
+      <div className="px-[5%] mx-auto  pt-7">
+        <h1 className="font-semibold mb-5 text-3xl md:text-5xl text-[#FFFFFF]">
           Our IT{" "}
           {activeProcess === "staff" ? "Staff Augmentation" : "Development"}{" "}
           Process
@@ -165,11 +165,11 @@ export default function ITProcess() {
               <div className="absolute top-0 right-0 text-[90px]  text-[#525252] leading-none">
                 {currentSteps[activeIndex].number}.
               </div>
-              <div className="pt-28 ">
-                <h2 className="text-lg md:text-2xl lg:text-xl font-bold mb-6">
+              <div className="pt-20 ">
+                <h2 className="text-lg md:text-3xl lg:text-3xl font-bold mb-6">
                   {currentSteps[activeIndex].title}
                 </h2>
-                <p className="text-[#CCCCCC]   text-[12px] md:text-lg lg:text-[12px] max-w-2xl">
+                <p className="text-gray-400 text-lg  max-w-md">
                   {currentSteps[activeIndex].description}
                 </p>
               </div>

@@ -14,7 +14,7 @@ import icon2 from "../assets/images/icon2.png";
 import icon3 from "../assets/images/icon3.png";
 
 /* projects images */
-import projectdesktop1 from "../assets/images/Desktop-project-1.png"
+import projectdesktop1 from "../assets/images/Shot (13).png"
 import projectdesktop2 from "../assets/images/Desktop-project-2.png"
 import projectdesktop3 from "../assets/images/Desktop-project-3.png"
 export const servicesData = [
@@ -186,22 +186,22 @@ export const whyDeventiaData = [
 /* projects data */
 export const projects = [
   {
-    title: 'Makewell landing page design',
-    subtitle: 'Web Landing page',
+    title: 'Get Simpple.com',
+    subtitle: 'https://app.simpple.tax/',
     image: projectdesktop1,
-    link: 'https://gogetwell.ai/',
+    link: '/Our-Portfolio/Projects/GetSimpple.com',
   },
   {
-    title: 'Telegram landing page design',
-    subtitle: 'Web Landing page',
+    title: 'Entergram',
+    subtitle: 'https://app.entergram.com',
     image: projectdesktop2,
-    link: 'https://app.entergram.com',
+    link: '/Our-Portfolio/Projects/Private-CPA',
   },
   {
-    title: 'ISA landing page design',
-    subtitle: 'Web Landing page',
+    title: 'ISA Consulting',
+    subtitle: 'https://isaconsulting.com/',
     image: projectdesktop3,
-    link: 'https://isaconsulting.com/',
+    link: '/Our-Portfolio/Projects/ISA',
   },
 ]
 

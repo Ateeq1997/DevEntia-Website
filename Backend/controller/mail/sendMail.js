@@ -14,15 +14,28 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName) {
   try {
     const info = await transporter.sendMail({
       from: 'abdulmajid1m2@gmail.com', // Use the sender's email
-      to: 'abdulmajid1m2@gmail.com', // Replace with the recipient's email
-      subject: subject,
+      to: [
+        'contact@deventiatech.com',
+        'deventialimited@gmail.com',
+        'abdulmajid1m2@gmail.com',
+      ],
+      subject: '🔔 New Customer Inquiry',
       text: message,
       html: `
-        <p><strong>Full Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${senderEmail}</p>
-        <p><strong>Phone Number:</strong> ${phoneNumber}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+          <div style="text-align: center;">
+            <img src="https://avatars.githubusercontent.com/u/153590156?s=200&v=4" alt="Company Logo" style="width: 100px; height: auto; border-radius: 8px;">
+          </div>
+          <h2 style="color: #333; text-align: center;">New Contact Message</h2>
+          <p><strong>Full Name:</strong> ${fullName}</p>
+          <p><strong>Email:</strong> <a href="mailto:${senderEmail}" style="color: #007bff;">${senderEmail}</a></p>
+          <p><strong>Phone Number:</strong> ${phoneNumber}</p>
+          <p><strong>Subject:</strong> ${subject}</p>
+          <p style="border-top: 1px solid #ddd; padding-top: 10px;"><strong>Message:</strong></p>
+          <p style="background: #f9f9f9; padding: 10px; border-radius: 5px;">${message}</p>
+          <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+          <p style="text-align: center; color: #888; font-size: 12px;">This email was sent via your contact form.</p>
+        </div>
       `,
     });
 
