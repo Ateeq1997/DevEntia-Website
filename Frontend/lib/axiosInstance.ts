@@ -3,11 +3,10 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  // baseURL: 'http://localhost:4000', // Your base URL
-  baseURL: 'https://api.deventiatech.com', // Your base URL
+  // baseURL: 'http://localhost:4000', // Local host URL
+  baseURL: 'http://api.deventiatech.com/', // Production URL
   headers: {
     'Content-Type': 'application/json',
-    // Add any custom headers if needed
   },
 });
 

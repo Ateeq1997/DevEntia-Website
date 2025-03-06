@@ -7,7 +7,7 @@ const fs = require('fs');
 const uploadDir = path.join(__dirname, 'upload');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, {
-    recursive: true
+    recursive: true,
   });
 }
 
@@ -18,11 +18,11 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
-  }
+  },
 });
 
 const upload = multer({
-  storage
+  storage,
 });
 
 // Configure nodemailer
@@ -34,7 +34,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
 async function sendCongratulatoryEmail(
   firstName,
   lastName,
@@ -44,7 +43,7 @@ async function sendCongratulatoryEmail(
   phoneNumber,
   aboutYou,
   jobTitle
- ) {
+) {
   try {
     const mailOptions = {
       from: 'abdulmajid1m2@gmail.com',
@@ -135,7 +134,6 @@ async function sendCongratulatoryEmail(
   }
 }
 
-
 async function sendEmail(
   firstName,
   lastName,
@@ -165,10 +163,12 @@ async function sendEmail(
     };
 
     if (filePath) {
-      mailOptions.attachments = [{
-        filename: path.basename(filePath),
-        path: filePath,
-      }, ];
+      mailOptions.attachments = [
+        {
+          filename: path.basename(filePath),
+          path: filePath,
+        },
+      ];
     }
 
     const info = await transporter.sendMail(mailOptions);
@@ -196,7 +196,7 @@ const applyJob = async (req, res) => {
       email,
       phoneNumber,
       aboutYou,
-      jobTitle
+      jobTitle,
     } = req.body;
     const file = req.file;
 
@@ -211,7 +211,15 @@ const applyJob = async (req, res) => {
       jobTitle: jobTitle ? jobTitle.trim() : '',
     };
 
-    if (!trimmedData.firstName || !trimmedData.lastName || !trimmedData.middleName || !trimmedData.birthDate || !trimmedData.email || !trimmedData.phoneNumber || !trimmedData.aboutYou) {
+    if (
+      !trimmedData.firstName ||
+      !trimmedData.lastName ||
+      !trimmedData.middleName ||
+      !trimmedData.birthDate ||
+      !trimmedData.email ||
+      !trimmedData.phoneNumber ||
+      !trimmedData.aboutYou
+    ) {
       return res.status(400).json({
         message: 'All fields are required.',
       });
@@ -244,7 +252,7 @@ const applyJob = async (req, res) => {
         trimmedData.birthDate,
         trimmedData.email,
         trimmedData.phoneNumber,
-        trimmedData.aboutYou, 
+        trimmedData.aboutYou,
         trimmedData.jobTitle
       );
       res.status(200).json({

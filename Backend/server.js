@@ -5,32 +5,16 @@ const { readdirSync } = require('fs');
 
 const cors = require('cors');
 
-let allowed = ['http://localhost:4000', 'http://localhost:5173', ' https://deventiatech.com', 'https://www.deventiatech.com',];
-
-function options(req, res) {
-  let temp;
-  let origin = req.header('Origin');
-  if (allowed.indexOf(origin) > -1) {
-    temp = {
-      setSuccessStatus: 200,
-      origin: true,
-    };
-  } else {
-    temp = {
-      origin: 'stupid',
-    };
-  }
-  res(null, temp);
-}
-
-// this is middleware
-
 app.use(express.json());
 // app.use(cors(options));
 // app.use(cors());
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://deventiatech.com', 'https://www.deventiatech.com',],
+  origin: [
+    'http://localhost:3000',
+    'https://deventiatech.com',
+    'https://www.deventiatech.com',
+  ],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
