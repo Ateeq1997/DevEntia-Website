@@ -35,6 +35,9 @@ mongoose
   .then(() => console.log('database connection successfully'))
   .catch((err) => console.log(`error connecting to mongodb ${err}`));
 
+  app.get('/test', (req, res) => {
+    res.json({ message: 'Test route is working!' });
+});
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
