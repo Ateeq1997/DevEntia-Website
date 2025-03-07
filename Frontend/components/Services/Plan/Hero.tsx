@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
-import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { IoArrowDownOutline } from 'react-icons/io5';
 import { MdOutlineArrowOutward } from 'react-icons/md';
 import heroBgImg from '../../../assets/images/services-hero-bg.webp';
