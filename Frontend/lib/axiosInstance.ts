@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   // baseURL: 'http://localhost:4000', // Local host URL
-  baseURL: 'http://api.deventiatech.com/', // Production URL
+  baseURL: 'https://api.deventiatech.com/', // Production URL
   headers: {
     'Content-Type': 'application/json',
   },
