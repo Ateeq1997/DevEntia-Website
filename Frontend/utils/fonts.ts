@@ -8,7 +8,7 @@ export const interFont = Inter({ subsets: ['latin'] });
 
 export const euroStyle = localFont({ src: './fonts/EuroStyleNormal.woff2' });
 export const genos = localFont({ src: './fonts/Genos.ttf' });
-export const Aeonik = localFont({ src: './fonts/Aeonik-Regular.ttf' });
+// export const Aeonik = localFont({ src: './fonts/Aeonik-Regular.ttf' });
 export const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',

@@ -1,13 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const { readdirSync } = require('fs');
+
+// Import routes
+const mailRoutes = require('./Routes/mail.js');
+const loginRoutes = require('./Routes/login.js');
+const jobApplyRoutes = require('./Routes/jobApply.js');
+const jobRoutes = require('./Routes/job.js');
 
 const cors = require('cors');
 
 app.use(express.json());
-// app.use(cors(options));
-// app.use(cors());
 
 const corsOptions = {
   origin: [
@@ -20,13 +23,12 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// import all routes
-try {
-  const routes = readdirSync('./Routes');
-  routes.map((r) => app.use('/', require('./Routes/' + r)));
-} catch (err) {
-  console.error('Error reading routes directory:', err);
-}
+// Use routes explicitly
+app.use('/', mailRoutes);
+app.use('/', loginRoutes);
+app.use('/', jobApplyRoutes);
+app.use('/', jobRoutes);
+
 // database
 mongoose
   .connect(

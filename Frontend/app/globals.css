@@ -7,14 +7,11 @@
 body {
   background: #0B0B0B;
   color: white;
-  
 }
 
-
 /* Define utility classes */
- .font-bai {
-  font-family: "Bai Jamjuree", serif !important;
-} 
+/* .font-bai {
+} */
 
 .font-montserrat {
   font-family: 'Montserrat', sans-serif !important;
@@ -27,10 +24,19 @@ body {
 .font-manrope {
   font-family: 'Manrope', sans-serif !important;
 }
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Bai Jamjuree", serif !important;
+}
+
+.EnhanceEfficiency-bg {
+  background: url('../assets/images/home/curve-line.png');
+  /* background-image: url('../assets/images/home/curve-line.png'); */
+  background-position: center;
+  background-size: contain;
 }
 
 .careers-bg {
@@ -443,6 +449,7 @@ body {
   0% {
     transform: translateX(70%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -461,12 +468,12 @@ body {
   }
 } */
 
-.glow{
-color: transparent;
--webkit-text-stroke: 1px #4848FF;
-font-size: 80px;
-font-family:Verdana, Geneva, Tahoma, sans-serif;
-font-weight: 700;
+.glow {
+  color: transparent;
+  -webkit-text-stroke: 1px #4848FF;
+  font-size: 80px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
 }
 
 
@@ -492,7 +499,8 @@ font-weight: 700;
 }
 
 .rotate-x--30 {
-  transform: rotateX(-30deg); /* Tilt backward */
+  transform: rotateX(-30deg);
+  /* Tilt backward */
 }
 
 .rotate-x--45 {
@@ -508,16 +516,19 @@ font-weight: 700;
   content: "";
   position: absolute;
   top: 0;
-  left: 0; /* For left border */
+  left: 0;
+  /* For left border */
   width: 1px;
   height: 100%;
   background: linear-gradient(to top, #000052, #4848ff);
 }
+
 .beforeRight::after {
   content: "";
   position: absolute;
   top: 0;
-  right: 0; /* For left border */
+  right: 0;
+  /* For left border */
   width: 1px;
   height: 100%;
   background: linear-gradient(to top, #000052, #4848ff);
@@ -526,12 +537,11 @@ font-weight: 700;
 
 .bgc-hero {
   border-radius: 19px;
-  padding: 1.5px; /* Simulated border width */
-  background: linear-gradient(
-    106.76deg,
-    rgba(173, 106, 255, 0.52) 2.83%,
-    rgba(122, 219, 120, 0.53) 101.83%
-  );
+  padding: 1.5px;
+  /* Simulated border width */
+  background: linear-gradient(106.76deg,
+      rgba(173, 106, 255, 0.52) 2.83%,
+      rgba(122, 219, 120, 0.53) 101.83%);
 }
 
 .bgc-hero::before {
@@ -541,19 +551,23 @@ font-weight: 700;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0B0B0B; /* Same as container background */
-  border-radius: inherit; /* Inherit border radius */
-  z-index: 1; /* Place it above the background */
-  margin: 1.5px; /* Adjust for the simulated border */
+  background: #0B0B0B;
+  /* Same as container background */
+  border-radius: inherit;
+  /* Inherit border radius */
+  z-index: 1;
+  /* Place it above the background */
+  margin: 1.5px;
+  /* Adjust for the simulated border */
 }
 
 
-.text-shadow{
-  text-shadow:0px -0.7px 2px #4848FF
- 
+.text-shadow {
+  text-shadow: 0px -0.7px 2px #4848FF
 }
-.hover\:text-shadow:hover{
-  text-shadow:0px -0.7px 2px #4848FF
+
+.hover\:text-shadow:hover {
+  text-shadow: 0px -0.7px 2px #4848FF
 }
 
 /* hero section button */
@@ -577,7 +591,7 @@ font-weight: 700;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color:#4848FF;
+  background-color: #4848FF;
   color: black;
   transform: translateX(-100%);
   transition: all 0.3s;
@@ -587,6 +601,3 @@ font-weight: 700;
 .fill-on-hover-btn:hover::before {
   transform: translateX(0);
 }
-
-
-
