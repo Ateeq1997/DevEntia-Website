@@ -40,6 +40,8 @@ mongoose
   app.get('/test', (req, res) => {
     res.json({ message: 'Test route is working!' });
 });
+app.get('/health', (req, res) => res.sendStatus(200));
+
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
