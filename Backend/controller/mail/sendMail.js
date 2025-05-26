@@ -48,6 +48,7 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName) {
 
 // Express route handler to send an email
 const sendMail = async (req, res) => {
+  console.log('mail data: ', req.body);
   const { senderEmail, message, subject, phoneNumber, fullName } = req.body;
 
   if (!senderEmail || !message || !subject || !phoneNumber || !fullName) {

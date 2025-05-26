@@ -1,18 +1,11 @@
-
 import HeroSection from '@/components/home/HeroSection';
-import Hero from '@/components/home/Hero';
-import Services from '@/components/home/Services';
-import StatsAndPartners from '@/components/home/Stats';
-import { TracingBeam } from '@/components/ui/tracingbeam';
-import { users } from '@/data/data';
-import React from 'react';
-import { Metadata } from 'next';
-import WhyDeventia from '@/components/home/Why-chose-deventia/WhyDeventia';
-import OurExpertise from '@/components/home/OurExpertise';
-import Projects from '@/components/home/Projects/Projects';
 import ITProcesses from '@/components/home/ITProcesses';
-import Faqs from '@/components/home/Faqs';
+import OurExpertise from '@/components/home/OurExpertise';
 import PositiveImpactSection from '@/components/home/PositiveImpactSection';
+import Projects from '@/components/home/Projects/Projects';
+import Services from '@/components/home/Services';
+import WhyDeventia from '@/components/home/Why-chose-deventia/WhyDeventia';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'DevEntia Tech Pvt. Ltd',
@@ -39,19 +32,18 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
-        <HeroSection />
-        {/* <Hero /> */}
-        <WhyDeventia />
-        <OurExpertise/>
-        <Services />
-        <Projects />
-        <PositiveImpactSection />
-        {/* <StatsAndPartners /> */}
-        <ITProcesses />
-        {/* <Testimonial /> */}
-        {/* <Portfolio /> */}
-       {/* <Faqs /> */}
-      
+      <HeroSection />
+      {/* <Hero /> */}
+      <WhyDeventia />
+      <OurExpertise />
+      <Services />
+      <Projects />
+      <PositiveImpactSection />
+      {/* <StatsAndPartners /> */}
+      <ITProcesses />
+      {/* <Testimonial /> */}
+      {/* <Portfolio /> */}
+      {/* <Faqs /> */}
     </>
   );
 };

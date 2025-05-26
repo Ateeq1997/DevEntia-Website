@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { interFont, Aeonik } from '@/utils/fonts';
-import Head from 'next/head';
-import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+// import { Aeonik } from '@/utils/fonts';
+import type { Metadata } from 'next';
+import Head from 'next/head';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'DeventiaTech Limited',
@@ -25,7 +25,16 @@ export default function RootLayout({
         <link rel="icon" href="../public/favicon.ico" sizes="any" />
         <title>DevEntia Tech</title>
       </Head> */}
-      <body className={`tracking-wider ${Aeonik.className}`}>{children}</body>
+      <body className={`tracking-wider font-bai`}>
+        <main className="max-w-[1750px] mx-auto">
+          <Head>
+            <link rel="icon" href="/favicon.ico" sizes="any" />
+          </Head>
+          <Header />
+          {children}
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }
