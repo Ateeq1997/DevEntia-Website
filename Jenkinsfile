@@ -5,6 +5,7 @@ pipeline {
         DEPLOY_DIR = "/var/www/devEntiaWebsite"
         COMPOSE_PROJECT_NAME = "deventia-website-version-02"
         COMPOSE_FILE = "${DEPLOY_DIR}/docker-compose.yml"
+        BUILD_TAG = "build-${BUILD_NUMBER}" // Automatic image tag per build
     }
 
     stages {
@@ -21,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Copy to Deployment Directory') {
+        stage('Prepare Deployment Directory') {
             steps {
                 script {
                     sh """
@@ -34,27 +35,30 @@ pipeline {
             }
         }
 
-        stage('Build Docker Images') {
+        stage('Build Docker Images with Tag') {
             steps {
                 script {
                     sh """
                         cd $DEPLOY_DIR
                         docker compose down || true
                         docker compose build --no-cache
+                        docker tag deventia-website-version-02-backend deventia-website-version-02-backend:$BUILD_TAG
+                        docker tag deventia-website-version-02-frontend deventia-website-version-02-frontend:$BUILD_TAG
                     """
                 }
             }
         }
 
-        stage('Clean Build Cache') {
+        stage('Clean Old Docker Images') {
             steps {
                 script {
-                    sh "docker builder prune -f"
+                    // Remove untagged and dangling images
+                    sh 'docker image prune -af'
                 }
             }
         }
 
-        stage('Deploy with Docker Compose') {
+        stage('Deploy Services') {
             steps {
                 script {
                     sh """
