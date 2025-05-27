@@ -306,7 +306,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Configure the transporter with your Gmail credentials
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.SMTP_USER,
