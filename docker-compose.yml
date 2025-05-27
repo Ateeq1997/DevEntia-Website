@@ -16,7 +16,7 @@ services:
       # for production
       - /home/ubuntu/deventia/.env
       # for local development
-         - ./Backend/.env
+      #  - ./Backend/.env
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4000/health"]
       interval: 30s
