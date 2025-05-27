@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     environment {
+        DEPLOY_DIR = "/var/www/devEntiaWebsite"
         COMPOSE_PROJECT_NAME = "deventia-website-version-02"
-        COMPOSE_FILE = "docker-compose.yml"
+        COMPOSE_FILE = "${DEPLOY_DIR}/docker-compose.yml"
     }
 
     stages {
@@ -20,11 +21,28 @@ pipeline {
             }
         }
 
+        stage('Copy to Deployment Directory') {
+            steps {
+                script {
+                    // Clear old deployment directory and copy fresh files
+                    sh """
+                        sudo rm -rf $DEPLOY_DIR
+                        sudo mkdir -p $DEPLOY_DIR
+                        sudo cp -r . $DEPLOY_DIR
+                        sudo chown -R \$(whoami):\$(whoami) $DEPLOY_DIR
+                    """
+                }
+            }
+        }
+
         stage('Build Docker Images') {
             steps {
                 script {
-                    sh 'docker compose down' // stop any running containers (safe restart)
-                    sh 'docker compose build --no-cache'
+                    sh """
+                        cd $DEPLOY_DIR
+                        docker compose down
+                        docker compose build --no-cache
+                    """
                 }
             }
         }
@@ -32,7 +50,10 @@ pipeline {
         stage('Deploy with Docker Compose') {
             steps {
                 script {
-                    sh 'docker compose up -d'
+                    sh """
+                        cd $DEPLOY_DIR
+                        docker compose up -d
+                    """
                 }
             }
         }
