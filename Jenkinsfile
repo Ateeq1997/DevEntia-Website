@@ -23,8 +23,8 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script {
-                    sh 'docker-compose down' // stop any running containers (safe restart)
-                    sh 'docker-compose build --no-cache'
+                    sh 'docker compose down' // stop any running containers (safe restart)
+                    sh 'docker compose build --no-cache'
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy with Docker Compose') {
             steps {
                 script {
-                    sh 'docker-compose up -d'
+                    sh 'docker compose up -d'
                 }
             }
         }
