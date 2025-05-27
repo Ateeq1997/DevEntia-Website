@@ -318,7 +318,7 @@ const transporter = nodemailer.createTransport({
 async function sendNotificationEmail(senderEmail, message, subject, phoneNumber, fullName) {
   try {
     // Render the notification email template
-    const notificationTemplate = path.join(__dirname, 'templates', 'notification-email.ejs');
+    const notificationTemplate = path.join(__dirname, "..", "..", "templates", 'notification-email.ejs');
     const notificationHtml = await ejs.renderFile(notificationTemplate, {
       senderEmail,
       message,
@@ -350,7 +350,7 @@ async function sendNotificationEmail(senderEmail, message, subject, phoneNumber,
 async function sendAcknowledgmentEmail(userEmail, userName) {
   try {
     // Render the acknowledgment email template
-    const acknowledgmentTemplate = path.join(__dirname, 'templates', 'acknowledgment-email.ejs');
+    const acknowledgmentTemplate = path.join(__dirname, "..", "..", "templates", 'acknowledgment-email.ejs');
     const acknowledgmentHtml = await ejs.renderFile(acknowledgmentTemplate, {
       userName
     });
