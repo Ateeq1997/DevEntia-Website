@@ -24,7 +24,7 @@ pipeline {
         stage('Copy to Deployment Directory') {
             steps {
                 script {
-                    // Clear old deployment directory and copy fresh files
+                    // Safely recreate deployment directory
                     sh """
                         sudo rm -rf $DEPLOY_DIR
                         sudo mkdir -p $DEPLOY_DIR
@@ -40,8 +40,9 @@ pipeline {
                 script {
                     sh """
                         cd $DEPLOY_DIR
-                        docker compose down
-                        docker compose build --no-cache
+                        docker compose down || true
+                        docker compose build
+                        docker image prune -f
                     """
                 }
             }
