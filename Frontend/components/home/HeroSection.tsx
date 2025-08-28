@@ -7,19 +7,16 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 interface HeroContent {
   video: string;
   title: string;
-  subtitle: string;
 }
 
 const heroContents: HeroContent[] = [
   {
     video: "https://res.cloudinary.com/dhsgpxu04/video/upload/v1735372583/Man_showing_different_digital_data_around_the_world_Free_Stock_Video_Footage_xcs8h5.mp4",
-    title: "Where Innovation Meets Imagination",
-    subtitle: "Shaping the future with transformative innovation and boundless imagination.",
+    title: "Where Innovation Meets Imagination"
   },
   {
     video: "https://res.cloudinary.com/dhsgpxu04/video/upload/v1735372705/Earth_at_night_from_space_Free_Stock_Video_Footage_2_yuxerd.mp4",
-    title: "Empowering the World with Seamless IT Solutions",
-    subtitle: "Delivering end-to-end software services that drive innovation and global success.",
+    title: "Empowering the World with Seamless IT Solutions"
   },
 ];
 
@@ -127,9 +124,7 @@ const HeroSection = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 max-w-screen-md">
             {heroContents[currentIndex].title}
           </h1>
-          <p className="text-lg text-gray-300 max-w-2xl mb-10">
-            {heroContents[currentIndex].subtitle}
-          </p>
+         
           <div className="flex gap-6">
             {/* <Link
                 href="/Contact-us"
@@ -139,14 +134,21 @@ const HeroSection = () => {
               </Link> */}
             <Link
             href={'/Contact-us'}
-            className="flex items-center gap-2 flex-wrap hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
+            className="flex items-center gap-2 flex-wrap bg-[#4848FF] px-5 font-semibold text-[19px] py-3 rounded-full hover:scale-110 transition-all duration-700 ease-in-out"
           >
-            <p className=" fill-on-hover-btn  text-white flex items-center ">
+            <p className=" text-white flex items-center ">
               Let&apos;s Connect
             </p>
-            <div className=" fill-on-hover-btn  flex items-center justify-center">
-              <MdOutlineArrowOutward size={25} color="#fff" />
-            </div>
+           
+          </Link>
+          <Link
+            href={'/Contact-us'}
+            className="flex items-center gap-2 flex-wrap bg-white text-[#4848FF] px-5 font-semibold text-[19px] py-3 rounded-full hover:scale-110 transition-all duration-700 ease-in-out"
+          >
+            <p className="  flex items-center ">
+              Explore Services
+            </p>
+           
           </Link>
 
 
