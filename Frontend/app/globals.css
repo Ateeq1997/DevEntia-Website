@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Toast animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
 body {
   background: #0B0B0B;
   color: white;

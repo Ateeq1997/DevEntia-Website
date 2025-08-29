@@ -1,5 +1,4 @@
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
+import ConditionalLayout from '@/components/layout/ConditionalLayout';
 // import { Aeonik } from '@/utils/fonts';
 import type { Metadata } from 'next';
 import Head from 'next/head';
@@ -30,9 +29,9 @@ export default function RootLayout({
           <Head>
             <link rel="icon" href="/favicon.ico" sizes="any" />
           </Head>
-          <Header />
-          {children}
-          <Footer />
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
         </main>
       </body>
     </html>
