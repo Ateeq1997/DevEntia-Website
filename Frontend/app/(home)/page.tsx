@@ -1,6 +1,7 @@
 import HeroSection from '@/components/home/HeroSection';
 import ITProcesses from '@/components/home/ITProcesses';
 import OurExpertise from '@/components/home/OurExpertise';
+import Ourportfolio from '@/components/home/Ourportfolio';
 import PositiveImpactSection from '@/components/home/PositiveImpactSection';
 import Projects from '@/components/home/Projects/Projects';
 import Services from '@/components/home/Services';
@@ -37,6 +38,7 @@ const page = () => {
       {/* <Hero /> */}
       <WhyDeventia />
       <Statistics/>
+      <Ourportfolio/>
      {/*   <OurExpertise /> */}
       <Services />
       <Projects />
