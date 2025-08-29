@@ -4,6 +4,7 @@ import OurExpertise from '@/components/home/OurExpertise';
 import PositiveImpactSection from '@/components/home/PositiveImpactSection';
 import Projects from '@/components/home/Projects/Projects';
 import Services from '@/components/home/Services';
+import Statistics from '@/components/home/statistics';
 import WhyDeventia from '@/components/home/Why-chose-deventia/WhyDeventia';
 import { Metadata } from 'next';
 
@@ -35,7 +36,8 @@ const page = () => {
       <HeroSection />
       {/* <Hero /> */}
       <WhyDeventia />
-      <OurExpertise />
+      <Statistics/>
+     {/*   <OurExpertise /> */}
       <Services />
       <Projects />
       <PositiveImpactSection />
