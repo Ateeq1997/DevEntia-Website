@@ -1,11 +1,11 @@
 const Statistics = () => {
   return (
-    <div className="flex flex-row items-center justify-between gap-24 px-[5%] mb-8">
-      {/* First Block */}
+    <div className="flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-24 px-[5%] mb-8">
+      {/* First Block - 12+ */}
       <div className="flex flex-col gap-2">
         <div className="relative flex items-center justify-center">
           <span
-            className="text-[130px] font-semibold font-bai text-transparent relative z-10"
+            className="text-[130px] font-normal font-bai text-transparent relative z-10"
             style={{
               WebkitTextStroke: "2px #4848FF",
               color: "transparent",
@@ -14,23 +14,23 @@ const Statistics = () => {
             12+
           </span>
           <span
-            className="absolute w-[70px] h-[70px] rounded-full z-0 blur-3xl"
+            className="absolute w-[100px] h-[100px] rounded-full z-0 blur-3xl"
             style={{
               background:
-                "radial-gradient(circle, #4848FF8F 0%, #000000 80%)",
+                "radial-gradient(circle, rgba(72,72,255,1) 10%, rgba(72,72,255,0.4) 100%, rgba(72,72,255,0.1) 10%, transparent 100%)",
             }}
           ></span>
         </div>
-        <div className="w-full h-[2px] bg-white"></div>
+        <div className="w-full h-[2px] bg-white -mt-2"></div>
         <p className="text-[24px] text-[#CFDDE8] text-left">
           Project <br /> Complete
         </p>
       </div>
 
       {/* Vertical Divider */}
-      <div className="w-[2px] bg-[#4848FF] h-52" />
+      <div className="w-[2px] bg-[#4848FF] h-52 flex items-center justify-center hidden md:flex" />
 
-      {/* Second Block */}
+      {/* Second Block - 8+ */}
       <div className="flex flex-col gap-2">
         <div className="relative flex items-center justify-center">
           <span
@@ -43,74 +43,76 @@ const Statistics = () => {
             8+
           </span>
           <span
-            className="absolute w-[70px] h-[70px] rounded-full z-0 blur-3xl"
+            className="absolute w-[100px] h-[100px] rounded-full z-0 blur-3xl"
             style={{
               background:
-                "radial-gradient(circle, #4848FF8F 0%, #000000 80%)",
+                "radial-gradient(circle, rgba(72,72,255,1) 0%, rgba(72,72,255,0.4) 90%, rgba(72,72,255,0.1) 20%, transparent 100%)",
             }}
           ></span>
         </div>
         <div className="w-full h-[2px] bg-white"></div>
-        <p className="text-[24px] text-[#CFDDE8] text-left ">
-          Happy <br /> Clients
+        <p className="text-[24px] text-[#CFDDE8] text-left">
+          Happy <br /> Customers
         </p>
       </div>
-       {/* Vertical Divider */}
-       <div className="w-[2px] bg-[#4848FF] h-52" />
 
-{/* Second Block */}
-<div className="flex flex-col gap-2">
-  <div className="relative flex items-center justify-center">
-    <span
-      className="text-[130px] font-semibold font-bai text-transparent relative z-10"
-      style={{
-        WebkitTextStroke: "2px #4848FF",
-        color: "transparent",
-      }}
-    >
-      2+
-    </span>
-    <span
-      className="absolute w-[70px] h-[70px] rounded-full z-0 blur-3xl"
-      style={{
-        background:
-          "radial-gradient(circle, #4848FF8F 0%, #000000 80%)",
-      }}
-    ></span>
-  </div>
-  <div className="w-full h-[2px] bg-white"></div>
-  <p className="text-[24px] text-[#CFDDE8] text-left ">
-    Years <br /> Experience
-  </p>
-</div>
- {/* Vertical Divider */}
- <div className="w-[2px] bg-[#4848FF] h-52" />
+      {/* Vertical Divider */}
+      <div className="w-[2px] bg-[#4848FF] h-52 hidden md:flex" />
 
-{/* Second Block */}
-<div className="flex flex-col gap-2">
-  <div className="relative flex items-center justify-center">
-    <span
-      className="text-[130px] font-semibold font-bai text-transparent relative z-10"
-      style={{
-        WebkitTextStroke: "2px #4848FF",
-        color: "transparent",
-      }}
-    >
-      10+
-    </span>
-    <span
-      className="absolute w-[70px] h-[70px] rounded-full z-0 blur-3xl"
-      style={{
-        background:
-          "radial-gradient(circle, #4848FF8F 0%, #000000 80%)",
-      }}
-    ></span>
-  </div>
-  <div className="w-full h-[2px] bg-white"></div>
-  <p className="text-[24px] text-[#CFDDE8] text-left ">
-    Team <br /> Members
-  </p>
-</div>
+      {/* Third Block - 2+ */}
+      <div className="flex flex-col gap-2">
+        <div className="relative flex items-center justify-center">
+          <span
+            className="text-[130px] font-semibold font-bai text-transparent relative z-10"
+            style={{
+              WebkitTextStroke: "2px #4848FF",
+              color: "transparent",
+            }}
+          >
+            2+
+          </span>
+          <span
+            className="absolute w-[100px] h-[100px] rounded-full z-0 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(72,72,255,1) 0%, rgba(72,72,255,0.4) 90%, rgba(72,72,255,0.1) 20%, transparent 100%)",
+            }}
+          ></span>
+        </div>
+        <div className="w-full h-[2px] bg-white"></div>
+        <p className="text-[24px] text-[#CFDDE8] text-left">
+          Years <br /> Experiences
+        </p>
+      </div>
+
+      {/* Vertical Divider */}
+      <div className="w-[2px] bg-[#4848FF] h-52 hidden md:flex" />
+
+      {/* Fourth Block - 10+ */}
+      <div className="flex flex-col gap-2">
+        <div className="relative flex items-center justify-center">
+          <span
+            className="text-[130px] font-semibold font-bai text-transparent relative z-10"
+            style={{
+              WebkitTextStroke: "2px #4848FF",
+              color: "transparent",
+            }}
+          >
+            10+
+          </span>
+          <span
+            className="absolute w-[100px] h-[100px] rounded-full z-0 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(72,72,255,1) 0%, rgba(72,72,255,0.4) 90%, rgba(72,72,255,0.1) 20%, transparent 100%)",
+            }}
+          ></span>
+        </div>
+        <div className="w-full h-[2px] bg-white"></div>
+        <p className="text-[24px] text-[#CFDDE8] text-left">
+          Team <br /> Members
+        </p>
+      </div>
     </div>
   );
 };
