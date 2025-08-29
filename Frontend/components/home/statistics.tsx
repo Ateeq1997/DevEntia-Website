@@ -1,11 +1,11 @@
 const Statistics = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-24 px-[5%] mb-8">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-24 px-[5%] mb-8">
       {/* First Block - 12+ */}
       <div className="flex flex-col gap-2">
         <div className="relative flex items-center justify-center">
           <span
-            className="text-[130px] font-normal font-bai text-transparent relative z-10"
+            className="text-[130px] font-medium font-bai text-transparent relative z-10"
             style={{
               WebkitTextStroke: "2px #4848FF",
               color: "transparent",
@@ -22,19 +22,19 @@ const Statistics = () => {
           ></span>
         </div>
         <div className="w-full h-[2px] bg-white -mt-2"></div>
-        <p className="text-[24px] text-[#CFDDE8] text-left">
+        <p className="text-[24px] text-[#CFDDE8] text-left mt-2">
           Project <br /> Complete
         </p>
       </div>
 
       {/* Vertical Divider */}
-      <div className="w-[2px] bg-[#4848FF] h-52 flex items-center justify-center hidden md:flex" />
+      <div className="w-[2px] bg-[#4848FF] h-52 flex items-center justify-center hidden lg:flex" />
 
       {/* Second Block - 8+ */}
       <div className="flex flex-col gap-2">
         <div className="relative flex items-center justify-center">
           <span
-            className="text-[130px] font-semibold font-bai text-transparent relative z-10"
+            className="text-[130px] font-medium font-bai text-transparent relative z-10"
             style={{
               WebkitTextStroke: "2px #4848FF",
               color: "transparent",
@@ -50,20 +50,20 @@ const Statistics = () => {
             }}
           ></span>
         </div>
-        <div className="w-full h-[2px] bg-white"></div>
-        <p className="text-[24px] text-[#CFDDE8] text-left">
+        <div className="w-full h-[2px] bg-white -mt-2"></div>
+        <p className="text-[24px] text-[#CFDDE8] mt-2 text-left">
           Happy <br /> Customers
         </p>
       </div>
 
       {/* Vertical Divider */}
-      <div className="w-[2px] bg-[#4848FF] h-52 hidden md:flex" />
+      <div className="w-[2px] bg-[#4848FF] h-52 hidden lg:flex" />
 
       {/* Third Block - 2+ */}
       <div className="flex flex-col gap-2">
         <div className="relative flex items-center justify-center">
           <span
-            className="text-[130px] font-semibold font-bai text-transparent relative z-10"
+            className="text-[130px] font-medium font-bai text-transparent relative z-10"
             style={{
               WebkitTextStroke: "2px #4848FF",
               color: "transparent",
@@ -79,20 +79,20 @@ const Statistics = () => {
             }}
           ></span>
         </div>
-        <div className="w-full h-[2px] bg-white"></div>
-        <p className="text-[24px] text-[#CFDDE8] text-left">
+        <div className="w-full h-[2px] bg-white -mt-2"></div>
+        <p className="text-[24px] text-[#CFDDE8] mt-2 text-left">
           Years <br /> Experiences
         </p>
       </div>
 
       {/* Vertical Divider */}
-      <div className="w-[2px] bg-[#4848FF] h-52 hidden md:flex" />
+      <div className="w-[2px] bg-[#4848FF] h-52 hidden lg:flex" />
 
       {/* Fourth Block - 10+ */}
       <div className="flex flex-col gap-2">
         <div className="relative flex items-center justify-center">
           <span
-            className="text-[130px] font-semibold font-bai text-transparent relative z-10"
+            className="text-[130px] font-medium font-bai text-transparent relative z-10"
             style={{
               WebkitTextStroke: "2px #4848FF",
               color: "transparent",
@@ -108,8 +108,8 @@ const Statistics = () => {
             }}
           ></span>
         </div>
-        <div className="w-full h-[2px] bg-white"></div>
-        <p className="text-[24px] text-[#CFDDE8] text-left">
+        <div className="w-full h-[2px] bg-white -mt-2"></div>
+        <p className="text-[24px] text-[#CFDDE8] mt-2 text-left">
           Team <br /> Members
         </p>
       </div>

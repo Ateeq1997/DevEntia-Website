@@ -41,7 +41,7 @@ const page = () => {
       <Ourportfolio/>
      {/*   <OurExpertise /> */}
       <Services />
-      <Projects />
+     {/* <Projects />*/}
       <PositiveImpactSection />
       {/* <StatsAndPartners /> */}
       <ITProcesses />
