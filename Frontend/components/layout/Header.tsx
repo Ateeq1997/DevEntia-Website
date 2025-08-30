@@ -88,19 +88,25 @@ const Header: React.FC = () => {
                 </div>
               ))}
             </ul>
-              
-              
+              <div className="flex flex-row items-center gap-10">
                 <Link
-                  href={'/Contact-us'}
+                  href={'/Careers'}
                   className="flex items-center gap-2 flex-wrap  hover:bg-white hover:scale-110 transition-all duration-700 ease-in-out w-fit"
                 >
-                  <p className="p-2 px-4 bg-white text-black  flex items-center gap-2">
-                    Let&apos;s Talk
-                  </p>
-                  <div className="p-2 bg-white flex items-center justify-center">
-                    <MdOutlineArrowOutward size={25} color="black" />
-                  </div>
+                 Careers
+                  
                 </Link>
+                <Link
+                  href={'/Contact-us'}
+                  className="flex items-center gap-2 flex-wrap  transition-all duration-700 ease-in-out w-fit"
+                >
+                  <p className="p-2 px-4 bg-white text-black  rounded-full flex items-center gap-2">
+                    Contact Us
+                  </p>
+                  
+                </Link>
+              </div>
+             
       
           </div>
 

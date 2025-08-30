@@ -8,6 +8,9 @@ import Services from '@/components/home/Services';
 import Statistics from '@/components/home/statistics';
 import WhyDeventia from '@/components/home/Why-chose-deventia/WhyDeventia';
 import { Metadata } from 'next';
+import Reviews from '@/components/home/Reviews';
+import Contact from '@/components/home/contact';
+import Tech from '@/components/home/tech';
 
 export const metadata: Metadata = {
   title: 'DevEntia Tech Pvt. Ltd',
@@ -45,6 +48,9 @@ const page = () => {
       <PositiveImpactSection />
       {/* <StatsAndPartners /> */}
       <ITProcesses />
+      <Reviews />
+      <Tech/>
+      <Contact />
       {/* <Testimonial /> */}
       {/* <Portfolio /> */}
       {/* <Faqs /> */}
