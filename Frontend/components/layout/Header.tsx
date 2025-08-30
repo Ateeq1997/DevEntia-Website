@@ -91,7 +91,7 @@ const Header: React.FC = () => {
               <div className="flex flex-row items-center gap-10">
                 <Link
                   href={'/Careers'}
-                  className="flex items-center gap-2 flex-wrap  hover:bg-white hover:scale-110 transition-all duration-700 ease-in-out w-fit"
+                  className="flex items-center gap-2 flex-wrap  w-fit"
                 >
                  Careers
                   
