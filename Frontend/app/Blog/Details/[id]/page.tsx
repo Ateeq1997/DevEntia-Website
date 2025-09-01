@@ -1,8 +1,8 @@
 import Blogscard from "../../../../components/Blog/cards"  ;
-import Content from "../../../../assets/admin/content";
-import Hero from "../../../../components/Blog/Details/hero";
-import Footer from "../../../../components/layout/Footer";
-import Navbar from "../../../../components/layout/Navbar";
+import Content from "../../../../components/Blog/Details/content";
+// import Hero from "../../../../components/Blog/Details/hero";
+// import Footer from "../../../../components/layout/Footer";
+// import Navbar from "../../../../components/layout/Navbar";
 
 
 const Details =()=>{

@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import blogItems from "../blogItems.json"; 
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -34,49 +33,50 @@ useEffect(() => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(data.blogDescription, "text/html");
 
-      const allH1s = Array.from(doc.querySelectorAll("h1"));
-      
-      const standaloneH1s = allH1s.filter((h1) => {
-        const text = h1.textContent?.trim();
+      // ✅ Grab all h1, h2, h3
+      const allHeadings = Array.from(doc.querySelectorAll("h1, h2, h3"));
+
+      const standaloneHeadings = allHeadings.filter((heading) => {
+        const text = heading.textContent?.trim();
         if (!text) return false;
-        
-        const isInsideList = h1.closest("ul, ol, li") !== null;
+
+        // Exclude if inside a list
+        const isInsideList = heading.closest("ul, ol, li") !== null;
         if (isInsideList) return false;
-        
-        const parent = h1.parentElement;
+
+        const parent = heading.parentElement;
         if (parent && parent !== doc.body) {
-          // Check if the parent contains both this h1 and list elements
+          // Exclude if parent contains lists
           const siblingLists = parent.querySelectorAll("ul, ol");
           if (siblingLists.length > 0) {
-            // This h1 is in the same container as lists, likely part of list content
             return false;
           }
         }
-        
+
         return true;
       });
 
-      const outline = standaloneH1s
-        .map((h1) => {
-          const text = h1.textContent?.trim();
+      const outline = standaloneHeadings
+        .map((heading, index) => {
+          const text = heading.textContent?.trim();
           if (!text) return null;
 
-          // Create a clean ID from the text
+          // Clean ID from heading text
           const id = text
             .toLowerCase()
             .replace(/\s+/g, "-")
             .replace(/[^\w-]/g, "")
-            .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
-          
-          // Set the ID on the h1 element for anchor linking
-          h1.id = id;
-          
-          return { 
-            label: text, 
-            href: `#${id}` 
+            .replace(/^-+|-+$/g, "");
+
+          heading.id = id; // Set ID for anchor linking
+
+          return {
+            label: text,
+            href: `#${id}`,
+            level: heading.tagName.toLowerCase(), // "h1" | "h2" | "h3"
           };
         })
-        .filter(Boolean); // Remove any null entries
+        .filter(Boolean);
 
       // Update the HTML with the modified h1 elements (now with IDs)
       data.blogDescription = doc.body.innerHTML;
@@ -119,7 +119,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="relative w-full max-w-[1750px] px-4 md:px-6  mx-auto  py-8 bg-white  ">
+    <div className="relative w-full max-w-[1750px] px-4 md:px-6  mx-auto  py-8 bg-black   ">
       <div      
        onClick={() => router.back()}
          className="absolute left-6 w-12 h-12 flex item-center justify-center top-[-18px] z-10 bg-[#358E92] rounded-full p-4 shadow-lg lg:hidden " >
@@ -128,12 +128,12 @@ useEffect(() => {
        <div className="flex flex-col lg:flex-row gap-8 pr-0 lg:pr-10 ">
       {/* Sidebar */}
       <div className="lg:w-1/3 hidden lg:block">
-        <div className="bg-[#F9F9F9] py-12 px-12 rounded-lg sticky top-24">
-        <h3 className="text-lg text-[#0A0D12] font-semibold mb-4">Share this post</h3>
+        <div className="bg-[black] py-12 px-12 rounded-lg sticky top-24">
+        <h3 className="text-lg text-[white] font-semibold mb-4">Share this post hello</h3>
            <div className="flex flex-row items-center gap-3 mb-6">
            <div
     onClick={() => {
-      const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`;
+      const url = `=${encodeURIComponent(window.location.href)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
     className="w-10 h-10 flex items-center justify-center p-3 bg-[#358E92] rounded-full cursor-pointer"
@@ -143,7 +143,7 @@ useEffect(() => {
   </div>
                 <div
     onClick={() => {
-      const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+      const url = `=${encodeURIComponent(window.location.href)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
     className="w-10 h-10 flex items-center justify-center p-2 bg-[#358E92] rounded-full cursor-pointer"
@@ -162,7 +162,7 @@ useEffect(() => {
   </div> */}
   <button
   onClick={() => {
-    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+    const shareUrl = `=${encodeURIComponent(
       window.location.href
     )}`;
     window.open(shareUrl, "_blank", "noopener,noreferrer");
@@ -174,7 +174,7 @@ useEffect(() => {
 </button>
 
            </div>
-             <h3 className="text-lg text-[#0A0D12] font-semibold mb-4">On This Page</h3>
+             <h3 className="text-lg text-[white] font-semibold mb-4">On This Page</h3>
              <ol className="list-decimal list-outside pl-8 space-y-2 text-[#358E92] marker:text-[#358E92] font-semibold text-[16px]">
              {blog?.outline?.length > 0 ? (
     blog.outline.map((item: any, index: number) => (
@@ -223,9 +223,9 @@ useEffect(() => {
 
         {/* Main Content */}
        {/* Main Content */}
-<div className="lg:flex-1">
+<div className="lg:flex-1 lg:mt-20 mt-10">
 {blog ? (
-  <div className="max-w-none text-gray-800">
+  <div className="max-w-none text-white">
     <div 
       className="blog-content-container"
       dangerouslySetInnerHTML={{ __html: blog.blogDescription }}
@@ -350,7 +350,7 @@ useEffect(() => {
     className="w-10 h-10 flex items-center justify-center p-2 bg-[#358E92] rounded-full cursor-pointer"
     title="Share on Facebook"
   >
-    <img src="/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
+    <img src="/Insights/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
   </div>
   
 {/*<div
@@ -371,11 +371,11 @@ useEffect(() => {
   className="w-10 h-10 flex items-center justify-center p-2 bg-[#358E92] rounded-full cursor-pointer transition-colors"
   title="Share on LinkedIn"
 >
-  <img src="./in.svg" alt="LinkedIn Icon" className="w-full h-full object-contain" />
+  <img src="/Insights/in.svg" alt="LinkedIn Icon" className="w-full h-full object-contain" />
 </button>
 
            </div>
-             <h3 className="text-lg text-[#0A0D12] font-semibold mb-4 text-center ">On This Page</h3>
+             <h3 className="text-lg text-[white] font-semibold mb-4 text-center ">On This Page</h3>
              <ol className="list-decimal list-outside pl-8 space-y-2 text-[#358E92] marker:text-[#358E92] font-semibold">
              {blog?.outline?.length > 0 ? (
     blog.outline.map((item: any, index: number) => (
