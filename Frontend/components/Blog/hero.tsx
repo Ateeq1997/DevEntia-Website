@@ -49,13 +49,29 @@ const Hero = () => {
               }`}>
                 <div className="relative animate-pulse">
                   <span className="pointer-events-none absolute -inset-2 rounded-full bg-white/25 blur-md" />
-                  <button aria-label="Previous" className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-[#0A0D12] flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 hover:scale-110">
+                  <button
+                    aria-label="Previous"
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new CustomEvent('BLOG_SLIDE', { detail: { direction: 'left' } }));
+                      }
+                    }}
+                    className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-[#0A0D12] flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 hover:scale-110"
+                  >
                     <span className="text-xl md:text-2xl">←</span>
                   </button>
                 </div>
                 <div className="relative animate-pulse">
                   <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#4A55FF]/35 blur-md" />
-                  <button aria-label="Next" className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#4A55FF] text-white flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 hover:scale-110">
+                  <button
+                    aria-label="Next"
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new CustomEvent('BLOG_SLIDE', { detail: { direction: 'right' } }));
+                      }
+                    }}
+                    className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#4A55FF] text-white flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 hover:scale-110"
+                  >
                     <span className="text-xl md:text-2xl">→</span>
                   </button>
                 </div>

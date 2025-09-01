@@ -23,10 +23,15 @@ const stripHtml = (html: string) => {
   return '';
 };
 
-const Blogscard = () => {
+type BlogscardProps = { showAll?: boolean };
+
+const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
   const [blogs, setBlogs] = useState<BlogItem[]>([]);
   const [visibleCount, setVisibleCount] = useState(2);
+  const [pageStartIndex, setPageStartIndex] = useState(0);
+  const [cardsPerPage, setCardsPerPage] = useState(4);
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  const [animDirection, setAnimDirection] = useState<"left" | "right" | null>(null);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -48,15 +53,36 @@ const Blogscard = () => {
     const handleResize = () => {
       const isSmall = window.innerWidth < 1024;
       setIsMobileOrTablet(isSmall);
-      if (!isSmall) {
-        setVisibleCount(blogs.length);
-      }
+      // compute cards per page by breakpoint (approx columns)
+      const perPage = window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : 2;
+      setCardsPerPage(perPage);
+      if (!isSmall || showAll) setVisibleCount(blogs.length);
     };
 
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [blogs.length]);
+
+  // Listen for slide events from hero arrows
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const direction = (e as CustomEvent).detail?.direction as 'left' | 'right' | undefined;
+      if (!direction || blogs.length === 0) return;
+      setAnimDirection(direction);
+      const totalPages = Math.max(1, Math.ceil(blogs.length / cardsPerPage));
+      const currentPage = Math.floor(pageStartIndex / cardsPerPage);
+      let nextPage = direction === 'right' ? currentPage + 1 : currentPage - 1;
+      if (nextPage < 0) nextPage = totalPages - 1;
+      if (nextPage >= totalPages) nextPage = 0;
+      const nextStart = nextPage * cardsPerPage;
+      setPageStartIndex(nextStart);
+      if (isMobileOrTablet) setVisibleCount(Math.min(nextStart + cardsPerPage, blogs.length));
+      window.setTimeout(() => setAnimDirection(null), 400);
+    };
+    window.addEventListener('BLOG_SLIDE', handler as EventListener);
+    return () => window.removeEventListener('BLOG_SLIDE', handler as EventListener);
+  }, [blogs.length, cardsPerPage, pageStartIndex, isMobileOrTablet]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -71,18 +97,18 @@ const Blogscard = () => {
       <div className="relative">
         <div 
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6 ${
-            isMobileOrTablet && visibleCount < blogs.length ? 'overflow-hidden' : ''
+            !showAll && isMobileOrTablet && visibleCount < blogs.length ? 'overflow-hidden' : ''
           }`}
           style={{
-            maxHeight: isMobileOrTablet && visibleCount < blogs.length 
+            maxHeight: !showAll && isMobileOrTablet && visibleCount < blogs.length 
               ? `${Math.ceil(visibleCount / 2) * 400 + Math.ceil(visibleCount / 2) * 16}px` 
               : 'none'
           }}
         >
-          {blogs.slice(0, visibleCount).map((item) => (
+          {(showAll ? blogs : blogs.slice(isMobileOrTablet ? 0 : pageStartIndex, isMobileOrTablet ? visibleCount : pageStartIndex + cardsPerPage)).map((item, idx) => (
             <Link href={`/Blog/Details/${item._id}`} key={item._id}>
               <div
-                className="relative bg-[#0A0D12] border border-gray-500 p-4 rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.06)] w-full h-[380px] sm:h-[400px] md:h-[420px] lg:h-[450px] flex flex-col group transition-all duration-300 hover:scale-105"
+                className={`relative bg-[#0A0D12] border border-gray-500 p-4 rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.06)] w-full h-[380px] sm:h-[400px] md:h-[420px] lg:h-[450px] flex flex-col group transition-all duration-300 hover:scale-105 ${!showAll && (animDirection === 'right' ? 'animate-slide-in-right' : animDirection === 'left' ? 'animate-slide-in-left' : '')}`}
               >
                 <div className="mb-4 h-[160px] sm:h-[180px] md:h-[200px] lg:h-[220px] overflow-hidden rounded-lg">
                   <Image
@@ -116,7 +142,7 @@ const Blogscard = () => {
         </div>
 
         {/* ✅ Show More button for mobile */}
-        {isMobileOrTablet && visibleCount < blogs.length && (
+        {!showAll && isMobileOrTablet && visibleCount < blogs.length && (
           <div className="absolute inset-x-0 bottom-0 flex justify-center">
             <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#0A0D12] via-[#0A0D12] to-transparent pointer-events-none" />
             <div className="-mt-32">
@@ -150,6 +176,21 @@ const styles = `
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s ease-out both;
+  }
+  .animate-slide-in-left {
+    animation: slide-in-left 0.4s ease-out both;
   }
 `;
 

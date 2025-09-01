@@ -13,9 +13,9 @@ const Details =()=>{
           {/* <Hero/> */}
           <Content/>
          <div className="bg-[black] max-w-[1750px] mx-auto">
-          <h1 className="text-[20px] lg:text-[32px] font-bold text-[white] lg:pl-24 pt-8 text-center lg:!text-left" >Continue Reading</h1>
+          <h1 className="text-[20px] lg:text-[32px] font-bold text-[white ] lg:pl-24 pt-8 text-center lg:!text-left" >Continue Reading</h1>
           <div className="mt-20">
-          <Blogscard/>
+          <Blogscard showAll />
 
           </div>
          </div>
