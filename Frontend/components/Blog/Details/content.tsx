@@ -133,23 +133,23 @@ useEffect(() => {
            <div className="flex flex-row items-center gap-3 mb-6">
            <div
     onClick={() => {
-      const url = `=${encodeURIComponent(window.location.href)}`;
+      const url = `https://www.instagram.com/deventiatech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
     className="w-10 h-10 flex items-center justify-center p-3 bg-[#4848FF] rounded-full cursor-pointer"
     title="Share on Twitter"
   >
-    <img src="/Insights/insta.svg" alt="Twitter" className="w-full h-full object-contain" />
+    <img src="/Insights/in.svg" alt="Twitter" className="w-full h-full object-contain" />
   </div>
                 <div
     onClick={() => {
-      const url = `=${encodeURIComponent(window.location.href)}`;
+      const url = `https://www.instagram.com/deventiatech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
     className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer"
-    title="Share on Facebook"
+    title="Open Instagram"
   >
-    <img src="/Insights/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
+    <img src="/Insights/insta.svg" alt="Instagram" className="w-full h-full object-contain" />
   </div>
   
 {/*<div
@@ -162,15 +162,13 @@ useEffect(() => {
   </div> */}
   <button
   onClick={() => {
-    const shareUrl = `=${encodeURIComponent(
-      window.location.href
-    )}`;
+    const shareUrl = `https://www.facebook.com/profile.php?id=61555020486889`;
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   }}
   className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer transition-colors"
-  title="Share on LinkedIn"
+  title="Open Facebook"
 >
-  <img src="/Insights/in.svg" alt="LinkedIn Icon" className="w-full h-full object-contain" />
+  <img src="/Insights/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
 </button>
 
            </div>
@@ -343,23 +341,23 @@ useEffect(() => {
            <div className="flex flex-row items-center justify-center gap-3 mb-6">
            <div
     onClick={() => {
-      const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`;
+      const url = `https://www.linkedin.com/company/deventia-tech-pvt-ltd/posts/?feedView=all`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
     className="w-10 h-10 flex items-center justify-center p-3 bg-[#4848FF] rounded-full cursor-pointer"
-    title="Share on Twitter"
+    title="Share on LinkedIn"
   >
-    <img src="/Insights/insta.svg" alt="Twitter" className="w-full h-full object-contain" />
+    <img src="/Insights/in.svg" alt="LinkedIn" className="w-full h-full object-contain" />
   </div>
                 <div
     onClick={() => {
-      const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+      const url = `https://www.linkedin.com/company/deventia-tech-pvt-ltd/posts/?feedView=all`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
     className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer"
-    title="Share on Facebook"
+    title="Open Instagram"
   >
-    <img src="/Insights/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
+    <img src="/Insights/insta.svg" alt="Instagram" className="w-full h-full object-contain" />
   </div>
   
 {/*<div
@@ -372,15 +370,13 @@ useEffect(() => {
   </div> */}
   <button
   onClick={() => {
-    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-      window.location.href
-    )}`;
+    const shareUrl = `https://www.facebook.com/profile.php?id=61555020486889`;
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   }}
   className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer transition-colors"
-  title="Share on LinkedIn"
+  title="Open Facebook"
 >
-  <img src="/Insights/in.svg" alt="LinkedIn Icon" className="w-full h-full object-contain" />
+  <img src="/Insights/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
 </button>
 
            </div>
