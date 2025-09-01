@@ -76,14 +76,15 @@ const Ourportfolio = () => {
                 Development. Jan 19, 2024
               </p>
             </div>
-            <Link
-              href={"/Our-Portfolio/Projects/RS-Global-Ties"}
-             className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full hover:bg-white hover:text-[#4848FF] transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
-            >
-              <p className="text-white flex items-center gap-3">
-                See Project <FaArrowRightLong />
-              </p>
-            </Link>
+           <Link
+  href={"/Our-Portfolio/Projects/RS-Global-Ties"}
+  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)] hover:bg-white group"
+>
+  <p className="text-white flex items-center gap-3 group-hover:text-[#4848FF]">
+    See Project <FaArrowRightLong />
+  </p>
+</Link>
+
           </div>
         </div>
 
@@ -105,9 +106,9 @@ const Ourportfolio = () => {
             </div>
            <Link
   href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full hover:bg-white hover:text-[#4848FF] transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
+  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)] hover:bg-white group"
 >
-  <span className="flex items-center gap-3 text-white hover:text-[#4848FF]">
+  <span className="flex items-center gap-3 text-white group-hover:text-[#4848FF]">
     See Project <FaArrowRightLong />
   </span>
 </Link>
@@ -130,14 +131,15 @@ const Ourportfolio = () => {
                 Development. Jan 19, 2025
               </p>
             </div>
-           <Link
+          <Link
   href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full hover:bg-white hover:text-[#4848FF] transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
+  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)] hover:bg-white group"
 >
-  <span className="flex items-center gap-3 text-white hover:text-[#4848FF]">
+  <span className="flex items-center gap-3 text-white group-hover:text-[#4848FF]">
     See Project <FaArrowRightLong />
   </span>
 </Link>
+
 
           </div>
         </div>

@@ -105,23 +105,23 @@ const Tech =()=>{
              <h1 className="text-center font-bold text-[32px] lg:text-[63px]">Cloud Capabilities</h1>
              <p className="text-[#B8BBD2] text-[16px] text-center">Backed by AWS, our platform guarantees high reliability and scalability. We leverage Docker and Kubernetes to<br/> simplify containerization and orchestration, enabling seamless deployment workflows.</p>
            <div className="flex flex-col items-center justify-center gap-6 md:gap-24 md:flex-row  mt-16 mb-16 justify-items-center auto-rows-min">
-  <div className="flex flex-row items-center gap-6">
+  <div className="flex flex-row items-center gap-8">
 <img
     src="/home/aws.png"
     alt="AWS"
-    className="w-30 h-30 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-32 h-32 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
   <img
     src="/home/cloud.png"
     alt="Cloud"
-    className="w-32 h-32 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-36 h-36 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
   </div>
-  <div className="flex flex-row items-center gap-6">
+  <div className="flex flex-row items-center gap-8">
   <img
     src="/home/Kubernetes.png"
     alt="Kubernetes"
-    className="w-32 h-32 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-36 h-36 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
   <img
     src="/home/docker.png"
@@ -140,28 +140,28 @@ const Tech =()=>{
   <img
     src="/home/prediactiveanalysis.png"
     alt="AWS"
-    className="w-36 h-36 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-32 h-32 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
   <img
     src="/home/dl.png"
     alt="Cloud"
-    className="w-26 h-26 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-24 h-24 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
   <img
     src="/home/cv.png"
     alt="Kubernetes"
-    className="w-30 h-30 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-28 h-28 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
 
   <img
     src="/home/da.png"
     alt="Docker"
-    className="w-26 h-26 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-24 h-24 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
     <img
     src="/home/Aisol.png"
     alt="Kubernetes"
-    className="w-26 h-26 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+    className="w-24 h-24 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
   />
   <img
     src="/home/chatbot.png"
@@ -173,22 +173,25 @@ const Tech =()=>{
 
                <h1 className="text-center font-bold text-[32px] lg:text-[63px]">Blockchain Distributed Ledgert</h1>
              <p className="text-[#B8BBD2] text-[16px] text-center">Backed by AWS, our platform guarantees high reliability and scalability. We leverage Docker and Kubernetes to<br/> simplify containerization and orchestration, enabling seamless deployment workflows.</p>
-               <div className="flex items-center justify-center gap-12 flex-row  mt-16 mb-6  items-center auto-rows-min">
-  <img
-    src="/home/BI.png"
-    alt="AWS"
-    className="w-26 h-26 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
-  />
-  <img
-    src="/home/sm.png"
-    alt="Cloud"
-    className="w-26 h-26 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
-  />
-  <img
-    src="/home/NLP.png"
-    alt="Kubernetes"
-    className="w-24 h-24 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
-  />
+               <div className="place-items-center flex flex-col md:flex-row  items-center justify-center gap-12 flex-row  mt-16 mb-6  items-center auto-rows-min">
+                 <div className="flex flex-row items-center gap-12">
+                 
+                   <img
+                     src="/home/BI.png"
+                     alt="AWS"
+                     className="w-26 h-26 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+                   />
+                   <img
+                     src="/home/sm.png"
+                     alt="Cloud"
+                     className="w-32 h-32 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+                   />
+                   </div>
+                   <img
+                     src="/home/NLP.png"
+                     alt="Kubernetes"
+                     className="w-26 h-26 object-contain transform transition-transform duration-700 ease-in-out hover:scale-110"
+                   />
 
               </div>    
         </div>
