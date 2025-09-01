@@ -119,7 +119,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="relative w-full max-w-[1750px] px-4 md:px-6  mx-auto  py-8 bg-black   ">
+    <div className="relative w-full max-w-[1750px] px-4 md:px-6  mx-auto  py-8 bg-black  " style={{ fontFamily: '"Bai Jamjuree", serif' }}>
       <div      
        onClick={() => router.back()}
          className="absolute left-6 w-12 h-12 flex item-center justify-center top-[-18px] z-10 bg-[#358E92] rounded-full p-4 shadow-lg lg:hidden " >
@@ -136,17 +136,17 @@ useEffect(() => {
       const url = `=${encodeURIComponent(window.location.href)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
-    className="w-10 h-10 flex items-center justify-center p-3 bg-[#358E92] rounded-full cursor-pointer"
+    className="w-10 h-10 flex items-center justify-center p-3 bg-[#4848FF] rounded-full cursor-pointer"
     title="Share on Twitter"
   >
-    <img src="/Insights/x.svg" alt="Twitter" className="w-full h-full object-contain" />
+    <img src="/Insights/insta.svg" alt="Twitter" className="w-full h-full object-contain" />
   </div>
                 <div
     onClick={() => {
       const url = `=${encodeURIComponent(window.location.href)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
-    className="w-10 h-10 flex items-center justify-center p-2 bg-[#358E92] rounded-full cursor-pointer"
+    className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer"
     title="Share on Facebook"
   >
     <img src="/Insights/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
@@ -167,19 +167,19 @@ useEffect(() => {
     )}`;
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   }}
-  className="w-10 h-10 flex items-center justify-center p-2 bg-[#358E92] rounded-full cursor-pointer transition-colors"
+  className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer transition-colors"
   title="Share on LinkedIn"
 >
   <img src="/Insights/in.svg" alt="LinkedIn Icon" className="w-full h-full object-contain" />
 </button>
 
            </div>
-             <h3 className="text-lg text-[white] font-semibold mb-4">On This Page</h3>
-             <ol className="list-decimal list-outside pl-8 space-y-2 text-[#358E92] marker:text-[#358E92] font-semibold text-[16px]">
+             <h3 className="text-lg text-[#C8CFD5] font-semibold mb-4">On This Page</h3>
+             <ol className="list-decimal list-outside pl-8 space-y-2 text-white marker:text-white font-semibold text-[16px]">
              {blog?.outline?.length > 0 ? (
     blog.outline.map((item: any, index: number) => (
       <li key={index}>
-        <a href={item.href} className="text-[#358E92] hover:underline text-[16px]">
+        <a href={item.href} className="text-[#C8CFD5] hover:underline text-[16px]">
           {item.label}
         </a>
       </li>
@@ -198,7 +198,7 @@ useEffect(() => {
                 <input
                   type="email"
                   placeholder="Subscribe to our newsletter"
-                  className="p-3 rounded-lg border border-[#F4F5F7] bg-[#ECEBEF] text-[#9995AC] outline-none flex-1 text-[12px]"
+                  className="p-3 rounded-full border border-[#FFFFFF40] bg-transparent text-[#9995AC] outline-none flex-1 text-[12px] px-6 "
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -206,8 +206,12 @@ useEffect(() => {
                 />
                 <button
                   type="submit"
-                  className="text-[12px] border border-[#9995AC] p-2 rounded-lg px-3 text-[#9995AC] hover:bg-gray-50 transition-colors"
+                  className="text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF]"
+                  style={{
+                    boxShadow: "0 0 5px 2px #4848FF, 0 0 0 0 #fff"
+                  }}
                   disabled={submitting}
+                  
                 >
                   {submitting ? "Subscribing..." : "Subscribe"}
                 </button>
@@ -319,9 +323,14 @@ useEffect(() => {
 )}
                        
           {/* CTA Button */}
-          <div className="mt-8 flex items-center justify-center  lg:!justify-start">
+          <div className="mt-8 flex items-center justify-center lg:!justify-start">
             <Link href="/Book-a-demo">
-              <button className="cursor-pointer bg-[#FDB022] text-sm text-black font-medium px-6 py-3 rounded-md hover:scale-105 transition-transform">
+              <button
+                className="cursor-pointer bg-[#4848FF] text-sm text-white font-medium px-6 py-3 rounded-full hover:scale-105 transition-transform shadow-[0_0_16px_4px_rgba(72,72,255,0.5)]"
+                style={{
+                  boxShadow: "0 0 20px 4px #4848FF, 0 0 0 0 #fff"
+                }}
+              >
                 Book a Demo
               </button>
             </Link>
@@ -329,25 +338,25 @@ useEffect(() => {
         </div>
 
         <div className=" w-full lg:hidden">
-        <div className=" bg-[#F9F9F9] p-6 rounded-lg">
-        <h3 className="text-lg text-[#0A0D12] font-semibold mb-4 text-center ">Share this post</h3>
+        <div className=" bg-[black] p-6 rounded-lg">
+        <h3 className="text-lg text-white font-semibold mb-4 text-center ">Share this post</h3>
            <div className="flex flex-row items-center justify-center gap-3 mb-6">
            <div
     onClick={() => {
       const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
-    className="w-10 h-10 flex items-center justify-center p-3 bg-[#358E92] rounded-full cursor-pointer"
+    className="w-10 h-10 flex items-center justify-center p-3 bg-[#4848FF] rounded-full cursor-pointer"
     title="Share on Twitter"
   >
-    <img src="/Insights/x.svg" alt="Twitter" className="w-full h-full object-contain" />
+    <img src="/Insights/insta.svg" alt="Twitter" className="w-full h-full object-contain" />
   </div>
                 <div
     onClick={() => {
       const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
-    className="w-10 h-10 flex items-center justify-center p-2 bg-[#358E92] rounded-full cursor-pointer"
+    className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer"
     title="Share on Facebook"
   >
     <img src="/Insights/fb.svg" alt="Facebook" className="w-full h-full object-contain" />
@@ -368,19 +377,19 @@ useEffect(() => {
     )}`;
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   }}
-  className="w-10 h-10 flex items-center justify-center p-2 bg-[#358E92] rounded-full cursor-pointer transition-colors"
+  className="w-10 h-10 flex items-center justify-center p-2 bg-[#4848FF] rounded-full cursor-pointer transition-colors"
   title="Share on LinkedIn"
 >
   <img src="/Insights/in.svg" alt="LinkedIn Icon" className="w-full h-full object-contain" />
 </button>
 
            </div>
-             <h3 className="text-lg text-[white] font-semibold mb-4 text-center ">On This Page</h3>
-             <ol className="list-decimal list-outside pl-8 space-y-2 text-[#358E92] marker:text-[#358E92] font-semibold">
+             <h3 className="text-lg text-[#C8CFD5] font-semibold mb-4 text-center ">On This Page</h3>
+             <ol className="list-decimal list-outside pl-8 space-y-2 text-white marker:text-white font-semibold">
              {blog?.outline?.length > 0 ? (
     blog.outline.map((item: any, index: number) => (
       <li key={index}>
-        <a href={item.href} className="text-[#358E92] hover:underline text-[14px]">
+        <a href={item.href} className="text-[#C8CFD5] hover:underline text-[16px]">
           {item.label}
         </a>
       </li>
@@ -399,7 +408,7 @@ useEffect(() => {
                 <input
                   type="email"
                   placeholder="Subscribe to our newsletter"
-                  className="p-3 rounded-lg border border-[#F4F5F7] bg-[#ECEBEF] text-[#9995AC] outline-none flex-1 text-[12px]"
+                  className="p-3 rounded-full border border-[#FFFFFF40] bg-transparent text-[#9995AC] outline-none flex-1 text-[12px] px-6"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -407,7 +416,10 @@ useEffect(() => {
                 />
                 <button
                   type="submit"
-                  className="text-[12px] border border-[#9995AC] p-2 rounded-lg px-3 text-[#9995AC] hover:bg-gray-50 transition-colors"
+                  className="text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF]"
+                  style={{
+                    boxShadow: "0 0 20px 4px #4848FF, 0 0 0 0 #fff"
+                  }}
                   disabled={submitting}
                 >
                   {submitting ? "Subscribing..." : "Subscribe"}

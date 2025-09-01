@@ -106,7 +106,7 @@ const Blogscard = () => {
                   <p className="text-[12px] sm:text-[14px] md:text-[16px] text-white/80 cursor-pointer flex items-center gap-1 hover:text-white transition-colors">
                     Read More <span aria-hidden>↗</span>
                   </p>
-                  <span className="text-[10px] sm:text-[12px] md:text-[14px] bg-white text-black px-3 py-1.5 rounded-md">
+                  <span className="text-[10px] sm:text-[12px] md:text-[14px]  text-white px-3 py-1.5 rounded-md">
                     {formatDate(item.createdAt)}
                   </span>
                 </div>
