@@ -1,3 +1,4 @@
+/* eslint-disable */
 import HeroSection from '@/components/home/HeroSection';
 import ITProcesses from '@/components/home/ITProcesses';
 import OurExpertise from '@/components/home/OurExpertise';
@@ -13,13 +14,13 @@ import Contact from '@/components/home/contact';
 import Tech from '@/components/home/tech';
 
 export const metadata: Metadata = {
-  title: 'DevEntia Tech Pvt. Ltd',
+  title: 'Empowering Businesses with Cutting-Edge Website, App & AI Solutions',
   description:
-    'Welcome to DevEntia Tech Pvt. Ltd, your leading partner in web development, app development, and AI solutions. Discover how our innovative technology can transform your business.',
+    'DevEntia Tech is your partner for digital transformation. DevEntia Tech specializes in building modern, secure, and innovative websites, custom mobile apps, and powerful AI/ML tools. DevEntia Tech\'s IT and cloud solutions are designed to help businesses of all sizes scale efficiently, improve operations, and achieve sustainable growth in a competitive digital landscape.',
   openGraph: {
-    title: 'DevEntia Tech Pvt. ',
+    title: 'Empowering Businesses with Cutting-Edge Website, App & AI Solutions ',
     description:
-      'Welcome to DevEntia Tech Pvt. Ltd, your leading partner in web development, app development, and AI solutions. Discover how our innovative technology can transform your business.',
+      'DevEntia Tech is your partner for digital transformation. DevEntia Tech specializes in building modern, secure, and innovative websites, custom mobile apps, and powerful AI/ML tools. DevEntia Tech\'s IT and cloud solutions are designed to help businesses of all sizes scale efficiently, improve operations, and achieve sustainable growth in a competitive digital landscape.',
     siteName: 'DevEntia Tech Pvt. Ltd',
     images: [
       {
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <>
+   <>
       <HeroSection />
       {/* <Hero /> */}
       <WhyDeventia />
