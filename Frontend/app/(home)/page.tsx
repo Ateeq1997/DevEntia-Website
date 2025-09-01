@@ -12,6 +12,9 @@ import { Metadata } from 'next';
 import Reviews from '@/components/home/Reviews';
 import Contact from '@/components/home/contact';
 import Tech from '@/components/home/tech';
+import Hero from '@/components/Blog/hero';
+import Blogscard from '@/components/Blog/cards';
+
 
 export const metadata: Metadata = {
   title: 'Empowering Businesses with Cutting-Edge Website, App & AI Solutions',
@@ -49,9 +52,12 @@ const page = () => {
       <PositiveImpactSection />
       {/* <StatsAndPartners /> */}
       <ITProcesses />
+      <Hero/>
+      <Blogscard/>
       <Reviews />
       <Tech/>
       <Contact />
+
       {/* <Testimonial /> */}
       {/* <Portfolio /> */}
       {/* <Faqs /> */}

@@ -5,11 +5,45 @@ import Head from 'next/head';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'DeventiaTech Limited',
-  description: 'DeventiaTech Pvt Limited - Scripting Future Technologies',
+  title: 'DevEntia Tech | Website, Mobile App & AI Solutions for Businesses',
+  description: 'We build modern websites, mobile apps, AI/ML tools, and cloud solutions. DevEntia Tech helps businesses of all sizes scale efficiently, improve operations, and achieve sustainable growth in a competitive digital landscape.',
+  keywords: 'DevEntia Tech, web development, mobile app development, AI solutions, cloud solutions, digital transformation, business technology',
+  authors: [{ name: 'DevEntia Tech' }],
+  creator: 'DevEntia Tech',
+  publisher: 'DevEntia Tech',
+  robots: 'index, follow',
   icons: {
-    icon: '../public/favicon.ico',
-    apple: 'apple-icon.png',
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+  openGraph: {
+    title: 'DevEntia Tech | Website, Mobile App & AI Solutions for Businesses',
+    description: 'We build modern websites, mobile apps, AI/ML tools, and cloud solutions. DevEntia Tech helps businesses of all sizes scale efficiently, improve operations, and achieve sustainable growth in a competitive digital landscape.',
+    siteName: 'DevEntia Tech',
+    type: 'website',
+    url: 'https://deventiatech.com',
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dhsgpxu04/image/upload/v1722603971/home-hero_zyqkwj.png',
+        width: 1200,
+        height: 630,
+        alt: 'DevEntia Tech - Innovative Technology Solutions',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@deventiatech',
+    creator: '@deventiatech',
+    title: 'DevEntia Tech | Website, Mobile App & AI Solutions for Businesses',
+    description: 'We build modern websites, mobile apps, AI/ML tools, and cloud solutions. DevEntia Tech helps businesses of all sizes scale efficiently, improve operations, and achieve sustainable growth in a competitive digital landscape.',
+    images: ['https://res.cloudinary.com/dhsgpxu04/image/upload/v1722603971/home-hero_zyqkwj.png'],
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  alternates: {
+    canonical: 'https://deventiatech.com',
   },
 };
 
