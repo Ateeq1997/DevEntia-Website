@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { FaUsers, FaUserCheck, FaMedal, FaClock, FaLaptopCode, FaRegComments } from "react-icons/fa";
 import Image from "next/image";
 const PositiveImpactSection = () => {
   const cards = [
