@@ -19,7 +19,9 @@ const Header: React.FC = () => {
     { title: "Home", path: "/" },
     { title: "Services", path: "/Services" },
     { title: "Portfolio", path: "" },
-    { title: "About Us", path: "/About-us" }
+    { title: "About Us", path: "/About-us" },
+    { title: "Blog", path: "/Blog" },
+    
   ];
 
   const handleScroll = () => {
