@@ -23,7 +23,7 @@ RUN mkdir -p /app/controller/applyforjob/upload \
  && chown -R app:app /app/controller
 USER app
 EXPOSE 4000
-HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=15s --start-period=30s --retries=5 \
   CMD wget --spider --quiet http://localhost:4000/health || exit 1
 CMD ["node", "server.js"]
 
@@ -37,5 +37,5 @@ COPY . .
 RUN mkdir -p /app/controller/applyforjob/upload
 EXPOSE 4000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-  CMD wget --spider --quiet http://localhost:4001/health || exit 1
-CMD ["npm", "run", "dev"]
+  CMD wget --spider --quiet http://localhost:4000/health || exit 1
+CMD ["node", "server.js"]
