@@ -168,7 +168,7 @@ const HeroSection = () => {
  <div className="flex gap-6 mt-20">
   <Link
     href={"/Contact-us"}
-    className="flex items-center gap-2 flex-wrap bg-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3  transition-all duration-700 ease-in-out "
+    className="flex items-center gap-2 flex-wrap bg-[#4848FF] hover:bg-blue-700 px-5 font-semibold text-[14px] md:text-[19px] py-3  transition-all duration-700 ease-in-out "
   >
     <p className=" text-white flex items-center ">Let&apos;s Connect</p>
   </Link>
