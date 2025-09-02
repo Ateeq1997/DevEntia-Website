@@ -44,7 +44,7 @@ ENV NODE_ENV=development
 RUN apk add --no-cache wget
 
 # Install dev dependencies
-RUN npm ci --include=dev
+RUN npm ci --omit=dev
 
 EXPOSE 3000
 

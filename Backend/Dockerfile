@@ -8,7 +8,7 @@ COPY package*.json ./
 
 # Stage 2: Development dependencies
 FROM base AS dev-deps
-RUN npm ci --include=dev
+RUN npm ci --omit=dev
 
 # Stage 3: Production dependencies
 FROM base AS prod-deps
