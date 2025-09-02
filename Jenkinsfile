@@ -2,17 +2,23 @@ pipeline {
     agent any
 
     environment {
-        DEPLOY_DIR = "/var/www/devEntiaWebsite"
-        COMPOSE_PROJECT_NAME = "deventia-website-version-02"
+        // Set environment based on branch
+        ENV_NAME = "${env.BRANCH_NAME == 'production' ? 'prod' : 'dev'}"
+        DEPLOY_DIR = "${env.BRANCH_NAME == 'production' ? '/var/www/devEntiaWebsite' : '/var/www/devEntiaWebsite-dev'}"
+        COMPOSE_PROJECT_NAME = "${env.BRANCH_NAME == 'production' ? 'deventia-website-version-02' : 'deventia-website-dev'}"
         COMPOSE_FILE = "${DEPLOY_DIR}/docker-compose.yml"
-        BUILD_TAG = "build-${BUILD_NUMBER}" // Automatic image tag per build
+        BUILD_TAG = "build-${BUILD_NUMBER}"
+        
+        // Different ports for each environment
+        BACKEND_PORT = "${env.BRANCH_NAME == 'production' ? '4000' : '4001'}"
+        FRONTEND_PORT = "${env.BRANCH_NAME == 'production' ? '3000' : '3001'}"
     }
 
     stages {
         stage('Checkout') {
             steps {
                 checkout scmGit(
-                    branches: [[name: '*/production']],
+                    branches: [[name: "*/${env.BRANCH_NAME}"]],
                     extensions: [],
                     userRemoteConfigs: [[
                         credentialsId: 'abdul_git_repo_credentials',
@@ -35,15 +41,68 @@ pipeline {
             }
         }
 
+        stage('Generate Docker Compose') {
+            steps {
+                script {
+                    sh """
+                        cd $DEPLOY_DIR
+                        cat > docker-compose.yml << 'EOF'
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+      target: ${ENV_NAME}
+      args:
+        NODE_ENV: ${ENV_NAME == 'prod' ? 'production' : 'development'}
+    container_name: deventia_backend_${ENV_NAME}
+    ports:
+      - "${BACKEND_PORT}:4000"
+    restart: always
+    env_file:
+      - ${ENV_NAME == 'prod' ? '/home/ubuntu/deventia/.env' : '/home/ubuntu/deventia/.env.dev'}
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+      target: ${ENV_NAME}
+      args:
+        NODE_ENV: ${ENV_NAME == 'prod' ? 'production' : 'development'}
+    container_name: deventia_frontend_${ENV_NAME}
+    ports:
+      - "${FRONTEND_PORT}:3000"
+    restart: always
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+EOF
+                    """
+                }
+            }
+        }
+
         stage('Build Docker Images with Tag') {
             steps {
                 script {
                     sh """
                         cd $DEPLOY_DIR
-                        docker compose down || true
-                        docker compose build --no-cache
-                        docker tag deventia-website-version-02-backend deventia-website-version-02-backend:$BUILD_TAG
-                        docker tag deventia-website-version-02-frontend deventia-website-version-02-frontend:$BUILD_TAG
+                        docker compose -p $COMPOSE_PROJECT_NAME down || true
+                        docker compose -p $COMPOSE_PROJECT_NAME build --no-cache
+                        docker tag ${COMPOSE_PROJECT_NAME}-backend ${COMPOSE_PROJECT_NAME}-backend:$BUILD_TAG
+                        docker tag ${COMPOSE_PROJECT_NAME}-frontend ${COMPOSE_PROJECT_NAME}-frontend:$BUILD_TAG
                     """
                 }
             }
@@ -52,7 +111,6 @@ pipeline {
         stage('Clean Old Docker Images') {
             steps {
                 script {
-                    // Remove untagged and dangling images
                     sh 'docker image prune -af'
                 }
             }
@@ -63,7 +121,7 @@ pipeline {
                 script {
                     sh """
                         cd $DEPLOY_DIR
-                        docker compose up -d
+                        docker compose -p $COMPOSE_PROJECT_NAME up -d
                     """
                 }
             }
@@ -72,10 +130,10 @@ pipeline {
 
     post {
         success {
-            echo '🚀 Deployment successful via Docker Compose.'
+            echo "🚀 ${ENV_NAME} deployment successful via Docker Compose."
         }
         failure {
-            echo '❌ Deployment failed.'
+            echo "❌ ${ENV_NAME} deployment failed."
         }
     }
 }
