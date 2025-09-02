@@ -38,10 +38,26 @@ const GetInTouch = () => {
       });
 
       console.log('Success:', response.data);
-      toast.success('Message sent successfully');
-    } catch (error) {
+      // on success clear the form
+      setMessageData({
+        fullName: '',
+        senderEmail: '',
+        phoneNumber: '',
+        subject: '',
+        message: '',
+      });
+  
+      toast.success('🎉 Thank you for contacting us! We will get back to you shortly.');
+  
+      // Redirect after a short delay
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 4500);
+  
+    } catch (error: any) {
       console.error('Error:', error);
-      toast.error('All fields are required.');
+      toast.error(error.response.data.message || 'An error occurred');
+      
     }
   };
   return (

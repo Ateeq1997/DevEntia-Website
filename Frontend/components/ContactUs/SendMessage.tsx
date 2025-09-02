@@ -6,8 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import axiosInstance from '@/lib/axiosInstance';
 import { CiMail } from 'react-icons/ci';
 import { MdOutlineArrowOutward, MdOutlinePhone } from 'react-icons/md';
-
+import { useRouter } from 'next/navigation';
 import { CiLocationOn } from 'react-icons/ci';
+
 
 interface ContactFormData {
   fullName: string;
@@ -18,6 +19,7 @@ interface ContactFormData {
 }
 
 const ContactForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
     senderEmail: '',
@@ -44,8 +46,22 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
       });
-      toast.success('Message sent successfully');
-      console.log('Success:', response.data);
+      // on success clear the form
+      setFormData({
+        fullName: '',
+        senderEmail: '',
+        phoneNumber: '',
+        subject: '',
+        message: '',
+      });
+
+      toast.success('🎉 Thank you for contacting us! We will get back to you shortly.');
+  
+      // Redirect after a short delay
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 4500);
+     
     } catch (error) {
       console.error('Error:', error);
       toast.error('All fields are required.');
