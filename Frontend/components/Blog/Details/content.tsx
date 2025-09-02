@@ -138,7 +138,7 @@ useEffect(() => {
            <div className="flex flex-row items-center gap-3 mb-6">
            <div
     onClick={() => {
-      const url = `https://www.instagram.com/deventiatech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==`;
+      const url = `https://www.linkedin.com/company/deventia-tech-pvt-ltd/posts/?feedView=all`;
       window.open(url, "_blank", "noopener,noreferrer");
     }}
     className="w-10 h-10 flex items-center justify-center p-3 bg-[#4848FF] rounded-full cursor-pointer"
