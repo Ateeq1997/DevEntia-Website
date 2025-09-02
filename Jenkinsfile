@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // Set environment based on branch
+        // Set environment based on branch.
         ENV_NAME = "${env.BRANCH_NAME == 'production' ? 'prod' : 'dev'}"
         DEPLOY_DIR = "${env.BRANCH_NAME == 'production' ? '/var/www/devEntiaWebsite' : '/var/www/devEntiaWebsite-dev'}"
         COMPOSE_PROJECT_NAME = "${env.BRANCH_NAME == 'production' ? 'deventia-website-version-02' : 'deventia-website-dev'}"
