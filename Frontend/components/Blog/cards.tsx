@@ -93,7 +93,7 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
   };
 
   return (
-    <div className="max-w-[1750px] px-4 md:px-6 lg:px-12 2xl:px-24 lg:-mt-10 mt-5 lg:mb-1 mb-10  lg:pb-12 mx-auto text-white overflow-hidden">
+    <div className="max-w-[1750px] px-4 md:px-6 lg:px-12 2xl:px-24 lg:-mt-10 mt-5 lg:mb-1 mb-10  lg:pb-12 mx-auto text-white">
       <div className="relative">
         <div 
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6 ${
@@ -108,7 +108,7 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
           {(showAll ? blogs : blogs.slice(isMobileOrTablet ? 0 : pageStartIndex, isMobileOrTablet ? visibleCount : pageStartIndex + cardsPerPage)).map((item, idx) => (
             <Link href={`/Blog/Details/${item._id}`} key={item._id}>
               <div
-                className={`relative bg-[#0A0D12] border border-gray-500 p-4 rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.06)] w-full h-[380px] sm:h-[400px] md:h-[420px] lg:h-[450px] flex flex-col group transition-all duration-300 hover:scale-105 ${!showAll && (animDirection === 'right' ? 'animate-slide-in-right' : animDirection === 'left' ? 'animate-slide-in-left' : '')}`}
+                className={`relative bg-[#0A0D12] border border-gray-500 p-4 rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.06)] w-full h-[380px] sm:h-[400px] md:h-[420px] lg:h-[450px] flex flex-col group transition-all duration-300 hover:scale-105 transform-gpu ${!showAll && (animDirection === 'right' ? 'animate-slide-in-right' : animDirection === 'left' ? 'animate-slide-in-left' : '')}`}
               >
                 <div className="mb-4 h-[160px] sm:h-[180px] md:h-[200px] lg:h-[220px] overflow-hidden rounded-lg">
                   <Image

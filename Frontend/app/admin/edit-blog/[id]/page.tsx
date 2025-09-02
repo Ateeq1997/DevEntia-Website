@@ -110,14 +110,21 @@ const Page = () => {
       
       if (file) {
         formData.append('file', file);
+      } else if (blogId && fileUrl) {
+        // Preserve existing file on backend when no new file selected
+        formData.append('fileUrl', fileUrl);
       }
 
       if (blogId) {
         // Update existing blog
-        await axiosInstance.put(`/blog/${blogId}`, formData);
+        await axiosInstance.put(`/blog/${blogId}`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        });
       } else {
         // Create new blog
-        await axiosInstance.post('/blog', formData);
+        await axiosInstance.post('/blog', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        });
       }
 
       setShowSuccess(true);
