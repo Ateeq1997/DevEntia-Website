@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -7,10 +8,12 @@ const mailRoutes = require('./Routes/mail.js');
 const loginRoutes = require('./Routes/login.js');
 const jobApplyRoutes = require('./Routes/jobApply.js');
 const jobRoutes = require('./Routes/job.js');
+const blogRoutes = require('./Routes/BlogRoute');
 
 const cors = require('cors');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
   origin: [
@@ -28,6 +31,7 @@ app.use('/', mailRoutes);
 app.use('/', loginRoutes);
 app.use('/', jobApplyRoutes);
 app.use('/', jobRoutes);
+app.use('/', blogRoutes);
 
 // database
 mongoose

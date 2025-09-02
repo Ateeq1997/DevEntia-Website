@@ -395,7 +395,7 @@ const Navbar = () => {
         href={"/Contact-us"}
         className="ml-2 p-2 bg-[#4848FF]  text-white hidden rounded-md lg:flex items-center gap-2 hover:font-medium  transition-all duration-700 ease-in-out"
       >
-        Contact Us <MdOutlineArrowOutward size={25} />
+        Contact Us  
       </Link>
 
       <hr className="bg-[#FFFFFF17] h-1 -z-10 lg:w-[86%] w-[100%] m-auto opacity-5  absolute bottom-0" />

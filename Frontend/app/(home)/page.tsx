@@ -1,20 +1,29 @@
+/* eslint-disable */
 import HeroSection from '@/components/home/HeroSection';
 import ITProcesses from '@/components/home/ITProcesses';
 import OurExpertise from '@/components/home/OurExpertise';
+import Ourportfolio from '@/components/home/Ourportfolio';
 import PositiveImpactSection from '@/components/home/PositiveImpactSection';
 import Projects from '@/components/home/Projects/Projects';
 import Services from '@/components/home/Services';
+import Statistics from '@/components/home/statistics';
 import WhyDeventia from '@/components/home/Why-chose-deventia/WhyDeventia';
 import { Metadata } from 'next';
+import Reviews from '@/components/home/Reviews';
+import Contact from '@/components/home/contact';
+import Tech from '@/components/home/tech';
+import Hero from '@/components/Blog/hero';
+import Blogscard from '@/components/Blog/cards';
+
 
 export const metadata: Metadata = {
-  title: 'DevEntia Tech Pvt. Ltd',
+  title: 'Empowering Businesses with Cutting-Edge Website, App & AI Solutions',
   description:
-    'Welcome to DevEntia Tech Pvt. Ltd, your leading partner in web development, app development, and AI solutions. Discover how our innovative technology can transform your business.',
+    'DevEntia Tech is your partner for digital transformation. DevEntia Tech specializes in building modern, secure, and innovative websites, custom mobile apps, and powerful AI/ML tools. DevEntia Tech\'s IT and cloud solutions are designed to help businesses of all sizes scale efficiently, improve operations, and achieve sustainable growth in a competitive digital landscape.',
   openGraph: {
-    title: 'DevEntia Tech Pvt. ',
+    title: 'Empowering Businesses with Cutting-Edge Website, App & AI Solutions ',
     description:
-      'Welcome to DevEntia Tech Pvt. Ltd, your leading partner in web development, app development, and AI solutions. Discover how our innovative technology can transform your business.',
+      'DevEntia Tech is your partner for digital transformation. DevEntia Tech specializes in building modern, secure, and innovative websites, custom mobile apps, and powerful AI/ML tools. DevEntia Tech\'s IT and cloud solutions are designed to help businesses of all sizes scale efficiently, improve operations, and achieve sustainable growth in a competitive digital landscape.',
     siteName: 'DevEntia Tech Pvt. Ltd',
     images: [
       {
@@ -31,16 +40,24 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <>
+   <>
       <HeroSection />
       {/* <Hero /> */}
       <WhyDeventia />
-      <OurExpertise />
+      <Statistics/>
+      <Ourportfolio/>
+     {/*   <OurExpertise /> */}
       <Services />
-      <Projects />
+     {/* <Projects />*/}
       <PositiveImpactSection />
       {/* <StatsAndPartners /> */}
       <ITProcesses />
+      <Hero/>
+      <Blogscard/>
+      <Reviews />
+      <Tech/>
+      <Contact />
+
       {/* <Testimonial /> */}
       {/* <Portfolio /> */}
       {/* <Faqs /> */}
