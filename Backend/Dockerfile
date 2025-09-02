@@ -40,8 +40,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
   CMD wget --spider --quiet http://localhost:4000/health || exit 1
 CMD ["npm", "run", "dev"]
 
----
-
 # Frontend/Dockerfile
 FROM node:22.16.0-alpine AS base
 WORKDIR /app

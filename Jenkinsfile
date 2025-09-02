@@ -60,7 +60,7 @@ services:
       - "${BACKEND_PORT}:4000"
     restart: always
     env_file:
-      - ${ENV_NAME == 'prod' ? '/home/ubuntu/deventia/.env' : '/home/ubuntu/deventia/.env.dev'}
+      - ${ENV_NAME == 'prod' ? '/home/ubuntu/deventia/.env' : '/home/ubuntu/deventia/.env'}
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4000/health"]
       interval: 30s
