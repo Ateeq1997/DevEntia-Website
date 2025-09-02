@@ -1,7 +1,15 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+
+// Validate required environment variables early
+const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
+if (!mongoUri) {
+  console.error('Missing MONGO_URI or MONGODB_URI. Ensure a .env file exists in the Backend directory.');
+  process.exit(1);
+}
 
 // Import routes
 const mailRoutes = require('./Routes/mail.js');
@@ -17,9 +25,11 @@ app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
   origin: [
+    '*',
     'http://localhost:3000',
     'https://deventiatech.com',
     'https://www.deventiatech.com',
+    'https://dev.deventiatech.com',
   ],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
@@ -36,7 +46,7 @@ app.use('/', blogRoutes);
 // database
 mongoose
   .connect(
-    'mongodb+srv://asgharkhanglipton:zZgDPYCBB59ia4iy@cluster0.7ipdy2j.mongodb.net/deventia'
+    mongoUri
   )
   .then(() => console.log('database connection successfully'))
   .catch((err) => console.log(`error connecting to mongodb ${err}`));

@@ -99,20 +99,25 @@ useEffect(() => {
     setMessage(null);
 
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+      const res = await axiosInstance.post("/mail", { 
+        email,
+        senderEmail: email,
+        message: "Newsletter subscription request",
+        subject: "Newsletter Subscription",
+        phoneNumber: "N/A",
+        fullName: "Newsletter Subscriber",
+        isNewsletter: true
       });
-      if (res.ok) {
+      
+      if (res.status === 200) {
         setMessage("Subscribed successfully!");
         setEmail("");
       } else {
-        const data = await res.json();
-        setMessage(data?.message || "Subscription failed.");
+        setMessage(res.data?.message || "Subscription failed.");
       }
-    } catch {
-      setMessage("Subscription failed.");
+    } catch (error) {
+      console.error("Subscription error:", error);
+      setMessage("Subscription failed. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -215,7 +220,9 @@ useEffect(() => {
                 </button>
               </form>
               {message && (
-                <div className="ml-2 text-xs text-gray-600">{message}</div>
+                <div className={`ml-2 text-xs ${message.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+                  {message}
+                </div>
               )}
               <p className="text-[#0A0D12] text-[12px] mt-1 opacity-70">By subscribing you agree to our Privacy Policy.</p>
             </div>
@@ -422,7 +429,9 @@ useEffect(() => {
                 </button>
               </form>
               {message && (
-                <div className="ml-2 text-xs text-gray-600">{message}</div>
+                <div className={`ml-2 text-xs ${message.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+                  {message}
+                </div>
               )}
               <p className="text-[#0A0D12] text-[12px] mt-1 opacity-70 text-center">By subscribing you agree to our Privacy Policy.</p>
             </div>
