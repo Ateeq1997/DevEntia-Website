@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function ServiceCards() {
 const containerRef = useRef<HTMLDivElement | null>(null);
@@ -168,18 +169,22 @@ return (
     style={!isMobile ? { height: `${services.length * 120}vh` } : {}}
   >
     {/* Section Title */}
-    <div className="pb-8 pt-12">
+    <div className="pb-4 pt-8">
       <h2 className="text-[16px] text-[#4848FF] mb-8">Services</h2>
       <h1 className="text-[30px] lg:text-[63px] font-bold leading-tight w-full md:w-[70%]">
         Explore Our Services
       </h1>
 
-      <div className="flex flex-row items-center justify-between gap-3 mt-2">
+      <div className="flex flex-col md:flex-row items-start justify-start md:items-center md:justify-between gap-6 md:gap-3 mt-2">
         <p className="text-[#B8BBD2] text-[16px]">
           Deventia transforms ideas into digital experiences through expert
           UI/UX design, web development, and motion graphics.
         </p>
-        <button className="underline text-[#B8BBD2] text-[16px]">View All</button>
+<Link href="/Services">
+  <button className="underline text-[#B8BBD2] text-[16px]">
+    View All
+  </button>
+</Link>
       </div>
     </div>
 
@@ -231,7 +236,7 @@ return (
       </div>
     ) : (
       // ✅ Desktop: keep scroll animation
-      <div className="sticky top-20 h-[600px] mt-20">
+      <div className="sticky top-20 h-[600px] mt-10 mb-0">
         {services.map((service, index) => (
           <div
             key={service.id}

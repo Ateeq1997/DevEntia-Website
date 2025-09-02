@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { FaUsers, FaUserCheck, FaMedal, FaClock, FaLaptopCode, FaRegComments } from "react-icons/fa";
 import Image from "next/image";
 const PositiveImpactSection = () => {
   const cards = [
@@ -37,7 +36,7 @@ const PositiveImpactSection = () => {
   ];
 
   return (
-    <section className="px-[5%] py-12 ">
+    <section className="px-[5%] py-12  ">
       <h1 className="text-center text-[30px] lg:text-[63px] font-bold">
         Why Arise Stands Out
       </h1>

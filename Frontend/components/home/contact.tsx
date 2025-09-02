@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <section className="bg-black text-white py-16 px-[5%] flex flex-col lg:flex-row  gap-16 font-inter w-full">
       {/* Left Side */}
-      <div className="bg-gradient-to-b from-[#4848FF] to-[#2B2B99] px-24 pt-10 pb-20 text-white w-full lg:w-[40%]">
+      <div className="bg-gradient-to-b from-[#4848FF] to-[#2B2B99] px-16 md:px-24 pt-10 pb-20 text-white w-full lg:w-[40%]">
         <h3 className="text-[24px] font-medium mb-4 font-inter">Let’s Connect</h3>
         <p className="text-[#F5F7FC] text-[18px] mb-6 font-inter font-light">
              Fill out the form, and we’ve got you
@@ -122,12 +122,16 @@ const Contact = () => {
 
 
           {/* Buttons */}
-            <button
-              type="submit"
-              className=" bg-[#4848FF] px-6 py-3 rounded-full font-semibold hover:opacity-90 transition shadow-[0_0_20px_rgba(72,72,255,0.6)]"
-            >
-              Send Message
-            </button>
+           <button
+  type="submit"
+  className="bg-[#4848FF] text-white px-6 py-3 rounded-full font-semibold 
+             shadow-[0_0_20px_rgba(72,72,255,0.6)]
+             transition ease-in-out duration-700
+             hover:bg-white hover:text-[#4848FF]"
+>
+  Send Message
+</button>
+
            
 
           {/* Disclaimer */}

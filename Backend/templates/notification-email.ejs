@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Customer Inquiry - DevEntia Tech</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    </style>
+</head>
+<body>
+    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 600px; margin: auto; border: 1px solid #2a2a2a; border-radius: 12px; padding: 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
+        <!-- Header -->
+        <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 20px; border-radius: 12px 12px 0 0; text-align: center;">
+            <img src="https://avatars.githubusercontent.com/u/153590156?s=200&v=4" alt="DevEntia Tech Logo" style="width: 60px; height: 60px; border-radius: 50%; border: 3px solid white; margin-bottom: 10px;">
+            <h2 style="color: white; margin: 0; font-size: 24px; font-weight: 600;">New Customer Inquiry</h2>
+        </div>
+        
+        <!-- Content -->
+        <div style="padding: 30px; color: #e5e5e5;">
+            <!-- Contact Details -->
+            <div style="background: #2a2a2a; border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 4px solid #6366f1;">
+                <h3 style="color: #8b5cf6; margin: 0 0 15px 0; font-size: 18px;">Contact Details</h3>
+                <p style="margin: 8px 0; color: #e5e5e5;"><strong style="color: #a855f7;">Full Name:</strong> <%= fullName %></p>
+                <p style="margin: 8px 0; color: #e5e5e5;"><strong style="color: #a855f7;">Email:</strong> <a href="mailto:<%= senderEmail %>" style="color: #6366f1; text-decoration: none;"><%= senderEmail %></a></p>
+                <p style="margin: 8px 0; color: #e5e5e5;"><strong style="color: #a855f7;">Phone:</strong> <%= phoneNumber %></p>
+                <p style="margin: 8px 0; color: #e5e5e5;"><strong style="color: #a855f7;">Subject:</strong> <%= subject %></p>
+            </div>
+            
+            <!-- Message -->
+            <div style="background: #2a2a2a; border-radius: 8px; padding: 20px; border-left: 4px solid #8b5cf6;">
+                <h3 style="color: #8b5cf6; margin: 0 0 15px 0; font-size: 18px;">Message</h3>
+                <p style="background: #1a1a1a; padding: 15px; border-radius: 6px; color: #e5e5e5; border: 1px solid #3a3a3a; white-space: pre-wrap;"><%= message %></p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background: #1a1a1a; padding: 15px; border-radius: 0 0 12px 12px; text-align: center; border-top: 1px solid #3a3a3a;">
+            <p style="margin: 0; color: #888; font-size: 12px;">📧 This email was sent via DevEntia Tech contact form</p>
+        </div>
+    </div>
+</body>
+</html>
