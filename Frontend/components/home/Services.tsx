@@ -236,7 +236,7 @@ return (
       </div>
     ) : (
       // ✅ Desktop: keep scroll animation
-      <div className="sticky top-20 h-[600px] mt-20">
+      <div className="sticky top-20 h-[600px] mt-10 mb-0">
         {services.map((service, index) => (
           <div
             key={service.id}

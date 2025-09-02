@@ -168,14 +168,14 @@ const HeroSection = () => {
  <div className="flex gap-6 mt-20">
   <Link
     href={"/Contact-us"}
-    className="flex items-center gap-2 flex-wrap bg-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3 rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
+    className="flex items-center gap-2 flex-wrap bg-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3  transition-all duration-700 ease-in-out "
   >
     <p className=" text-white flex items-center ">Let&apos;s Connect</p>
   </Link>
 
   <Link
     href={"/Services"}
-    className="flex items-center gap-2 flex-wrap bg-white text-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3 rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(255,255,255,1)]"
+    className="flex items-center gap-2 flex-wrap bg-white text-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3   transition-all duration-700 ease-in-out"
   >
     <p className="flex items-center ">Explore Services</p>
   </Link>

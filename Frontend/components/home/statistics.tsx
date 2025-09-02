@@ -1,7 +1,7 @@
 const Statistics = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-24 px-[5%] mb-8">
-      {/* First Block - 12+ */}
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 px-[5%] mb-8 w-full">
+      {/* First Block - 50+ */}
       <div className="flex flex-col gap-2">
         <div className="relative flex items-center justify-center">
           <span
@@ -11,7 +11,7 @@ const Statistics = () => {
               color: "transparent",
             }}
           >
-            12+
+            50+
           </span>
           <span
             className="absolute w-[100px] h-[100px] rounded-full z-0 blur-3xl"
@@ -40,7 +40,7 @@ const Statistics = () => {
               color: "transparent",
             }}
           >
-            8+
+            40+
           </span>
           <span
             className="absolute w-[100px] h-[100px] rounded-full z-0 blur-3xl"
@@ -98,7 +98,7 @@ const Statistics = () => {
               color: "transparent",
             }}
           >
-            10+
+            20+
           </span>
           <span
             className="absolute w-[100px] h-[100px] rounded-full z-0 blur-3xl"

@@ -36,7 +36,7 @@ const PositiveImpactSection = () => {
   ];
 
   return (
-    <section className="px-[5%] py-12 ">
+    <section className="px-[5%] py-12  ">
       <h1 className="text-center text-[30px] lg:text-[63px] font-bold">
         Why Arise Stands Out
       </h1>
