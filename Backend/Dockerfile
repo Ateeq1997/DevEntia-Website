@@ -37,5 +37,5 @@ COPY . .
 RUN mkdir -p /app/controller/applyforjob/upload
 EXPOSE 4000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-  CMD wget --spider --quiet http://localhost:4000/health || exit 1
+  CMD wget --spider --quiet http://localhost:4001/health || exit 1
 CMD ["npm", "run", "dev"]
