@@ -1,10 +1,8 @@
 # Frontend/Dockerfile
 
 # Stage 1: Base builder
-ARG NODE_ENV=production
 FROM node:22.16.0-alpine AS base
 WORKDIR /app
-ENV NODE_ENV=$NODE_ENV
 
 COPY package*.json ./
 RUN npm ci
@@ -13,6 +11,7 @@ COPY . .
 
 # Stage 2: Build app (for production)
 FROM base AS builder
+ENV NODE_ENV=production
 RUN npm run build
 
 # Stage 3: Production runtime
@@ -43,8 +42,8 @@ ENV NODE_ENV=development
 # Install wget for healthcheck
 RUN apk add --no-cache wget
 
-# Install dev dependencies
-RUN npm ci --omit=dev
+# Dev dependencies are already installed in base stage
+# No need to reinstall
 
 EXPOSE 3000
 

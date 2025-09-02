@@ -1,71 +1,81 @@
 # Backend/Dockerfile
-
-# Stage 1: Base
 FROM node:22.16.0-alpine AS base
 WORKDIR /app
-
 COPY package*.json ./
 
-# Stage 2: Development dependencies
+# Development dependencies (includes dev dependencies)
 FROM base AS dev-deps
-RUN npm ci --omit=dev
+RUN npm ci
 
-# Stage 3: Production dependencies
+# Production dependencies (excludes dev dependencies)
 FROM base AS prod-deps
 RUN npm ci --omit=dev
 
-# Stage 4: Build stage
-FROM dev-deps AS builder
-COPY . .
-# Add any build steps here if needed
-
-# Stage 5: Production runtime
+# Production runtime
 FROM node:22.16.0-alpine AS prod
 WORKDIR /app
-
 ENV NODE_ENV=production
-
-# Install wget for healthcheck
 RUN apk add --no-cache wget
-
-# Copy production dependencies
 COPY --from=prod-deps /app/node_modules ./node_modules
-COPY --from=builder /app ./
-
-# Create and fix upload directory ownership
+COPY . .
 RUN mkdir -p /app/controller/applyforjob/upload \
  && addgroup -S app && adduser -S app -G app \
  && chown -R app:app /app/controller
-
 USER app
-
 EXPOSE 4000
-
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
   CMD wget --spider --quiet http://localhost:4000/health || exit 1
-
 CMD ["node", "server.js"]
 
-# Stage 6: Development runtime
+# Development runtime
 FROM node:22.16.0-alpine AS dev
 WORKDIR /app
-
 ENV NODE_ENV=development
-
-# Install wget for healthcheck
 RUN apk add --no-cache wget
-
-# Copy dev dependencies and source code
 COPY --from=dev-deps /app/node_modules ./node_modules
 COPY . .
-
-# Create upload directory
 RUN mkdir -p /app/controller/applyforjob/upload
-
 EXPOSE 4000
-
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
   CMD wget --spider --quiet http://localhost:4000/health || exit 1
+CMD ["npm", "run", "dev"]
 
-# Use nodemon for development (install it in your package.json dev dependencies)
+---
+
+# Frontend/Dockerfile
+FROM node:22.16.0-alpine AS base
+WORKDIR /app
+COPY package*.json ./
+
+# Development dependencies (includes dev dependencies)
+FROM base AS dev-deps
+RUN npm ci
+
+# Production dependencies (excludes dev dependencies)
+FROM base AS prod-deps
+RUN npm ci --omit=dev
+
+# Production runtime
+FROM node:22.16.0-alpine AS prod
+WORKDIR /app
+ENV NODE_ENV=production
+RUN apk add --no-cache wget
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+CMD ["npm", "start"]
+
+# Development runtime
+FROM node:22.16.0-alpine AS dev
+WORKDIR /app
+ENV NODE_ENV=development
+RUN apk add --no-cache wget
+COPY --from=dev-deps /app/node_modules ./node_modules
+COPY . .
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
 CMD ["npm", "run", "dev"]
