@@ -104,7 +104,7 @@ const Tech =()=>{
 
              <h1 className="text-center font-bold text-[32px] lg:text-[63px]">Cloud Capabilities</h1>
              <p className="text-[#B8BBD2] text-[16px] text-center">Backed by AWS, our platform guarantees high reliability and scalability. We leverage Docker and Kubernetes to<br/> simplify containerization and orchestration, enabling seamless deployment workflows.</p>
-           <div className="flex flex-col items-center justify-center gap-6 md:gap-24 md:flex-row  mt-16 mb-16 justify-items-center auto-rows-min">
+           <div className="flex flex-col items-center justify-center gap-6 md:gap-24 md:flex-row  mt-10 mb-14 justify-items-center auto-rows-min">
   <div className="flex flex-row items-center gap-8">
 <img
     src="/home/aws.png"
