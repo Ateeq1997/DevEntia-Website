@@ -31,7 +31,7 @@ const Hero = () => {
                 trends and technologies.
               </p>
               <div className="hidden md:flex items-center gap-3 md:gap-4 -mt-4 md:-mt-8">
-                <div className="relative animate-pulse">
+                <div className="relative">
                   <span className="pointer-events-none absolute -inset-2 rounded-full bg-white/25 blur-md" />
                   <button
                     aria-label="Previous"
@@ -45,7 +45,7 @@ const Hero = () => {
                     <span className="text-xl md:text-2xl">←</span>
                   </button>
                 </div>
-                <div className="relative animate-pulse">
+                <div className="relative">
                   <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#4A55FF]/35 blur-md" />
                   <button
                     aria-label="Next"
