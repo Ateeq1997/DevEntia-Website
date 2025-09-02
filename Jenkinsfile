@@ -9,7 +9,7 @@ pipeline {
         COMPOSE_FILE = "${DEPLOY_DIR}/docker-compose.yml"
         BUILD_TAG = "build-${BUILD_NUMBER}"
         
-        // Different ports for each environment
+        // Different ports for each environment.
         BACKEND_PORT = "${env.BRANCH_NAME == 'production' ? '4000' : '4001'}"
         FRONTEND_PORT = "${env.BRANCH_NAME == 'production' ? '3000' : '3001'}"
         
