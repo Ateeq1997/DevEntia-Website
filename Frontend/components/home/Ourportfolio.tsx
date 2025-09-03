@@ -66,7 +66,7 @@ const Ourportfolio = () => {
             <img
               src="/home/project1.png"
               alt="img"
-              className="w-full h-auto lg:h-[500px] object-cover"
+              className="w-full h-auto lg:h-auto object-cover"
             />
           </div>
           <div className="flex flex-row items-center justify-between p-5">
@@ -78,11 +78,16 @@ const Ourportfolio = () => {
             </div>
            <Link
   href={"/Our-Portfolio/Projects/RS-Global-Ties"}
-  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)] hover:bg-white group"
+  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
+             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
+             transition-all duration-700 ease-in-out group"
 >
-  <p className="text-white flex items-center gap-3 group-hover:text-[#4848FF]">
+  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
     See Project <FaArrowRightLong />
-  </p>
+  </span>
+  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
+  </span>
 </Link>
 
           </div>
@@ -94,7 +99,7 @@ const Ourportfolio = () => {
             <img
               src="/home/project2.png"
               alt="img"
-              className="w-full h-auto lg:h-[500px] object-cover"
+              className="w-full h-auto lg:h-auto object-cover"
             />
           </div>
           <div className="flex flex-row items-center justify-between p-5">
@@ -104,12 +109,17 @@ const Ourportfolio = () => {
                 Development. Jan 19, 2025
               </p>
             </div>
-           <Link
+         <Link
   href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)] hover:bg-white group"
+  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
+             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
+             transition-all duration-700 ease-in-out group"
 >
-  <span className="flex items-center gap-3 text-white group-hover:text-[#4848FF]">
+  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
     See Project <FaArrowRightLong />
+  </span>
+  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
   </span>
 </Link>
 
@@ -121,7 +131,7 @@ const Ourportfolio = () => {
             <img
               src="/home/project2.png"
               alt="img"
-              className="w-full h-auto lg:h-[500px] object-cover"
+              className="w-full h-auto lg:h-auto object-cover"
             />
           </div>
           <div className="flex flex-row items-center justify-between p-5">
@@ -133,10 +143,15 @@ const Ourportfolio = () => {
             </div>
           <Link
   href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-  className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-4 font-medium text-[12px] lg:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)] hover:bg-white group"
+  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
+             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
+             transition-all duration-700 ease-in-out group"
 >
-  <span className="flex items-center gap-3 text-white group-hover:text-[#4848FF]">
+  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
     See Project <FaArrowRightLong />
+  </span>
+  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
   </span>
 </Link>
 

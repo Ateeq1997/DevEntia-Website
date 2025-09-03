@@ -34,21 +34,28 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
 
 CMD ["npm", "start"]
 
-# Stage 4: Development target
-FROM base AS dev
+# Stage 4: Development target (now builds like prod but with dev env)
+FROM base AS dev-builder
+ENV NODE_ENV=development
+RUN npm run build
+
+# Stage 5: Development runtime
+FROM node:22.16.0-alpine AS dev
 WORKDIR /app
 ENV NODE_ENV=development
 
 # Install wget for healthcheck
 RUN apk add --no-cache wget
 
-# Dev dependencies are already installed in base stage
-# No need to reinstall
+COPY --from=dev-builder /app/.next ./.next
+COPY --from=dev-builder /app/public ./public
+COPY --from=dev-builder /app/node_modules ./node_modules
+COPY --from=dev-builder /app/package*.json ./
 
 EXPOSE 3000
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
 
-# Use dev command (usually npm run dev for hot reloading)
-CMD ["npm", "run", "dev"]
+# Use npm start (same as prod) instead of npm run dev
+CMD ["npm", "start"]
