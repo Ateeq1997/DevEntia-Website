@@ -92,43 +92,39 @@ export default function ServiceCards() {
 
       if (scrollTop >= containerStart && scrollTop <= containerEnd) {
         const progress = (scrollTop - containerStart) / (containerEnd - containerStart);
-        const totalCards = services.length;
         setScrollProgress(Math.max(0, Math.min(1, progress)));
         
+        const totalCards = services.length;
         const cardProgress = progress * totalCards;
         setActiveCard(Math.min(Math.floor(cardProgress), totalCards - 1));
       }
     };
 
     if (!isMobile) {
-      document.documentElement.style.scrollBehavior = 'smooth';
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
     }
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkDevice);
-      document.documentElement.style.scrollBehavior = 'auto';
     };
   }, [services.length, isMobile]);
 
   const getCardStyle = (index: number) => {
     const totalCards = services.length;
-    const cardSection = 1 / totalCards; 
+    const cardSection = 1 / totalCards;
     const cardStart = index * cardSection;
     const cardEnd = (index + 1) * cardSection;
     
     const currentProgress = scrollProgress;
 
     if (index === 0) {
-      // First card - always visible from the start
+      // First card - always visible initially, then gets covered
       return {
         transform: `translateY(0%)`,
         opacity: 1,
         zIndex: 1,
-        display: 'block'
       };
     }
 
@@ -138,10 +134,9 @@ export default function ServiceCards() {
         transform: `translateY(100%)`,
         opacity: 1,
         zIndex: index + 1,
-        display: 'block'
       };
     } else if (currentProgress >= cardStart && currentProgress < cardEnd) {
-      // Card is currently active and sliding up
+      // Card is currently sliding up and covering previous cards
       const cardProgress = (currentProgress - cardStart) / cardSection;
       const translateY = (1 - cardProgress) * 100;
       
@@ -149,25 +144,23 @@ export default function ServiceCards() {
         transform: `translateY(${translateY}%)`,
         opacity: 1,
         zIndex: index + 1,
-        display: 'block'
       };
     } else {
-      // Card has been passed - stays in position (covered by newer cards)
+      // Card has finished sliding - stays in position covering previous cards
       return {
         transform: `translateY(0%)`,
         opacity: 1,
         zIndex: index + 1,
-        display: 'block'
       };
     }
   };
 
   return (
-    <div 
-      ref={containerRef}
-      className="relative px-[5%] py-12"
-      style={!isMobile ? { height: `${services.length * 120}vh` } : {}}
-    >
+    <div
+  ref={containerRef}
+  className="relative px-[5%] py-12 "
+ >
+
       {/* Section Title */}
       <div className="pb-4 pt-8">
         <h2 className="text-[16px] text-[#4848FF] mb-8">Services</h2>
@@ -190,7 +183,7 @@ export default function ServiceCards() {
 
       {/* Cards Container */}
       {isMobile ? (
-        // Mobile & Tablet: show all cards stacked
+        // Mobile & Tablet: show all cards stacked normally
         <div className="flex flex-col gap-8 mt-10">
           {services.map((service) => (
             <div
@@ -235,64 +228,60 @@ export default function ServiceCards() {
           ))}
         </div>
       ) : (
-        // Desktop: scroll animation with proper card layout
-        <div className="sticky top-20 mt-10 mb-0 overflow-hidden">
-          <div className="relative h-[600px] w-full max-w-[1400px] mx-auto">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className="absolute inset-0 w-full h-full"
-                style={getCardStyle(index)}
-              >
-                {/* Single Card Container with proper layout */}
-                <div className="h-full w-full bg-[#151515] text-white rounded-2xl overflow-hidden shadow-2xl flex flex-row">
-                  {/* Image Section */}
-                  <div className="relative w-[45%] h-full flex-shrink-0 min-w-[300px]">
-                    <Image
-                      src={service.image}
-                      alt={`${service.title} Illustration`}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/30"></div>
-                  </div>
+        <>
+    {/* Desktop: column layout with 600px per card */}
+    <div className="mt-10 space-y-1 bg-[#0B0B0B]">
+      {services.map((service) => (
+        <div
+          key={service.id}
+          className="sticky top-24 h-[600px] w-full mx-auto bg-[#151515] text-white rounded-lg overflow-hidden  flex flex-row"
+        >
+          {/* Image Section */}
+          <div className="relative w-[44%] h-full flex-shrink-0">
+            <Image
+              src={service.image}
+              alt={`${service.title} Illustration`}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 "></div>
+          </div>
 
-                  {/* Content Section */}
-                  <div className="flex-1 p-8 lg:p-12 flex flex-col justify-start min-w-0">
-                    <div className="flex items-start justify-between mb-6 gap-4">
-                      <h2 className="text-[24px] lg:text-[30px] font-semibold leading-tight flex-1 min-w-0">
-                        {service.title}
-                      </h2>
-                      <FaArrowRightLong className="text-white text-[20px] -rotate-45 cursor-pointer hover:scale-110 transition-transform duration-200 flex-shrink-0 mt-1" />
-                    </div>
+          {/* Content Section */}
+          <div className="flex-1 p-8 lg:p-16 flex flex-col justify-center ">
+            <div className="flex items-start justify-between mb-8 gap-4">
+              <h2 className="text-[18px] lg:text-[24px] font-bold leading-tight flex-1 ">
+                {service.title}
+              </h2>
+              <FaArrowRightLong className="text-white text-[18px] -rotate-45 cursor-pointer hover:scale-110 transition-transform duration-200 flex-shrink-0 mt-2" />
+            </div>
 
-                    <p className="text-[#B8BBD2] text-[16px] leading-relaxed mb-8">
-                      {service.description}
-                    </p>
+            <p className="text-[#B8BBD2] text-[14px] lg:text-[16px] leading-relaxed mb-12">
+              {service.description}
+            </p>
 
-                    <div className="grid grid-cols-2 gap-x-8 border-b border-[#D9D9D9] pb-2 mb-6">
-                      <span className="text-white font-bold text-[14px] lg:text-[16px]">Expert Areas</span>
-                      <span className="text-white font-bold text-[14px] lg:text-[16px]">Top Cases</span>
-                    </div>
+            <div className="grid grid-cols-2 gap-x-12 border-b border-[#D9D9D9] pb-3 mb-8">
+              <span className="text-white font-bold text-[16px] lg:text-[16px]">Expert Areas</span>
+              <span className="text-white font-bold text-[16px] lg:text-[16px]">Top Cases</span>
+            </div>
 
-                    <div className="grid grid-cols-2 gap-x-8 flex-1 overflow-y-auto">
-                      <ul className="space-y-3 text-[13px] lg:text-[15px] text-[#E5E7EB] list-disc px-4">
-                        {service.expertAreas.map((area, areaIndex) => (
-                          <li key={areaIndex} className="hover:text-white transition-colors duration-200">
-                            {area}
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="text-[13px] lg:text-[15px] text-[#E5E7EB]">
-                        {/* This column can be used for "Top Cases" content if needed */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="  flex-1">
+              <ul className="space-y-3 text-[11px] lg:text-[15px] text-[#E5E7EB] list-disc px-4">
+                {service.expertAreas.map((area, areaIndex) => (
+                  <li key={areaIndex} className="hover:text-white transition-colors duration-200 leading-relaxed">
+                    {area}
+                  </li>
+                ))}
+              </ul>
+              <div className="text-[14px] lg:text-[16px] text-[#E5E7EB]">
+                {/* Add Top Cases here if needed */}
               </div>
-            ))}
+            </div>
           </div>
         </div>
+      ))}
+    </div>
+  </>
       )}
     </div>
   );
