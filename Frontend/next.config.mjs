@@ -1,6 +1,14 @@
 const nextConfig = {
   images: {
-    domains: ["i.ibb.co", "l-ldesign.com.au", "res.cloudinary.com"],
+    domains: [
+      "i.ibb.co",
+      "l-ldesign.com.au",
+      "res.cloudinary.com",
+      "devapi.deventiatech.com",
+      "api.deventiatech.com",
+      "localhost",
+      "127.0.0.1",
+    ],
   },
   webpack: (config, { isServer }) => {
     // For MP4 files

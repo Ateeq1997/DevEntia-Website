@@ -169,7 +169,7 @@ const HeroSection = () => {
 <Link
   href={"/Contact-us"}
   className="relative overflow-hidden flex items-center gap-2 flex-wrap 
-             bg-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3 
+             bg-[#4848FF] px-5 text-[14px] md:text-[19px] py-3 
              group"
 >
   {/* Text stays above overlay */}
@@ -189,7 +189,7 @@ const HeroSection = () => {
  <Link
   href={"/Services"}
   className="relative overflow-hidden flex items-center gap-2 flex-wrap 
-             bg-white text-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3  
+             bg-white text-[#4848FF] px-5  text-[14px] md:text-[19px] py-3  
              group transition-all duration-700 ease-in-out"
 >
   {/* Text that changes color on hover */}

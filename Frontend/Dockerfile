@@ -36,13 +36,13 @@ CMD ["npm", "start"]
 
 # Stage 4: Development target (now builds like prod but with dev env)
 FROM base AS dev-builder
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 RUN npm run build
 
 # Stage 5: Development runtime
 FROM node:22.16.0-alpine AS dev
 WORKDIR /app
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 
 # Install wget for healthcheck
 RUN apk add --no-cache wget
