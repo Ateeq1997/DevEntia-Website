@@ -33,20 +33,19 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
   const [animDirection, setAnimDirection] = useState<"left" | "right" | null>(null);
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const { data } = await axiosInstance.get('/blog');
-        console.log("Blogs",data);
-        const publishedBlogs = data.filter((blog: BlogItem) => blog.status === 'published');
-        setBlogs(publishedBlogs);
-      } catch (err) {
-        console.error('Failed to fetch blogs:', err);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
+ useEffect(() => {
+  const fetchBlogs = async () => {
+    try {
+      const { data } = await axiosInstance.get('/blog');
+      console.log("Blogs",data);
+      const publishedBlogs = data.filter((blog: BlogItem) => blog.status === 'published');
+      setBlogs(publishedBlogs);
+    } catch (err) {
+      console.error('Failed to fetch blogs:', err);
+    }
+  }
+  fetchBlogs();
+ }, []);
   
 
   useEffect(() => {
