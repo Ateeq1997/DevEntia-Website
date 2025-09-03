@@ -33,6 +33,16 @@ useEffect(() => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(data.blogDescription, "text/html");
 
+      // Normalize/clean invalid image sources from CMS content to avoid 400/unknown scheme
+      const images = Array.from(doc.querySelectorAll('img')) as HTMLImageElement[];
+      images.forEach((img) => {
+        const src = img.getAttribute('src') || '';
+        // Keep only absolute http/https images; remove others
+        if (!/^https?:\/\//i.test(src)) {
+          img.remove();
+        }
+      });
+
       // ✅ Grab all h1, h2, h3
       const allHeadings = Array.from(doc.querySelectorAll("h1, h2, h3"));
 

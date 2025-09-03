@@ -375,6 +375,7 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName, i
           'contact@deventiatech.com',
           'deventialimited@gmail.com',
           'abdulmajid1m2@gmail.com',
+
         ],
         subject: '🔔 New Customer Inquiry',
         text: message,
@@ -405,6 +406,10 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName, i
   }
 }
 
+// Backward compatibility: if any legacy code calls sendNotificationEmail,
+// route it to the new unified sendEmail helper to avoid ReferenceError.
+const sendNotificationEmail = (...args) => sendEmail(...args);
+
 // Express route handler to send emails
 const sendMail = async (req, res) => {
   console.log('mail data: ', req.body);
@@ -426,8 +431,8 @@ const sendMail = async (req, res) => {
   }
 
   try {
-    // Send notification email to DevEntia team
-    const notificationInfo = await sendNotificationEmail(
+    // Send the email using unified helper
+    const info = await sendEmail(
       senderEmail,
       message || 'Newsletter subscription request',
       subject || 'Newsletter Subscription',
@@ -437,7 +442,7 @@ const sendMail = async (req, res) => {
     );
     res.status(200).json({
       message: isNewsletterSub ? 'Newsletter subscription successful!' : 'Mail has been sent successfully',
-      messageId: info.messageId,
+      messageId: info?.messageId || null,
     });
   } catch (error) {
     console.error('Error sending emails:', error);
