@@ -262,7 +262,7 @@ export default function ServiceCards() {
 
             <div className="grid grid-cols-2 gap-x-12 border-b border-[#D9D9D9] pb-3 mb-8">
               <span className="text-white font-bold text-[16px] lg:text-[16px]">Expert Areas</span>
-              <span className="text-white font-bold text-[16px] lg:text-[16px]">Top Cases</span>
+              {/* <span className="text-white font-bold text-[16px] lg:text-[16px]">Top Cases</span> */}
             </div>
 
             <div className="  flex-1">

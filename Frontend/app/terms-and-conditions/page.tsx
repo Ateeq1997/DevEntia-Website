@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Hero from "@/components/policy/Hero";
 import TermsAndConditions from "@/components/policy/TermsAndConditions";

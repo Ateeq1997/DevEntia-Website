@@ -209,14 +209,14 @@ useEffect(() => {
                 />
                 <button
                   type="submit"
-                  className="text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF]"
+                  className="relative text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF] overflow-hidden group transition-all duration-300"
                   style={{
                     boxShadow: "0 0 5px 2px #4848FF, 0 0 0 0 #fff"
                   }}
                   disabled={submitting}
-                  
                 >
-                  {submitting ? "Subscribing..." : "Subscribe"}
+                  <span className="relative z-10">{submitting ? "Subscribing..." : "Subscribe"}</span>
+                  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></span>
                 </button>
               </form>
               {message && (
@@ -331,12 +331,11 @@ useEffect(() => {
           <div className="mt-8 flex items-center justify-center lg:!justify-start">
             <Link href="/Book-a-demo">
               <button
-                className="cursor-pointer bg-[#4848FF] text-sm text-white font-medium px-6 py-3 rounded-full hover:scale-105 transition-transform shadow-[0_0_16px_4px_rgba(72,72,255,0.5)]"
-                style={{
-                  boxShadow: "0 0 20px 4px #4848FF, 0 0 0 0 #fff"
-                }}
+                className="relative cursor-pointer bg-[#4848FF] text-sm text-white font-medium px-6 py-3 rounded-full overflow-hidden group transition-all duration-300 shadow-[0_0_16px_4px_rgba(72,72,255,0.5)]"
+                
               >
-                Book a Demo
+                <span className="relative z-10">Book a Demo</span>
+                <span className="absolute inset-0 bg-blue-800 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></span>
               </button>
             </Link>
           </div>
@@ -419,13 +418,12 @@ useEffect(() => {
                 />
                 <button
                   type="submit"
-                  className="text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF]"
-                  style={{
-                    boxShadow: "0 0 20px 4px #4848FF, 0 0 0 0 #fff"
-                  }}
+                  className="relative text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF] overflow-hidden group transition-all duration-300"
+                 
                   disabled={submitting}
                 >
-                  {submitting ? "Subscribing..." : "Subscribe"}
+                  <span className="relative z-10">{submitting ? "Subscribing..." : "Subscribe"}</span>
+                  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></span>
                 </button>
               </form>
               {message && (
