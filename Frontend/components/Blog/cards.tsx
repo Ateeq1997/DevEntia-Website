@@ -129,7 +129,7 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
                 </p>
 
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <p className="text-[12px] sm:text-[14px] md:text-[16px] text-white/80 cursor-pointer flex items-center gap-1 hover:text-white transition-colors">
+                  <p className="bg-white text-black text-[12px] sm:text-[14px] md:text-[16px] p-1 cursor-pointer flex items-center gap-1  transition-colors">
                     Read More <span aria-hidden>↗</span>
                   </p>
                   <span className="text-[10px] sm:text-[12px] md:text-[14px]  text-white px-3 py-1.5 rounded-md">
