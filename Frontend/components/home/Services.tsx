@@ -266,9 +266,9 @@ export default function ServiceCards() {
             </div>
 
             <div className="  flex-1">
-              <ul className="space-y-3 text-[11px] lg:text-[15px] text-[#E5E7EB] list-disc px-4">
+              <ul className="space-y-3 text-[11px] lg:text-[15px] text-[#E5E7EB] list-disc px-4 ">
                 {service.expertAreas.map((area, areaIndex) => (
-                  <li key={areaIndex} className="hover:text-white transition-colors duration-200 leading-relaxed">
+                  <li key={areaIndex} className="hover:text-white transition-colors duration-200 leading-relaxed font-poppins">
                     {area}
                   </li>
                 ))}
