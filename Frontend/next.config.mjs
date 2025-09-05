@@ -9,20 +9,6 @@ const nextConfig = {
       "localhost",
       "127.0.0.1",
     ],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
   },
   webpack: (config, { isServer }) => {
     // For MP4 files
