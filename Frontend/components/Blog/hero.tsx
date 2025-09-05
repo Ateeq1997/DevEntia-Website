@@ -4,6 +4,12 @@ import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 const Hero = () => {
 
+    const dispatchSlide = (direction: 'left' | 'right') => {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('BLOG_SLIDE', { detail: { direction } }));
+      }
+    };
+
     return (
       <div className="relative max-w-[1750px] px-4 md:px-6 lg:px-12 2xl:px-24 pt-10 pb-8 md:pb-16 mx-auto text-white overflow-visible">
         {/* Background */}
@@ -31,17 +37,13 @@ const Hero = () => {
                 We are web designers, developers, project managers, and digital solutions using the latest
                 trends and technologies.
               </p>
-              <div className="hidden md:flex items-center gap-3 md:gap-4 -mt-4 md:-mt-8">
+              <div className="flex items-center gap-3 md:gap-4 -mt-4 md:-mt-8 self-end">
                 <div className="relative">
                   <span className="pointer-events-none absolute -inset-2 rounded-full bg-white/25 blur-md" />
                   <button
                     aria-label="Previous"
-                    onClick={() => {
-                      if (typeof window !== 'undefined') {
-                        window.dispatchEvent(new CustomEvent('BLOG_SLIDE', { detail: { direction: 'left' } }));
-                      }
-                    }}
-                    className="relative w-10 h-10 md:w-14 md:h-14 rounded-full bg-white text-[#0A0D12] flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 "
+                    onClick={() => dispatchSlide('left')}
+                    className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-[#0A0D12] flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 "
                   >
                     <span className="text-xl md:text-2xl"><FaArrowLeftLong/> </span>
                   </button>
@@ -50,12 +52,8 @@ const Hero = () => {
                   <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#4A55FF]/35 blur-md" />
                   <button
                     aria-label="Next"
-                    onClick={() => {
-                      if (typeof window !== 'undefined') {
-                        window.dispatchEvent(new CustomEvent('BLOG_SLIDE', { detail: { direction: 'right' } }));
-                      }
-                    }}
-                    className="relative w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#4A55FF] text-black flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 "
+                    onClick={() => dispatchSlide('right')}
+                    className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#4A55FF] text-black flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-300 "
                   >
                     <span className="text-xl md:text-2xl"><FaArrowRightLong/></span>
                   </button>
