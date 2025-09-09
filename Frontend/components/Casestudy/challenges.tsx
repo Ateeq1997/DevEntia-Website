@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 
+// ---------- InfoSection ----------
 export interface InfoCard {
   image: string;
   text: string;
@@ -9,13 +10,18 @@ export interface InfoCard {
 interface SectionProps {
   title: string;
   items: InfoCard[];
-  underlineWidth?: string; 
-  underlineWidth2?:string;
+  underlineWidth?: string;
+  underlineWidth2?: string;
 }
 
-const InfoSection: React.FC<SectionProps> = ({ title, items, underlineWidth = "w-52" , underlineWidth2 = "w-44" }) => {
+export const InfoSection: React.FC<SectionProps> = ({
+  title,
+  items,
+  underlineWidth = "w-52",
+  underlineWidth2 = "w-44",
+}) => {
   return (
-    <div className="px-[5%] py-6  flex flex-col items-center gap-16 justify-center">
+    <div className="px-[5%] py-6 flex flex-col items-center gap-16 justify-center">
       {/* Title */}
       <div className="text-center">
         <h2 className="text-[28px] md:text-[40px] font-bold text-white font-inter">
@@ -23,11 +29,10 @@ const InfoSection: React.FC<SectionProps> = ({ title, items, underlineWidth = "w
         </h2>
         <div className={`h-[2px] bg-white mx-auto mb-1 ${underlineWidth}`} />
         <div className={`h-[2px] bg-white mx-auto mb-12 ${underlineWidth2}`} />
-
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-24 md:gap-2  lg:gap-8 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-24 md:gap-2 lg:gap-8 w-full">
         {items.map((item, index) => (
           <div
             key={index}
@@ -53,4 +58,41 @@ const InfoSection: React.FC<SectionProps> = ({ title, items, underlineWidth = "w
   );
 };
 
-export default InfoSection;
+// ---------- AppPreviewSection ----------
+export interface AppPreviewCard {
+  image: string; // phone/app preview image
+}
+
+interface AppPreviewSectionProps {
+  description: string;
+  cards: AppPreviewCard[];
+}
+
+export const AppPreviewSection: React.FC<AppPreviewSectionProps> = ({
+  description,
+  cards,
+}) => {
+  return (
+    <div className="px-[5%] pb-12 flex flex-col lg:flex-row items-center justify-between gap-12">
+      {/* Phone previews */}
+      <div className="flex gap-6 relative">
+        {cards.map((card, index) => (
+          <img
+            key={index}
+            src={card.image}
+            alt={`App Preview ${index + 1}`}
+           className="w-lg md:max-w-3xl h-md "
+          />
+        ))}
+      </div>
+
+      {/* Text Content */}
+      <div className="flex-1 text-center lg:text-left">
+        <p className="text-[#FFFFFFCC] text-[22px] md:text-[43px] leading-relaxed font-inter">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+};
+
