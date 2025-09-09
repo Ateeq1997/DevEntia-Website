@@ -18,7 +18,7 @@ const Technology: React.FC<TechnologyProps> = ({ techList }) => {
         Technology Used
       </h1>
       <div className="w-12 sm:w-[380px] h-[2px] bg-white mx-auto mt-0" />
-      <div className="w-12 sm:w-[340px] h-[2px] bg-white mx-auto mt-2" />
+      <div className="w-12 sm:w-[340px] h-[2px] bg-white mx-auto mt-2 " />
 
       {/* Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-10">
@@ -32,8 +32,8 @@ const Technology: React.FC<TechnologyProps> = ({ techList }) => {
               alt={tech.title}
               className="w-52 h-52 object-contain "
             />
-            <h3 className="text-white text-lg font-semibold font-inter -mt-6">{tech.title}</h3>
-            <p className="text-gray-400 text-sm mt-1 font-inter">{tech.description}</p>
+            <h3 className="text-[#FFFFFFCC] text-[25px] font-semibold font-inter ">{tech.title}</h3>
+            <p className="text-[#FFFFFFCC] text-sm mt-1 font-inter">{tech.description}</p>
           </div>
         ))}
       </div>

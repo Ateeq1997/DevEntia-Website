@@ -41,7 +41,8 @@ interface StyleGuideProps {
 const StyleGuideCard: React.FC<StyleGuideProps> = () => {
   return (
     <div className=" flex flex-col items-center justify-center px-[5%] py-16  overflow-hidden w-full">
-      <h1 className="text-[24px] md:text-[56px] text-white font-semibold relative mb-6">
+
+      <h1 className="text-[24px] md:text-[56px] text-white font-semibold relative mb-12">
         Style Guide
         <span className="block w-52 h-0.5 bg-white mx-auto mt-1"></span>
         <span className="block w-32 h-0.5 bg-white mx-auto mt-1"></span>
@@ -54,7 +55,7 @@ const StyleGuideCard: React.FC<StyleGuideProps> = () => {
           <ColorSwatch hex="#FFFFFF" />
         </div>
 
-        <div className="bg-[#101235] rounded-md flex flex-col items-center py-6 px-8 shadow-lg gap-6 w-full md:w-auto">
+        <div className="bg-[#4848FF4D] h-[600px] flex flex-col items-center py-6 px-8 shadow-lg gap-6 w-full md:w-auto">
           <div className="w-full md:lg-[200px] lg:w-[260px] h-[260px] rounded-md bg-gradient-to-tr from-blue-600 to-indigo-600 mb-6"></div>
           <div className="text-white text-4xl font-bold mt-2 text-[24px] md:text-[100px]">Aa</div>
           <span className="w-52 h-0.5 bg-[#127CC0] font-inter mt-4"></span>

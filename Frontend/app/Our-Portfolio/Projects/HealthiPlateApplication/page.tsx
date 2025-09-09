@@ -107,22 +107,26 @@ const Page = () => {
     />
 
 <CompetitiveAnalysis competitors={competitors} />
+<div
+  className="bg-[url('/casestudy/styleguidebg.png')] bg-no-repeat bg-right-top w-full"
+  style={{ backgroundSize: "100% 1170px" }} // 👈 background image size only
+>
+  <StyleGuide
+    title="Style Guide"
+    fontFamily="Inter"
+    colors={[
+      { hex: "#127CC0" },
+      { hex: "#FFFFFF" },
+      { hex: "#000000" },
+      { hex: "#E2E8F7" },
+    ]}
+    previewGradient="bg-gradient-to-tr from-indigo-500 to-blue-600"
+  />
 
-<StyleGuide
-        title="Style Guide"
-        fontFamily="Inter"
-        colors={[
-          { hex: "#127CC0" },
-          { hex: "#FFFFFF" },
-          { hex: "#000000" },
-          { hex: "#E2E8F7" },
-        ]}
-        previewGradient="bg-gradient-to-tr from-indigo-500 to-blue-600"
-      />
+  <Technology techList={techList} />
+</div>
 
-          <Technology techList={techList}
-           
-          />
+
 
 <Userstoryboard cards={storyboardCards} />
 

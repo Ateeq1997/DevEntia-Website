@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({ text }) => {
     <span className="text-xs flex-shrink-0">
       <img src="/casestudy/icon.png" className="w-10 h-10" alt="icon" />
     </span>
-    <p className="leading-snug font-inter">{text}</p>
+    <p className="leading-snug font-inter text-[18px] md:text-[26px] ">{text}</p>
   </div>
   
   );
@@ -46,7 +46,7 @@ const Ideation: React.FC<SectionProps> = ({ title, description, items }) => {
       </div>
 
       {/* Second row → 3 cards */}
-      <div className="flex justify-center gap-6 flex-wrap">
+      <div className="flex justify-center gap-6 flex-wrap text-[27px]">
         {items.slice(2, 5).map((text, i) => (
           <Card key={i + 2} text={text} />
         ))}
