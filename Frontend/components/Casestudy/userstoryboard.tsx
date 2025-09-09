@@ -35,7 +35,7 @@ const UserStoryboard: React.FC<UserStoryboardProps> = ({ cards }) => {
                 <img
                   src={card.image}
                   alt={card.description}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain rounded-lg"
                 />
               </div>
               <p className="text-gray-300 text-sm md:text-[20px] mt-2 font-inter">
