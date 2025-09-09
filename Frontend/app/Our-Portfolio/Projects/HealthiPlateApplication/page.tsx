@@ -12,10 +12,10 @@ import Userstoryboard from "@/components/Casestudy/userstoryboard";
 import ChallengesAndImprovements from "@/components/Casestudy/ChallengesAndImprovements";
 
 const statsData = [
-  { image: "/casestudy/01.png", text: "Users want simple nutrition scoring.", imageClass: "w-[160px]" },
-  { image: "/casestudy/02.png", text: "They want actionable meal suggestions.", imageClass: "w-[200px]" },
-  { image: "/casestudy/03.png", text: "Need clear visual nutrient breakdown.", imageClass: "w-[200px]" },
-  { image: "/casestudy/04.png", text: "Many prefer dark mode for night use.", imageClass: "w-[200px]" },
+  { image: "/casestudy/01.png", text: "Users want simple nutrition scoring.", imageClass: "w-[107px]" },
+  { image: "/casestudy/02.png", text: "They want actionable meal suggestions.", imageClass: "w-[140px]" },
+  { image: "/casestudy/03.png", text: "Need clear visual nutrient breakdown.", imageClass: "w-[150px]" },
+  { image: "/casestudy/04.png", text: "Many prefer dark mode for night use.", imageClass: "w-[150px]" },
 ];
 
 const competitors = [
