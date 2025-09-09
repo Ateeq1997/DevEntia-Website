@@ -9,8 +9,7 @@ import CompetitiveAnalysis from "@/components/Casestudy/CompetitiveAnalysis";
 import StyleGuide from "@/components/Casestudy/styleguide";
 import Technology from "@/components/Casestudy/techology";
 import Userstoryboard from "@/components/Casestudy/userstoryboard";
-import Challenges from "@/components/Casestudy/challenges";
-
+import ChallengesAndImprovements from "@/components/Casestudy/ChallengesAndImprovements";
 
 const statsData = [
   { image: "/casestudy/01.png", text: "Users want simple nutrition scoring.", imageClass: "w-[160px]" },
@@ -127,7 +126,7 @@ const Page = () => {
 
 <Userstoryboard cards={storyboardCards} />
 
-<Challenges/>
+<ChallengesAndImprovements />
         
            </>
   );

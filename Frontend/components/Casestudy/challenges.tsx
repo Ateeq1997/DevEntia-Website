@@ -1,18 +1,56 @@
+"use client";
+import React from "react";
 
-
-const Challenges =()=>{
-
-    return(
-        <div className="px-[5%] py-12 flex flex-col items-center justify-center">
-      <h1 className="text-[24px] md:text-[56px] font-inter font-bold text-white">
-      Challenges
-      </h1>
-      <div className="w-12 sm:w-[300px] h-[2px] bg-white mx-auto mt-0" />
-      <div className="w-12 sm:w-[240px] h-[2px] bg-white mx-auto mt-2" />
-
-
-      </div>
-    )
+export interface InfoCard {
+  image: string;
+  text: string;
 }
 
-export default Challenges;
+interface SectionProps {
+  title: string;
+  items: InfoCard[];
+  underlineWidth?: string; 
+  underlineWidth2?:string;
+}
+
+const InfoSection: React.FC<SectionProps> = ({ title, items, underlineWidth = "w-52" , underlineWidth2 = "w-44" }) => {
+  return (
+    <div className="px-[5%] py-6  flex flex-col items-center gap-16 justify-center">
+      {/* Title */}
+      <div className="text-center">
+        <h2 className="text-[28px] md:text-[40px] font-bold text-white font-inter">
+          {title}
+        </h2>
+        <div className={`h-[2px] bg-white mx-auto mb-1 ${underlineWidth}`} />
+        <div className={`h-[2px] bg-white mx-auto mb-12 ${underlineWidth2}`} />
+
+      </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-24 md:gap-2  lg:gap-8 w-full">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="relative flex items-end bg-[#161616] rounded-2xl px-6 py-6 shadow-lg h-[170px] lg:min-h-[210px]"
+          >
+            {/* Image badge */}
+            <div className="absolute -top-16 md:-top-20 -left-3">
+              <img
+                src={item.image}
+                alt={`Card image ${index + 1}`}
+                className="w-44 h-40 lg:w-52 lg:h-48"
+              />
+            </div>
+
+            {/* Text */}
+            <p className="text-gray-200 text-sm lg:text-[24px] leading-tight font-inter">
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default InfoSection;

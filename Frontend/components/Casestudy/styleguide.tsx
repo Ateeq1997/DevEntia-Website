@@ -32,7 +32,13 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({ hex }) => (
   
 );
 
-const StyleGuideCard: React.FC = () => {
+interface StyleGuideProps {
+  title: string;
+  fontFamily: string;
+  colors: { hex: string }[];
+  previewGradient: string;
+}
+const StyleGuideCard: React.FC<StyleGuideProps> = () => {
   return (
     <div className=" flex flex-col items-center justify-center px-[5%] py-16  overflow-hidden w-full">
       <h1 className="text-[24px] md:text-[56px] text-white font-semibold relative mb-6">
