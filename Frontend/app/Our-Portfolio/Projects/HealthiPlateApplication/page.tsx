@@ -144,7 +144,7 @@ const Page = () => {
       description:
         "The user sees their daily meal score, health goal, and quick access to add meals or view recommendations.",
         lines: [
-          { src: "/casestudy/line1.png", className: "w-[200px] lg:w-[95%] top-[1%] left-[85%]", rotate: "-rotate-[5deg]" },
+          { src: "/casestudy/line1.png", className: "w-[200px] lg:w-[95%] top-[5%] 2xl:top-[1%] left-[85%]", rotate: "-rotate-[5deg]" },
         ]
         },
     {
@@ -153,7 +153,7 @@ const Page = () => {
       description:
         "User logs what they ate by entering details or choosing from suggested meals.",
         lines: [
-          { src: "/casestudy/line2.png", className: "w-[200px] lg:w-[130%] top-[59%] right-[15%]" },
+          { src: "/casestudy/line2.png", className: "w-[200px] lg:w-[130%]  top-[75%] 2xl:top-[59%] right-[15%]" },
         ]    },
     {
       image: "/casestudy/Screen 7 1.png",
@@ -161,7 +161,7 @@ const Page = () => {
       description:
         "App analyzes the meal and shows an easy-to-understand nutrition score with key nutrients.",
         lines: [
-          { src: "/casestudy/line1.png", className: "w-[200px] lg:w-[99%] top-[2%] left-[92%]", rotate: "-rotate-[3deg]" },
+          { src: "/casestudy/line1.png", className: "w-[200px] lg:w-[99%] top-[9%] 2xl:top-[10%] left-[92%]",  },
         ]    
       },
     {
@@ -170,7 +170,7 @@ const Page = () => {
       description:
         "User receives personalized meal suggestions aligned with their health goals.",
         lines: [
-          { src: "/casestudy/line2.png", className: "  top-[54%] right-[16%] lg:w-[130%]",              },
+          { src: "/casestudy/line2.png", className: " top-[64%] 2xl:top-[50%] right-[16%] lg:w-[130%]",   rotate: "rotate-[5deg]"            },
         ]    
       },
     {

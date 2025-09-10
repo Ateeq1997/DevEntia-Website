@@ -49,18 +49,20 @@ const Storyboard: React.FC<StoryboardProps> = ({
       {/* --- DESKTOP / LARGE SCREENS --- */}
       <div className="hidden lg:flex flex-row justify-between gap-12">
         {/* Left Column */}
-        <div className="flex-1 flex flex-col items-center gap-16">
+        <div className="flex-1 flex flex-col items-center gap-24">
           {leftSteps.map((step, index) => (
             <div
               key={`left-${index}`}
               className="relative flex flex-row items-start overflow-visible"
             >
+              <div className="w-[40%]">
               <img
                 src={step.image}
                 alt={step.title}
-                className="w-[160px] md:w-[200px] lg:w-full z-10"
+                className="w-[160px] md:w-[200px] lg:w-auto z-10"
               />
-              <div className="mt-6 text-center max-w-lg">
+              </div>
+              <div className="mt-6 text-center flex-1">
                 <h3 className="text-[18px] md:text-[27px] lg:text-[34px] font-semibold font-inter mb-2">
                   {step.title}
                 </h3>
@@ -83,18 +85,20 @@ const Storyboard: React.FC<StoryboardProps> = ({
         </div>
 
         {/* Right Column */}
-        <div className="flex-1 flex flex-col items-center gap-24 mt-32">
+        <div className="flex-1 flex flex-col items-center gap-32 mt-32">
           {rightSteps.map((step, index) => (
             <div
               key={`right-${index}`}
               className="relative flex flex-row items-start overflow-visible"
             >
+              <div className="w-[40%] z-10">
               <img
                 src={step.image}
                 alt={step.title}
                 className="w-[160px] md:w-[200px] lg:w-[260px] z-10"
               />
-              <div className="mt-24 text-center max-w-lg">
+              </div>
+              <div className="mt-24 text-center flex-1">
                 <h3 className="text-[18px] md:text-[27px] lg:text-[34px] font-semibold font-inter mb-2">
                   {step.title}
                 </h3>
