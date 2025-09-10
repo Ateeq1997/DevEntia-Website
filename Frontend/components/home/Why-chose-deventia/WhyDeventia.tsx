@@ -96,7 +96,7 @@ const WhyDeventia = () => {
 
 
 
-<div className="absolute left-[34%] top-[75%] z-10 max-w-sm  flex flex-row gap-5 items-center">
+<div className="absolute left-[34%] top-[73%] z-10 max-w-sm  flex flex-row gap-5 items-center">
           {/* Step Number */}
   <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
     3
@@ -123,7 +123,7 @@ const WhyDeventia = () => {
   </h1>
   <div>
 
-          <h3 className="text-xl md:text-2xl font-bold mb-2">Development</h3>
+          <h3 className="text-xl md:text-2xl font-bold mb-2">Release</h3>
           <p className="text-sm md:text-base text-gray-300 mb-2">
             Digital agency is an high test for business website work
           </p>
@@ -137,14 +137,14 @@ const WhyDeventia = () => {
         </div>
        
 
-        <div className="absolute right-[0%] top-[-5%] z-10 max-w-xs  flex flex-row gap-5 items-center">
+        <div className="absolute right-[-5%] top-[-5%] z-10 max-w-sm  flex flex-row gap-5 items-center">
           {/* Step Number */}
   <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
     6
   </h1>
   <div>
 
-          <h3 className="text-xl md:text-2xl font-bold mb-2">Development</h3>
+          <h3 className="text-xl md:text-2xl font-bold mb-2">Support & Improvement</h3>
           <p className="text-sm md:text-base text-gray-300 mb-2">
             Digital agency is an high test for business website work
           </p>

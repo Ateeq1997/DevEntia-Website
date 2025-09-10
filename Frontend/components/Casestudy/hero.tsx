@@ -40,17 +40,24 @@ const Hero: React.FC<HeroProps> = ({
       >
         {/* Text */}
         <div className="w-full md:w-[40%] text-white text-center md:text-left">
-          <h1 className="text-3xl md:text-[64px] leading-tight font-bold mb-6">{title}</h1>
+          <h1 className="text-3xl md:text-[64px] leading-tight font-bold mb-6 font-inter">{title}</h1>
           {subtitle && (
-            <p className="opacity-80 mb-10 text-lg md:text-[26px] font-inter">{subtitle}</p>
+            <p className="opacity-80 mb-10 text-lg md:text-[26px] font-inter leading-snug">
+  {subtitle}
+</p>
           )}
           {buttonLabel && (
             <button
-              onClick={onButtonClick}
-              className="border border-white/70 text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition"
-            >
-              {buttonLabel}
-            </button>
+            onClick={() => {
+              const element = document.getElementById("overview");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="border border-white/70 text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition"
+          >
+            {buttonLabel}
+          </button>
           )}
         </div>
 

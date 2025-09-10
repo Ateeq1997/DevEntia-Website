@@ -9,12 +9,12 @@ interface OverviewProps {
 
 const Overview: React.FC<OverviewProps> = ({ title, description, image }) => {
   return (
-    <section className=" text-white py-16 px-6 flex flex-col items-center text-center">
+    <section id="overview" className=" text-white py-16 px-6 flex flex-col items-center text-center">
       {/* Title */}
       <h2 className="text-3xl md:text-[56px] font-bold mb-4 relative">
         {title}
-        <span className="block w-52 h-[2px] bg-white mx-auto mt-3"></span>
-        <span className="block w-32 h-[2px] bg-white mx-auto mt-2"></span>
+        <span className="block w-52 h-[2px] bg-white mx-auto mt-6"></span>
+        <span className="block w-32 h-[2px] bg-white mx-auto mt-2 mb-4s"></span>
 
       </h2>
 

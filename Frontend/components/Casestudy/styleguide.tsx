@@ -53,6 +53,7 @@ const StyleGuideCard: React.FC<StyleGuideProps> = () => {
         <div className="flex flex-col gap-20 mt-8">
           <ColorSwatch hex="#127CC0" />
           <ColorSwatch hex="#FFFFFF" />
+          <p className="font-inter font-medium text-[27px] md:pl-32 -mt-10">strong logging<br/> but complex UI</p>
         </div>
 
         <div className="bg-[#4848FF4D] h-[600px] flex flex-col items-center py-6 px-8 shadow-lg gap-6 w-full md:w-auto">
@@ -65,6 +66,8 @@ const StyleGuideCard: React.FC<StyleGuideProps> = () => {
         <div className="flex flex-col gap-20 mt-8">
           <ColorSwatch hex="#000000" />
           <ColorSwatch hex="#E2E8F7" />
+          <p className="font-inter font-medium text-[27px] md:-pl-32 -mt-10">detailed but <br/>overwhelming</p>
+
         </div>
       </div>
     </div>
