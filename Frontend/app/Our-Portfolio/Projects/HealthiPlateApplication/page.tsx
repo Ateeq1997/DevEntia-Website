@@ -10,6 +10,7 @@ import StyleGuide from "@/components/Casestudy/styleguide";
 import Technology from "@/components/Casestudy/techology";
 import Userstoryboard from "@/components/Casestudy/userstoryboard";
 import ChallengesAndImprovements from "@/components/Casestudy/ChallengesAndImprovements";
+import Storyboard from "@/components/Casestudy/storyboard";
 
 const statsData = [
   { image: "/casestudy/01.png", text: "Users want simple nutrition scoring.", imageClass: "w-[107px]" },
@@ -131,6 +132,57 @@ const Page = () => {
 <Userstoryboard cards={storyboardCards} />
 
 <ChallengesAndImprovements />
+
+<Storyboard
+  title="User Story Board"
+  subtitle="This storyboard shows the user journey in Healthi Plate—from logging in and adding meals to checking nutrition scores and getting personalized recommendations, making healthy eating simple and guided."
+  steps={[
+    {
+      image: "/casestudy/Home page (1) 2 1.png",
+      title: "Home",
+      description:
+        "The user sees their daily meal score, health goal, and quick access to add meals or view recommendations.",
+        lines: [
+          { src: "/casestudy/line1.png", className: "w-[200px] lg:w-[95%] top-[1%] left-[85%]", rotate: "-rotate-[5deg]" },
+        ]
+        },
+    {
+      image: "/casestudy/Food scan result 1.png",
+      title: "Add Meal",
+      description:
+        "User logs what they ate by entering details or choosing from suggested meals.",
+        lines: [
+          { src: "/casestudy/line2.png", className: "w-[200px] lg:w-[130%] top-[59%] right-[15%]" },
+        ]    },
+    {
+      image: "/casestudy/Screen 7 1.png",
+      title: "View Score",
+      description:
+        "App analyzes the meal and shows an easy-to-understand nutrition score with key nutrients.",
+        lines: [
+          { src: "/casestudy/line1.png", className: "w-[200px] lg:w-[99%] top-[2%] left-[92%]", rotate: "-rotate-[3deg]" },
+        ]    
+      },
+    {
+      image: "/casestudy/Food scan result (1) 1.png",
+      title: "Get Recommendations",
+      description:
+        "User receives personalized meal suggestions aligned with their health goals.",
+        lines: [
+          { src: "/casestudy/line2.png", className: "  top-[54%] right-[16%] lg:w-[130%]",              },
+        ]    
+      },
+    {
+      image: "/casestudy/Meal History 2.png",
+      title: "Saved Meals",
+      description:
+        "Users can view and quickly select their previously saved favorite meals from their profile.",
+      // last step usually has no line
+    },
+  ]}
+/>
+
+
         
            </>
   );
