@@ -128,8 +128,9 @@ const Page = () => {
 </div>
 
 
-
+{/*
 <Userstoryboard cards={storyboardCards} />
+*/}
 
 <ChallengesAndImprovements />
 
