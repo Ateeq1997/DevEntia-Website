@@ -29,8 +29,11 @@ const Ideation: React.FC<SectionProps> = ({ title, description, items }) => {
   return (
     <section className="text-center text-white py-10 px-6">
       {/* Title */}
-      <h2 className="text-3xl md:text-[56px] font-bold mb-6 font-inter underline underline-offset-4">
+      <h2 className="text-3xl md:text-[56px] font-bold mb-6 font-inter ">
         {title}
+        <span className="block w-[200px] h-[2px] bg-white mx-auto mt-6" />
+          <span className="block w-36 h-[2px] bg-white mx-auto mt-1" />
+
       </h2>
 
       {/* Description */}

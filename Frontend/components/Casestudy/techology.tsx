@@ -13,7 +13,7 @@ interface TechnologyProps {
 
 const Technology: React.FC<TechnologyProps> = ({ techList }) => {
   return (
-    <div className="px-[5%] py-12 flex flex-col items-center justify-center">
+    <div className="px-[5%] py-16 flex flex-col items-center justify-center">
       <h1 className="text-[24px] md:text-[56px] font-inter font-bold text-white">
         Technology Used
       </h1>

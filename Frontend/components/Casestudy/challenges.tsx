@@ -73,7 +73,7 @@ export const AppPreviewSection: React.FC<AppPreviewSectionProps> = ({
   cards,
 }) => {
   return (
-    <div className="px-[5%] pb-12 flex flex-col lg:flex-row items-center justify-between gap-12">
+    <div className="px-[5%] mb-24 flex flex-col lg:flex-row items-center justify-between gap-12">
       {/* Phone previews */}
       <div className="flex gap-6 relative">
         {cards.map((card, index) => (

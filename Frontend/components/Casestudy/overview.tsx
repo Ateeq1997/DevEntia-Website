@@ -9,7 +9,7 @@ interface OverviewProps {
 
 const Overview: React.FC<OverviewProps> = ({ title, description, image }) => {
   return (
-    <section className=" text-white py-12 px-6 flex flex-col items-center text-center">
+    <section className=" text-white py-16 px-6 flex flex-col items-center text-center">
       {/* Title */}
       <h2 className="text-3xl md:text-[56px] font-bold mb-4 relative">
         {title}
