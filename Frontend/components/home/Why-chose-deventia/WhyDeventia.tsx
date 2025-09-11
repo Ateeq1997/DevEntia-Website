@@ -194,7 +194,7 @@ const WhyDeventia = () => {
     </a>
   </div>
 </div>
-<div className="absolute right-[0%] top-[15%] z-10 max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-centr">
+<div className="absolute right-[0%] top-[15%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-centr">
   {/* Step Number */}
   <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
     2
@@ -215,7 +215,7 @@ const WhyDeventia = () => {
 </div>
 
 
-<div className="absolute right-[0%] top-[50%] z-10 max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
+<div className="absolute right-[0%] top-[50%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
   {/* Step Number */}
   <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
     4
@@ -237,7 +237,7 @@ const WhyDeventia = () => {
 
 
 
-<div className="absolute left-[0%] top-[33%] z-10 max-w-[130px] md:max-w-[250px]  flex flex-row gap-3 items-center">
+<div className="absolute left-[0%] top-[33%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px]  flex flex-row gap-3 items-center">
           {/* Step Number */}
           <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
           3
@@ -257,7 +257,7 @@ const WhyDeventia = () => {
           </div>
         </div>
        
-<div className="absolute left-[0%] bottom-[15%] z-10 max-w-[130px]  md:max-w-[250px] flex flex-row gap-3 items-center">
+<div className="absolute left-[0%] bottom-[15%] z-10 max-w-[100px] sm:max-w-[130px]  md:max-w-[250px] flex flex-row gap-3 items-center">
           {/* Step Number */}
           <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
           5
@@ -278,7 +278,7 @@ const WhyDeventia = () => {
         </div>
        
 
-<div className="absolute right-[0%] bottom-[0%] z-10 max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
+<div className="absolute right-[0%] bottom-[0%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
 <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
 6
   </h1>
