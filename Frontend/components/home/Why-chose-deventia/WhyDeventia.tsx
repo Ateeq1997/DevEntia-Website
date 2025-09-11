@@ -175,7 +175,7 @@ const WhyDeventia = () => {
 
 
 
-<div className="absolute left-[0%] top-[5%] z-10 max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
+<div className="absolute left-[0%] top-[5%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
   <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
     1
   </h1>
