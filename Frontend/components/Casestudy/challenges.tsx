@@ -81,14 +81,14 @@ export const AppPreviewSection: React.FC<AppPreviewSectionProps> = ({
             key={index}
             src={card.image}
             alt={`App Preview ${index + 1}`}
-           className="w-lg md:max-w-2xl h-md "
+           className="w-lg md:max-w-xl h-md "
           />
         ))}
       </div>
 
       {/* Text Content */}
       <div className="flex-1 text-center lg:text-left">
-        <p className="text-[#FFFFFFCC] text-[22px] md:text-[41px] leading-tight font-inter">
+        <p className="text-[#FFFFFFCC] text-[22px] md:text-[36px] leading-tight font-inter">
           {description}
         </p>
       </div>
