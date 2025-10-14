@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { FaUsers, FaUserCheck, FaMedal, FaClock, FaLaptopCode, FaRegComments } from "react-icons/fa";
 import Image from "next/image";
+
 const PositiveImpactSection = () => {
   const cards = [
     {
@@ -37,27 +37,28 @@ const PositiveImpactSection = () => {
   ];
 
   return (
-    <section className="px-[5%] py-12 ">
-      <h1 className="text-center text-[30px] lg:text-[63px] font-bold">
+    <section className="px-[5%] py-12 transition-colors duration-500 bg-white dark:bg-[#151515]">
+      <h1 className="text-center text-[30px] lg:text-[63px] font-bold text-black dark:text-white">
         Why Arise Stands Out
       </h1>
-      <p className="text-[#6D7792] font-medium mb-16 px-4 text-center lg:px-64">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec dignissim tincidunt, nisl massa iaculis ligula, nec tincidunt ligula sapien nec urna.</p>
+      <p className="text-[#333333] dark:text-[#A7ADBE] font-medium mb-16 px-4 text-center lg:px-64">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec dignissim tincidunt, nisl massa iaculis ligula, nec tincidunt ligula sapien nec urna.
+      </p>
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {cards.map((card, idx) => (
           <div
             key={idx}
-            className="relative border border-[#4848FF80] rounded-2xl p-8  transition-all duration-300"
+            className="relative border border-[#4848FF80] rounded-2xl p-8 transition-all duration-300 bg-white dark:bg-[#1A1A1A]"
           >
-            <div className="absolute -top-5 left-5 bg-[#151515] p-2 rounded-full w-10 h-10 justify-center flex">
-      <Image
-        src={card.icon}
-        alt={card.title}
-        width={26}
-        height={20}
-        className=""
-      />            </div>
-            <h3 className="text-white text-[20px] font-semibold mt-2">{card.title}</h3>
-            <p className="text-[#A7ADBE] text-[18px] font-medium mt-2">{card.desc}</p>
+            <div className="absolute -top-5 left-5 bg-[#151515] dark:bg-[#333] p-2 rounded-full w-10 h-10 flex justify-center items-center">
+              <Image src={card.icon} alt={card.title} width={26} height={20} />
+            </div>
+            <h3 className="text-black dark:text-white text-[20px] font-semibold mt-2">
+              {card.title}
+            </h3>
+            <p className="text-[#333333] dark:text-[#A7ADBE] text-[18px] font-medium mt-2">
+              {card.desc}
+            </p>
           </div>
         ))}
       </div>

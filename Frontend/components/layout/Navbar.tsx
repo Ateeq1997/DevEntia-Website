@@ -10,6 +10,7 @@ import { inter } from "@/utils/fonts";
 import { usePathname } from "next/navigation";
 import { FaAngleDown } from "react-icons/fa6";
 
+
 const Navbar = () => {
   const [hovered, setHovered] = useState({ hover: false, name: "" });
   const [showNavbar, setShowNavbar] = useState(true);
@@ -209,12 +210,14 @@ const Navbar = () => {
               <Link href={"/About-us"}>About Us</Link>
             </li>
 
-            <Link
-              href={"/Contact-us"}
-              className=" ml-2 p-3 bg-[#7471E680] text-white/70 rounded-md flex items-center gap-2"
-            >
-              Contact Us <MdOutlineArrowOutward size={25} />
-            </Link>
+           <Link
+  href={"/Contact-us"}
+  className="ml-2 p-2 bg-[#4848FF] text-white hidden rounded-md lg:flex items-center gap-2 hover:font-medium transition-all duration-700 ease-in-out"
+>
+  Contact Us  
+</Link>
+
+
           </ul>
         </div>
         <Image
@@ -392,11 +395,13 @@ const Navbar = () => {
         </li>
       </ul>
       <Link
-        href={"/Contact-us"}
-        className="ml-2 p-2 bg-[#4848FF]  text-white hidden rounded-md lg:flex items-center gap-2 hover:font-medium  transition-all duration-700 ease-in-out"
-      >
-        Contact Us  
-      </Link>
+  href={"/Contact-us"}
+  className="ml-2 p-2 bg-[#4848FF] text-white hidden rounded-md lg:flex items-center gap-2 hover:font-medium transition-all duration-700 ease-in-out"
+>
+  Contact Us  
+</Link>
+
+
 
       <hr className="bg-[#FFFFFF17] h-1 -z-10 lg:w-[86%] w-[100%] m-auto opacity-5  absolute bottom-0" />
     </div>

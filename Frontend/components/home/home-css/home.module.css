@@ -1,0 +1,49 @@
+/* 
+html, body {
+  overflow-x: hidden;
+} */
+
+/* The card gets a subtle inner neon glow at the top and the bright blue bottom line */
+.techCard {
+  /* left/right border highlight (very subtle) */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.02),
+    0 8px 20px rgba(0,0,0,0.6);
+  position: relative;
+  overflow: visible;
+}
+
+/* create the blue line at the bottom similar to the screenshot using ::after */
+.techCard::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: -8px; /* slightly outside to mimic floated bottom glow */
+  height: 8px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(62,118,255,0.0) 0%, rgba(31,58,255,0.18) 10%, rgba(39,116,255,1) 50%, rgba(31,58,255,0.18) 90%, rgba(62,118,255,0.0) 100%);
+  box-shadow: 0 6px 18px rgba(30,75,255,0.25), 0 2px 6px rgba(0,0,0,0.6);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* subtle hover lift and brighter line */
+.techCard:hover {
+  transform: translateY(-6px);
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+  z-index: 2;
+}
+.techCard:hover::after {
+  bottom: -10px;
+  height: 10px;
+  box-shadow: 0 10px 30px rgba(30,75,255,0.35);
+  background: linear-gradient(90deg, rgba(62,118,255,0.0) 0%, rgba(39,116,255,1) 50%, rgba(62,118,255,0.0) 100%);
+  transition: all 220ms ease;
+}
+
+/* ensure images don't get clipped by transform hover */
+.techCard > .w-20 {
+  z-index: 3;
+}

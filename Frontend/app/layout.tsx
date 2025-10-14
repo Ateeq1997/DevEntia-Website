@@ -1,6 +1,7 @@
 import ConditionalLayout from '@/components/layout/ConditionalLayout';
 // import { Aeonik } from '@/utils/fonts';
 import type { Metadata } from 'next';
+import { ThemeProvider } from "next-themes";
 import Head from 'next/head';
 import './globals.css';
 

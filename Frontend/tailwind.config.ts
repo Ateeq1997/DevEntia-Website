@@ -15,6 +15,7 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  
   theme: {
     extend: {
       screens: {
@@ -130,6 +131,7 @@ const config: Config = {
       '1500px': '1500px',
     },
   },
+  
   daisyui: {
     themes: ['light'],
   },

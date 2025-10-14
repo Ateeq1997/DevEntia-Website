@@ -199,7 +199,45 @@ const HeroSection = () => {
               </div>
             </div>
           ))}
+        </div>         
+
+        {/* ✅ Bottom Fixed WhatsApp + Get a Quote Button */}
+        <div className="absolute bottom-6 left-0 w-full flex items-center justify-between px-[5%] z-20">
+          {/* WhatsApp Icon */}
+          <a
+            href="https://wa.me/923001234567"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M13.601 2.326A7.857 7.857 0 0 0 8.002 0C3.584 0 .002 3.582.002 8c0 1.411.37 2.787 1.075 4.002L0 16l4.111-1.062A7.964 7.964 0 0 0 8.002 16c4.418 0 8-3.582 8-8 0-2.134-.83-4.142-2.399-5.674ZM8.002 14.5a6.48 6.48 0 0 1-3.295-.894l-.236-.14-2.437.63.649-2.38-.153-.244A6.497 6.497 0 0 1 1.5 8c0-3.59 2.912-6.5 6.502-6.5a6.466 6.466 0 0 1 4.606 1.898A6.46 6.46 0 0 1 14.5 8c0 3.59-2.912 6.5-6.498 6.5Zm3.645-4.736c-.197-.099-1.166-.574-1.348-.639-.182-.066-.315-.099-.448.099s-.514.639-.63.77c-.115.132-.232.148-.429.049-.197-.099-.831-.305-1.583-.974-.584-.52-.977-1.162-1.091-1.358-.115-.197-.012-.304.087-.403.089-.088.197-.23.296-.345.098-.115.131-.197.197-.33.065-.132.033-.247-.016-.346-.05-.099-.448-1.086-.614-1.486-.162-.389-.326-.336-.448-.342-.115-.006-.247-.007-.38-.007a.73.73 0 0 0-.528.247c-.182.197-.695.679-.695 1.656s.712 1.921.812 2.054c.099.132 1.403 2.143 3.402 3.004.476.205.847.326 1.136.418.477.152.91.13 1.253.079.383-.058 1.165-.476 1.33-.936.164-.46.164-.854.115-.936-.049-.082-.18-.13-.377-.23Z" />
+            </svg>
+          </a>
+
+          {/* Get a Quote Button */}
+       <Link
+  href="/Contact-us"
+  className="text-white font-semibold text-[16px] px-6 py-3 rounded-full transition-all duration-300 
+             hover:scale-105 shadow-[0_0_15px_rgba(72,72,255,0.8)]"
+  style={{
+    backgroundColor: 'tranparent',
+    border: '2px solid white',
+  }}
+>
+  Get a Quote
+</Link>
+
+
+
         </div>
+
       </div>
     </section>
   );
