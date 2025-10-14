@@ -69,11 +69,11 @@ const page = () => {
 <AiMlSection />
 <BlockchainSection />
       {/* <StatsAndPartners /> */}
-      <ITProcesses />
-      <Hero/>
-      <Blogscard/>
+     {/*  <ITProcesses /> */}
+    {/*  <Hero/> */}
+     {/* <Blogscard/>
       <Reviews />
-      <Tech/>
+      <Tech/>  */}
       <Contact />
 
       {/* <Testimonial /> */}
