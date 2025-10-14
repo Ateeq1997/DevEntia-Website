@@ -38,13 +38,15 @@ const TextEditor = ({
   const [url, setUrl] = useState("");
   const [showInput, setShowInput] = useState(false);
 
-  const applyLink = () => {
+    const applyLink = () => {
+    if (!editor) return; 
     if (url) {
       editor.chain().focus().setLink({ href: url }).run();
       setUrl("");
       setShowInput(false);
     }
   };
+
   const colors = [
     '#000000', '#FF0000', '#FF8000', '#FFFF00', '#00FF00', '#00FFFF',
     '#0000FF', '#808080', '#FFC0CB', '#FFD700', '#90EE90', '#87CEEB',

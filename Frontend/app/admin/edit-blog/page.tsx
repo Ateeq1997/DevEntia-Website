@@ -1,12 +1,10 @@
-// 'use client';
-
-// import { Upload } from 'lucide-react';
-// import { useRef, useState } from 'react';
-// import { useRouter } from 'next/navigation';
-// import TextEditor from '@/components/adminDashboard/blog/TextEditor';
-// import axiosInstance from '@/lib/axiosInstance';
-
-// const Page = () => {
+ 'use client'
+ import { Upload } from 'lucide-react';
+ import { useRef, useState } from 'react';
+ import { useRouter } from 'next/navigation';
+ import TextEditor from '@/components/adminDashboard/blog/TextEditor';
+ import axiosInstance from '@/lib/axiosInstance'
+ const Page = () => {
 //   const router = useRouter();
 //   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -234,6 +232,6 @@
 //       </form>
 //     </div>
 //   );
-// };
+ };
 
-// export default Page;
+ export default Page;
