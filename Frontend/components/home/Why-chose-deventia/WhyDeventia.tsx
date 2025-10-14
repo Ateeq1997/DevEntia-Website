@@ -1,48 +1,302 @@
 "use client";
 
-import { whyDeventiaData } from "@/data/data";
-import WhyDeventiaCard from "./WhydeventiaCard";
-import GlowingText from "./GlowingText";
-import BlueGlowEffect from "../BlueGlowEffect";
-import { motion } from "framer-motion";
+import React from "react";
 
 const WhyDeventia = () => {
   return (
-    <div className="py-20 mb-5  relative">
-      {/* Blue lighting */}
-      <BlueGlowEffect
-        className="top-5 right-14  z-50 xs:right-0"
-        size={250}
-        blur={120}
-        opacity={0.7}
-        rotate={0}
-      />
+    <div
+      className="relative py-20 px-[5%] text-white overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: "url('/home/bgimg.png')" }}
+    >
+      {/* Heading */}
+      <div className="relative mx-auto text-left">
+        <p className="text-[#4E6BFF] text-lg font-semibold">Our Services</p>
+        <h2 className="text-[20px] md:text-[63px] font-bold leading-tight mt-2">
+  Enhance efficiency{" "}
+  <span className="hidden md:inline"><br /></span>
+  with our expertise.
+</h2>
 
-      <GlowingText
-        glowingTitle=" WHY CHOOSE SERVICES FROM DEVENTIA?"
-        title=" Why Choose Services From DevEntia?"
-      />
+        <div className="w-[160px] md:w-[250px] h-[2px] bg-gray-300 mt-4" />
+      </div>
 
-      {/* Services grid */}
-      <div className="container flex justify-center items-center mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 -mt-4">
-          {whyDeventiaData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+      {/* Timeline container */}
+      <div className="relative mx-auto -mt-20 z-10 w-full hidden lg:block">
+        {/* Background Line Image */}
+        <img
+          src="/home/Group 1982249958.png"
+          alt="Timeline Line"
+          className="  w-full h-full object-contain"
+        />
+ {/*step 1 */}
+
+
+
+<div className="absolute left-[5%] bottom-[-0%] z-10 max-w-xs flex flex-row gap-5 items-center">
+  <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
+    1
+  </h1>
+
+  {/* Step Content */}
+  <div>
+    <h3 className="text-xl md:text-[20px] font-bold mb-2">Planning</h3>
+    <p className="text-sm md:text-[14px] text-[#C8CFD5] mb-2">
+      Digital agency is an high test for business website work
+    </p>
+    <a
+      href="#"
+      className="text-[#FFFFFF] text-md font-semibold hover:underline"
+    >
+      Learn More +
+    </a>
+  </div>
+</div>
+<div className="absolute left-[16%] top-[22%] z-10 max-w-sm flex flex-row gap-5 items-centr">
+  {/* Step Number */}
+  <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
+    2
+  </h1>
+
+  {/* Step Content */}
+  <div>
+    <h3 className="text-xl md:text-[20px] font-bold mb-2">Design </h3>
+    <p className="text-sm md:text-[14px] text-[#C8CFD5] mb-2">
+    Digital agency is an high test for business website work    </p>
+    <a
+      href="#"
+      className="text-[#FFFFFF] text-md font-semibold hover:underline"
+    >
+      Learn More +
+    </a>
+  </div>
+</div>
+
+
+       
+
+        {/* Step 4 */}
+        
+
+        <div className="absolute left-[47%] top-[10%] z-10 max-w-sm flex flex-row gap-5 items-center">
+  {/* Step Number */}
+  <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
+    4
+  </h1>
+
+  {/* Step Content */}
+  <div>
+    <h3 className="text-xl md:text-[20px] font-bold mb-2">Testing</h3>
+    <p className="text-sm md:text-[14px] text-[#C8CFD5] mb-2">
+    Digital agency is an high test for business website work
+        </p>
+    <a
+      href="#"
+      className="text-[#FFFFFF] text-md font-semibold hover:underline"    >
+      Learn More +
+    </a>
+  </div>
+</div>
+
+
+
+<div className="absolute left-[34%] top-[73%] z-10 max-w-sm  flex flex-row gap-5 items-center">
+          {/* Step Number */}
+  <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
+    3
+  </h1>
+  <div>
+
+          <h3 className="text-xl md:text-2xl font-bold mb-2">Development</h3>
+          <p className="text-sm md:text-base text-gray-300 mb-2">
+            Digital agency is an high test for business website work
+          </p>
+          <a
+            href="#"
+            className="text-[#FFFFFF] text-md font-semibold hover:underline"
             >
-              <WhyDeventiaCard {...item} />
-            </motion.div>
-          ))}
+            Learn More +
+          </a>
+          </div>
+        </div>
+       
+        <div className="absolute right-[5%] bottom-[25%] z-10 max-w-sm  flex flex-row gap-5 items-center">
+          {/* Step Number */}
+  <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
+    5
+  </h1>
+  <div>
+
+          <h3 className="text-xl md:text-2xl font-bold mb-2">Release</h3>
+          <p className="text-sm md:text-base text-gray-300 mb-2">
+            Digital agency is an high test for business website work
+          </p>
+          <a
+            href="#"
+            className="text-[#FFFFFF] text-md font-semibold hover:underline"
+            >
+            Learn More +
+          </a>
+          </div>
+        </div>
+       
+
+        <div className="absolute right-[-5%] top-[-5%] z-10 max-w-sm  flex flex-row gap-5 items-center">
+          {/* Step Number */}
+  <h1 className="text-[#B1B1FE] text-[110px] font-semibold leading-none">
+    6
+  </h1>
+  <div>
+
+          <h3 className="text-xl md:text-2xl font-bold mb-2">Support & Improvement</h3>
+          <p className="text-sm md:text-base text-gray-300 mb-2">
+            Digital agency is an high test for business website work
+          </p>
+          <a
+            href="#"
+            className="text-[#FFFFFF] text-md font-semibold hover:underline"
+            >
+            Learn More +
+          </a>
+          </div>
         </div>
       </div>
 
-      {/* Floating orbs */}
-      <div className="absolute top-5 left-32 md:right-40 w-[25px] h-[25px] rounded-[41px] bg-gradient-to-b from-[#AD6AFF] to-[#AD6AFF00]" />
-      <div className="absolute top-12 right-[10%] lg:right-[30%]  w-[13px] h-[13px] rounded-[21px] bg-gradient-to-b from-[#7ADB78] to-[#7ADB7800]" />
+
+      {/*mobile view*/}
+      <div className="relative mx-auto h-[600px] z-10 w-full block lg:hidden mt-8">
+        {/* Background Line Image */}
+        <img
+  src="/home/Group 1982250006.png"
+  alt="Timeline Line"
+  className="w-full h-full object-contain "
+/>
+
+ {/*step 1 */}
+
+
+
+<div className="absolute left-[0%] top-[5%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
+  <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
+    1
+  </h1>
+
+  {/* Step Content */}
+  <div>
+    <h3 className="text-[10px] md:text-[14px] font-bold mb-1">Planning</h3>
+    <p className="text-[8px] md:text-[12px] text-[#C8CFD5] mb-1">
+      Digital agency is an high test for business website work
+    </p>
+    <a
+      href="#"
+      className="text-[#FFFFFF] text-[8px] md:text-[12px] font-semibold hover:underline"
+    >
+      Learn More +
+    </a>
+  </div>
+</div>
+<div className="absolute right-[0%] top-[15%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-centr">
+  {/* Step Number */}
+  <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
+    2
+  </h1>
+
+  {/* Step Content */}
+  <div>
+    <h3 className="text-[10px] md:text-[14px] font-bold mb-1">Design </h3>
+    <p className="text-[8px] md:text-[12px] text-[#C8CFD5] mb-1">
+    Digital agency is an high test for business website work    </p>
+    <a
+      href="#"
+      className="text-[#FFFFFF] text-[8px] md:text-[12px] font-semibold hover:underline"
+    >
+      Learn More +
+    </a>
+  </div>
+</div>
+
+
+<div className="absolute right-[0%] top-[50%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
+  {/* Step Number */}
+  <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
+    4
+  </h1>
+
+  {/* Step Content */}
+  <div>
+    <h3 className="text-[10px] md:text-[14px] font-bold mb-1">Testing</h3>
+    <p className="text-[8px] md:text-[12px] text-[#C8CFD5] mb-1">
+    Digital agency is an high test for business website work
+        </p>
+    <a
+      href="#"
+      className="text-[#FFFFFF] text-[8px] md:text-[12px] font-semibold hover:underline"    >
+      Learn More +
+    </a>
+  </div>
+</div>
+
+
+
+<div className="absolute left-[0%] top-[33%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px]  flex flex-row gap-3 items-center">
+          {/* Step Number */}
+          <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
+          3
+  </h1>
+  <div>
+
+          <h3 className="text-[10px] md:text-[14px] font-bold mb-1">Development</h3>
+          <p className="text-[8px] md:text-[12px] text-gray-300 mb-1">
+            Digital agency is an high test for business website work
+          </p>
+          <a
+            href="#"
+            className="text-[#FFFFFF] text-[8px] md:text-[12px] font-semibold hover:underline"
+            >
+            Learn More +
+          </a>
+          </div>
+        </div>
+       
+<div className="absolute left-[0%] bottom-[15%] z-10 max-w-[100px] sm:max-w-[130px]  md:max-w-[250px] flex flex-row gap-3 items-center">
+          {/* Step Number */}
+          <h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
+          5
+  </h1>
+  <div>
+
+          <h3 className="text-[10px] md:text-[14px] font-bold mb-1">Release</h3>
+          <p className="text-[8px] md:text-[10px] text-gray-300 mb-1">
+            Digital agency is an high test for business website work
+          </p>
+          <a
+            href="#"
+            className="text-[#FFFFFF] text-[8px] md:text-[10px] font-semibold hover:underline"
+            >
+            Learn More +
+          </a>
+          </div>
+        </div>
+       
+
+<div className="absolute right-[0%] bottom-[0%] z-10 max-w-[100px] sm:max-w-[130px] md:max-w-[250px] flex flex-row gap-3 items-center">
+<h1 className="text-[#B1B1FE] text-[37px] md:text-[90px] font-semibold leading-none">
+6
+  </h1>
+  <div>
+
+          <h3 className="text-[10px] md:text-[14px] font-bold mb-1">Support & Improvement</h3>
+          <p className="text-[8px] md:text-[10px] text-gray-300 mb-1">
+            Digital agency is an high test for business website work
+          </p>
+          <a
+            href="#"
+            className="text-[#FFFFFF] text-[8px] md:text-[10px] font-semibold hover:underline"
+            >
+            Learn More +
+          </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

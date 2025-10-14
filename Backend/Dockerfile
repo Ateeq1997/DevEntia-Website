@@ -1,40 +1,41 @@
-# Stage 1: Build
-FROM node:22.16.0-alpine AS builder
+# Backend/Dockerfile
+FROM node:22.16.0-alpine AS base
 WORKDIR /app
-
-ARG NODE_ENV=production
-ENV NODE_ENV=$NODE_ENV
-
 COPY package*.json ./
-RUN npm ci
 
-COPY . .
+# Development dependencies (includes dev dependencies)
+FROM base AS dev-deps
+RUN npm install
 
-# Stage 2: Production runtime
+# Production dependencies (excludes dev dependencies)
+FROM base AS prod-deps
+RUN npm install --omit=dev
+
+# Production runtime
 FROM node:22.16.0-alpine AS prod
 WORKDIR /app
-
 ENV NODE_ENV=production
-
-COPY package*.json ./
-RUN npm ci --omit=dev
-
-COPY --from=builder /app ./
-
-# Install wget for healthcheck
 RUN apk add --no-cache wget
-
-# Create and fix upload directory ownership
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY . .
 RUN mkdir -p /app/controller/applyforjob/upload \
  && addgroup -S app && adduser -S app -G app \
  && chown -R app:app /app/controller
-
 USER app
-
 EXPOSE 4000
+HEALTHCHECK --interval=30s --timeout=15s --start-period=30s --retries=5 \
+  CMD wget --spider --quiet http://localhost:4000/health || exit 1
+CMD ["node", "server.js"]
 
-# ✅ Healthcheck hits /health endpoint and requires 200 OK
+# Development runtime
+FROM node:22.16.0-alpine AS dev
+WORKDIR /app
+ENV NODE_ENV=development
+RUN apk add --no-cache wget
+COPY --from=dev-deps /app/node_modules ./node_modules
+COPY . .
+RUN mkdir -p /app/controller/applyforjob/upload
+EXPOSE 4000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
   CMD wget --spider --quiet http://localhost:4000/health || exit 1
-
 CMD ["node", "server.js"]

@@ -41,13 +41,13 @@ const Ourportfolio = () => {
         <div className="flex flex-row items-center gap-5">
           <button
             onClick={() => scroll("left")}
-            className="flex items-center gap-2 bg-gray-200 dark:bg-white text-black p-5 font-semibold text-[14px] md:text-[19px] rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-md"
+            className="flex items-center gap-2 bg-white text-black p-5 font-semibold text-[14px] md:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(255,255,255,1)]"
           >
             <FaArrowLeftLong />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="flex items-center gap-2 bg-[#4848FF] text-white dark:text-black p-5 font-semibold text-[14px] md:text-[19px] rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
+            className="flex items-center gap-2 bg-[#4848FF] text-black p-5 font-semibold text-[14px] md:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
           >
             <FaArrowRightLong />
           </button>
@@ -65,7 +65,7 @@ const Ourportfolio = () => {
             <img
               src="/home/project1.png"
               alt="img"
-              className="w-full h-auto lg:h-[500px] object-cover"
+              className="w-full h-auto lg:h-auto object-cover"
             />
           </div>
           <div className="flex flex-row items-center justify-between p-5">
@@ -77,14 +77,20 @@ const Ourportfolio = () => {
                 Development. Jan 19, 2024
               </p>
             </div>
-            <Link
-              href={"/Our-Portfolio/Projects/RS-Global-Ties"}
-              className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-5 font-medium text-[12px] lg:text-[19px] rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
-            >
-              <p className="text-white flex items-center gap-3">
-                See Project <FaArrowRightLong />
-              </p>
-            </Link>
+           <Link
+  href={"/Our-Portfolio/Projects/RS-Global-Ties"}
+  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
+             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
+             transition-all duration-700 ease-in-out group"
+>
+  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
+    See Project <FaArrowRightLong />
+  </span>
+  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
+  </span>
+</Link>
+
           </div>
         </div>
 
@@ -94,7 +100,7 @@ const Ourportfolio = () => {
             <img
               src="/home/project2.png"
               alt="img"
-              className="w-full h-auto lg:h-[500px] object-cover"
+              className="w-full h-auto lg:h-auto object-cover"
             />
           </div>
           <div className="flex flex-row items-center justify-between p-5">
@@ -106,14 +112,20 @@ const Ourportfolio = () => {
                 Development. Jan 19, 2025
               </p>
             </div>
-            <Link
-              href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-              className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-5 font-medium text-[12px] lg:text-[19px] rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
-            >
-              <p className="text-white flex items-center gap-3">
-                See Project <FaArrowRightLong />
-              </p>
-            </Link>
+         <Link
+  href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
+  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
+             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
+             transition-all duration-700 ease-in-out group"
+>
+  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
+    See Project <FaArrowRightLong />
+  </span>
+  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
+  </span>
+</Link>
+
           </div>
         </div>
 
@@ -123,7 +135,7 @@ const Ourportfolio = () => {
             <img
               src="/home/project2.png"
               alt="img"
-              className="w-full h-auto lg:h-[500px] object-cover"
+              className="w-full h-auto lg:h-auto object-cover"
             />
           </div>
           <div className="flex flex-row items-center justify-between p-5">
@@ -135,14 +147,21 @@ const Ourportfolio = () => {
                 Development. Jan 19, 2025
               </p>
             </div>
-            <Link
-              href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-              className="flex items-center bg-[#4848FF] px-4 lg:px-8 py-3 lg:py-5 font-medium text-[12px] lg:text-[19px] rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
-            >
-              <p className="text-white flex items-center gap-3">
-                See Project <FaArrowRightLong />
-              </p>
-            </Link>
+          <Link
+  href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
+  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
+             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
+             transition-all duration-700 ease-in-out group"
+>
+  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
+    See Project <FaArrowRightLong />
+  </span>
+  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
+  </span>
+</Link>
+
+
           </div>
         </div>
       </div>

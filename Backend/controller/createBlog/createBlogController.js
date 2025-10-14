@@ -10,9 +10,19 @@ exports.uploadMiddleware = upload.single('file');
 function uploadToCloudinary(fileBuffer, folder = 'blog-files') {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
-      { folder, resource_type: 'auto' },
+      { 
+        folder, 
+        resource_type: 'auto',
+        quality: 'auto',
+        fetch_format: 'auto',
+        secure: true
+      },
       (error, result) => {
-        if (error) return reject(error);
+        if (error) {
+          console.error('Cloudinary upload error:', error);
+          return reject(error);
+        }
+        console.log('Cloudinary upload success:', result.secure_url);
         resolve(result.secure_url);
       }
     );

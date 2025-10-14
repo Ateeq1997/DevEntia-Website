@@ -166,19 +166,43 @@ const HeroSection = () => {
           </AnimatePresence>
 
  <div className="flex gap-6 mt-20">
-  <Link
-    href={"/Contact-us"}
-    className="flex items-center gap-2 flex-wrap bg-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3 rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
-  >
-    <p className=" text-white flex items-center ">Let&apos;s Connect</p>
-  </Link>
+<Link
+  href={"/Contact-us"}
+  className="relative overflow-hidden flex items-center gap-2 flex-wrap 
+             bg-[#4848FF] px-5 text-[14px] md:text-[19px] py-3 
+             group"
+>
+  {/* Text stays above overlay */}
+  <span className="relative z-10 text-white flex items-center">
+    Let&apos;s Connect
+  </span>
 
-  <Link
-    href={"/Services"}
-    className="flex items-center gap-2 flex-wrap bg-white text-[#4848FF] px-5 font-semibold text-[14px] md:text-[19px] py-3 rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(255,255,255,1)]"
-  >
-    <p className="flex items-center ">Explore Services</p>
-  </Link>
+  {/* Dark blue overlay that slides in on hover */}
+  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-300 ease-in-out">
+  </span>
+</Link>
+
+
+
+
+ <Link
+  href={"/Services"}
+  className="relative overflow-hidden flex items-center gap-2 flex-wrap 
+             bg-white text-[#4848FF] px-5  text-[14px] md:text-[19px] py-3  
+             group transition-all duration-700 ease-in-out"
+>
+  {/* Text that changes color on hover */}
+  <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+    Explore Services
+  </span>
+
+  {/* Dark blue overlay that slides in on hover */}
+  <span className="absolute inset-0 bg-[#4848FF] transform -translate-x-full 
+                   group-hover:translate-x-0 transition-transform duration-300 ease-in-out">
+  </span>
+</Link>
+
 </div>
 
 

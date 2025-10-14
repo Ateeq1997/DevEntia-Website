@@ -10,28 +10,41 @@ const reviews = [
     text: "“I’m so impressed by your dedication to learning. I know it wasn’t easy when that technology solution you presented didn’t work out.”",
     name: "Bessie Cooper",
     role: "Marketing Coordinator, HCAB",
+    image: "/home/Component 20.png",
   },
   {
-    text: "“Working with your team has been a seamless experience. The project was delivered on time and exceeded expectations.”",
+    text: "“I’m so impressed by your dedication to learning. I know it wasn’t easy when that technology solution you presented didn’t work out.”",
     name: "Darlene Robertson",
     role: "Product Manager, TechFlow",
+    image: "/home/Component 20.png",
   },
   {
-    text: "“You quickly adapted to changes and kept us updated every step of the way. Great communication and results.”",
+    text: "“I’m so impressed by your dedication to learning. I know it wasn’t easy when that technology solution you presented didn’t work out.”",
     name: "Jane Cooper",
     role: "CTO, InnovateX",
+    image: "/home/Component 20.png",
   },
 ];
 
 const Reviews = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
+ const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const scrollLeft = () => {
-    scrollRef.current?.scrollBy({ left: -scrollRef.current.offsetWidth, behavior: "smooth" });
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: -scrollRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
   };
 
   const scrollRight = () => {
-    scrollRef.current?.scrollBy({ left: scrollRef.current.offsetWidth, behavior: "smooth" });
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: scrollRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -45,8 +58,9 @@ const Reviews = () => {
       <h2 className="text-3xl md:text-[63px] font-bold mt-3 leading-tight text-black dark:text-white">
         Happy Words From <br /> Happy Customer
       </h2>
-
-      {/* Review Container */}
+<div className="flex justify-center mt-4">
+  <div className="w-[200px] h-[2px] bg-gray-400" />
+</div>     
       <div
         ref={scrollRef}
         className="flex overflow-x-hidden mt-6 scroll-smooth snap-x snap-mandatory hide-scrollbar"
@@ -86,13 +100,13 @@ const Reviews = () => {
       <div className="flex justify-center gap-4 mt-8">
         <button
           onClick={scrollLeft}
-          className="flex items-center gap-2 bg-white text-black dark:bg-[#1a1a1a] dark:text-white p-4 font-semibold text-[14px] md:text-[19px] rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+          className="flex items-center gap-2 bg-white text-black p-4 font-semibold text-[14px] md:text-[19px] rounded-full transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(255,255,255,1)]"
         >
           <FaArrowLeftLong />
         </button>
         <button
           onClick={scrollRight}
-          className="flex items-center gap-2 bg-[#4848FF] text-white dark:bg-[#8A8AFD] dark:text-black p-4 font-semibold text-[14px] md:text-[19px] rounded-full hover:scale-110 transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,0.3)]"
+          className="flex items-center gap-2 bg-[#4848FF] text-black p-4 font-semibold text-[14px] md:text-[19px] rounded-full  transition-all duration-700 ease-in-out shadow-[0_0_15px_rgba(72,72,255,1)]"
         >
           <FaArrowRightLong />
         </button>

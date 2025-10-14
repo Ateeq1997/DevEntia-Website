@@ -38,14 +38,13 @@ const TextEditor = ({
   const [url, setUrl] = useState("");
   const [showInput, setShowInput] = useState(false);
 
-    const applyLink = () => {
-    if (!editor) return; 
-    if (url) {
-      editor.chain().focus().setLink({ href: url }).run();
-      setUrl("");
-      setShowInput(false);
-    }
-  };
+  const applyLink = () => {
+  if (editor && url) {
+    editor.chain().focus().setLink({ href: url }).run();
+    setUrl("");
+    setShowInput(false);
+  }
+};
 
   const colors = [
     '#000000', '#FF0000', '#FF8000', '#FFFF00', '#00FF00', '#00FFFF',
@@ -228,8 +227,9 @@ const TextEditor = ({
           <AlignCenter size={16} />
         </ToolbarButton>
         <ToolbarButton
-          onClick={() => editor.chain().focus().setTextAlign('right').run()}
-          isActive={editor.isActive({ textAlign: 'right' })}
+onClick={() => editor?.chain().focus().toggleBold().run()}
+isActive={editor?.isActive('bold')}
+
           title="Align Right"
         >
           <AlignRight size={16} />
@@ -296,7 +296,7 @@ const TextEditor = ({
                     onClick={(e) => {
                       e.preventDefault();
                       // Don't use focus() here - it will clear the selection
-                      editor.chain().setColor(color).run();
+                      editor?.chain().setColor(color).run();
                       setShowColorPicker(false);
                     }}
                     title={`Set color to ${color}`}

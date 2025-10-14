@@ -37,8 +37,8 @@ const PositiveImpactSection = () => {
   ];
 
   return (
-    <section className="px-[5%] py-12 transition-colors duration-500 bg-white dark:bg-[#151515]">
-      <h1 className="text-center text-[30px] lg:text-[63px] font-bold text-black dark:text-white">
+    <section className="px-[5%] py-12  ">
+      <h1 className="text-center text-[30px] lg:text-[63px] font-bold">
         Why Arise Stands Out
       </h1>
       <p className="text-[#333333] dark:text-[#A7ADBE] font-medium mb-16 px-4 text-center lg:px-64">

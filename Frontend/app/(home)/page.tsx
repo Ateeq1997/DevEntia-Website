@@ -21,6 +21,8 @@ import Contact from '@/components/home/contact';
 import ServicesSection from '@/components/home/ServicesSection';
 // import EnhanceEfficiency from '@/components/home/EnhanceEfficiency';
 import Tech from '@/components/home/tech';
+import Hero from '@/components/Blog/hero';
+import Blogscard from '@/components/Blog/cards';
 
 
 export const metadata: Metadata = {
@@ -67,10 +69,13 @@ const page = () => {
 <AiMlSection />
 <BlockchainSection />
       {/* <StatsAndPartners /> */}
-      {/* <ITProcesses /> */}
-     
-      {/* <Tech/> */}
+      <ITProcesses />
+      <Hero/>
+      <Blogscard/>
+      <Reviews />
+      <Tech/>
       <Contact />
+
       {/* <Testimonial /> */}
       {/* <Portfolio /> */}
       {/* <Faqs /> */}
