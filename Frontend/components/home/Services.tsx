@@ -153,23 +153,23 @@ export default function ServiceCards() {
   return (
     <div
   ref={containerRef}
-  className="relative px-[5%] py-12 "
+  className="relative px-[5%] py-12 transition-colors duration-500 bg-white dark:bg-[#0B0B0B]"
  >
 
       {/* Section Title */}
       <div className="pb-4 pt-8">
         <h2 className="text-[16px] text-[#4848FF] mb-8">Services</h2>
-        <h1 className="text-[30px] lg:text-[63px] font-bold leading-tight w-full md:w-[70%]">
+        <h1 className="text-[30px] lg:text-[63px] font-bold leading-tight w-full md:w-[70%] text-black dark:text-white">
           Explore Our Services
         </h1>
 
         <div className="flex flex-col md:flex-row items-start justify-start md:items-center md:justify-between gap-6 md:gap-3 mt-2">
-          <p className="text-[#B8BBD2] text-[16px]">
+          <p className="text-[#B8BBD2] dark:text-[#A7ADBE] text-[16px]">
             Deventia transforms ideas into digital experiences through expert
             UI/UX design, web development, and motion graphics.
           </p>
           <Link href="/Services">
-            <button className="underline text-[#B8BBD2] text-[16px]">
+            <button className="underline text-[#B8BBD2] dark:text-[#A7ADBE] text-[16px]">
               View All
             </button>
           </Link>
@@ -183,7 +183,7 @@ export default function ServiceCards() {
           {services.map((service) => (
             <div
               key={service.id}
-              className="h-full flex flex-col bg-[#151515] text-white rounded-2xl overflow-hidden shadow-2xl"
+              className="h-full flex flex-col bg-white dark:bg-[#151515] text-black dark:text-white rounded-2xl overflow-hidden shadow-2xl transition-colors duration-500"
             >
               {/* Image */}
               <div className="relative w-full h-[250px]">
@@ -200,20 +200,20 @@ export default function ServiceCards() {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-[22px] font-semibold">{service.title}</h2>
-                  <FaArrowRightLong className="text-white text-[18px] -rotate-45" />
+                  <FaArrowRightLong className="text-black dark:text-white text-[18px] -rotate-45" />
                 </div>
-                <p className="text-[#B8BBD2] text-[15px] leading-relaxed mb-6">
+                <p className="text-[#B8BBD2] dark:text-[#A7ADBE] text-[15px] leading-relaxed mb-6">
                   {service.description}
                 </p>
 
-                <div className="flex border-b border-[#D9D9D9] pb-2 mb-4 text-[14px]">
-                  <span className="w-1/2 text-white font-bold text-[15px]">Expert Areas</span>
-                  <span className="w-1/2 text-white font-bold text-[15px]">Top Cases</span>
+                <div className="flex border-b border-[#D9D9D9] dark:border-[#333] pb-2 mb-4 text-[14px]">
+                  <span className="w-1/2 text-black dark:text-white font-bold text-[15px]">Expert Areas</span>
+                  <span className="w-1/2 text-black dark:text-white font-bold text-[15px]">Top Cases</span>
                 </div>
 
-                <ul className="space-y-2 text-[14px] text-[#E5E7EB] list-disc px-4">
+                <ul className="space-y-2 text-[14px] dark:text-[#E5E7EB] list-disc px-4">
                   {service.expertAreas.map((area, areaIndex) => (
-                    <li key={areaIndex} className="hover:text-white transition-colors duration-200">
+                    <li key={areaIndex} className="hover:text-black dark:hover:text-white transition-colors duration-200">
                       {area}
                     </li>
                   ))}
@@ -225,11 +225,11 @@ export default function ServiceCards() {
       ) : (
         <>
     {/* Desktop: column layout with 600px per card */}
-    <div className="mt-10 space-y-1 bg-[#0B0B0B]">
+    <div className="mt-10 space-y-1 bg-white dark:bg-[#0B0B0B]">
       {services.map((service) => (
         <div
           key={service.id}
-          className="sticky top-24 h-[600px] w-full mx-auto bg-[#151515] text-white rounded-lg overflow-hidden  flex flex-row"
+          className="sticky top-24 h-[600px] w-full mx-auto bg-white dark:bg-[#151515] text-black dark:text-white rounded-lg overflow-hidden  flex flex-row transition-colors duration-500"
         >
           {/* Image Section */}
           <div className="relative w-[44%] h-full flex-shrink-0">
@@ -248,22 +248,21 @@ export default function ServiceCards() {
               <h2 className="text-[18px] lg:text-[24px] font-bold leading-tight flex-1 ">
                 {service.title}
               </h2>
-              <FaArrowRightLong className="text-white text-[18px] -rotate-45 cursor-pointer hover:scale-110 transition-transform duration-200 flex-shrink-0 mt-2" />
+              <FaArrowRightLong className="text-black dark:text-white text-[18px] -rotate-45 cursor-pointer hover:scale-110 transition-transform duration-200 flex-shrink-0 mt-2" />
             </div>
 
-            <p className="text-[#B8BBD2] text-[14px] lg:text-[16px] leading-relaxed mb-12">
+            <p className="text-[#B8BBD2] dark:text-[#A7ADBE] text-[14px] lg:text-[16px] leading-relaxed mb-12">
               {service.description}
             </p>
 
-            <div className="grid grid-cols-2 gap-x-12 border-b border-[#D9D9D9] pb-3 mb-8">
-              <span className="text-white font-bold text-[16px] lg:text-[16px]">Expert Areas</span>
-              {/* <span className="text-white font-bold text-[16px] lg:text-[16px]">Top Cases</span> */}
+            <div className="grid grid-cols-2 gap-x-12 border-b border-[#D9D9D9] dark:border-[#333] pb-3 mb-8">
+              <span className="text-black dark:text-white font-bold text-[16px] lg:text-[16px]">Expert Areas</span>
             </div>
 
             <div className="  flex-1">
-              <ul className="space-y-3 text-[11px] lg:text-[15px] text-[#E5E7EB] list-disc px-4 ">
+              <ul className="space-y-3 text-[11px] lg:text-[15px] dark:text-[#E5E7EB] list-disc px-4 ">
                 {service.expertAreas.map((area, areaIndex) => (
-                  <li key={areaIndex} className="hover:text-white transition-colors duration-200 leading-relaxed font-poppins">
+                  <li key={areaIndex} className="hover:text-black dark:hover:text-white transition-colors duration-200 leading-relaxed font-poppins">
                     {area}
                   </li>
                 ))}
