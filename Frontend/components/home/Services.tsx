@@ -9,6 +9,7 @@ export default function ServiceCards() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeCard, setActiveCard] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+//cards
 
   const services = [
     {
