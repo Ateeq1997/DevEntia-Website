@@ -16,7 +16,6 @@ import Services from '@/components/home/Services';
 import Statistics from '@/components/home/statistics';
 import WhyDeventia from '@/components/home/Why-chose-deventia/WhyDeventia';
 import { Metadata } from 'next';
-import Reviews from '@/components/home/Reviews';
 import Contact from '@/components/home/contact';
 import ServicesSection from '@/components/home/ServicesSection';
 // import EnhanceEfficiency from '@/components/home/EnhanceEfficiency';
