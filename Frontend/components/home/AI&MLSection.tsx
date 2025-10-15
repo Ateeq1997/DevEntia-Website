@@ -33,13 +33,18 @@ export default function AiMlSection() {
         </p>
 
         {/* ✅ 5 containers for AI icons */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
           {AI_ITEMS.map((item, idx) => (
             <div
               key={idx}
-              className={`relative ${styles.techCard} bg-gray-100 dark:bg-[#0f1112] border border-transparent rounded-xl p-6 flex flex-col items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.8)] hover:scale-105 transition-transform duration-500`}
+              className={`relative ${styles.techCard} 
+              bg-gray-100 dark:bg-[#0f1112]
+              p-6 flex flex-col items-center justify-center 
+              transition-transform duration-500 hover:scale-105 
+              shadow-[inset_0_3px_8px_rgba(0,0,255,0.3),_0_0_15px_rgba(0,0,255,0.3),_5px_0_15px_rgba(0,0,255,0.3)] 
+              dark:shadow-[inset_0_3px_8px_rgba(107,108,255,0.6),_0_0_25px_rgba(107,108,255,0.6),_5px_0_25px_rgba(107,108,255,0.6)]`}
             >
-              <div className="w-20 h-20 relative">
+              <div className="w-28 h-28 relative">
                 <Image
                   src={item.src}
                   alt={`AI Framework ${idx + 1}`}
@@ -52,8 +57,7 @@ export default function AiMlSection() {
         </div>
 
         {/* ✅ Global button (same method as Tech & Cloud sections) */}
-        <div className="mt-12">
-        </div>
+        <div className="mt-12"></div>
       </div>
     </section>
   );

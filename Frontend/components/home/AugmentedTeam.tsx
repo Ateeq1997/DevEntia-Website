@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Founder from "../../assets/images/augmented.png";
+import Founder from "../../assets/images/Image (3).png";
 import { MdOutlineArrowOutward } from "react-icons/md";
 
 const AugmentedTeam = () => {
@@ -36,7 +36,7 @@ const AugmentedTeam = () => {
           {/* Contact button */}
           <Link
             href="/contact"
-            className="flex items-center gap-2 bg-[#4848FF] text-white px-6 py-3 mt-8 rounded-full hover:scale-110 transition-all duration-700 ease-in-out w-fit"
+            className="flex items-center gap-2 bg-[#4848FF] text-white px-6 py-3 mt-8 hover:scale-110 transition-all duration-700 ease-in-out w-fit"
           >
             Contact Us
             <MdOutlineArrowOutward size={22} color="#fff" />

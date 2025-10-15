@@ -2,15 +2,20 @@
 import { useRef } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
+import styles from "../home/home-css/home.module.css";
+
+import project1 from "../../assets/images/project1.png";
+import project2 from "../../assets/images/project2.png";
+import project3 from "../../assets/images/project3.png";
 
 const Ourportfolio = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  // Scroll function
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const cardWidth = scrollRef.current.firstChild
-        ? (scrollRef.current.firstChild as HTMLElement).clientWidth + 48
+        ? (scrollRef.current.firstChild as HTMLElement).clientWidth + 24
         : 300;
 
       scrollRef.current.scrollBy({
@@ -20,8 +25,14 @@ const Ourportfolio = () => {
     }
   };
 
+  const cards = [
+    { img: project1, title: "Simmple Tax", desc: "Simpple.Tax is a next-generation tax platform that blends AI and expert CPAs to make filing simple, fast, and stress.....", link: "/Our-Portfolio/Projects/RS-Global-Ties" },
+    { img: project2, title: "Falke", desc: "Falke is an all-in-one platform designed to simplify employee, project, and client management. From handling invoices.....", link: "/Our-Portfolio/Projects/Dadi-Rent-Boat" },
+    { img: project3, title: "Healthi Plate", desc: "Healthi Plate is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....", link: "/Our-Portfolio/Projects/Another-Project" },
+  ];
+
   return (
-    <div className="py-12 px-[5%] font-bai bg-white dark:bg-[#0b0b0d] text-gray-900 dark:text-white transition-colors duration-500">
+    <div className="portfolio-container py-12 px-[5%] font-bai bg-white dark:bg-[#0b0b0d] text-gray-900 dark:text-white transition-colors duration-500">
       <h2 className="text-[16px] text-[#4848FF] mb-8">OUR PORTFOLIO</h2>
 
       {/* Heading + description */}
@@ -30,8 +41,7 @@ const Ourportfolio = () => {
           Explore our new recently completed projects.
         </h1>
         <p className="text-[13px] md:text-[16px] flex-1 text-gray-700 dark:text-[#E5E5E6] transition-colors duration-500">
-          We are web designers, developers, project managers, and digital
-          solutions using the latest trends and technologies.
+          We are web designers, developers, project managers, and digital solutions using the latest trends and technologies.
         </p>
       </div>
 
@@ -57,113 +67,33 @@ const Ourportfolio = () => {
       {/* Carousel Container */}
       <div
         ref={scrollRef}
-        className="flex gap-12 items-center w-full mt-6 overflow-x-hidden transition-colors duration-500"
+        className="scroll-container flex gap-6 items-start w-full mt-6 overflow-hidden"
       >
-        {/* CARD 1 */}
-        <div className="min-w-full md:min-w-[calc(50%-1.5rem)] bg-[#151515] dark:bg-[#151515] bg-[#f8f9fb] rounded-lg flex flex-col gap-8 overflow-hidden transition-colors duration-500">
-          <div className="bg-gray-200 dark:bg-gray-700">
-            <img
-              src="/home/project1.png"
-              alt="img"
-              className="w-full h-auto lg:h-auto object-cover"
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between p-5">
-            <div className="flex flex-col gap-2">
-              <h3 className="text-[15px] lg:text-[24px] font-bold">
-                RS Global Ties
-              </h3>
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-[300px] md:w-[calc((100%-2rem)/3)] bg-[#f8f9fb] dark:bg-[#151515] rounded-lg flex flex-col gap-4 overflow-hidden transition-colors duration-500"
+          >
+            <div className="relative w-full h-[180px] md:h-[200px] lg:h-[270px] bg-gray-200 dark:bg-gray-700">
+              <Image src={card.img} alt={card.title} fill style={{ objectFit: "cover" }} />
+            </div>
+            <div className="flex flex-col p-4 gap-2">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[15px] lg:text-[20px] font-bold">{card.title}</h3>
+                <Link
+                  href={card.link}
+                  className="font-bold flex items-center gap-2 text-[18px] lg:text-[20px] 
+                             text-black dark:text-white transition-colors duration-500"
+                >
+                  &gt;
+                </Link>
+              </div>
               <p className="text-gray-600 dark:text-[#E5E5E6] text-[12px] lg:text-[14px] transition-colors duration-500">
-                Development. Jan 19, 2024
+                {card.desc}
               </p>
             </div>
-           <Link
-  href={"/Our-Portfolio/Projects/RS-Global-Ties"}
-  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
-             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
-             transition-all duration-700 ease-in-out group"
->
-  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
-    See Project <FaArrowRightLong />
-  </span>
-  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
-                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
-  </span>
-</Link>
-
           </div>
-        </div>
-
-        {/* CARD 2 */}
-        <div className="min-w-full md:min-w-[calc(50%-1.5rem)] bg-[#151515] dark:bg-[#151515] bg-[#f8f9fb] rounded-lg flex flex-col gap-8 overflow-hidden transition-colors duration-500">
-          <div className="bg-gray-200 dark:bg-gray-700">
-            <img
-              src="/home/project2.png"
-              alt="img"
-              className="w-full h-auto lg:h-auto object-cover"
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between p-5">
-            <div className="flex flex-col gap-2">
-              <h3 className="text-[14px] lg:text-[24px] font-bold">
-                Dadi Rent Boat
-              </h3>
-              <p className="text-gray-600 dark:text-[#E5E5E6] text-[12px] lg:text-[14px] transition-colors duration-500">
-                Development. Jan 19, 2025
-              </p>
-            </div>
-         <Link
-  href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
-             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
-             transition-all duration-700 ease-in-out group"
->
-  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
-    See Project <FaArrowRightLong />
-  </span>
-  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
-                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
-  </span>
-</Link>
-
-          </div>
-        </div>
-
-        {/* CARD 3 */}
-        <div className="min-w-full md:min-w-[calc(50%-1.5rem)] bg-[#151515] dark:bg-[#151515] bg-[#f8f9fb] rounded-lg flex flex-col gap-8 overflow-hidden transition-colors duration-500">
-          <div className="bg-gray-200 dark:bg-gray-700">
-            <img
-              src="/home/project2.png"
-              alt="img"
-              className="w-full h-auto lg:h-auto object-cover"
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between p-5">
-            <div className="flex flex-col gap-2">
-              <h3 className="text-[14px] lg:text-[24px] font-bold">
-                Dadi Rent Boat
-              </h3>
-              <p className="text-gray-600 dark:text-[#E5E5E6] text-[12px] lg:text-[14px] transition-colors duration-500">
-                Development. Jan 19, 2025
-              </p>
-            </div>
-          <Link
-  href={"/Our-Portfolio/Projects/Dadi-Rent-Boat"}
-  className="relative overflow-hidden flex items-center px-4 lg:px-5 py-3  
-             font-medium text-[12px] lg:text-[19px] bg-[#4848FF] 
-             transition-all duration-700 ease-in-out group"
->
-  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300">
-    See Project <FaArrowRightLong />
-  </span>
-  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
-                   group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
-  </span>
-</Link>
-
-
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -23,6 +23,7 @@ import ServicesSection from '@/components/home/ServicesSection';
 import Tech from '@/components/home/tech';
 import Hero from '@/components/Blog/hero';
 import Blogscard from '@/components/Blog/cards';
+import Testimonials from '@/components/home/Testimonials';
 
 
 export const metadata: Metadata = {
@@ -63,7 +64,8 @@ const page = () => {
       <PositiveImpactSection />
       <AugmentedTeam />
       <BlogNews />
-       <Reviews />
+      <Testimonials />
+       {/* <Reviews /> */}
       <TechSection/>
 <CloudSection />
 <AiMlSection />

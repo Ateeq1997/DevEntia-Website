@@ -4,9 +4,9 @@ import Image from "next/image";
 import styles from "../home/home-css/home.module.css";
 
 // ✅ Import actual blockchain images
-import integration from "../../assets/images/integration.png";
-import smart from "../../assets/images/smart.png";
-import application from "../../assets/images/application.png";
+import integration from "../../assets/images/integration (2).png";
+import smart from "../../assets/images/contract.png";
+import application from "../../assets/images/application (2).png";
 
 const BLOCKCHAIN_ITEMS = [
   { src: integration },
@@ -29,12 +29,19 @@ export default function BlockchainSection() {
           applications leveraging leading blockchain networks and technologies.
         </p>
 
-        {/* ✅ 3 containers in one row */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {/* ✅ 3 containers in one row with NO space between them */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-0 justify-items-center">
           {BLOCKCHAIN_ITEMS.map((item, idx) => (
             <div
               key={idx}
-              className={`relative ${styles.techCard} bg-gray-100 dark:bg-[#0f1112] border border-transparent rounded-xl p-6 flex flex-col items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.8)] hover:scale-105 transition-transform duration-500`}
+              className={`relative ${styles.techCard} 
+              bg-gray-100 dark:bg-[#0f1112]
+              p-5 flex flex-col items-center justify-center 
+              shadow-[inset_0_3px_8px_rgba(0,0,255,0.3),_0_0_15px_rgba(0,0,255,0.3),_5px_0_15px_rgba(0,0,255,0.3)] 
+              dark:shadow-[inset_0_3px_8px_rgba(107,108,255,0.6),_0_0_25px_rgba(107,108,255,0.6),_5px_0_25px_rgba(107,108,255,0.6)]
+              rounded-none sm:rounded-none
+              w-full h-full
+              transition-transform duration-500 hover:scale-[1.02]`}
             >
               <div className="w-28 h-28 relative">
                 <Image
@@ -50,9 +57,7 @@ export default function BlockchainSection() {
         </div>
 
         {/* ✅ Global Button (same across all sections) */}
-        <div className="mt-12">
-
-        </div>
+        <div className="mt-12"></div>
       </div>
     </section>
   );

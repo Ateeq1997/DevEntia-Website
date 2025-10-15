@@ -51,67 +51,74 @@ const Header: React.FC = () => {
       <div className="container px-[5%] lg:px-[5%] py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href={"/"}>
-              <Image
-                unoptimized
-                src={logoImg}
-                width={100}
-                alt="deventia logo"
-                className="w-auto h-8 lg:h-10"
-              />
-            </Link>
+          <div className="flex items-center justify-between w-full md:hidden px-4">
+  {/* Logo */}
+  <Link href={"/"}>
+    <Image
+      unoptimized
+      src={logoImg}
+      width={100}
+      alt="deventia logo"
+      className="w-auto h-8"
+    />
+  </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">
-            <ul className="flex space-x-8 xl:space-x-12 md:space-x-4 h-full">
-              {menuItems.map((item) => (
-                <div
-                  key={item.title}
-                  className={`relative group ${item.title === "Portfolio" ? "pb-4" : ""}`}
-                  onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
-                  onMouseLeave={() => item.title === "Portfolio" && setIsDropdownVisible(false)}
-                >
-                  <Link
-                    href={item.path}
-                    className="flex items-center hover:text-[#7471E6] transition-colors duration-200 text-sm xl:text-base"
-                    onClick={() => item.title === "Portfolio" && setIsDropdownVisible(!isDropdownVisible)}
-                  >
-                    {item.title}
-                    {item.title === "Portfolio" && <AiOutlineDown className="ml-1" />}
-                  </Link>
-                  {item.title === "Portfolio" && isDropdownVisible && (
-                    <div className="absolute -left-6 top-5 mt-2 rounded-full shadow-lg p-4 z-50">
-                      <PortfolioDropDown />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </ul>
-
-            <div className="flex flex-row items-center gap-10">
-              <Link
-                href={"/Careers"}
-                className="flex items-center gap-2 flex-wrap w-fit hover:text-[#7471E6]"
-              >
-                Careers
-              </Link>
-              <Link
-                href={"/Contact-us"}
-                className="flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit"
-              >
-                <p className="p-2 px-4 bg-white text-black dark:bg-white dark:text-black rounded-full flex items-center gap-2">
-                  Contact Us
-                </p>
-              </Link>
-
-              {/* Theme Toggle */}
-              <div className="flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit">
-                <ThemeToggle />
-              </div>
-            </div>
+{/* Desktop Navigation */}
+<div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">
+  <ul className="flex space-x-8 xl:space-x-12 md:space-x-4 h-full">
+    {menuItems.map((item) => (
+      <div
+        key={item.title}
+        className={`relative group ${item.title === "Portfolio" ? "pb-4" : ""}`}
+        onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
+        onMouseLeave={() => item.title === "Portfolio" && setIsDropdownVisible(false)}
+      >
+        <Link
+          href={item.path}
+          className="flex items-center hover:text-[#7471E6] transition-colors duration-200 text-sm xl:text-base"
+          onClick={() => item.title === "Portfolio" && setIsDropdownVisible(!isDropdownVisible)}
+        >
+          {item.title}
+          {item.title === "Portfolio" && <AiOutlineDown className="ml-1" />}
+        </Link>
+        {item.title === "Portfolio" && isDropdownVisible && (
+          <div className="absolute -left-6 top-5 mt-2 rounded-full shadow-lg p-4 z-50">
+            <PortfolioDropDown />
           </div>
+        )}
+      </div>
+    ))}
+  </ul>
+
+  <div className="flex flex-row items-center gap-10">
+    <Link
+      href={"/Careers"}
+      className="flex items-center gap-2 flex-wrap w-fit hover:text-[#7471E6]"
+    >
+      Careers
+    </Link>
+    <Link
+      href={"/Contact-us"}
+      className="flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit"
+    >
+      <p className="p-2 px-4 bg-white text-black dark:bg-white dark:text-black flex items-center gap-2">
+        Contact Us
+      </p>
+    </Link>
+
+    {/* Theme Toggle - Desktop */}
+    <div className="hidden md:flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit">
+      <ThemeToggle />
+    </div>
+  </div>
+</div>
+
+{/* Mobile Theme Toggle */}
+<div className="md:hidden flex items-center ml-1">
+  <ThemeToggle />
+</div>
+
 
           {/* Mobile Menu */}
           <MobileMenu />

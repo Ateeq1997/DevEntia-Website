@@ -5,19 +5,19 @@ import Image, { StaticImageData } from "next/image";
 import styles from "../home/home-css/home.module.css";
 
 // ✅ Importing tech icons
-import php from "../../assets/images/php.png";
-import python from "../../assets/images/python.png";
-import java from "../../assets/images/java.png";
-import nodejs from "../../assets/images/nodejs.png";
-import laravel from "../../assets/images/laravel.png";
-import cpp from "../../assets/images/cpp.png";
-import flutter from "../../assets/images/flutter.png";
-import mysql from "../../assets/images/mysql.png";
-import mongodb from "../../assets/images/mongodb.png";
-import aws from "../../assets/images/aws.png";
-import vuejs from "../../assets/images/vuejs.png";
-import postgresql from "../../assets/images/postgresql.png";
-import kotlin from "../../assets/images/Kotlin.png";
+import php from "../../assets/images/php (2).png";
+import python from "../../assets/images/python (2).png";
+import java from "../../assets/images/java(2).png";
+import nodejs from "../../assets/images/node.png";
+import laravel from "../../assets/images/laravel(2).png";
+import cpp from "../../assets/images/cplusplus.png";
+import flutter from "../../assets/images/flutter (2).png";
+import mysql from "../../assets/images/mysql (2).png";
+import mongodb from "../../assets/images/mongodb (2).png";
+import aws from "../../assets/images/aws (2).png";
+import vuejs from "../../assets/images/vuejs (2).png";
+import postgresql from "../../assets/images/postgresql (2).png";
+import kotlin from "../../assets/images/Kotlin (2).png";
 
 type TechItem = {
   name: string;
@@ -31,26 +31,22 @@ const TECH_ITEMS: TechItem[] = [
   { name: "Node.js", src: nodejs },
   { name: "Python", src: python },
   { name: "Laravel", src: laravel },
-  { name: "Kotlin", src: kotlin },
   { name: "C++", src: cpp },
   { name: "Flutter", src: flutter },
   { name: "PHP", src: php },
   { name: ".NET Core", src: python },
   { name: "MySQL", src: mysql },
-  { name: "C++", src: cpp },
   { name: "MongoDB", src: mongodb },
   { name: "AWS", src: aws },
-    { name: "Node.js", src: nodejs },
   { name: "Vue.js", src: vuejs },
   { name: "PostgreSQL", src: postgresql },
-    { name: "MongoDB", src: mongodb },
 ];
 
 const TechSection: React.FC = () => {
   return (
     <section
       className="relative z-[9999] transition-colors duration-500 
-      bg-[#0b0b0d] dark:bg-[#0b0b0d] bg-white py-16 px-6"
+      bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6"
     >
       <div className="max-w-7xl mx-auto">
         {/* === Section Label === */}
@@ -76,24 +72,28 @@ const TechSection: React.FC = () => {
         </p>
 
         {/* === Tech Stack Grid === */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-          {TECH_ITEMS.map((item, index) => (
-            <div
-              key={index}
-              className={`relative ${styles.techCard} border border-transparent rounded-xl p-6 flex flex-col items-center justify-start 
-              shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
-              transition-transform duration-500 
-              bg-white dark:bg-[#0f1112] text-black dark:text-white`}
-            >
-              {/* Icon */}
-              <div className="w-20 h-20 relative mb-4">
-                <Image
-                  src={item.src}
-                  alt={item.name}
-                  fill
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
+        <div
+          className={`mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 
+          justify-center justify-items-center ${styles.techGrid}`}
+        >
+        {TECH_ITEMS.map((item, index) => (
+    <div
+      key={index}
+      className={`relative ${styles.techCard} border border-transparent 
+      p-6 flex flex-col items-center justify-center 
+      shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
+      transition-transform duration-500 
+      bg-white dark:bg-[#0f1112] text-black dark:text-white`}
+    >
+      {/* Icon */}
+      <div className="w-24 h-24 relative mb-4">
+        <Image
+          src={item.src}
+          alt={item.name}
+          fill
+          style={{ objectFit: "contain" }}
+        />
+      </div>
 
               {/* Label */}
               <span

@@ -48,9 +48,8 @@ const PortfolioDropdown: React.FC = () => {
       className="
         px-7 py-8 rounded-2xl 
         transition-colors duration-500 
-        bg-[#0b0b0d] text-white 
+        bg-white text-[#0b0b0d] 
         dark:bg-[#0b0b0d] dark:text-white
-        bg-[#ffffff] text-[#0b0b0d]
       "
     >
       <div className="flex flex-col md:flex-row justify-evenly gap-16">
@@ -111,12 +110,12 @@ const PortfolioDropdown: React.FC = () => {
               <p
                 className="
                   absolute bottom-0 left-0 w-full 
-                  bg-[#0e0e0e88] backdrop-blur-sm 
-                  text-white text-sm font-semibold 
+                  bg-[#ffffffcc] text-[#0b0b0d] 
+                  dark:bg-[#0e0e0e88] dark:text-white
+                  backdrop-blur-sm 
+                  text-sm font-semibold 
                   p-2 text-start rounded-b-xl
                   transition-colors duration-300
-                  dark:bg-[#0e0e0e88] 
-                  bg-[#ffffffb3] text-[#0b0b0d]
                 "
               >
                 {project.text}

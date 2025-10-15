@@ -38,7 +38,7 @@ const ThemeToggle: React.FC = () => {
     <button
       aria-label="Toggle theme"
       onClick={toggle}
-      className={`p-2 px-4 rounded-full flex items-center gap-2 transition-colors duration-300 border shadow-sm
+      className={`p-2 px-4 flex items-center gap-2 transition-colors duration-300 border shadow-sm
         ${isDark ? "bg-white text-black border-gray-300 hover:bg-gray-100" : "bg-gray-800 text-white border-gray-700 hover:bg-gray-700"}
       `}
     >

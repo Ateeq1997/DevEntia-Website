@@ -5,22 +5,24 @@ import React from "react";
 import styles from "../home/home-css/home.module.css";
 
 // ✅ Import actual images
-import docker from "../../assets/images/docker.png";
-import aws2 from "../../assets/images/aws2.png";
-import googlecloud from "../../assets/images/googlecloud.png";
-import kubernetes from "../../assets/images/kubernetes.png";
-import jenkins from "../../assets/images/jenkins.png";
+import docker from "../../assets/images/docker (2).png";
+import aws2 from "../../assets/images/aws (3).png";
+import googlecloud from "../../assets/images/googlecloud (2).png";
+import kubernetes from "../../assets/images/Kubernetes (2).png";
+import jenkins from "../../assets/images/jenkins (2).png";
+import jenkins1 from "../../assets/images/jenkins (3).png";
 
 type CloudItem = {
   src: any;
+  alt: string;
 };
 
 const CLOUD_ITEMS: CloudItem[] = [
-  { src: docker },
-  { src: aws2 },
-  { src: googlecloud },
-  { src: kubernetes },
-  { src: jenkins },
+  { src: docker, alt: "Docker" },
+  { src: aws2, alt: "AWS" },
+  { src: googlecloud, alt: "Google Cloud" },
+  { src: kubernetes, alt: "Kubernetes" },
+  { src: jenkins, alt: "Jenkins" },
 ];
 
 export default function CloudSection() {
@@ -56,24 +58,48 @@ export default function CloudSection() {
         </p>
 
         {/* ✅ 5 containers */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+     <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-0 gap-y-4 justify-center">
+
           {CLOUD_ITEMS.map((item, idx) => (
             <div
               key={idx}
-              className={`relative ${styles.techCard} border border-transparent rounded-xl 
-              p-6 flex flex-col items-center justify-center 
+              className={`relative ${styles.techCard} border border-transparent 
+              p-4 flex flex-col items-center justify-center 
               shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
               transition-transform duration-500 
               bg-white dark:bg-[#0f1112] text-black dark:text-white`}
             >
-              <div className="w-20 h-20 relative">
-                <Image
-                  src={item.src}
-                  alt={`Cloud platform ${idx + 1}`}
-                  fill
-                  style={{ objectFit: "contain" }}
-                  priority={false}
-                />
+              
+              <div className="w-28 h-28 relative">
+                {/* ✅ Conditional display for Jenkins (last item) */}
+                {idx === 4 ? (
+                  <>
+                    {/* Light mode Jenkins */}
+                    <Image
+                      src={jenkins1}
+                      alt="Jenkins Light"
+                      fill
+                      style={{ objectFit: "contain" }}
+                      className="block dark:hidden"
+                    />
+                    {/* Dark mode Jenkins */}
+                    <Image
+                      src={jenkins}
+                      alt="Jenkins Dark"
+                      fill
+                      style={{ objectFit: "contain" }}
+                      className="hidden dark:block"
+                    />
+                  </>
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    priority={false}
+                  />
+                )}
               </div>
             </div>
           ))}
