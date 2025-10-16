@@ -14,7 +14,8 @@ const Footer = () => {
   return (
     <footer
       className="p-[5%] relative transition-colors duration-500
-                 bg-white dark:bg-[#161616] text-[#0b0b0d] dark:text-white z-10"
+             bg-white dark:bg-[#161616] text-[#0b0b0d] dark:text-white
+             z-[1] overflow-visible"
     >
       <div className="absolute bottom-0 left-0 footer-bg-img"></div>
 

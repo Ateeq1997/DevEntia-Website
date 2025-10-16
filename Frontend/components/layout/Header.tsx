@@ -98,14 +98,18 @@ const Header: React.FC = () => {
     >
       Careers
     </Link>
-    <Link
-      href={"/Contact-us"}
-      className="flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit"
-    >
-      <p className="p-2 px-4 bg-white text-black dark:bg-white dark:text-black flex items-center gap-2">
-        Contact Us
-      </p>
-    </Link>
+   <Link
+  href={"/Contact-us"}
+  className="flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit"
+>
+  <p className="p-2 px-4 
+     bg-[#4848FF] text-white            /* Light mode */
+     dark:bg-white dark:text-black      /* Dark mode */
+     flex items-center gap-2">
+    Contact Us
+  </p>
+</Link>
+
 
     {/* Theme Toggle - Desktop */}
     <div className="hidden md:flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit">
@@ -115,7 +119,7 @@ const Header: React.FC = () => {
 </div>
 
 {/* Mobile Theme Toggle */}
-<div className="md:hidden flex items-center ml-1">
+<div className="md:hidden flex items-center ml-1 -mt-2">
   <ThemeToggle />
 </div>
 

@@ -38,20 +38,12 @@ const ThemeToggle: React.FC = () => {
     <button
       aria-label="Toggle theme"
       onClick={toggle}
-      className={`p-2 px-4 flex items-center gap-2 transition-colors duration-300 border shadow-sm
-        ${isDark ? "bg-white text-black border-gray-300 hover:bg-gray-100" : "bg-gray-800 text-white border-gray-700 hover:bg-gray-700"}
-      `}
+      className="p-2 flex items-center justify-center text-xl transition-transform duration-300 hover:scale-110 focus:outline-none ml-0 sm:ml-2"
     >
       {isDark ? (
-        <>
-          <MdLightMode className="text-yellow-400 text-lg" />
-          <span className="hidden sm:inline">Light</span>
-        </>
+        <MdLightMode className="text-yellow-400 w-6 h-6 sm:w-7 sm:h-7" />
       ) : (
-        <>
-          <BsMoonStarsFill className="text-gray-300 text-lg" />
-          <span className="hidden sm:inline">Dark</span>
-        </>
+        <BsMoonStarsFill className="text-gray-600 dark:text-gray-300 w-6 h-6 sm:w-7 sm:h-7" />
       )}
     </button>
   );

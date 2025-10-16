@@ -7,32 +7,32 @@ const PositiveImpactSection = () => {
     {
       icon: "/home/icon1.png",
       title: "Client-Centric Approach",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec",
+      desc: "We put clients first, tailoring every solution to meet their goals with care and precision.",
     },
     {
       icon: "/home/icon1.png",
       title: "Client-Centric Approach",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec",
+      desc: "Our team brings years of expertise across industries, delivering results you can trust.",
     },
     {
       icon: "/home/icon2.png",
       title: "Proven Experience",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec",
+      desc: "We respect deadlines and ensure every project is completed on time without compromise.",
     },
     {
       icon: "/home/icon3.png",
       title: "Timely Delivery",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec",
+      desc: "We respect deadlines and ensure every project is completed on time without compromise.",
     },
     {
       icon: "/home/icon4.png",
       title: "Responsive Solutions",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec",
+      desc: "Our services adapt to your needs, offering flexible and scalable digital solutions.",
     },
     {
       icon: "/home/icon5.png",
       title: "Transparent Communication",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec",
+      desc: "We keep you informed at every step with clear, open, and honest communication.",
     },
   ];
 
@@ -42,7 +42,7 @@ const PositiveImpactSection = () => {
         Why Arise Stands Out
       </h1>
       <p className="text-[#333333] dark:text-[#A7ADBE] font-medium mb-16 px-4 text-center lg:px-64">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, felis nec dignissim tincidunt, nisl massa iaculis ligula, nec tincidunt ligula sapien nec urna.
+       We combine expertise, innovation, and dedication to deliver solutions that make a real impact for our clients.
       </p>
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {cards.map((card, idx) => (

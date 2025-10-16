@@ -10,7 +10,7 @@
     -3px 3px 6px rgba(30, 100, 255, 0.2);
   border-bottom: 4px solid #2666ff;
   transition: all 0.3s ease;
-  border-radius: 12px;
+  /* border-radius: 12px; */
 }
 
 .techCard:hover {

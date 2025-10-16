@@ -26,18 +26,18 @@ type TechItem = {
 
 // ✅ Tech stack list
 const TECH_ITEMS: TechItem[] = [
-  { name: "Kotlin", src: kotlin },
+   { name: "Node.js", src: nodejs },
   { name: "Java", src: java },
-  { name: "Node.js", src: nodejs },
-  { name: "Python", src: python },
+    { name: "Python", src: python },
   { name: "Laravel", src: laravel },
+   { name: "Kotlin", src: kotlin },
   { name: "C++", src: cpp },
   { name: "Flutter", src: flutter },
   { name: "PHP", src: php },
   { name: ".NET Core", src: python },
+    { name: "AWS", src: aws },
   { name: "MySQL", src: mysql },
   { name: "MongoDB", src: mongodb },
-  { name: "AWS", src: aws },
   { name: "Vue.js", src: vuejs },
   { name: "PostgreSQL", src: postgresql },
 ];
@@ -45,11 +45,11 @@ const TECH_ITEMS: TechItem[] = [
 const TechSection: React.FC = () => {
   return (
     <section
-      className="relative z-[9999] transition-colors duration-500 
-      bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6"
-    >
+  className="relative z-[1] transition-colors duration-500 
+  bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6 overflow-visible"
+>
       <div className="max-w-7xl mx-auto">
-        {/* === Section Label === */}
+  
         <div className="text-center">
           <p className="text-sm text-[#6b6cff] uppercase tracking-widest">Tech</p>
         </div>
@@ -96,12 +96,15 @@ const TechSection: React.FC = () => {
       </div>
 
               {/* Label */}
-              <span
-                className="mt-auto pb-2 text-sm 
-                text-gray-800 dark:text-gray-200 transition-colors duration-500"
-              >
-                {item.name}
-              </span>
+            <span
+  className="mt-auto pb-2 text-[18px] font-medium text-gray-800 dark:text-gray-200 transition-colors"
+  style={{
+    fontFamily: "'Bai Jamjuree', sans-serif",
+  }}
+>
+  {item.name}
+</span>
+
             </div>
           ))}
         </div>

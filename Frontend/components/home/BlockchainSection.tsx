@@ -29,19 +29,40 @@ export default function BlockchainSection() {
           applications leveraging leading blockchain networks and technologies.
         </p>
 
-        {/* ✅ 3 containers in one row with NO space between them */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-0 justify-items-center">
+        {/* ✅ 3 containers closer together and centered */}
+        <div
+          className="
+            mt-10
+            grid 
+            grid-cols-2
+            sm:grid-cols-2
+            md:grid-cols-3
+            gap-5 
+            justify-center
+            items-stretch
+            max-w-5xl 
+            mx-auto
+            md:px-8 lg:px-16 xl:px-24
+          "
+        >
           {BLOCKCHAIN_ITEMS.map((item, idx) => (
             <div
               key={idx}
-              className={`relative ${styles.techCard} 
-              bg-gray-100 dark:bg-[#0f1112]
-              p-5 flex flex-col items-center justify-center 
-              shadow-[inset_0_3px_8px_rgba(0,0,255,0.3),_0_0_15px_rgba(0,0,255,0.3),_5px_0_15px_rgba(0,0,255,0.3)] 
-              dark:shadow-[inset_0_3px_8px_rgba(107,108,255,0.6),_0_0_25px_rgba(107,108,255,0.6),_5px_0_25px_rgba(107,108,255,0.6)]
-              rounded-none sm:rounded-none
-              w-full h-full
-              transition-transform duration-500 hover:scale-[1.02]`}
+              className={`
+                relative ${styles.techCard}
+                bg-gray-100 dark:bg-[#0f1112]
+                p-5 flex flex-col items-center justify-center
+                shadow-[inset_0_3px_8px_rgba(0,0,255,0.3),_0_0_15px_rgba(0,0,255,0.3),_5px_0_15px_rgba(0,0,255,0.3)]
+                dark:shadow-[inset_0_3px_8px_rgba(107,108,255,0.6),_0_0_25px_rgba(107,108,255,0.6),_5px_0_25px_rgba(107,108,255,0.6)]
+                rounded-none
+                transition-transform duration-500 hover:scale-[1.02]
+                w-[90%] sm:w-[85%] md:w-[90%]
+                mx-auto
+              `}
+              style={{
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
             >
               <div className="w-28 h-28 relative">
                 <Image

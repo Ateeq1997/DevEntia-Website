@@ -28,8 +28,8 @@ const CLOUD_ITEMS: CloudItem[] = [
 export default function CloudSection() {
   return (
     <section
-      className="relative z-[9999] transition-colors duration-500 
-      bg-[#0b0b0d] dark:bg-[#0b0b0d] bg-white py-16 px-6"
+      className="relative z-[1] transition-colors duration-500 
+      bg-[#0b0b0d] dark:bg-[#0b0b0d] bg-white py-16 px-6 overflow-visible"
     >
       <div className="max-w-7xl mx-auto">
         {/* Small label */}
@@ -58,52 +58,62 @@ export default function CloudSection() {
         </p>
 
         {/* ✅ 5 containers */}
-     <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-0 gap-y-4 justify-center">
+     {/* ✅ 5 containers */}
+<div
+  className="
+    mt-6 
+    grid 
+    grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 
+    gap-x-4 sm:gap-x-5 md:gap-x-6 
+    gap-y-6 
+    justify-center
+  "
+>
+  {CLOUD_ITEMS.map((item, idx) => (
+    <div
+      key={idx}
+      className={`relative ${styles.techCard} border border-transparent 
+      p-4 flex flex-col items-center justify-center 
+      shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
+      transition-transform duration-500 
+      bg-white dark:bg-[#0f1112] text-black dark:text-white
+      w-[85%] sm:w-[80%] md:w-full mx-auto`}
+    >
+      <div className="w-28 h-28 relative">
+        {/* ✅ Conditional display for Jenkins (last item) */}
+        {idx === 4 ? (
+          <>
+            {/* Light mode Jenkins */}
+            <Image
+              src={jenkins1}
+              alt="Jenkins Light"
+              fill
+              style={{ objectFit: "contain" }}
+              className="block dark:hidden"
+            />
+            {/* Dark mode Jenkins */}
+            <Image
+              src={jenkins}
+              alt="Jenkins Dark"
+              fill
+              style={{ objectFit: "contain" }}
+              className="hidden dark:block"
+            />
+          </>
+        ) : (
+          <Image
+            src={item.src}
+            alt={item.alt}
+            fill
+            style={{ objectFit: "contain" }}
+            priority={false}
+          />
+        )}
+      </div>
+    </div>
+  ))}
+</div>
 
-          {CLOUD_ITEMS.map((item, idx) => (
-            <div
-              key={idx}
-              className={`relative ${styles.techCard} border border-transparent 
-              p-4 flex flex-col items-center justify-center 
-              shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
-              transition-transform duration-500 
-              bg-white dark:bg-[#0f1112] text-black dark:text-white`}
-            >
-              
-              <div className="w-28 h-28 relative">
-                {/* ✅ Conditional display for Jenkins (last item) */}
-                {idx === 4 ? (
-                  <>
-                    {/* Light mode Jenkins */}
-                    <Image
-                      src={jenkins1}
-                      alt="Jenkins Light"
-                      fill
-                      style={{ objectFit: "contain" }}
-                      className="block dark:hidden"
-                    />
-                    {/* Dark mode Jenkins */}
-                    <Image
-                      src={jenkins}
-                      alt="Jenkins Dark"
-                      fill
-                      style={{ objectFit: "contain" }}
-                      className="hidden dark:block"
-                    />
-                  </>
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    style={{ objectFit: "contain" }}
-                    priority={false}
-                  />
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -168,44 +168,28 @@ const HeroSection = () => {
   At DevEntia Tech, we craft intelligent digital solutions that turn bold ideas into powerful products. From custom software development to immersive UI/UX design, our expert team merges cutting-edge technology with strategic thinking to drive innovation.
 </p>
 
- <div className="flex gap-6 mt-20">
-<Link
-  href={"/Contact-us"}
-  className="relative overflow-hidden flex items-center gap-2 flex-wrap 
-             bg-[#4848FF] px-5 text-[14px] md:text-[19px] py-3 
-             group"
->
-  {/* Text stays above overlay */}
-  <span className="relative z-10 text-white flex items-center">
+<div className="flex gap-6 mt-20">
+  {/* Let's Connect Button */}
+  <Link
+    href={"/Contact-us"}
+    className="flex items-center gap-2 bg-[#4848FF] px-5 py-3 
+               text-[14px] md:text-[19px] text-white 
+               font-bold font-['Bai_Jamjuree'] leading-[100%] 
+               transition-all duration-300"
+  >
     Let&apos;s Connect
-  </span>
+  </Link>
 
-  {/* Dark blue overlay that slides in on hover */}
-  <span className="absolute inset-0 bg-blue-800 transform -translate-x-full 
-                   group-hover:translate-x-0 transition-transform duration-300 ease-in-out">
-  </span>
-</Link>
-
-
-
-
- <Link
-  href={"/Services"}
-  className="relative overflow-hidden flex items-center gap-2 flex-wrap 
-             bg-white text-[#4848FF] px-5  text-[14px] md:text-[19px] py-3  
-             group transition-all duration-700 ease-in-out"
->
-  {/* Text that changes color on hover */}
-  <span className="relative z-10 group-hover:text-white transition-colors duration-300 ease-in-out">
+  {/* Explore Services Button */}
+  <Link
+    href={"/Services"}
+    className="flex items-center gap-2 bg-white text-[#4848FF] 
+               px-5 py-3 text-[14px] md:text-[19px] 
+               font-bold font-['Bai_Jamjuree'] leading-[100%] 
+               transition-all duration-300"
+  >
     Explore Services
-  </span>
-
-  {/* Dark blue overlay that slides in on hover */}
-  <span className="absolute inset-0 bg-[#4848FF] transform -translate-x-full 
-                   group-hover:translate-x-0 transition-transform duration-300 ease-in-out">
-  </span>
-</Link>
-
+  </Link>
 </div>
 
 
@@ -229,13 +213,13 @@ const HeroSection = () => {
         </div>         
 
 {/* ✅ Floating WhatsApp + Get a Quote Button */}
-<div className="fixed bottom-6 left-0 w-full flex items-center justify-between px-[5%] z-50 pointer-events-auto">
+<div className="fixed bottom-6 left-0 w-full flex items-center justify-between px-[5%] z-[999] pointer-events-auto">
   {/* WhatsApp Icon */}
   <a
     href="https://wa.me/923001234567"
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110"
+    className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 z-[1000]"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -249,18 +233,20 @@ const HeroSection = () => {
   </a>
 
   {/* Get a Quote Button */}
- <Link
+<Link
   href="/Contact-us"
   className="font-semibold text-[16px] px-6 py-3 transition-all duration-300 
              hover:scale-105 shadow-[0_0_15px_rgba(72,72,255,0.8)]
              text-gray-900 border-2 border-gray-900 
-             dark:text-white dark:border-white"
+             dark:text-white dark:border-white 
+             rounded-md z-[1000]"
   style={{
     backgroundColor: 'transparent',
   }}
 >
   Get a Quote
 </Link>
+
 
 </div>
 

@@ -164,12 +164,12 @@ export default function ServiceCards() {
         </h1>
 
         <div className="flex flex-col md:flex-row items-start justify-start md:items-center md:justify-between gap-6 md:gap-3 mt-2">
-          <p className="text-[#B8BBD2] dark:text-[#A7ADBE] text-[16px]">
+          <p className="text-[#1F1F1F] dark:text-[#C5C9D4] text-[16px]">
             Deventia transforms ideas into digital experiences through expert
             UI/UX design, web development, and motion graphics.
           </p>
           <Link href="/Services">
-            <button className="underline text-[#B8BBD2] dark:text-[#A7ADBE] text-[16px]">
+            <button className="underline text-[#1F1F1F] dark:text-[#C5C9D4] text-[16px]">
               View All
             </button>
           </Link>
@@ -202,9 +202,11 @@ export default function ServiceCards() {
                   <h2 className="text-[22px] font-semibold">{service.title}</h2>
                   <FaArrowRightLong className="text-black dark:text-white text-[18px] -rotate-45" />
                 </div>
-                <p className="text-[#B8BBD2] dark:text-[#A7ADBE] text-[15px] leading-relaxed mb-6">
-                  {service.description}
-                </p>
+     <p className="text-[#1F1F1F] dark:text-[#C5C9D4] text-[14px] lg:text-[16px] leading-relaxed mb-12">
+  {service.description}
+</p>
+
+
 
                 <div className="flex border-b border-[#D9D9D9] dark:border-[#333] pb-2 mb-4 text-[14px]">
                   <span className="w-1/2 text-black dark:text-white font-bold text-[15px]">Expert Areas</span>
@@ -251,9 +253,10 @@ export default function ServiceCards() {
               <FaArrowRightLong className="text-black dark:text-white text-[18px] -rotate-45 cursor-pointer hover:scale-110 transition-transform duration-200 flex-shrink-0 mt-2" />
             </div>
 
-            <p className="text-[#B8BBD2] dark:text-[#A7ADBE] text-[14px] lg:text-[16px] leading-relaxed mb-12">
-              {service.description}
-            </p>
+   <p className="text-[#1F1F1F] dark:text-[#C5C9D4] text-[14px] lg:text-[16px] leading-relaxed mb-12">
+  {service.description}
+</p>
+
 
             <div className="grid grid-cols-2 gap-x-12 border-b border-[#D9D9D9] dark:border-[#333] pb-3 mb-8">
               <span className="text-black dark:text-white font-bold text-[16px] lg:text-[16px]">Expert Areas</span>
