@@ -174,8 +174,11 @@ const HeroSection = () => {
     href={"/Contact-us"}
     className="flex items-center gap-2 bg-[#4848FF] px-5 py-3 
                text-[14px] md:text-[19px] text-white 
-               font-bold font-['Bai_Jamjuree'] leading-[100%] 
-               transition-all duration-300"
+               font-bold font-['Bai_Jamjuree'] leading-[100%]
+
+               shadow-[0_0_35px_15px_rgba(72,72,255,0.7)]
+               backdrop-blur-sm
+               transition-all duration-300 ease-in-out"
   >
     Let&apos;s Connect
   </Link>
@@ -183,14 +186,17 @@ const HeroSection = () => {
   {/* Explore Services Button */}
   <Link
     href={"/Services"}
-    className="flex items-center gap-2 bg-white text-[#4848FF] 
-               px-5 py-3 text-[14px] md:text-[19px] 
-               font-bold font-['Bai_Jamjuree'] leading-[100%] 
-               transition-all duration-300"
+    className="flex items-center gap-2 bg-white text-[#4848FF]
+               px-5 py-3 text-[14px] md:text-[19px]
+               font-bold font-['Bai_Jamjuree'] leading-[100%]
+               shadow-[0_0_35px_15px_rgba(72,72,255,0.5)]
+               backdrop-blur-sm
+               transition-all duration-300 ease-in-out"
   >
     Explore Services
   </Link>
 </div>
+
 
 
         </div>
