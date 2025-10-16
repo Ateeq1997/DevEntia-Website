@@ -167,18 +167,19 @@ const HeroSection = () => {
 <p className="text-white text-xl md:text-1xl mb-10 max-w-screen-lg">
   At DevEntia Tech, we craft intelligent digital solutions that turn bold ideas into powerful products. From custom software development to immersive UI/UX design, our expert team merges cutting-edge technology with strategic thinking to drive innovation.
 </p>
-
 <div className="flex gap-6 mt-20">
   {/* Let's Connect Button */}
   <Link
     href={"/Contact-us"}
-    className="flex items-center gap-2 bg-[#4848FF] px-5 py-3 
-               text-[14px] md:text-[19px] text-white 
-               font-bold font-['Bai_Jamjuree'] leading-[100%]
-
+    className="flex items-center gap-2 px-5 py-3 
+               text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
                shadow-[0_0_35px_15px_rgba(72,72,255,0.7)]
-               backdrop-blur-sm
                transition-all duration-300 ease-in-out"
+    style={{
+      backdropFilter: "blur(25px)",
+      background: "#4848FF",
+      color: "#CFCEFB",
+    }}
   >
     Let&apos;s Connect
   </Link>
@@ -186,18 +187,18 @@ const HeroSection = () => {
   {/* Explore Services Button */}
   <Link
     href={"/Services"}
-    className="flex items-center gap-2 bg-white text-[#4848FF]
-               px-5 py-3 text-[14px] md:text-[19px]
-               font-bold font-['Bai_Jamjuree'] leading-[100%]
+    className="flex items-center gap-2 px-5 py-3 text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
                shadow-[0_0_35px_15px_rgba(72,72,255,0.5)]
-               backdrop-blur-sm
                transition-all duration-300 ease-in-out"
+    style={{
+      backdropFilter: "blur(24px)",
+      background: "#ffffffcf",
+      color: "#4848FF",
+    }}
   >
     Explore Services
   </Link>
 </div>
-
-
 
         </div>
 
