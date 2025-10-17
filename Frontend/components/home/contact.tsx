@@ -111,7 +111,7 @@ const Contact = () => {
 
   {/* Top title */}
   <div className="flex items-start justify-between">
-    <h4 className="text-white text-sm sm:text-base font-semibold">Let's connect</h4>
+    <h4 className="text-white text-sm sm:text-base font-semibold">Let&apos;s Connect</h4>
   </div>
 
   {/* Content rows */}
