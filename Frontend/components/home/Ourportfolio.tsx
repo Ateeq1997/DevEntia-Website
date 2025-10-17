@@ -28,7 +28,7 @@ const Ourportfolio = () => {
 
   const cards = [
     { img: project1, title: "Simmple Tax", desc: "Simpple.Tax is a next-generation tax platform that blends AI and expert CPAs to make filing simple, fast, and stress.....", link: "/Our-Portfolio/Projects/RS-Global-Ties" },
-    { img: project2, title: "Falke", desc: "Falke is an all-in-one platform designed to simplify employee, project, and client management. From handling invoices.....", link: "/Our-Portfolio/Projects/Dadi-Rent-Boat" },
+    { img: project2, title: "Falke", desc: "Falke is an all-in-one platform designed to simplify employee, project, and client management. From handling invoices.....", link: "/Our-Portfolio/Projects/Falke" },
     { img: project3, title: "Healthi Plate", desc: "Healthi Plate is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....", link: "/Our-Portfolio/Projects/Another-Project" },
      { img: project4, title: "Aneuro", desc: "Aneuro is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....", link: "/Our-Portfolio/Projects/Another-Project" },
   ];

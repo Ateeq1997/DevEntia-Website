@@ -23,14 +23,15 @@ const Hero = () => {
         <source src={'/servicebgvedio.mp4'} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-[#7571e686]"></div>
+     <div className="absolute top-0 left-0 w-full h-full bg-black/70"></div>
+
       <div className="absolute inset-0 flex items-center justify-start">
         <div className="flex flex-col items-start gap-6 px-[5%]">
           <div className="flex items-center gap-1 1200px:w-1/2">
             <h3 className="text-white/50 text-sm">
               Unlock Opportunities Explore <br /> Our Tailored Solutions
             </h3>
-            <div
+            {/* <div
               onClick={handleScroll}
               className=" border border-white flex items-center justify-center cursor-pointer"
             >
@@ -39,22 +40,25 @@ const Hero = () => {
                 color="#fff"
                 className="hover:animate-bounce transition-all duration-700 ease-in-out p-2"
               />
-            </div>
+            </div> */}
           </div>
           <h1 className="text-white text-start text-[3rem] 500px:text-[5rem] font-bold leading-tight">
           Discover Our Services and Empower Your Success
           </h1>
-          <Link
-            href={'/Contact-us'}
-            className="flex items-center gap-2 flex-wrap hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
-          >
-            <p className="p-4 bg-[#4848FF] text-white flex items-center gap-2">
-              Let&apos;s Connect
-            </p>
-            <div className="p-4 bg-[#4848FF] flex items-center justify-center">
-              <MdOutlineArrowOutward size={25} color="#fff" />
-            </div>
-          </Link>
+         <Link
+    href={"/Contact-us"}
+    className="flex items-center gap-2 px-5 py-3 
+               text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
+               shadow-[0_0_15px_5px_rgba(72,72,255,0.7)]
+               transition-all duration-300 ease-in-out"
+    style={{
+      backdropFilter: "blur(45px)",
+      background: "#4848FF",
+      color: "#CFCEFB",
+    }}
+  >
+    Let&apos;s Connect
+  </Link>
         </div>
       </div>
     </header>

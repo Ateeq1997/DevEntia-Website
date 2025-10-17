@@ -173,10 +173,10 @@ const HeroSection = () => {
     href={"/Contact-us"}
     className="flex items-center gap-2 px-5 py-3 
                text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
-               shadow-[0_0_35px_15px_rgba(72,72,255,0.7)]
+               shadow-[0_0_15px_5px_rgba(72,72,255,0.7)]
                transition-all duration-300 ease-in-out"
     style={{
-      backdropFilter: "blur(25px)",
+      backdropFilter: "blur(45px)",
       background: "#4848FF",
       color: "#CFCEFB",
     }}
@@ -188,10 +188,10 @@ const HeroSection = () => {
   <Link
     href={"/Services"}
     className="flex items-center gap-2 px-5 py-3 text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
-               shadow-[0_0_35px_15px_rgba(72,72,255,0.5)]
+               shadow-[0_0_15px_5px_rgba(72,72,255,0.5)]
                transition-all duration-300 ease-in-out"
     style={{
-      backdropFilter: "blur(24px)",
+      backdropFilter: "blur(44px)",
       background: "#ffffffcf",
       color: "#4848FF",
     }}

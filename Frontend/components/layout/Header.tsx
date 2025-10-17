@@ -4,16 +4,20 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
-import logoImg from "@/assets/images/logoImg.gif";
+// import logoImg from "@/assets/images/logoImg.gif";
+
+import { MdOutlineArrowOutward } from "react-icons/md";
+import logoImg from "@/assets/images/logoImg.png";
+import logoImg1 from "@/assets/images/blacklogo.png";
 import MobileMenu from "./MobileNav";
 import PortfolioDropDown from "./PortfolioDropdown";
-import { MdOutlineArrowOutward } from "react-icons/md";
 import ThemeToggle from "@/app/ThemeToggle/ThemeToggle";
 
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const menuItems = [
     { title: "Home", path: "/" },
@@ -22,6 +26,18 @@ const Header: React.FC = () => {
     { title: "About Us", path: "/About-us" },
   ];
 
+  // ✅ Detect theme (dark/light)
+  useEffect(() => {
+    const html = document.documentElement;
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(html.classList.contains("dark"));
+    });
+    observer.observe(html, { attributes: true, attributeFilter: ["class"] });
+    setIsDarkMode(html.classList.contains("dark"));
+    return () => observer.disconnect();
+  }, []);
+
+  // ✅ Hide/Show navbar on scroll
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY && currentScrollY > 50) {
@@ -34,9 +50,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   return (
@@ -47,17 +61,24 @@ const Header: React.FC = () => {
     >
       <div className="container px-[5%] lg:px-[5%] py-4">
         <div className="flex items-center justify-between w-full">
-
-          {/* ✅ Logo - Visible on both desktop & mobile */}
-          <Link href={"/"} className="flex items-center">
-            <Image
-              unoptimized
-              src={logoImg}
-              width={125}
-              alt="deventia logo"
-              className="w-auto h-10"
-            />
-          </Link>
+          {/* ✅ Logo - Changes automatically with theme */}
+          {/* Logo - Changes automatically with theme, fixed size via parent container */}
+<Link href={"/"} className="flex items-center">
+  <div
+    className="relative w-[125px] h-10 sm:w-[110px] sm:h-9 xs:w-[95px] xs:h-8 -translate-y-[6px]"
+  >
+    <Image
+      unoptimized
+      src={isDarkMode ? logoImg : logoImg1}
+      alt="deventia logo"
+      fill
+      className={`object-contain transition-transform duration-300 ${
+        isDarkMode ? "scale-[2.25]" : "scale-[1.65]"
+      }`}
+      priority
+    />
+  </div>
+</Link>
 
           {/* ✅ Desktop Navigation */}
           <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">
@@ -66,14 +87,19 @@ const Header: React.FC = () => {
                 <div
                   key={item.title}
                   className={`relative group ${item.title === "Portfolio" ? "pb-4" : ""}`}
-                  onMouseEnter={() => item.title === "Portfolio" && setIsDropdownVisible(true)}
-                  onMouseLeave={() => item.title === "Portfolio" && setIsDropdownVisible(false)}
+                  onMouseEnter={() =>
+                    item.title === "Portfolio" && setIsDropdownVisible(true)
+                  }
+                  onMouseLeave={() =>
+                    item.title === "Portfolio" && setIsDropdownVisible(false)
+                  }
                 >
                   <Link
                     href={item.path}
                     className="flex items-center hover:text-[#7471E6] transition-colors duration-200 text-sm xl:text-base"
                     onClick={() =>
-                      item.title === "Portfolio" && setIsDropdownVisible(!isDropdownVisible)
+                      item.title === "Portfolio" &&
+                      setIsDropdownVisible(!isDropdownVisible)
                     }
                   >
                     {item.title}
@@ -131,3 +157,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+

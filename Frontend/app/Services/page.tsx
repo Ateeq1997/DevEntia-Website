@@ -7,6 +7,7 @@ import services3 from '../../assets/images/services3.webp';
 import services4 from '../../assets/images/services4.webp';
 import GetInTouch from '@/components/AboutUs/GetInTouch';
 import { Metadata } from 'next';
+import ServicesSection from '@/components/Services/ServicesSection';
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -42,6 +43,7 @@ const page = () => {
           deliver innovation and excellence.
         </p>
       </div>
+      <ServicesSection />
       <ServicesCard
         title="Plan"
         flexReverse={false}
