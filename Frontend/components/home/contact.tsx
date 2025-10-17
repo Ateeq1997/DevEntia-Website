@@ -85,7 +85,8 @@ const Contact = () => {
           ))}
         </ul>
 
-        <h3 className="text-[24px] font-medium mb-6 mt-14 font-inter">Let’s Connect</h3>
+      <h3 className="text-[24px] font-medium mb-6 mt-14 font-inter">Let&apos;s Connect</h3>
+
 
   {/* Replace your contact info block with this */}
 <div className="relative overflow-hidden rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#6B63FF] to-[#3B37D6] w-full max-w-full shadow-lg">
