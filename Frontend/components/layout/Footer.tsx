@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import logoImg from "@/assets/images/logoImg.gif";
+import logoImg from "@/assets/images/logoImg.png";
+import logoImg1 from "@/assets/images/blacklogo.png";
 // import { euroStyle } from '@/utils/fonts';
 import Link from "next/link";
 import { FaInstagram, FaLinkedin, FaSquareFacebook } from "react-icons/fa6";
@@ -175,13 +176,26 @@ const Footer = () => {
           </div>
         </div>
 
-        <Image
-          src={logoImg}
-          alt="deventia logo"
-          width={125}
-          unoptimized
-          className="mr-0 ml-auto"
-        />
+      <div className="mr-0 ml-auto">
+  {/* Light Mode Logo */}
+  <Image
+    src={logoImg1}
+    alt="deventia logo light"
+    width={150}
+    unoptimized
+    className="block dark:hidden scale-110"
+  />
+  {/* Dark Mode Logo */}
+  <Image
+    src={logoImg}
+    alt="deventia logo dark"
+    width={150}
+    unoptimized
+    className="hidden dark:block scale-110"
+  />
+</div>
+
+
       </div>
 
       <div className="mt-20 mb-8">

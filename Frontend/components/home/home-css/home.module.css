@@ -208,3 +208,14 @@
     font-size: 12px !important;
   }
 }
+@media (min-resolution: 1dppx) {
+  .scale-wrapper {
+    transform-origin: top left;
+  }
+
+  @media (min-width: 1200px) {
+    .scale-wrapper {
+      transform: scale(calc(100vw / 1536));
+    }
+  }
+}

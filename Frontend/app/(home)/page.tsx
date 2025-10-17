@@ -63,7 +63,7 @@ const page = () => {
       <PositiveImpactSection />
       <AugmentedTeam />
       <BlogNews />
-      <Testimonials />
+  
        {/* <Reviews /> */}
       <TechSection/>
 <CloudSection />
@@ -75,6 +75,7 @@ const page = () => {
      {/* <Blogscard/>
       <Reviews />
       <Tech/>  */}
+          <Testimonials />
       <Contact />
 
       {/* <Testimonial /> */}
