@@ -112,10 +112,10 @@ const Contact = () => {
 
         {/* Text */}
         <div className="flex flex-col break-words max-w-full">
-          <span className="text-white text-[16px] sm:text-[18px] font-semibold leading-tight sm:ml-0 -ml-5">
+          <span className="text-white text-[16px] sm:text-[18px] font-semibold leading-tight sm:ml-0 -ml-4">
             Send a Message
           </span>
-          <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-words sm:ml-0 -ml-7">
+          <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-words sm:ml-0 -ml-4">
             contact@deventiatech.com
           </span>
         </div>
@@ -132,10 +132,10 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col break-words max-w-full">
-          <span className="text-white text-[16px] sm:text-[18px] font-semibold leading-tight sm:ml-0 -ml-5">
+          <span className="text-white text-[16px] sm:text-[18px] font-semibold leading-tight sm:ml-0 -ml-4">
             Call Us Directly
           </span>
-          <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-all sm:ml-0 -ml-5">
+          <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-all sm:ml-0 -ml-4">
             (+92) 344 8967017
           </span>
         </div>
@@ -172,9 +172,10 @@ const Contact = () => {
     placeholder="Your challenge/goal*"
     className="flex-1 border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2 font-inter placeholder-gray-600 dark:placeholder-gray-400"
   />
+  {/* Smaller "?" Circle */}
   <span
-    className="flex items-center justify-center w-6 h-6 rounded-full border border-gray-400 dark:border-gray-600 text-xs font-semibold text-gray-600 dark:text-gray-300 cursor-pointer hover:bg-[#4848FF] hover:text-white transition"
-    style={{ transform: "translateX(-30px)" }} // 👈 moves only the circle left
+    className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 dark:border-gray-600 text-[10px] font-semibold text-gray-600 dark:text-gray-300 cursor-pointer hover:bg-[#4848FF] hover:text-white transition"
+    style={{ transform: "translateX(-24px)" }}
   >
     ?
   </span>
@@ -208,41 +209,50 @@ const Contact = () => {
               className="w-full border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2 font-inter placeholder-gray-600 dark:placeholder-gray-400"
             />
           </div>
+{/* NDA + Attachments & Recording — Split left/right */}
+<div className="flex flex-wrap items-center justify-between text-sm font-inter">
+ {/* NDA Section */}
+<div className="flex items-center gap-2">
+  <input type="checkbox" id="nda" className="accent-[#4848FF]" />
+  <label htmlFor="nda" className="whitespace-nowrap">
+    Secure data with NDA first
+  </label>
+  {/* Smaller "?" Circle */}
+  <span className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 dark:border-gray-600 text-[10px] font-semibold text-gray-600 dark:text-gray-300 cursor-pointer hover:bg-[#4848FF] hover:text-white transition">
+    ?
+  </span>
+</div>
 
-          {/* NDA Option */}
-          <div className="flex items-center gap-3 text-sm font-inter flex-wrap">
-            <input type="checkbox" id="nda" className="accent-[#4848FF]" />
-            <label htmlFor="nda">Secure data with NDA first</label>
-            <span className="flex items-center justify-center w-6 h-6 rounded-full border border-gray-400 dark:border-gray-600 text-xs font-semibold text-gray-600 dark:text-gray-300 cursor-pointer hover:bg-[#4848FF] hover:text-white transition">
-              ?
-            </span>
-          </div>
+  {/* Right Side — Attach file + Record voice */}
+  <div className="flex items-center gap-5">
+    {/* Attach File */}
+    <label className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition cursor-pointer">
+      <FaPaperclip /> Attach file
+      <input type="file" onChange={handleFileChange} className="hidden" />
+    </label>
 
-          {/* Attachments & Recording */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition cursor-pointer">
-              <FaPaperclip /> Attach file
-              <input type="file" onChange={handleFileChange} className="hidden" />
-            </label>
-            {fileName && (
-              <span className="text-xs text-gray-500 dark:text-gray-400 truncate max-w-[150px]">
-                {fileName}
-              </span>
-            )}
+    {/* Show File Name */}
+    {fileName && (
+      <span className="text-xs text-gray-500 dark:text-gray-400 truncate max-w-[150px]">
+        {fileName}
+      </span>
+    )}
 
-            <button
-              type="button"
-              onClick={handleRecordToggle}
-              className={`flex items-center gap-2 text-sm transition font-inter ${
-                isRecording
-                  ? "text-[#ff4747]"
-                  : "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
-              }`}
-            >
-              <FaMicrophone />
-              {isRecording ? "Recording..." : "Record voice message"}
-            </button>
-          </div>
+    {/* Record Voice Message */}
+    <button
+      type="button"
+      onClick={handleRecordToggle}
+      className={`flex items-center gap-2 transition font-inter ${
+        isRecording
+          ? "text-[#ff4747]"
+          : "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+      }`}
+    >
+      <FaMicrophone />
+      {isRecording ? "Recording..." : "Record voice message"}
+    </button>
+  </div>
+</div>
 
           {/* Recorded Audio */}
           {audioURL && (

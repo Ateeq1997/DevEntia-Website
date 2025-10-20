@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Group1 from "../../assets/images/Group1.png"; // for dark mode
-import Group2 from "../../assets/images/Group2.png"; // for light mode
+import Group1 from "../../assets/images/Group1.png"; // dark mode timeline
+import Group2 from "../../assets/images/Group2.png"; // light mode timeline
+import Group3 from "../../assets/images/Maskgroup.png"; // background glow
 
 export default function ServicesSection() {
   return (
@@ -11,8 +12,19 @@ export default function ServicesSection() {
                  bg-[#ffffff] text-[#0b0b0d]
                  dark:bg-[#0b0b0d] dark:text-white"
     >
+      {/* 🔹 Background glow image (visible in dark mode only) */}
+      <div className="absolute inset-0 hidden dark:block">
+        <Image
+          src={Group3}
+          alt="Background glow"
+          fill
+          priority
+          className="object-cover opacity-90 brightness-[1.6] contrast-[1.4] saturate-[1.3] blur-[2px]"
+        />
+      </div>
+
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 text-left">
+      <div className="relative max-w-7xl mx-auto px-6 text-left z-10">
         <p className="text-[#6b6cff] dark:text-[#6b6cff] text-sm font-medium uppercase tracking-widest">
           Our Services
         </p>
@@ -25,9 +37,9 @@ export default function ServicesSection() {
       </div>
 
       {/* Timeline image */}
-      <div className="relative mt-16 flex justify-center items-center w-full px-4 sm:px-8">
-        {/* Light mode image */}
+      <div className="relative mt-16 flex justify-center items-center w-full px-4 sm:px-8 z-10">
         <div className="w-full max-w-[1200px]">
+          {/* Light mode image */}
           <Image
             src={Group2}
             alt="Services timeline light"

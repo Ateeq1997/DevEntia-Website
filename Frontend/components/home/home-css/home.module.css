@@ -1,25 +1,49 @@
-/* Tech Card Styles */
+/* 🌞 LIGHT MODE */
 .techCard {
   position: relative;
   overflow: visible;
   height: 250px;
   width: 190px;
-  box-shadow:
-    -3px -3px 6px rgba(30, 100, 255, 0.4),
-    3px -3px 6px rgba(30, 100, 255, 0.4),
-    -3px 3px 6px rgba(30, 100, 255, 0.2);
-  border-bottom: 4px solid #2666ff;
   transition: all 0.3s ease;
-  /* border-radius: 12px; */
+
+  /* bottom line + soft side glow */
+  border-bottom: 2px solid rgba(44, 95, 232, 0.8);
+  box-shadow:
+    -3px 0 8px rgba(44, 95, 232, 0.35),   /* left glow */
+    3px 0 8px rgba(44, 95, 232, 0.35),    /* right glow */
+    0 10px 18px rgba(44, 95, 232, 0.4),   /* stronger bottom glow */
+    0 -4px 6px rgba(44, 95, 232, 0);      /* transparent top shadow */
 }
 
+/* Hover — slightly stronger side/bottom glow */
 .techCard:hover {
   transform: translateY(-6px);
   box-shadow:
-    -4px -4px 8px rgba(30, 100, 255, 0.6),
-    4px -4px 8px rgba(30, 100, 255, 0.6),
-    0 8px 20px rgba(0, 0, 0, 0.3);
+    -4px 0 10px rgba(44, 95, 232, 0.55),
+    4px 0 10px rgba(44, 95, 232, 0.55),
+    0 12px 20px rgba(44, 95, 232, 0.5),
+    0 -4px 8px rgba(44, 95, 232, 0);      /* transparent top */
 }
+
+/* 🌚 DARK MODE */
+.dark .techCard {
+  border-bottom: 2px solid rgba(44, 95, 232, 0.8);
+  box-shadow:
+    -3px 0 10px rgba(44, 95, 232, 0.35),  /* left glow */
+    3px 0 10px rgba(44, 95, 232, 0.35),   /* right glow */
+    0 12px 20px rgba(44, 95, 232, 0.45),  /* stronger bottom glow */
+    0 -4px 6px rgba(44, 95, 232, 0);      /* transparent top */
+}
+
+/* Hover — more visible glow */
+.dark .techCard:hover {
+  box-shadow:
+    -4px 0 12px rgba(44, 95, 232, 0.65),
+    4px 0 12px rgba(44, 95, 232, 0.65),
+    0 14px 22px rgba(44, 95, 232, 0.6),
+    0 -4px 8px rgba(44, 95, 232, 0);      /* transparent top */
+}
+
 
 /* ✅ Base Grid */
 .techGrid {

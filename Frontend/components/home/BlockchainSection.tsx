@@ -50,14 +50,12 @@ export default function BlockchainSection() {
               key={idx}
               className={`
                 relative ${styles.techCard}
-                bg-gray-100 dark:bg-[#0f1112]
-                p-5 flex flex-col items-center justify-center
-                shadow-[inset_0_3px_8px_rgba(0,0,255,0.3),_0_0_15px_rgba(0,0,255,0.3),_5px_0_15px_rgba(0,0,255,0.3)]
-                dark:shadow-[inset_0_3px_8px_rgba(107,108,255,0.6),_0_0_25px_rgba(107,108,255,0.6),_5px_0_25px_rgba(107,108,255,0.6)]
-                rounded-none
-                transition-transform duration-500 hover:scale-[1.02]
-                w-[90%] sm:w-[85%] md:w-[90%]
-                mx-auto
+               border border-transparent 
+  p-4 flex flex-col items-center justify-center 
+  shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
+  transition-transform duration-500 
+  bg-white dark:bg-[#0f1112] text-black dark:text-white
+  w-[85%] sm:w-[80%] md:w-full mx-auto
               `}
               style={{
                 marginLeft: "auto",

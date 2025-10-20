@@ -49,16 +49,16 @@ export default function AiMlSection() {
           justify-items-center items-center"
         >
           {AI_ITEMS.map((item, idx) => (
-            <div
-              key={idx}
-              className={`relative ${styles.techCard} 
-              bg-gray-100 dark:bg-[#0f1112]
-              p-6 flex flex-col items-center justify-center 
-              transition-transform duration-500 hover:scale-105 
-              shadow-[inset_0_3px_8px_rgba(0,0,255,0.3),_0_0_15px_rgba(0,0,255,0.3),_5px_0_15px_rgba(0,0,255,0.3)] 
-              dark:shadow-[inset_0_3px_8px_rgba(107,108,255,0.6),_0_0_25px_rgba(107,108,255,0.6),_5px_0_25px_rgba(107,108,255,0.6)]
-              w-[85%] sm:w-[80%] md:w-full mx-auto`}
-            >
+           <div
+  key={idx}
+  className={`relative ${styles.techCard} border border-transparent 
+  p-4 flex flex-col items-center justify-center 
+  shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
+  transition-transform duration-500 
+  bg-white dark:bg-[#0f1112] text-black dark:text-white
+  w-[85%] sm:w-[80%] md:w-full mx-auto`}
+>
+
               <div className="w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 relative">
                 <Image
                   src={item.src}

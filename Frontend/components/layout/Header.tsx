@@ -144,8 +144,8 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
+<hr className="bg-[#FFFFFF20] h-[1px] w-full opacity-40 absolute bottom-0 left-0 right-0" />
 
-      <hr className="bg-[#FFFFFF17] h-1 -z-10 lg:w-[86%] w-[100%] m-auto opacity-5 absolute bottom-0" />
     </nav>
   );
 };

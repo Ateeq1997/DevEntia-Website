@@ -26,16 +26,16 @@ type TechItem = {
 
 // ✅ Tech stack list
 const TECH_ITEMS: TechItem[] = [
-   { name: "Node.js", src: nodejs },
+  { name: "Node.js", src: nodejs },
   { name: "Java", src: java },
-    { name: "Python", src: python },
+  { name: "Python", src: python },
   { name: "Laravel", src: laravel },
-   { name: "Kotlin", src: kotlin },
+  { name: "Kotlin", src: kotlin },
   { name: "C++", src: cpp },
   { name: "Flutter", src: flutter },
   { name: "PHP", src: php },
   { name: ".NET Core", src: python },
-    { name: "AWS", src: aws },
+  { name: "AWS", src: aws },
   { name: "MySQL", src: mysql },
   { name: "MongoDB", src: mongodb },
   { name: "Vue.js", src: vuejs },
@@ -45,9 +45,9 @@ const TECH_ITEMS: TechItem[] = [
 const TechSection: React.FC = () => {
   return (
     <section
-  className="relative z-[1] transition-colors duration-500 
-  bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6 overflow-visible scale-[0.98] md:scale-100"
->
+      className="relative z-[1] transition-colors duration-500 
+      bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6 overflow-visible scale-[0.98] md:scale-100"
+    >
       <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-7xl mx-auto px-2 sm:px-6">
 
         <div className="text-center">
@@ -76,36 +76,35 @@ const TechSection: React.FC = () => {
           className={`mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 
           justify-center justify-items-center ${styles.techGrid}`}
         >
-        {TECH_ITEMS.map((item, index) => (
-    <div
-      key={index}
-      className={`relative ${styles.techCard} border border-transparent 
-      p-6 flex flex-col items-center justify-center 
-      shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
-      transition-transform duration-500 
-      bg-white dark:bg-[#0f1112] text-black dark:text-white`}
-    >
-      {/* Icon */}
-      <div className="w-24 h-24 relative mb-4">
-        <Image
-          src={item.src}
-          alt={item.name}
-          fill
-          className="object-contain w-full h-full"
-          style={{ objectFit: "contain" }}
-        />
-      </div>
+          {TECH_ITEMS.map((item, index) => (
+            <div
+              key={index}
+              className={`relative ${styles.techCard} border border-transparent 
+              p-6 flex flex-col items-center justify-center 
+              shadow-[0_4px_10px_rgba(0,0,0,0.15)] hover:scale-105 
+              transition-transform duration-500 
+              bg-white dark:bg-[#0f1112] text-black dark:text-white`}
+            >
+              {/* Icon */}
+              <div className="w-24 h-24 relative mb-4 mt-3 sm:mt-6">
+                <Image
+                  src={item.src}
+                  alt={item.name}
+                  fill
+                  className="object-contain w-full h-full"
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
 
               {/* Label */}
-            <span
-  className="mt-auto pb-2 text-[18px] font-medium text-gray-800 dark:text-gray-200 transition-colors"
-  style={{
-    fontFamily: "'Bai Jamjuree', sans-serif",
-  }}
->
-  {item.name}
-</span>
-
+              <span
+                className="mt-auto pb-2 text-[18px] font-medium text-gray-800 dark:text-gray-200 transition-colors"
+                style={{
+                  fontFamily: "'Bai Jamjuree', sans-serif",
+                }}
+              >
+                {item.name}
+              </span>
             </div>
           ))}
         </div>
