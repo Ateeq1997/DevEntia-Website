@@ -16,7 +16,7 @@ const BLOCKCHAIN_ITEMS = [
 
 export default function BlockchainSection() {
   return (
-    <section className="bg-white dark:bg-[#0b0b0d] text-black dark:text-white py-16 px-6 transition-colors duration-500">
+    <section className="bg-white dark:bg-[#0b0b0d] text-black dark:text-white py-16 px-6 transition-colors duration-500 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
@@ -29,7 +29,7 @@ export default function BlockchainSection() {
           applications leveraging leading blockchain networks and technologies.
         </p>
 
-        {/* ✅ 3 containers closer together and centered */}
+        {/* ✅ Keep your original spacing — 2 in first row, 1 in second on small screens */}
         <div
           className="
             mt-10
@@ -77,7 +77,6 @@ export default function BlockchainSection() {
           ))}
         </div>
 
-        {/* ✅ Global Button (same across all sections) */}
         <div className="mt-12"></div>
       </div>
     </section>

@@ -11,14 +11,16 @@ interface HeroContent {
 
 const heroContents: HeroContent[] = [
   {
-    video: "https://res.cloudinary.com/dhsgpxu04/video/upload/v1735372583/Man_showing_different_digital_data_around_the_world_Free_Stock_Video_Footage_xcs8h5.mp4",
+    video:
+      "https://res.cloudinary.com/dhsgpxu04/video/upload/v1735372583/Man_showing_different_digital_data_around_the_world_Free_Stock_Video_Footage_xcs8h5.mp4",
     titles: [
       "Where Innovation Meets Imagination",
       "Empowering Brands Through Smart Solutions",
     ],
   },
   {
-    video: "https://res.cloudinary.com/dhsgpxu04/video/upload/v1735372705/Earth_at_night_from_space_Free_Stock_Video_Footage_2_yuxerd.mp4",
+    video:
+      "https://res.cloudinary.com/dhsgpxu04/video/upload/v1735372705/Earth_at_night_from_space_Free_Stock_Video_Footage_2_yuxerd.mp4",
     titles: [
       "Turning Ideas into Scalable Success",
       "Solving Real Problems With Smart Technology",
@@ -28,13 +30,13 @@ const heroContents: HeroContent[] = [
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0); // ✅ added
+  const [subIndex, setSubIndex] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
   const [progress, setProgress] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovered, setIsHovered] = useState<number | null>(null);
 
-  // Handle video progress
+  // ✅ video progress
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -50,7 +52,7 @@ const HeroSection = () => {
       setIsChanging(true);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % heroContents.length);
-        setSubIndex(0); // reset titles when slide changes ✅
+        setSubIndex(0);
         setIsChanging(false);
         setProgress(0);
       }, 500);
@@ -65,35 +67,38 @@ const HeroSection = () => {
     };
   }, [currentIndex]);
 
-  // Cycle through titles (inside the same video)
+  // ✅ cycle through titles
   useEffect(() => {
     const titleTimer = setInterval(() => {
       setSubIndex((prev) => {
         const titles = heroContents[currentIndex].titles;
         return (prev + 1) % titles.length;
       });
-    }, 4000); // ⏳ switch text every 4s
-
+    }, 4000);
     return () => clearInterval(titleTimer);
   }, [currentIndex]);
 
   const handleSlideChange = (index: number) => {
     if (index === currentIndex) return;
-
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-    }
+    if (videoRef.current) videoRef.current.currentTime = 0;
     setIsChanging(true);
     setTimeout(() => {
       setCurrentIndex(index);
-      setSubIndex(0); // ✅ reset title
+      setSubIndex(0);
       setIsChanging(false);
       setProgress(0);
     }, 300);
   };
 
-  const ProgressIndicator = ({ index, isMobile }: { index: number; isMobile: boolean }) => {
-    const baseClasses = "relative cursor-pointer transition-all duration-300";
+  const ProgressIndicator = ({
+    index,
+    isMobile,
+  }: {
+    index: number;
+    isMobile: boolean;
+  }) => {
+    const baseClasses =
+      "relative cursor-pointer transition-all duration-300 flex-shrink-0";
     const dimensionClasses = isMobile
       ? `${index === currentIndex ? "w-10 h-2" : "w-2 h-2"}`
       : `${index === currentIndex ? "w-2 h-10" : "w-2 h-2"}`;
@@ -108,12 +113,11 @@ const HeroSection = () => {
               } rounded-full`}
             />
             <div
-              className={`absolute bg-[#4848FF] rounded-full transition-all duration-300 ease-linear
-                ${isMobile ? "left-0 top-0 h-full" : "bottom-0 left-0 w-full"}`}
+              className={`absolute bg-[#4848FF] rounded-full transition-all duration-300 ease-linear ${
+                isMobile ? "left-0 top-0 h-full" : "bottom-0 left-0 w-full"
+              }`}
               style={
-                isMobile
-                  ? { width: `${progress}%` }
-                  : { height: `${progress}%` }
+                isMobile ? { width: `${progress}%` } : { height: `${progress}%` }
               }
             />
           </div>
@@ -130,6 +134,7 @@ const HeroSection = () => {
 
   return (
     <section className="h-[100vh] max-h-[50rem] relative overflow-hidden max-w-screen">
+      {/* ✅ background video */}
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
@@ -143,38 +148,47 @@ const HeroSection = () => {
         >
           <source src={heroContents[currentIndex].video} type="video/mp4" />
         </video>
-        <div className="absolute inset-0" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-start justify-center h-full w-full px-[5%] mx-auto">
+      {/* ✅ content */}
+     <div className="relative z-10 flex flex-col items-start justify-center h-full w-full px-[5%] mx-auto pt-[20vh] sm:pt-[8vh] md:pt-[4vh]">
+
         <div
           className={`transition-opacity duration-500 ${
             isChanging ? "opacity-0" : "opacity-100"
-          }`}
+          } flex flex-col flex-wrap gap-6`}
         >
           <AnimatePresence mode="wait">
             <motion.h1
-              key={heroContents[currentIndex].titles[subIndex]} 
+              key={heroContents[currentIndex].titles[subIndex]}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.1, ease: "linear" }}
-              className="text-3xl  md:text-[90px] font-bold leading-tight mb-6 max-w-screen-xl"
+              transition={{ duration: 0.2, ease: "linear" }}
+              className="text-3xl md:text-[90px] font-bold leading-[1.1] mb-6 max-w-[95%] md:max-w-[85%] text-white"
             >
               {heroContents[currentIndex].titles[subIndex]}
             </motion.h1>
           </AnimatePresence>
-<p className="text-white text-xl md:text-1xl mb-10 max-w-screen-lg">
-  At DevEntia Tech, we craft intelligent digital solutions that turn bold ideas into powerful products. From custom software development to immersive UI/UX design, our expert team merges cutting-edge technology with strategic thinking to drive innovation.
+
+ <p
+  className="text-white text-lg md:text-xl max-w-[900px] leading-relaxed -mt-8 md:-mt-10"
+>
+  At DevEntia Tech, we craft intelligent digital solutions that turn
+  bold ideas into powerful products. From custom software development
+  to immersive UI/UX design, our expert team merges cutting-edge
+  technology with strategic thinking to drive innovation.
 </p>
-<div className="flex gap-6 mt-20">
-  {/* Let's Connect Button */}
+
+
+<div
+  className="flex flex-wrap gap-4 md:gap-6 mt-0 md:mt-0"
+>
   <Link
     href={"/Contact-us"}
-    className="flex items-center gap-2 px-5 py-3 
-               text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
+    className="flex items-center justify-center gap-2 px-5 py-3 text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree']
                shadow-[0_0_15px_5px_rgba(72,72,255,0.7)]
-               transition-all duration-300 ease-in-out"
+               transition-all duration-300 ease-in-out min-w-[150px] text-center"
     style={{
       backdropFilter: "blur(45px)",
       background: "#4848FF",
@@ -184,26 +198,28 @@ const HeroSection = () => {
     Let&apos;s Connect
   </Link>
 
-  {/* Explore Services Button */}
-  <Link
-    href={"/Services"}
-    className="flex items-center gap-2 px-5 py-3 text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
-               shadow-[0_0_15px_5px_rgba(72,72,255,0.5)]
-               transition-all duration-300 ease-in-out"
-    style={{
-      backdropFilter: "blur(44px)",
-      background: "#ffffffcf",
-      color: "#4848FF",
-    }}
-  >
-    Explore Services
-  </Link>
-</div>
+ <Link
+  href={"/Services"}
+  className="flex items-center justify-center gap-2 px-5 py-3 text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree']
+             shadow-[0_0_15px_5px_rgba(255,255,255,0.7)]
+             transition-all duration-300 ease-in-out min-w-[180px] text-center"
+  style={{
+    backdropFilter: "blur(44px)",
+    background: "#ffffffcf",
+    color: "#4848FF",
+  }}
+>
+  Explore Services
+</Link>
 
+</div>
         </div>
 
+        {/* ✅ progress indicators */}
         <div
-          className="flex gap-6 absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-auto lg:bottom-auto lg:translate-x-0 lg:top-1/2 lg:right-8 lg:-translate-y-1/2 lg:flex-col"
+          className="flex gap-6 absolute bottom-8 left-1/2 -translate-x-1/2 
+                     lg:left-auto lg:bottom-auto lg:translate-x-0 lg:top-1/2 lg:right-8 
+                     lg:-translate-y-1/2 lg:flex-col"
           onMouseEnter={() => setIsHovered(currentIndex)}
           onMouseLeave={() => setIsHovered(null)}
         >
@@ -217,47 +233,41 @@ const HeroSection = () => {
               </div>
             </div>
           ))}
-        </div>         
+        </div>
 
-{/* ✅ Floating WhatsApp + Get a Quote Button */}
-<div className="fixed bottom-6 left-0 w-full flex items-center justify-between px-[5%] z-[999] pointer-events-auto">
-  {/* WhatsApp Icon */}
-  <a
-    href="https://wa.me/923001234567"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 z-[1000]"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="26"
-      height="26"
-      fill="currentColor"
-      viewBox="0 0 16 16"
-    >
-      <path d="M13.601 2.326A7.857 7.857 0 0 0 8.002 0C3.584 0 .002 3.582.002 8c0 1.411.37 2.787 1.075 4.002L0 16l4.111-1.062A7.964 7.964 0 0 0 8.002 16c4.418 0 8-3.582 8-8 0-2.134-.83-4.142-2.399-5.674ZM8.002 14.5a6.48 6.48 0 0 1-3.295-.894l-.236-.14-2.437.63.649-2.38-.153-.244A6.497 6.497 0 0 1 1.5 8c0-3.59 2.912-6.5 6.502-6.5a6.466 6.466 0 0 1 4.606 1.898A6.46 6.46 0 0 1 14.5 8c0 3.59-2.912 6.5-6.498 6.5Zm3.645-4.736c-.197-.099-1.166-.574-1.348-.639-.182-.066-.315-.099-.448.099s-.514.639-.63.77c-.115.132-.232.148-.429.049-.197-.099-.831-.305-1.583-.974-.584-.52-.977-1.162-1.091-1.358-.115-.197-.012-.304.087-.403.089-.088.197-.23.296-.345.098-.115.131-.197.197-.33.065-.132.033-.247-.016-.346-.05-.099-.448-1.086-.614-1.486-.162-.389-.326-.336-.448-.342-.115-.006-.247-.007-.38-.007a.73.73 0 0 0-.528.247c-.182.197-.695.679-.695 1.656s.712 1.921.812 2.054c.099.132 1.403 2.143 3.402 3.004.476.205.847.326 1.136.418.477.152.91.13 1.253.079.383-.058 1.165-.476 1.33-.936.164-.46.164-.854.115-.936-.049-.082-.18-.13-.377-.23Z" />
-    </svg>
-  </a>
-
-  {/* Get a Quote Button */}
-<Link
-  href="/Contact-us"
-  className="font-semibold text-[16px] px-6 py-3 transition-all duration-300 
-             hover:scale-105 shadow-[0_0_15px_rgba(72,72,255,0.8)]
-             text-gray-900 border-2 border-gray-900 
-             dark:text-white dark:border-white 
-             rounded-md z-[1000]"
-  style={{
-    backgroundColor: 'transparent',
-  }}
+        {/* ✅ floating WhatsApp + Quote button */}
+        <div className="fixed bottom-6 left-0 w-full flex flex-wrap items-center justify-between px-[5%] z-[999] gap-4">
+        <a
+  href="https://wa.me/923001234567"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110"
 >
-  Get a Quote
-</Link>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="26"
+    height="26"
+    fill="currentColor"
+    viewBox="0 0 16 16"
+  >
+    <path d="M13.601 2.326A7.857 7.857 0 0 0 8.002 0C3.584 0 .002 3.582.002 8c0 1.411.37 2.787 1.075 4.002L0 16l4.111-1.062A7.964 7.964 0 0 0 8.002 16c4.418 0 8-3.582 8-8 0-2.134-.83-4.142-2.399-5.674Zm-5.6 12.672a6.627 6.627 0 0 1-3.383-.924l-.243-.144-2.44.63.651-2.381-.158-.245A6.623 6.623 0 0 1 1.373 8c0-3.652 2.975-6.627 6.627-6.627 1.77 0 3.433.69 4.686 1.943a6.588 6.588 0 0 1 1.94 4.684c0 3.652-2.975 6.627-6.626 6.627ZM11.153 9.5c-.192-.096-1.13-.558-1.305-.622-.175-.065-.302-.096-.43.096-.128.192-.494.622-.605.75-.112.128-.224.144-.416.048-.192-.096-.81-.298-1.542-.95-.57-.508-.955-1.134-1.067-1.326-.112-.192-.012-.296.084-.392.087-.086.192-.224.288-.336.096-.112.128-.192.192-.32.064-.128.032-.24-.016-.336-.048-.096-.43-1.037-.589-1.421-.155-.372-.312-.322-.43-.328h-.37c-.128 0-.336.048-.512.24-.176.192-.672.658-.672 1.606s.688 1.856.784 1.984c.096.128 1.352 2.064 3.28 2.894 1.928.83 1.928.554 2.276.52.349-.032 1.13-.46 1.29-.904.16-.445.16-.826.112-.904-.048-.08-.176-.128-.368-.224Z" />
+  </svg>
+</a>
 
 
-</div>
-
-
+          <Link
+            href="/Contact-us"
+            className="font-semibold text-[16px] px-6 py-3 transition-all duration-300 
+                       hover:scale-105 shadow-[0_0_15px_rgba(72,72,255,0.8)]
+                       text-[#4848FF] border-2 border-[#4848FF]
+                       dark:text-white dark:border-white rounded-md"
+            style={{
+              backgroundColor: "transparent",
+            }}
+          >
+            Get a Quote
+          </Link>
+        </div>
       </div>
     </section>
   );

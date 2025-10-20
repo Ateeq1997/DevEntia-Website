@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
+import { AiOutlineDown } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
-// import logoImg from "@/assets/images/logoImg.gif";
-
 import { MdOutlineArrowOutward } from "react-icons/md";
 import logoImg from "@/assets/images/logoImg.png";
 import logoImg1 from "@/assets/images/blacklogo.png";
@@ -55,34 +53,33 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-40 transition-transform duration-300 navbar-container lg:!flex pt-2 text-xs 1100px:text-sm 1300px:text-base max-w-[calc(1750px+5%)] mx-auto
-        ${isVisible ? "translate-y-0" : "-translate-y-full"}
-        bg-white/90 text-black dark:bg-transparent dark:text-white transition-colors duration-500`}
+      className={`fixed top-0 w-full z-40 transition-transform duration-300 navbar-container lg:!flex pt-2 
+      text-[0.95rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.05rem] 
+      max-w-[calc(1750px+5%)] mx-auto
+      ${isVisible ? "translate-y-0" : "-translate-y-full"}
+      bg-white/90 text-black dark:bg-transparent dark:text-white transition-colors duration-500`}
     >
       <div className="container px-[5%] lg:px-[5%] py-4">
-        <div className="flex items-center justify-between w-full">
-          {/* ✅ Logo - Changes automatically with theme */}
-          {/* Logo - Changes automatically with theme, fixed size via parent container */}
-<Link href={"/"} className="flex items-center">
-  <div
-    className="relative w-[125px] h-10 sm:w-[110px] sm:h-9 xs:w-[95px] xs:h-8 -translate-y-[6px]"
-  >
-    <Image
-      unoptimized
-      src={isDarkMode ? logoImg : logoImg1}
-      alt="deventia logo"
-      fill
-      className={`object-contain transition-transform duration-300 ${
-        isDarkMode ? "scale-[2.25]" : "scale-[1.65]"
-      }`}
-      priority
-    />
-  </div>
-</Link>
+        <div className="flex items-center justify-between w-full flex-wrap">
+          {/* ✅ Logo */}
+          <Link href={"/"} className="flex items-center flex-shrink-0">
+            <div className="relative w-[125px] h-10 sm:w-[110px] sm:h-9 xs:w-[95px] xs:h-8 -translate-y-[6px]">
+              <Image
+                unoptimized
+                src={isDarkMode ? logoImg : logoImg1}
+                alt="deventia logo"
+                fill
+                className={`object-contain transition-transform duration-300 ${
+                  isDarkMode ? "scale-[2.25]" : "scale-[1.65]"
+                }`}
+                priority
+              />
+            </div>
+          </Link>
 
           {/* ✅ Desktop Navigation */}
           <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">
-            <ul className="flex space-x-8 xl:space-x-12 md:space-x-4 h-full">
+            <ul className="flex space-x-8 xl:space-x-12 md:space-x-6">
               {menuItems.map((item) => (
                 <div
                   key={item.title}
@@ -96,7 +93,7 @@ const Header: React.FC = () => {
                 >
                   <Link
                     href={item.path}
-                    className="flex items-center hover:text-[#7471E6] transition-colors duration-200 text-sm xl:text-base"
+                    className="flex items-center hover:text-[#7471E6] transition-colors duration-200"
                     onClick={() =>
                       item.title === "Portfolio" &&
                       setIsDropdownVisible(!isDropdownVisible)
@@ -114,36 +111,33 @@ const Header: React.FC = () => {
               ))}
             </ul>
 
-            <div className="flex flex-row items-center gap-10">
-              <Link
-                href={"/Careers"}
-                className="flex items-center gap-2 flex-wrap w-fit hover:text-[#7471E6]"
-              >
-                Careers
-              </Link>
+<div className="flex flex-row items-center gap-8 flex-wrap -translate-y-[10px]">
+  <Link
+    href={"/Careers"}
+    className="hover:text-[#7471E6] transition-all duration-300"
+  >
+    Careers
+  </Link>
 
-              <Link
-                href={"/Contact-us"}
-                className="flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit"
-              >
-                <p
-                  className="p-2 px-4 
-                     bg-[#4848FF] text-white
-                     dark:bg-white dark:text-black
-                     flex items-center gap-2 rounded-md font-medium"
-                >
-                  Contact Us
-                </p>
-              </Link>
+  <Link href={"/Contact-us"} className="transition-all duration-500">
+    <p
+      className="p-2 px-2 bg-[#4848FF] text-white
+         dark:bg-white dark:text-black
+         flex items-center justify-center gap-2 font-medium"
+    >
+      Contact Us
+    </p>
+  </Link>
 
-              {/* Theme Toggle - Desktop */}
-              <div className="hidden md:flex items-center gap-2 flex-wrap transition-all duration-700 ease-in-out w-fit">
-                <ThemeToggle />
-              </div>
-            </div>
+  {/* Theme Toggle - Desktop */}
+  <div className="hidden md:flex items-center">
+    <ThemeToggle />
+  </div>
+</div>
+
           </div>
 
-          {/* ✅ Mobile Right Side: Theme Toggle + Menu */}
+          {/* ✅ Mobile Right Side */}
           <div className="flex items-center md:hidden gap-3">
             <ThemeToggle />
             <MobileMenu />
@@ -157,4 +151,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-

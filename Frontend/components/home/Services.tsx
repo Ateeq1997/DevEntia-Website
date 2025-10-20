@@ -71,41 +71,46 @@ export default function ServiceCards() {
     }
   ];
 
-  useEffect(() => {
-    const checkDevice = () => setIsMobile(window.innerWidth < 1024);
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
+ useEffect(() => {
+  const checkDevice = () => setIsMobile(window.innerWidth < 1024);
+  checkDevice();
+  window.addEventListener("resize", checkDevice);
 
-    const handleScroll = () => {
-      if (!containerRef.current || isMobile) return;
-      const containerTop = containerRef.current.offsetTop;
-      const containerHeight = containerRef.current.offsetHeight;
-      const windowHeight = window.innerHeight;
-      const scrollTop = window.pageYOffset;
+  const handleScroll = () => {
+    if (!containerRef.current || isMobile) return;
 
-      const containerStart = containerTop;
-      const containerEnd = containerTop + containerHeight - windowHeight;
+    const containerTop = containerRef.current.offsetTop;
+    const containerHeight = containerRef.current.offsetHeight;
+    const windowHeight = window.visualViewport?.height || window.innerHeight;
+    const scrollTop = window.pageYOffset;
 
-      if (scrollTop >= containerStart && scrollTop <= containerEnd) {
-        const progress = (scrollTop - containerStart) / (containerEnd - containerStart);
-        setScrollProgress(Math.max(0, Math.min(1, progress)));
-        
-        const totalCards = services.length;
-        const cardProgress = progress * totalCards;
-        setActiveCard(Math.min(Math.floor(cardProgress), totalCards - 1));
-      }
-    };
+    const containerStart = containerTop;
+    const containerEnd = containerTop + containerHeight - windowHeight;
 
-    if (!isMobile) {
-      window.addEventListener('scroll', handleScroll);
-      handleScroll();
+    if (scrollTop >= containerStart && scrollTop <= containerEnd) {
+      const progress =
+        (scrollTop - containerStart) / (containerEnd - containerStart);
+      setScrollProgress(Math.max(0, Math.min(1, progress)));
+
+      const totalCards = services.length;
+      const cardProgress = progress * totalCards;
+      setActiveCard(Math.min(Math.floor(cardProgress), totalCards - 1));
     }
+  };
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', checkDevice);
-    };
-  }, [services.length, isMobile]);
+  if (!isMobile) {
+    window.addEventListener("scroll", handleScroll);
+    window.visualViewport?.addEventListener("resize", handleScroll); // ✅ fix zoom responsiveness
+    handleScroll();
+  }
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", checkDevice);
+    window.visualViewport?.removeEventListener("resize", handleScroll);
+  };
+}, [services.length, isMobile]);
+
 
   const getCardStyle = (index: number) => {
     const totalCards = services.length;
@@ -151,6 +156,7 @@ export default function ServiceCards() {
   };
 
   return (
+    
     <div
   ref={containerRef}
   className="relative px-[5%] py-12 transition-colors duration-500 bg-white dark:bg-[#0B0B0B]"
@@ -169,9 +175,10 @@ export default function ServiceCards() {
             UI/UX design, web development, and motion graphics.
           </p>
           <Link href="/Services">
-            <button className="underline text-[#1F1F1F] dark:text-[#C5C9D4] text-[16px]">
-              View All
-            </button>
+           <button className="underline text-[#4848FF] dark:text-[#C5C9D4] text-[16px]">
+  View All
+</button>
+
           </Link>
         </div>
       </div>
@@ -200,7 +207,8 @@ export default function ServiceCards() {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-[22px] font-semibold">{service.title}</h2>
-                  <FaArrowRightLong className="text-black dark:text-white text-[18px] -rotate-45" />
+                  <FaArrowRightLong className="text-[#4848FF] dark:text-white text-[18px] -rotate-45" />
+
                 </div>
      <p className="text-[#1F1F1F] dark:text-[#C5C9D4] text-[14px] lg:text-[16px] leading-relaxed mb-12">
   {service.description}
@@ -250,7 +258,8 @@ export default function ServiceCards() {
               <h2 className="text-[18px] lg:text-[24px] font-bold leading-tight flex-1 ">
                 {service.title}
               </h2>
-              <FaArrowRightLong className="text-black dark:text-white text-[18px] -rotate-45 cursor-pointer hover:scale-110 transition-transform duration-200 flex-shrink-0 mt-2" />
+              <FaArrowRightLong className="text-[#4848FF] dark:text-white text-[18px] -rotate-45 cursor-pointer hover:scale-110 transition-transform duration-200 flex-shrink-0 mt-2" />
+
             </div>
 
    <p className="text-[#1F1F1F] dark:text-[#C5C9D4] text-[14px] lg:text-[16px] leading-relaxed mb-12">

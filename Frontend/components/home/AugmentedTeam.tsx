@@ -1,11 +1,35 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Founder from "../../assets/images/Image (3).png";
 import { MdOutlineArrowOutward } from "react-icons/md";
 
 const AugmentedTeam = () => {
+  const [viewportScale, setViewportScale] = useState(1);
+
+  useEffect(() => {
+    const handleZoom = () => {
+      const scale = window.visualViewport?.scale || 1;
+      setViewportScale(scale);
+    };
+
+    window.visualViewport?.addEventListener("resize", handleZoom);
+    handleZoom();
+
+    return () => {
+      window.visualViewport?.removeEventListener("resize", handleZoom);
+    };
+  }, []);
+
   return (
-    <section className="flex gap-12 flex-col lg:flex-row p-[5%] items-center bg-white dark:bg-[#151515] transition-colors duration-500">
+    <section
+      className="flex gap-12 flex-col lg:flex-row p-[5%] items-center bg-white dark:bg-[#151515] transition-colors duration-500"
+      style={{
+        transform: `scale(${1 / viewportScale})`,
+        transformOrigin: "top center",
+      }}
+    >
       {/* Left Side Image */}
       <Image
         src={Founder}
@@ -24,30 +48,28 @@ const AugmentedTeam = () => {
           <h1 className="font-bold text-3xl lg:text-4xl text-black dark:text-white">
             Augmented Teams
           </h1>
-         <p className="text-lg mt-4 text-left sm:text-justify text-[#333333] dark:text-[#A7ADBE]">
-  This outsourcing model implies enhancing your staff structure with
-  talents provided by a vendor, EffectiveSoft. The skilled personnel
-  are added to your development team that is managed by your
-  project manager. Enhancing a team with outsourced staff usually
-  involves a short-term cooperation necessary to meet technical
-  needs of a project.
-</p>
-
+          <p className="text-lg mt-4 text-left sm:text-justify text-[#333333] dark:text-[#A7ADBE]">
+            This outsourcing model implies enhancing your staff structure with
+            talents provided by a vendor, EffectiveSoft. The skilled personnel
+            are added to your development team that is managed by your project
+            manager. Enhancing a team with outsourced staff usually involves a
+            short-term cooperation necessary to meet technical needs of a
+            project.
+          </p>
 
           {/* Contact button */}
-         <Link
-  href="/contact"
-  className="flex items-center gap-2 bg-[#4848FF] text-white px-6 py-3 mt-8 
-             hover:scale-110 transition-all duration-700 ease-in-out w-fit
-             text-[18px] font-medium"
-  style={{
-    fontFamily: "Rethink Sans, sans-serif",
-  }}
->
-  Contact Us
-  <MdOutlineArrowOutward size={22} color="#fff" />
-</Link>
-
+          <Link
+            href="/contact"
+            className="flex items-center gap-2 bg-[#4848FF] text-white px-6 py-3 mt-8 
+                       hover:scale-110 transition-all duration-700 ease-in-out w-fit
+                       text-[18px] font-medium"
+            style={{
+              fontFamily: "Rethink Sans, sans-serif",
+            }}
+          >
+            Contact Us
+            <MdOutlineArrowOutward size={22} color="#fff" />
+          </Link>
         </div>
       </div>
     </section>

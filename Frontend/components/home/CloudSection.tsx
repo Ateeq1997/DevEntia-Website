@@ -29,9 +29,9 @@ export default function CloudSection() {
   return (
     <section
       className="relative z-[1] transition-colors duration-500 
-      bg-[#0b0b0d] dark:bg-[#0b0b0d] bg-white py-16 px-6 overflow-visible"
+      bg-[#0b0b0d] dark:bg-[#0b0b0d] bg-white py-16 px-4 sm:px-6 md:px-10 overflow-visible"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-7xl mx-auto">
         {/* Small label */}
         <div className="text-center">
           <p className="text-sm text-[#6b6cff] uppercase tracking-widest">
@@ -57,63 +57,57 @@ export default function CloudSection() {
           orchestration, enabling seamless deployment workflows.
         </p>
 
-        {/* ✅ 5 containers */}
-     {/* ✅ 5 containers */}
-<div
-  className="
-    mt-6 
-    grid 
-    grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 
-    gap-x-4 sm:gap-x-5 md:gap-x-6 
-    gap-y-6 
-    justify-center
-  "
->
-  {CLOUD_ITEMS.map((item, idx) => (
-    <div
-      key={idx}
-      className={`relative ${styles.techCard} border border-transparent 
-      p-4 flex flex-col items-center justify-center 
-      shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
-      transition-transform duration-500 
-      bg-white dark:bg-[#0f1112] text-black dark:text-white
-      w-[85%] sm:w-[80%] md:w-full mx-auto`}
-    >
-      <div className="w-28 h-28 relative">
-        {/* ✅ Conditional display for Jenkins (last item) */}
-        {idx === 4 ? (
-          <>
-            {/* Light mode Jenkins */}
-            <Image
-              src={jenkins1}
-              alt="Jenkins Light"
-              fill
-              style={{ objectFit: "contain" }}
-              className="block dark:hidden"
-            />
-            {/* Dark mode Jenkins */}
-            <Image
-              src={jenkins}
-              alt="Jenkins Dark"
-              fill
-              style={{ objectFit: "contain" }}
-              className="hidden dark:block"
-            />
-          </>
-        ) : (
-          <Image
-            src={item.src}
-            alt={item.alt}
-            fill
-            style={{ objectFit: "contain" }}
-            priority={false}
-          />
-        )}
-      </div>
-    </div>
-  ))}
-</div>
-
+        {/* ✅ Responsive Cloud Item Grid */}
+        <div
+          className="
+            mt-8
+            grid
+            grid-cols-2 sm:grid-cols-3 lg:grid-cols-5
+            gap-x-4 sm:gap-x-5 md:gap-x-6
+            gap-y-6
+            justify-center
+            items-center
+          "
+        >
+          {CLOUD_ITEMS.map((item, idx) => (
+            <div
+              key={idx}
+              className={`relative ${styles.techCard} border border-transparent 
+              p-4 flex flex-col items-center justify-center 
+              shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 
+              transition-transform duration-500 
+              bg-white dark:bg-[#0f1112] text-black dark:text-white
+              w-[85%] sm:w-[80%] md:w-full mx-auto`}
+            >
+              <div className="w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 relative">
+                {/* ✅ Conditional Jenkins Display */}
+                {idx === 4 ? (
+                  <>
+                    <Image
+                      src={jenkins1}
+                      alt="Jenkins Light"
+                      fill
+                      className="block dark:hidden object-contain"
+                    />
+                    <Image
+                      src={jenkins}
+                      alt="Jenkins Dark"
+                      fill
+                      className="hidden dark:block object-contain"
+                    />
+                  </>
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-contain"
+                  />
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

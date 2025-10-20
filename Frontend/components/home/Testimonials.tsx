@@ -46,10 +46,10 @@ const testimonials: Testimonial[] = [
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="w-full py-16 bg-white dark:bg-[#0f0f0f]">
+    <section className="w-full py-16 bg-white dark:bg-[#0f0f0f] overflow-hidden transition-transform duration-500">
       {/* Section Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-snug">
           Happy Words From
           <br />
           Happy Customer
@@ -57,7 +57,15 @@ const Testimonials: React.FC = () => {
       </div>
 
       {/* Cards */}
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div
+        className="
+          max-w-7xl mx-auto px-6 
+          grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+          gap-8 
+          justify-center items-stretch
+          transition-all duration-500
+        "
+      >
         {testimonials.map((t) => (
           <div
             key={t.id}
@@ -75,7 +83,7 @@ const Testimonials: React.FC = () => {
             </div>
 
             {/* Description */}
-            <div className="px-6 py-6 text-center">
+            <div className="px-6 py-6 text-left w-full">
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                 {t.description}
               </p>

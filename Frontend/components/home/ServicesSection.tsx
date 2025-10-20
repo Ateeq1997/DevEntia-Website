@@ -24,23 +24,24 @@ export default function ServicesSection() {
         </h2>
       </div>
 
-      {/* Timeline image (auto-switches on theme toggle) */}
-      <div className="relative mt-16 flex justify-center items-center">
+      {/* Timeline image */}
+      <div className="relative mt-16 flex justify-center items-center w-full px-4 sm:px-8">
         {/* Light mode image */}
-        <Image
-          src={Group2}
-          alt="Services timeline light"
-          className="w-full max-w-[1200px] h-auto block dark:hidden transition-opacity duration-500"
-          priority
-        />
-
-        {/* Dark mode image */}
-        <Image
-          src={Group1}
-          alt="Services timeline dark"
-          className="w-full max-w-[1200px] h-auto hidden dark:block transition-opacity duration-500"
-          priority
-        />
+        <div className="w-full max-w-[1200px]">
+          <Image
+            src={Group2}
+            alt="Services timeline light"
+            className="w-full h-auto block dark:hidden transition-all duration-500"
+            priority
+          />
+          {/* Dark mode image */}
+          <Image
+            src={Group1}
+            alt="Services timeline dark"
+            className="w-full h-auto hidden dark:block transition-all duration-500"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

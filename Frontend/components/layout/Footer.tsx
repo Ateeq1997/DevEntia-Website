@@ -3,15 +3,35 @@ import Image from "next/image";
 import React from "react";
 import logoImg from "@/assets/images/logoImg.png";
 import logoImg1 from "@/assets/images/blacklogo.png";
-// import { euroStyle } from '@/utils/fonts';
 import Link from "next/link";
-import { FaInstagram, FaLinkedin, FaSquareFacebook } from "react-icons/fa6";
+import { FaInstagram, FaLinkedinIn, FaSquareFacebook } from "react-icons/fa6";
 import { LuSlack } from "react-icons/lu";
 import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
 const Footer = () => {
   const router = useRouter();
+
+  // ✅ Social links defined to fix red underline errors
+  const socialLinks = [
+    {
+      url: "https://www.facebook.com/profile.php?id=61555020486889&mibextid=LQQJ4d",
+      icon: <FaSquareFacebook />,
+    },
+    {
+      url: "https://www.linkedin.com/company/deventia-tech-pvt-ltd/",
+      icon: <FaLinkedinIn />,
+    },
+    {
+      url: "https://www.instagram.com/deventiatechlimited?igsh=NWhhdmFpczVzeHBm&utm_source=qr",
+      icon: <FaInstagram />,
+    },
+    {
+      url: "https://deventialimited.slack.com/join/shared_invite/zt-2nreu7n87-U3thaVfp3_M0PwzRV73OKg",
+      icon: <LuSlack />,
+    },
+  ];
+
   return (
     <footer
       className="p-[5%] relative transition-colors duration-500
@@ -20,69 +40,42 @@ const Footer = () => {
     >
       <div className="absolute bottom-0 left-0 footer-bg-img"></div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 w-full">
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+        {/* Navigation */}
         <div>
           <h4 className="font-semibold text-xl text-[#374151] dark:text-white/35 mb-4">
             Navigation
           </h4>
-          <div className="flex flex-col">
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="/Services"
-            >
-              Services
-            </Link>
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="About-us"
-            >
-              About Us
-            </Link>
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="/Our-Portfolio"
-            >
-              Our Portfolio
-            </Link>
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="/Careers"
-            >
-              Careers
-            </Link>
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="Contact-us"
-            >
-              Contacts
-            </Link>
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="terms-and-conditions"
-            >
-              Terms & Conditions
-            </Link>
-            <Link
-              className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
-              href="privacy-policy"
-            >
-              Privacy Policy
-            </Link>
+          <div className="flex flex-col space-y-1">
+            {[
+              ["Home", "/"],
+              ["Services", "/Services"],
+              ["About Us", "/About-us"],
+              ["Our Portfolio", "/Our-Portfolio"],
+              ["Careers", "/Careers"],
+              ["Contacts", "/Contact-us"],
+              ["Terms & Conditions", "/terms-and-conditions"],
+              ["Privacy Policy", "/privacy-policy"],
+            ].map(([label, href]) => (
+              <Link
+                key={label}
+                href={href}
+                className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
+              >
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
 
+        {/* Contact Us + Socials */}
         <div>
           <h4 className="font-semibold text-xl text-[#374151] dark:text-white/35 mb-4">
             Contact us
           </h4>
           <a
-            className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
+            className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white block"
             rel="stylesheet"
             href="tel:+92316-5910564"
           >
@@ -92,75 +85,48 @@ const Footer = () => {
           <h4 className="font-semibold text-xl text-[#374151] dark:text-white/35 my-4 md:mt-20">
             Follow us
           </h4>
-          <div className="flex gap-2">
-            <a
-              href="https://www.facebook.com/profile.php?id=61555020486889&mibextid=LQQJ4d"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out
-                         text-[#0b0b0d] dark:text-white hover:text-[#7471E6]"
-            >
-              <FaSquareFacebook />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/deventia-tech-pvt-ltd/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out
-                         text-[#0b0b0d] dark:text-white hover:text-[#7471E6]"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://www.instagram.com/deventiatechlimited?igsh=NWhhdmFpczVzeHBm&utm_source=qr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out
-                         text-[#0b0b0d] dark:text-white hover:text-[#7471E6]"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://deventialimited.slack.com/join/shared_invite/zt-2nreu7n87-U3thaVfp3_M0PwzRV73OKg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out
-                         text-[#0b0b0d] dark:text-white hover:text-[#7471E6]"
-            >
-              <LuSlack />
-            </a>
+          <div className="flex flex-wrap gap-3">
+            {socialLinks.map(({ url, icon }) => (
+              <a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out text-[#4848FF] dark:text-white hover:text-[#7471E6]"
+              >
+                {icon}
+              </a>
+            ))}
           </div>
 
           <h4 className="font-semibold text-xl text-[#374151] dark:text-white/35 my-4 mt-8">
             Location
           </h4>
-
-          <a
-            className="text-lg font-medium mt-4 text-[#0b0b0d] dark:text-white"
-            rel="stylesheet"
-            href="Mansehra, kpk 21300, PK"
-          >
-            Office # 7, First Floor, Elanza Mall, D-Markaz, Gulberg Residencia, Islamabad
-          </a>
+          <p className="text-lg font-medium mt-4 text-[#0b0b0d] dark:text-white leading-relaxed">
+            Office #7, First Floor, Elanza Mall, D-Markaz, Gulberg Residencia,
+            Islamabad
+          </p>
         </div>
 
-        <div className="">
+        {/* Email + Chat */}
+        <div>
           <a
             href="mailto:prosper@deventiatech.com"
-            className="block mt-12 hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white"
+            className="block mt-12 hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white break-words"
           >
             prosper@deventiatech.com
           </a>
+
           <h4 className="font-semibold text-xl text-[#374151] dark:text-white/35 my-4 md:mt-20">
             Let’s chat
           </h4>
-          <div className="flex gap-2">
+
+          <div className="flex gap-3 flex-wrap">
             <a
               href="https://wa.me/+923165910564"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out
-                         text-[#0b0b0d] dark:text-white hover:text-[#7471E6]"
+              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out text-[#4848FF] dark:text-white hover:text-[#7471E6]"
             >
               <FaWhatsapp />
             </a>
@@ -168,60 +134,59 @@ const Footer = () => {
               href="https://www.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out
-                         text-[#0b0b0d] dark:text-white hover:text-[#7471E6]"
+              className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out text-[#4848FF] dark:text-white hover:text-[#7471E6]"
             >
               <FaTelegramPlane />
             </a>
           </div>
         </div>
 
-      <div className="mr-0 ml-auto">
-  {/* Light Mode Logo */}
-  <Image
-    src={logoImg1}
-    alt="deventia logo light"
-    width={150}
-    unoptimized
-    className="block dark:hidden scale-110"
-  />
-  {/* Dark Mode Logo */}
-  <Image
-    src={logoImg}
-    alt="deventia logo dark"
-    width={150}
-    unoptimized
-    className="hidden dark:block scale-110"
-  />
-</div>
-
-
+        {/* Logo */}
+        <div className="flex justify-center items-start sm:justify-end">
+          {/* Light Mode Logo */}
+          <Image
+            src={logoImg1}
+            alt="deventia logo light"
+            width={150}
+            unoptimized
+            className="block dark:hidden scale-110"
+          />
+          {/* Dark Mode Logo */}
+          <Image
+            src={logoImg}
+            alt="deventia logo dark"
+            width={150}
+            unoptimized
+            className="hidden dark:block scale-110"
+          />
+        </div>
       </div>
 
-      <div className="mt-20 mb-8">
-        <p className="font-medium text-lg text-[#374151] dark:text-white/35">
-          <span
-            onClick={() => router.push("/terms-and-conditions")}
-            className="hover:text-[#0b0b0d] dark:hover:text-white cursor-pointer"
-          >
-            Copyright
-          </span>
-        </p>
-        <p className="font-medium text-lg text-[#374151] dark:text-white/35">
-          <span
-            onClick={() => router.push("/privacy-policy")}
-            className="hover:text-[#0b0b0d] dark:hover:text-white cursor-pointer"
-          >
-            Privacy
-          </span>
-        </p>
-        <p className="font-medium text-lg text-[#374151] dark:text-white/35 ">
-          All rights reserved
-        </p>
-      </div>
+      {/* Footer bottom */}
+      <div className="mt-16 sm:mt-20 mb-8 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 text-center">
+        <div>
+          <p className="font-medium text-lg text-[#4848FF] dark:text-white/35">
+            <span
+              onClick={() => router.push("/terms-and-conditions")}
+              className="hover:text-[#0b0b0d] dark:hover:text-white cursor-pointer"
+            >
+              Copyright
+            </span>
+          </p>
+          <p className="font-medium text-lg text-[#4848FF] dark:text-white/35">
+            <span
+              onClick={() => router.push("/privacy-policy")}
+              className="hover:text-[#0b0b0d] dark:hover:text-white cursor-pointer"
+            >
+              Privacy
+            </span>
+          </p>
+          <p className="font-medium text-lg text-[#4848FF] dark:text-white/35">
+            All rights reserved
+          </p>
+        </div>
 
-      <div className="flex justify-center gap-4">
-        <h4 className="font-semibold text-xl text-center ml-auto mr-0 text-[#374151] dark:text-white/35">
+        <h4 className="font-semibold text-xl text-[#4848FF] dark:text-white/35 text-center">
           © 2024 — DEVENTIA
         </h4>
       </div>

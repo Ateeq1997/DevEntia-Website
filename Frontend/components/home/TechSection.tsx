@@ -46,10 +46,10 @@ const TechSection: React.FC = () => {
   return (
     <section
   className="relative z-[1] transition-colors duration-500 
-  bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6 overflow-visible"
+  bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6 overflow-visible scale-[0.98] md:scale-100"
 >
-      <div className="max-w-7xl mx-auto">
-  
+      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-7xl mx-auto px-2 sm:px-6">
+
         <div className="text-center">
           <p className="text-sm text-[#6b6cff] uppercase tracking-widest">Tech</p>
         </div>
@@ -91,6 +91,7 @@ const TechSection: React.FC = () => {
           src={item.src}
           alt={item.name}
           fill
+          className="object-contain w-full h-full"
           style={{ objectFit: "contain" }}
         />
       </div>
