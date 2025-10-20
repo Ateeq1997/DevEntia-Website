@@ -88,16 +88,17 @@ const Contact = () => {
         </ul>
 
 
-<div className="relative overflow-hidden rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#6B63FF] to-[#3B37D6] w-full max-w-[650px] shadow-lg flex flex-col sm:flex-row justify-between items-center sm:items-start gap-6 sm:gap-0 mt-6 sm:mt-10">
+<div className="relative overflow-hidden rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#6B63FF] to-[#3B37D6] w-full max-w-[650px] shadow-lg flex flex-col sm:flex-row justify-between items-center sm:items-start gap-6 sm:gap-0 mt-6">
+
   {/* Left content section */}
-  <div className="flex-1 w-full">
+  <div className="flex-1">
     {/* Top title */}
     <h4 className="text-white text-sm sm:text-base font-semibold">
       Let&apos;s Connect
     </h4>
 
     {/* Content rows */}
-    <div className="mt-5 flex flex-col gap-4 w-full">
+    <div className="mt-5 flex flex-col gap-4">
       {/* Row: Email */}
       <div className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
         {/* Logo box */}
@@ -114,12 +115,9 @@ const Contact = () => {
           <span className="text-white text-[16px] sm:text-[18px] font-semibold leading-tight sm:ml-0 -ml-5">
             Send a Message
           </span>
-<span
-  className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-words sm:ml-0 -ml-5"
->
-  contact@deventiatech.com
-</span>
-
+          <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-words sm:ml-0 -ml-7">
+            contact@deventiatech.com
+          </span>
         </div>
       </div>
 
@@ -146,14 +144,15 @@ const Contact = () => {
   </div>
 
   {/* Right-side background image */}
-  <div className="absolute right-0 top-0 bottom-0 flex justify-end items-center opacity-80">
+  <div className="absolute right-0 top-0 bottom-0 hidden sm:flex justify-end items-center opacity-80">
     <Image
       src={contact}
       alt="contact background"
-      className="w-[120px] sm:w-[170px] h-auto object-contain mr-2"
+      className="w-[170px] h-auto object-contain mr-2"
     />
   </div>
 </div>
+
 
 
       </div>
