@@ -18,6 +18,7 @@ import aws from "../../assets/images/aws (2).png";
 import vuejs from "../../assets/images/vuejs (2).png";
 import postgresql from "../../assets/images/postgresql (2).png";
 import kotlin from "../../assets/images/Kotlin (2).png";
+import net from "../../assets/images/net.png";
 
 type TechItem = {
   name: string;
@@ -34,7 +35,7 @@ const TECH_ITEMS: TechItem[] = [
   { name: "C++", src: cpp },
   { name: "Flutter", src: flutter },
   { name: "PHP", src: php },
-  { name: ".NET Core", src: python },
+  { name: ".NET Core", src: net },
   { name: "AWS", src: aws },
   { name: "MySQL", src: mysql },
   { name: "MongoDB", src: mongodb },
@@ -77,16 +78,23 @@ const TechSection: React.FC = () => {
           justify-center justify-items-center ${styles.techGrid}`}
         >
           {TECH_ITEMS.map((item, index) => (
-            <div
-              key={index}
-              className={`relative ${styles.techCard} border border-transparent 
-              p-6 flex flex-col items-center justify-center 
-              shadow-[0_4px_10px_rgba(0,0,0,0.15)] hover:scale-105 
-              transition-transform duration-500 
-              bg-white dark:bg-[#0f1112] text-black dark:text-white`}
-            >
+      <div
+  key={index}
+  className={`relative w-full 
+  p-6 h-[250px] flex flex-col items-center justify-center
+  shadow-[0_5px_5px_0_#2258E7]
+  hover:shadow-[0_-0px_10px_0_rgb(34_88_231_/_0.2),0_15px_15px_0_rgb(34_88_231_/_0.2),10px_0_10px_0_rgb(34_88_231_/_0.25),-10px_0_10px_0_rgb(34_88_231_/_0.25)]
+  bg-white dark:bg-[#0B0B0B] dark:hover:bg-black
+  text-black dark:text-white transition-all duration-300
+  after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#2258E7]
+  hover:after:opacity-0`}
+>
+
+
+
+
               {/* Icon */}
-              <div className="w-24 h-24 relative mb-4 mt-3 sm:mt-6">
+              <div className="w-24 h-24 relative mb-0 mt-3 sm:mt-6">
                 <Image
                   src={item.src}
                   alt={item.name}
@@ -98,7 +106,7 @@ const TechSection: React.FC = () => {
 
               {/* Label */}
               <span
-                className="mt-auto pb-2 text-[18px] font-medium text-gray-800 dark:text-gray-200 transition-colors"
+                className="mt-6 pb-2 text-[18px] font-medium text-gray-800 dark:text-gray-200 transition-colors"
                 style={{
                   fontFamily: "'Bai Jamjuree', sans-serif",
                 }}
