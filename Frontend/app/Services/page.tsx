@@ -6,8 +6,12 @@ import services2 from '../../assets/images/services2.webp';
 import services3 from '../../assets/images/services3.webp';
 import services4 from '../../assets/images/services4.webp';
 import GetInTouch from '@/components/AboutUs/GetInTouch';
+import OurMission from '@/components/Services/OurMission';
 import { Metadata } from 'next';
 import ServicesSection from '@/components/Services/ServicesSection';
+import StatsSection from '@/components/Services/StatsSection';
+import Testimonials from '@/components/home/Testimonials';
+import Contact from '@/components/home/contact';
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -35,16 +39,20 @@ const page = () => {
   return (
     <>
       <Hero />
-      <div className="p-[5%] ">
+      {/* <div className="p-[5%] ">
         <h1 className="font-bold text-2xl md:text-4xl">Our Services</h1>
         <p className="text-[#ACACAC] text-lg mt-4">
           we offer tailored IT solutions designed to propel your business
           forward. From software development to cybersecurity, trust us to
           deliver innovation and excellence.
         </p>
-      </div>
+      </div> */}
       <ServicesSection />
-      <ServicesCard
+<OurMission />
+<StatsSection />
+<Testimonials />
+<Contact />
+      {/* <ServicesCard
         title="Plan"
         flexReverse={false}
         Checkboxes={
@@ -167,7 +175,7 @@ const page = () => {
         }
         exploreLink={'/Services/Testing'}
         img={services4}
-      />
+      /> */}
       {/* <GetInTouch /> */}
     </>
   );
