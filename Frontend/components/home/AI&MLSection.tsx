@@ -24,7 +24,7 @@ export default function AiMlSection() {
       className="bg-white dark:bg-[#0b0b0d] text-black dark:text-white 
       py-16 px-4 sm:px-6 md:px-10 transition-colors duration-500"
     >
-      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-7xl mx-auto text-center">
+      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[95%] mx-auto text-center">
         {/* Heading */}
         <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
           AI & Machine Learning for Business
@@ -41,10 +41,10 @@ export default function AiMlSection() {
         </p>
 
         {/* ✅ 5 containers for AI icons */}
+        <div className="flex items-center justify-center">
         <div
-          className="
-            mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8
-          "
+          className={`
+            mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5  items-center gap-4 lg:gap-6 justify-center justify-items-center  `}
         >
           {AI_ITEMS.map((item, idx) => (
            <div
@@ -70,7 +70,7 @@ export default function AiMlSection() {
             </div>
           ))}
         </div>
-
+</div>
         <div className="mt-12"></div>
       </div>
     </section>

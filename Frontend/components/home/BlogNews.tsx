@@ -80,14 +80,14 @@ export default function BlogNews() {
     <section
       className="w-full bg-gradient-to-br from-white via-[#f0f0f5] to-[#e5e5ee] 
                  dark:from-black dark:via-[#060615] dark:to-[#0e0820] 
-                 text-black dark:text-white py-16 px-6 lg:px-16 
+                 text-black dark:text-white py-16 px-6 lg:px-10
                  transition-colors duration-500 overflow-hidden"
       style={{
         transform: `scale(${1 / viewportScale})`,
         transformOrigin: "top center",
       }}
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[95%] mx-auto">
         {/* Label */}
         <div className="mb-6">
           <span className="text-sm text-[#4848FF] dark:text-[#8b82ff]">

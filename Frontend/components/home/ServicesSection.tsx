@@ -5,6 +5,8 @@ import Group1 from "../../assets/images/Group1.png"; // dark mode timeline
 import Group2 from "../../assets/images/Group2.png"; // light mode timeline
 import Group3 from "../../assets/images/Maskgroup.png"; // background glow
 import Services from "../../assets/images/services.png"; // background glow
+import Servicesimg from '../../assets/images/servicesimgmobile.png';
+
 
 export default function ServicesSection() {
   return (
@@ -25,7 +27,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Header */}
-      <div className="relative max-w-7xl mx-auto px-6 text-left z-10">
+      <div className="relative max-w-[95%] mx-auto px-6 lg:px-10 text-left z-0">
         <p className="text-[#6b6cff] dark:text-[#6b6cff] text-sm font-medium uppercase tracking-widest">
           Our Services
         </p>
@@ -38,7 +40,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Timeline image */}
-      <div className="relative mt-2 flex justify-center items-center w-full px-4 sm:px-8 z-10">
+      <div className="relative mt-2 flex justify-center items-center w-full px-4 sm:px-8 z-0  ">
         <div className="w-full max-w-[1200px]">
           {/* Light mode image 
           <Image
@@ -48,7 +50,7 @@ export default function ServicesSection() {
             priority
           /> */}
           {/* Dark mode image */}
-          <div className="relative dark:hidden">
+          <div className="relative dark:hidden hidden lg:block">
                 <Image src={Services} alt="img" className="object-contain w-full h-full" />
 
                 <div className="absolute -bottom-12 left-5 flex flex-row items-center gap-4">
@@ -105,8 +107,65 @@ export default function ServicesSection() {
                     </div>
                 </div>
           </div>
+            
+          <div className="relative dark:hidden lg:hidden block w-full md:max-w-lg mx-auto mt-12">
+            <div className="flex items-center justify-center">
+                <Image src={Servicesimg} alt="img" className="object-contain " />
+            </div>
+            <div className="absolute top-4 -left-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">1</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] md:text-[8px] cursor-pointer">Learn More +</p>
+                    </div>
+                </div>
 
-          <div className="relative hidden dark:block">
+                 <div className="absolute top-12 -right-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">2</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+
+                <div className="absolute top-32 -left-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">3</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+
+                 <div className="absolute top-52 -right-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">4</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+                 <div className="absolute bottom-20 -left-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">5</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px] md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+                 <div className="absolute bottom-6 -right-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">6</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+          </div>
+
+<div className="hidden dark:lg:block relative">
                 <Image src={Services} alt="img" className="object-contain w-full h-full" />
 
                 <div className="absolute -bottom-12 left-5 flex flex-row items-center gap-4">
@@ -160,6 +219,64 @@ export default function ServicesSection() {
                        <h2 className="text-[16px] lg:text-[20px] font-semibold">Support & Improvement</h2>
                        <p className="text-[#C8CFD5] text-[12px] lg:text-[14px]">Digital agency is an high test for<br/> business website work</p>
                        <p className="text-white text-[12px] lg:text-[14px] cursor-pointer">Learn More +</p>
+                    </div>
+                </div>
+          </div>
+          
+
+<div className="relative hidden dark:block lg:dark:hidden w-full md:max-w-lg mx-auto mt-12">
+            <div className="flex items-center justify-center">
+                <Image src={Servicesimg} alt="img" className="object-contain " />
+            </div>
+            <div className="absolute top-4 -left-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">1</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] md:text-[8px] cursor-pointer">Learn More +</p>
+                    </div>
+                </div>
+
+                 <div className="absolute top-12 -right-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">2</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+
+                <div className="absolute top-32 -left-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">3</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+
+                 <div className="absolute top-52 -right-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">4</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+                 <div className="absolute bottom-20 -left-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">5</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px] md:text-[8px]">Learn More +</p>
+                    </div>
+                </div>
+                 <div className="absolute bottom-6 -right-2 flex flex-row items-center gap-2">
+                    <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px]">6</h1>
+                    <div className="flex flex-col gap-1">
+                       <h2 className="text-[9px] md:text-[11px] font-semibold">Planning</h2>
+                       <p className="text-[#5C5E61] text-[6px] md:text-[8px]">Digital agency is an high test<br/> for business website work</p>
+                       <p className=" text-[6px] cursor-pointer md:text-[8px]">Learn More +</p>
                     </div>
                 </div>
           </div>

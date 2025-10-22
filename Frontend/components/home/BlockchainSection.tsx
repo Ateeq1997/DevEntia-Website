@@ -28,12 +28,14 @@ export default function BlockchainSection() {
           applications leveraging leading blockchain networks and technologies.
         </p>
 
-        {/* ✅ Compact, wrapped cards */}
-        <div
-          className="
-            mt-10 flex flex-wrap justify-center items-center gap-4 sm:gap-5 md:gap-6
-          "
-        >
+        <div className="flex justify-center items-center w-full">
+  <div
+    className="
+      mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3
+      justify-center justify-items-center items-center 
+      gap-6 w-fit mx-auto
+    "
+  >
           {BLOCKCHAIN_ITEMS.map((item, idx) => (
             <div
               key={idx}
@@ -57,6 +59,7 @@ export default function BlockchainSection() {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>

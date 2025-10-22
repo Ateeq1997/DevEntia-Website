@@ -28,7 +28,7 @@ export default function CloudSection() {
       className="relative z-[1] transition-colors duration-500 
       bg-white dark:bg-[#0b0b0d] py-16 px-4 sm:px-6 md:px-10 overflow-visible"
     >
-      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-7xl mx-auto">
+      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[95%] mx-auto">
         {/* Label */}
         <div className="text-center">
           <p className="text-sm text-[#6b6cff] uppercase tracking-widest">Cloud</p>
@@ -47,10 +47,10 @@ export default function CloudSection() {
         </p>
 
         {/* ✅ Responsive Flex Wrap Layout */}
+       <div className="flex items-center justify-center">
         <div
-          className="
-            mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8
-          "
+          className={`
+            mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5  items-center gap-4 lg:gap-6 justify-center justify-items-center  `}
         >
           {CLOUD_ITEMS.map((item, idx) => (
             <div
@@ -91,6 +91,7 @@ export default function CloudSection() {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>

@@ -49,7 +49,7 @@ const TechSection: React.FC = () => {
       className="relative z-[1] transition-colors duration-500 
       bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6 overflow-visible scale-[0.98] md:scale-100"
     >
-      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-7xl mx-auto px-2 sm:px-6">
+      <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[95%]  mx-auto px-2 sm:px-6">
 
         <div className="text-center">
           <p className="text-sm text-[#6b6cff] uppercase tracking-widest">Tech</p>
@@ -74,13 +74,13 @@ const TechSection: React.FC = () => {
 
         {/* === Tech Stack Grid === */}
         <div
-          className={`mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 
+          className={`mt-10 grid sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-6 gap-4 
           justify-center justify-items-center ${styles.techGrid}`}
         >
           {TECH_ITEMS.map((item, index) => (
       <div
   key={index}
-  className={`relative w-full 
+  className={`relative w-[165px] sm:w-full lg:w-[200px] 
   p-6 h-[250px] flex flex-col items-center justify-center
   shadow-[0_5px_5px_0_#2258E7]
   hover:shadow-[0_-0px_10px_0_rgb(34_88_231_/_0.2),0_15px_15px_0_rgb(34_88_231_/_0.2),10px_0_10px_0_rgb(34_88_231_/_0.25),-10px_0_10px_0_rgb(34_88_231_/_0.25)]
