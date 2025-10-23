@@ -47,7 +47,7 @@ const TechSection: React.FC = () => {
   return (
     <section
       className="relative z-[1] transition-colors duration-500 
-      bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-6 overflow-visible scale-[0.98] md:scale-100"
+      bg-[#ffffff] dark:bg-[#0b0b0d] py-16 px-4"
     >
       <div className="max-w-[95%] sm:max-w-[90%] md:max-w-[95%]  mx-auto px-2 sm:px-6">
 

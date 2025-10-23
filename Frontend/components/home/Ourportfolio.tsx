@@ -26,30 +26,12 @@ const Ourportfolio = () => {
   };
 
   const cards = [
-    {
-      img: project1,
-      title: "Simmple Tax",
-      desc: "Simpple.Tax is a next-generation tax platform that blends AI and expert CPAs to make filing simple, fast, and stress.....",
-      link: "/Our-Portfolio/Projects/RS-Global-Ties",
-    },
-    {
-      img: project2,
-      title: "Falke",
-      desc: "Falke is an all-in-one platform designed to simplify employee, project, and client management. From handling invoices.....",
-      link: "/Our-Portfolio/Projects/Falke",
-    },
-    {
-      img: project3,
-      title: "Healthi Plate",
-      desc: "Healthi Plate is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....",
-      link: "/Our-Portfolio/Projects/Another-Project",
-    },
-    {
-      img: project4,
-      title: "Aneuro",
-      desc: "Aneuro is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....",
-      link: "/Our-Portfolio/Projects/Another-Project",
-    },
+    { img: project1, title: "Simmple Tax", desc: "Simpple.Tax is a next-generation tax platform that blends AI and expert CPAs to make filing simple, fast, and stress.....", link: "/Our-Portfolio/Projects/RS-Global-Ties" },
+    { img: project2, title: "Falke", desc: "Falke is an all-in-one platform designed to simplify employee, project, and client management. From handling invoices.....", link: "/Our-Portfolio/Projects/Falke" },
+    { img: project3, title: "Healthi Plate", desc: "Healthi Plate is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....", link: "/Our-Portfolio/Projects/Another-Project" },
+    { img: project4, title: "Aneuro", desc: "Aneuro is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....", link: "/Our-Portfolio/Projects/Another-Project" },
+    { img: project4, title: "Aneuro", desc: "Aneuro is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....", link: "/Our-Portfolio/Projects/Another-Project" },
+    { img: project4, title: "Aneuro", desc: "Aneuro is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned.....", link: "/Our-Portfolio/Projects/Another-Project" },
   ];
 
   return (
@@ -78,7 +60,13 @@ const Ourportfolio = () => {
       {/* Line + Arrows */}
       <div className="flex flex-wrap items-center justify-between mt-8 gap-4">
         <div className="w-[120px] sm:w-[150px] md:w-[180px] h-[2px] bg-gray-300 dark:bg-gray-600 transition-colors duration-500 mx-auto md:mx-0" />
-        <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full md:w-auto">
+        <div
+          className="
+            flex items-center gap-3 sm:gap-4 md:gap-5
+            w-full md:w-auto
+            justify-end md:justify-center
+          "
+        >
           <button
             onClick={() => scroll("left")}
             className="flex items-center justify-center bg-white text-black p-4 sm:p-5 text-[14px] sm:text-[16px] md:text-[19px] rounded-full shadow-[0_0_15px_rgba(255,255,255,1)] transition-transform duration-300 hover:scale-105"
@@ -97,14 +85,18 @@ const Ourportfolio = () => {
       {/* Carousel Container */}
       <div
         ref={scrollRef}
-        className="scroll-container flex gap-5 sm:gap-6 items-stretch w-full mt-6 overflow-x-auto no-scrollbar scroll-smooth"
+        className="
+          scroll-container flex gap-4 md:gap-4 items-stretch w-full mt-6 
+          overflow-x-hidden 
+          select-none cursor-default
+        "
       >
         {cards.map((card, index) => (
           <div
             key={index}
             className="
               flex-shrink-0
-              w-[95%] sm:w-[80%] md:w-[48%] lg:w-[31%] xl:w-[23%]
+              w-[90%] sm:w-[45%] md:w-[32%] lg:w-[24%]
               bg-[#F5F6FA] dark:bg-[#151515]
               rounded-lg flex flex-col gap-4 overflow-hidden
               transition-all duration-500 ease-in-out
