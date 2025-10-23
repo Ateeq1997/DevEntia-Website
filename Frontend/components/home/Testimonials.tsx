@@ -7,7 +7,9 @@ import { FaPlayCircle, FaStar } from "react-icons/fa";
 import cus1 from "../../assets/images/cus1.png";
 import cus2 from "../../assets/images/cus2.png";
 import cus3 from "../../assets/images/cus3.png";
-import Avatar from "../../assets/images/Avatar.png";
+import cust1 from "../../assets/images/cust.png";
+import cust2 from "../../assets/images/cust1.png";
+import cust3 from "../../assets/images/cust2.png";
 
 interface Testimonial {
   id: number;
@@ -23,24 +25,24 @@ const testimonials: Testimonial[] = [
     image: cus1,
     description:
       "Deventia’s team delivered exactly what we needed. Fast, reliable, and highly professional.",
-    logo: Avatar,
-    name: "Glen Wood",
+    logo: cust1,
+    name: "Bimosaurus",
   },
   {
     id: 2,
     image: cus2,
     description:
       "Deventia’s team delivered exactly what we needed. Fast, reliable, and highly professional.",
-    logo: Avatar,
-    name: "Glen Wood",
+    logo: cust2,
+    name: "Bimosaurus",
   },
   {
     id: 3,
     image: cus3,
     description:
       "Deventia’s team delivered exactly what we needed. Fast, reliable, and highly professional.",
-    logo: Avatar,
-    name: "Glen Wood",
+    logo: cust3,
+    name: "Bimosaurus",
   },
 ];
 
@@ -106,7 +108,7 @@ const Testimonials: React.FC = () => {
                   <h5 className="text-gray-900 dark:text-white text-sm font-semibold">
                     {t.name}
                   </h5>
-                  <p className="text-gray-500 text-xs">MovAI</p>
+                  <p className="text-gray-500 text-xs">Graphics designer</p>
                 </div>
               </div>
 

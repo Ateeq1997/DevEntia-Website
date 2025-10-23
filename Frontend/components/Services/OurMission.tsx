@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import missionImg1 from '../../assets/images/mission1.png';
 import missionImg2 from '../../assets/images/mission2.png';
-import missionImg3 from '../../assets/images/mission3.png';
+import missionImg3 from '../../assets/images/Frame.png';
 
 const OurMission = () => {
   return (
