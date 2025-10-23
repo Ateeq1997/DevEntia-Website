@@ -7,7 +7,7 @@ import { Check } from "lucide-react";
 import contact from "../../assets/images/contact.png"; // right-side background image
 import messageLogo from "../../assets/images/message.png"; // replace with your message logo path
 import callLogo from "../../assets/images/call.png"; // replace with your call logo path
-
+import Button from "./Button";
 const Contact = () => {
   const [fileName, setFileName] = useState("");
   const [isRecording, setIsRecording] = useState(false);
@@ -88,7 +88,7 @@ const Contact = () => {
         </ul>
 
 
-<div className="relative overflow-hidden rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#6B63FF] to-[#3B37D6] w-full max-w-[650px] shadow-lg flex flex-col sm:flex-row justify-between items-center sm:items-start gap-6 sm:gap-0 mt-6">
+<div className="relative overflow-hidden rounded-2xl p-3 md:p-8 bg-gradient-to-br from-[#6B63FF] to-[#3B37D6] w-full max-w-[650px] shadow-lg flex flex-col sm:flex-row justify-between items-center sm:items-start gap-6 sm:gap-0 mt-6">
 
   {/* Left content section */}
   <div className="flex-1">
@@ -100,9 +100,9 @@ const Contact = () => {
     {/* Content rows */}
     <div className="mt-5 flex flex-col gap-4">
       {/* Row: Email */}
-      <div className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
+      <div className="flex items-start gap-6 md:gap-4  flex-row ">
         {/* Logo box */}
-        <div className="w-14 h-12 flex items-center justify-center rounded-md bg-white shrink-0 shadow-sm">
+        <div className=" w-10 h-8 md:w-14 md:h-12 flex items-center justify-center rounded-md bg-white shrink-0 shadow-sm">
           <Image
             src={messageLogo}
             alt="message logo"
@@ -122,8 +122,8 @@ const Contact = () => {
       </div>
 
       {/* Row: Phone */}
-      <div className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
-        <div className="w-14 h-12 flex items-center justify-center rounded-md bg-white shrink-0 shadow-sm">
+      <div className="flex items-start gap-4 flex-row">
+        <div className="w-10 h-8 md:w-14 md:h-12 flex items-center justify-center rounded-md bg-white shrink-0 shadow-sm">
           <Image
             src={callLogo}
             alt="call logo"
@@ -132,10 +132,10 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col break-words max-w-full">
-          <span className="text-white text-[16px] sm:text-[18px] font-semibold leading-tight sm:ml-0 -ml-4">
+          <span className="text-white text-[16px] sm:text-[18px] font-semibold leading-tight sm:ml-0 ">
             Call Us Directly
           </span>
-          <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-all sm:ml-0 -ml-4">
+          <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-all sm:ml-0 ">
             (+92) 344 8967017
           </span>
         </div>
@@ -273,12 +273,15 @@ const Contact = () => {
           )}
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            className="bg-[#4848FF] text-white px-6 py-3 font-semibold hover:opacity-90 transition shadow-[0_0_20px_rgba(72,72,255,0.6)] w-full sm:w-auto"
-          >
-            Send Message
-          </button>
+          <div className="mt-8 w-[180px]">
+         <Button
+                 text="Send Message"
+                 //href="/Contact-us"
+                 bgColor="#4848FF"
+                 textColor="#CFCEFB"
+                 hoverColor="#2E2EB5"
+               />
+               </div>
 
           {/* Disclaimer */}
           <p className="text-[14px] text-gray-700 dark:text-[#E4E4E7] font-inter mt-4">

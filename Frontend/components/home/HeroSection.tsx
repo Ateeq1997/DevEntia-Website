@@ -182,7 +182,7 @@ const HeroSection = () => {
 
 
 <div
-  className="flex flex-wrap gap-4 md:gap-6 mt-0 md:mt-0"
+  className="flex flex-wrap gap-4 md:gap-6 mt-0 md:mt-6"
 >
  <Button
         text="Let's Connect"

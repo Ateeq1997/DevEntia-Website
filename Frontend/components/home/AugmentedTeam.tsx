@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Founder from "../../assets/images/Image (3).png";
 import { MdOutlineArrowOutward } from "react-icons/md";
-
+import Button from "./Button";
 const AugmentedTeam = () => {
   const [viewportScale, setViewportScale] = useState(1);
 
@@ -48,7 +48,7 @@ const AugmentedTeam = () => {
           <h1 className="font-bold text-3xl lg:text-4xl text-black dark:text-white">
             Augmented Teams
           </h1>
-          <p className="text-lg mt-4 text-left sm:text-justify text-[#333333] dark:text-[#A7ADBE]">
+          <p className="text-lg mt-4 text-left sm:text-justify text-[#333333] dark:text-[#A7ADBE] ">
             This outsourcing model implies enhancing your staff structure with
             talents provided by a vendor, EffectiveSoft. The skilled personnel
             are added to your development team that is managed by your project
@@ -58,18 +58,17 @@ const AugmentedTeam = () => {
           </p>
 
           {/* Contact button */}
-          <Link
-            href="/contact"
-            className="flex items-center gap-2 bg-[#4848FF] text-white px-6 py-3 mt-8 
-                       hover:scale-110 transition-all duration-700 ease-in-out w-fit
-                       text-[18px] font-medium"
-            style={{
-              fontFamily: "Rethink Sans, sans-serif",
-            }}
-          >
-            Contact Us
-            <MdOutlineArrowOutward size={22} color="#fff" />
-          </Link>
+          <div className="mt-8 w-[180px]">
+         <Button
+                 text="Contact Us"
+                 href="/Contact-us"
+                 bgColor="#4848FF"
+                 textColor="#CFCEFB"
+                 hoverColor="#2E2EB5"
+                   icon={<MdOutlineArrowOutward size={18} />}
+                   iconPosition="right"
+               />
+               </div>
         </div>
       </div>
     </section>

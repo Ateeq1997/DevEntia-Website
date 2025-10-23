@@ -5,7 +5,7 @@ import { useState, ReactNode } from "react";
 
 interface AnimatedButtonProps {
   text: string;
-  href: string;
+  href?: string; // ✅ optional
   bgColor?: string;
   textColor?: string;
   hoverTextColor?: string;
@@ -13,6 +13,7 @@ interface AnimatedButtonProps {
   hoverColor?: string;
   icon?: ReactNode; // ✅ optional icon
   iconPosition?: "left" | "right"; // ✅ control icon placement
+  onClick?: () => void; // ✅ for non-link usage
 }
 
 const Button = ({
@@ -25,6 +26,7 @@ const Button = ({
   hoverColor = "#1E1EBE",
   icon,
   iconPosition = "left",
+  onClick,
 }: AnimatedButtonProps) => {
   const [hovered, setHovered] = useState(false);
 
@@ -45,23 +47,17 @@ const Button = ({
     ? "rgba(255,255,255,0.4)"
     : "rgba(72,72,255,0.5)";
 
-  return (
-    <Link
-      href={href}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative flex items-center justify-center gap-2 px-5 py-3 
-                 text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree']
-                 min-w-[150px] text-center overflow-hidden transition-all
-                 duration-300 ease-in-out "
-      style={{
-        color: hovered && hoverTextColor ? hoverTextColor : textColor,
-        backgroundColor: bgColor,
-        boxShadow: `0 0 10px 5px ${computedShadow}`,
-        backdropFilter: "blur(45px)",
-        transition: "color 400ms ease-in-out, box-shadow 400ms ease-in-out",
-      }}
-    >
+  // Shared styles
+  const baseStyles = {
+    color: hovered && hoverTextColor ? hoverTextColor : textColor,
+    backgroundColor: bgColor,
+    boxShadow: `0 0 10px 5px ${computedShadow}`,
+    backdropFilter: "blur(45px)",
+    transition: "color 400ms ease-in-out, box-shadow 400ms ease-in-out",
+  };
+
+  const content = (
+    <>
       {/* Moving hover overlay */}
       <span
         className="absolute inset-0 transition-transform duration-[600ms] ease-in-out"
@@ -78,7 +74,34 @@ const Button = ({
         {text}
         {icon && iconPosition === "right" && <span>{icon}</span>}
       </span>
+    </>
+  );
+
+  const sharedClasses =
+    "relative flex items-center justify-center gap-2 px-5 py-3 " +
+    "text-[14px] md:text-[16px] font-semibold font-['Bai_Jamjuree'] " +
+    "min-w-[150px] text-center overflow-hidden transition-all duration-300 ease-in-out ";
+
+  return href ? (
+    <Link
+      href={href}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={sharedClasses}
+      style={baseStyles}
+    >
+      {content}
     </Link>
+  ) : (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={sharedClasses}
+      style={baseStyles}
+    >
+      {content}
+    </button>
   );
 };
 

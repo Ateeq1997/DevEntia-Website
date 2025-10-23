@@ -44,13 +44,22 @@ const posts: Post[] = [
     imageSrc: blog3,
     href: "/blog/3",
   },
+  {
+    id: "4",
+    title: "Wins 2023 good design London Award",
+    excerpt:
+      "Recognized for creativity and innovation, the project proudly received the Good Design Award for exceptional UX and visual design.",
+    date: "14 March",
+    imageSrc: blog3,
+    href: "/blog/3",
+  },
 ];
 
 export default function BlogNews() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [viewportScale, setViewportScale] = useState(1);
 
-  // Maintain card scrolling
+  // Scroll using buttons only
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
     const card = scrollRef.current.querySelector("article");
@@ -67,13 +76,10 @@ export default function BlogNews() {
       const scale = window.visualViewport?.scale || 1;
       setViewportScale(scale);
     };
-
     window.visualViewport?.addEventListener("resize", handleZoom);
     handleZoom();
-
-    return () => {
+    return () =>
       window.visualViewport?.removeEventListener("resize", handleZoom);
-    };
   }, []);
 
   return (
@@ -111,13 +117,11 @@ export default function BlogNews() {
             </p>
 
             {/* Arrows */}
-            <div className="mt-6 flex items-center gap-4">
+            <div className="mt-6 flex items-center gap-4 justify-end">
               <button
                 aria-label="prev"
                 onClick={() => scroll("left")}
-                className="w-12 h-12 rounded-full bg-[#ffffff] hover:bg-[#e5e5e5] 
-                           dark:bg-white dark:hover:bg-[#f9f9f9] backdrop-blur 
-                           flex items-center justify-center hover:scale-105 transition"
+            className="flex items-center justify-center bg-white text-black p-4 sm:p-5 text-[14px] sm:text-[16px] md:text-[19px] rounded-full shadow-[0_0_15px_rgba(255,255,255,1)] transition-transform duration-300 hover:scale-105"
               >
                 <MdOutlineArrowBack size={20} className="text-black" />
               </button>
@@ -125,8 +129,8 @@ export default function BlogNews() {
               <button
                 aria-label="next"
                 onClick={() => scroll("right")}
-                className="w-12 h-12 rounded-full bg-[#4d48ff] shadow-lg flex items-center 
-                           justify-center hover:scale-105 transition"
+                           className="flex items-center justify-center bg-[#4848FF] text-white p-4 sm:p-5 text-[14px] sm:text-[16px] md:text-[19px] rounded-full shadow-[0_0_15px_rgba(72,72,255,1)] transition-transform duration-300 hover:scale-105"
+
               >
                 <MdOutlineArrowForward size={20} color="white" />
               </button>
@@ -134,41 +138,44 @@ export default function BlogNews() {
           </div>
         </div>
 
-        {/* Cards */}
+        {/* Carousel */}
         <div
           ref={scrollRef}
-          className="mt-10 flex md:grid md:grid-cols-3 gap-6 overflow-x-auto scroll-smooth scrollbar-hide"
+          className="mt-10 flex gap-6 overflow-hidden select-none"
+          onWheel={(e) => e.preventDefault()}
+          onTouchMove={(e) => e.preventDefault()}
         >
           {posts.map((p) => (
             <article
               key={p.id}
-              className="min-w-[95%] sm:min-w-[80%] md:min-w-0 relative 
-                         bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] 
-                         border border-[#2b2b2b] dark:border-[#555] 
-                         rounded-2xl overflow-hidden hover:shadow-xl 
-                         transition-transform transform hover:-translate-y-1"
+              className="min-w-[90%] sm:min-w-[60%] md:min-w-[40%] lg:min-w-[32%] relative 
+                         bg-transparent 
+                         border border-[#00000026] dark:border-[#F2F3F6] 
+                         rounded-2xl overflow-hidden hover:shadow-lg 
+                         transition-transform transform  px-8 py-6"
             >
               {/* Image */}
-              <div className="w-full h-44 md:h-48 relative">
-                <Image
-                  src={p.imageSrc}
-                  alt={p.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
+             <div className="w-full h-44 md:h-52 relative rounded-none lg:rounded-lg overflow-hidden">
+  <Image
+    src={p.imageSrc}
+    alt={p.title}
+    fill
+    sizes="(max-width: 768px) 100vw, 33vw"
+    style={{ objectFit: "cover" }}
+  />
+</div>
+
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">
+              <div className="py-0">
+                <h3 className="text-lg font-semibold mb-2 text-black dark:text-white mt-8 mb-3">
                   {p.title}
                 </h3>
                 <p className="text-gray-800 dark:text-gray-300 text-sm leading-relaxed mb-6">
                   {p.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-12">
                   {/* Read More Link */}
                   <Link
                     href={p.href ?? "#"}
