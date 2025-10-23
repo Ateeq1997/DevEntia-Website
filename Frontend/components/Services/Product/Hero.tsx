@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import heroBgImg from '../../../assets/images/fintech.jpg';
+import heroBgImg from '../../../assets/images/pbackground.jpg';
 
 const Hero = () => {
   const handleScroll = () => {
@@ -32,11 +32,11 @@ const Hero = () => {
             className="text-white text-start font-bold leading-tight text-[2.6rem] md:text-[4rem]"
             style={{ maxWidth: '900px', lineHeight: '1.15' }}
           >
-            Financial Software Development Solutions
+            Product Engineering Services
           </h1>
 
       <p className="text-white/80 text-lg md:text-[1.1rem] leading-[1.6] w-full max-w-[1100px]">
-  Banking, financial services, and insurance (BFSI) firms constantly face pressure from regulators, customers, and competitors. Custom financial software is a key solution to navigate this complexity. At DevEntia, we offer full-cycle financial software development to help BFSI organizations streamline processes, meet regulatory and market demands, and deliver seamless customer experiences.
+ With our full-cycle product engineering services, we help businesses across industries create impactful software faster and more cost-effectively. From ideation to post-launch support, we guide clients at every step, delivering high-quality, user-focused products that meet customer expectations and bring innovative strategies to life.
 </p>
 
           {/* Button */}
@@ -55,8 +55,6 @@ const Hero = () => {
           >
             Let&apos;s Connect
           </Link>
-
-          
         </div>
       </div>
     </header>

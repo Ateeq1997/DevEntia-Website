@@ -17,9 +17,10 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ heading, servicesData
   return (
     <section className="py-20 px-5 md:px-20 bg-white dark:bg-[#161616] transition-colors duration-500">
       {/* First Services Word */}
-      <p className="text-black dark:text-blue-500 font-medium text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-2">
-        Services
-      </p>
+     <p className="text-black dark:text-white/80 font-medium text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-2">
+  Services
+</p>
+
 
       {/* Main Heading */}
       <h2 className="text-black dark:text-white font-medium text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-12 break-words">
@@ -45,10 +46,11 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ heading, servicesData
               {service.title}
             </div>
 
-            {/* Paragraph */}
-            <div className="text-black/90 dark:text-white/90 text-[16px] md:text-[18px] leading-[28px] md:ml-8">
-              {service.description}
-            </div>
+           {/* Paragraph */}
+<div className="text-black/90 dark:text-white/90 text-[16px] md:text-[18px] leading-[28px] md:ml-8 break-words whitespace-pre-line">
+  {service.description}
+</div>
+
           </div>
         ))}
       </div>
