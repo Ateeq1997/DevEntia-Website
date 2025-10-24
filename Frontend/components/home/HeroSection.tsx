@@ -151,7 +151,7 @@ const HeroSection = () => {
       </div>
 
       {/* ✅ content */}
-     <div className="relative z-10 flex flex-col items-start justify-center h-full w-full px-[5%] mx-auto pt-[20vh] sm:pt-[8vh] md:pt-[4vh]">
+     <div className="relative z-10 flex flex-col items-start justify-center h-full w-full px-[5%] mx-auto ">
 
         <div
           className={`transition-opacity duration-500 ${
@@ -226,7 +226,7 @@ const HeroSection = () => {
 
        {/* ✅ Floating WhatsApp + Quote Button */}
 <div
-  className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[1300px] flex items-center justify-between px-4 sm:px-8 md:px-10 z-[999]"
+  className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[97%] max-w-[1770px] flex items-center justify-between px-4 sm:px-8 md:px-10 z-[999]"
 >
   {/* WhatsApp Icon */}
   <a
@@ -250,7 +250,7 @@ const HeroSection = () => {
   {/* Get a Quote Button */}
   <Link
     href="/Contact-us"
-    className="font-semibold text-[14px] sm:text-[16px] px-5 sm:px-6 py-2.5 sm:py-3 transition-all duration-300 hover:scale-105 text-[#4848FF] border-2 border-[#4848FF] dark:text-white dark:border-[#FFFFFF20] rounded-lg bg-transparent"
+    className="font-semibold text-[14px] sm:text-[16px] px-3 sm:px-3 py-2.5 sm:py-3 transition-all duration-300 hover:scale-105 text-[#4848FF] border-2 border-[#4848FF] dark:text-white dark:border-[#FFFFFF20] rounded-lg bg-transparent"
   >
     Get a Quote
   </Link>

@@ -53,11 +53,11 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-40 transition-transform duration-300 navbar-container lg:!flex pt-2 
+      className={`sticky top-0 w-full z-40 transition-transform duration-300 navbar-container lg:!flex pt-2 
       text-[0.95rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.05rem] 
-      max-w-[calc(1750px+5%)] mx-auto
+      max-w-[1750px] mx-auto
       ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      bg-white/90 text-black dark:bg-transparent dark:text-white transition-colors duration-500`}
+      bg-white/90 text-black dark:bg-black dark:text-white transition-colors duration-500`}
     >
       <div className="container px-[5%] lg:px-[5%] py-4">
         <div className="flex items-center justify-between w-full flex-wrap">
