@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
+import Button from ".././home/Button";
 import { IoArrowDownOutline } from 'react-icons/io5';
 import { MdOutlineArrowOutward } from 'react-icons/md';
 
@@ -45,20 +46,14 @@ const Hero = () => {
           <h1 className="text-white text-start text-[3rem] 500px:text-[5rem] font-bold leading-tight">
           Discover Our Services and Empower Your Success
           </h1>
-         <Link
-    href={"/Contact-us"}
-    className="flex items-center gap-2 px-5 py-3 
-               text-[14px] md:text-[19px] font-bold font-['Bai_Jamjuree'] leading-[100%]
-               shadow-[0_0_15px_5px_rgba(72,72,255,0.7)]
-               transition-all duration-300 ease-in-out"
-    style={{
-      backdropFilter: "blur(45px)",
-      background: "#4848FF",
-      color: "#CFCEFB",
-    }}
-  >
-    Let&apos;s Connect
-  </Link>
+         {/* Button */}
+          <Button
+        text="Let's Connect"
+        href="/Contact-us"
+        bgColor="#4848FF"
+        textColor="#CFCEFB"
+        hoverColor="#2E2EB5"
+      />
         </div>
       </div>
     </header>

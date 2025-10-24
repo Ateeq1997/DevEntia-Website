@@ -215,6 +215,7 @@ function Page() {
       <OurProcessesSection
         heading="Processes"
         subHeading="Our software product engineering process"
+        subText=''
         processes={productProcesses}
       />
 
