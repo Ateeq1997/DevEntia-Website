@@ -210,6 +210,7 @@ function Page() {
       <OurProcessesSection
         heading="Our Processes"
         subHeading="Our financial software development process"
+        subText=''
         processes={fintechProcesses}
       />
 

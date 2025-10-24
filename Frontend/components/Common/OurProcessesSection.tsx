@@ -10,12 +10,14 @@ interface ProcessItem {
 interface OurProcessesSectionProps {
   heading: string;
   subHeading: string;
+  subText: string;
   processes: ProcessItem[];
 }
 
 const OurProcessesSection: React.FC<OurProcessesSectionProps> = ({
   heading,
   subHeading,
+  subText,
   processes,
 }) => {
   return (
@@ -26,9 +28,14 @@ const OurProcessesSection: React.FC<OurProcessesSectionProps> = ({
       </p>
 
       {/* Heading */}
-      <h2 className="text-black dark:text-white font-medium text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-12">
-        {subHeading}
-      </h2>
+      <h2 className="text-black dark:text-white font-bold text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-12">
+  {subHeading}
+</h2>
+   {/* Paragraph */}
+<p className="font-['Bai_Jamjuree'] font-normal text-[18px] leading-[28px] text-[#3A3A3A] dark:text-[#C2C2C2] mb-12 whitespace-pre-line">
+  {subText}
+</p>
+
 
       {/* Timeline */}
       <div className="relative flex flex-col gap-12 ml-6 md:ml-12">

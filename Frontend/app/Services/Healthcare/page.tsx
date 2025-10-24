@@ -115,6 +115,7 @@ function Page() {
        <OurProcessesSection
         heading="Our Processes"
         subHeading="Healthcare software development process"
+        subText=''
         processes={healthcareProcesses}
       />
       <IndustriesSection />

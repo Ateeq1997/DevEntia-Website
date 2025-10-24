@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import Button from "../../home/Button";
 import heroBgImg from '../../../assets/images/pbackground.jpg';
 
 const Hero = () => {
@@ -38,23 +39,15 @@ const Hero = () => {
       <p className="text-white/80 text-lg md:text-[1.1rem] leading-[1.6] w-full max-w-[1100px]">
  With our full-cycle product engineering services, we help businesses across industries create impactful software faster and more cost-effectively. From ideation to post-launch support, we guide clients at every step, delivering high-quality, user-focused products that meet customer expectations and bring innovative strategies to life.
 </p>
-
+        
           {/* Button */}
-          <Link
-            href="/Contact-us"
-            className="flex items-center gap-2 px-6 py-3 
-                       text-[15px] md:text-[18px] font-bold font-['Bai_Jamjuree'] leading-[100%]
-                       shadow-[0_0_15px_5px_rgba(72,72,255,0.7)]
-                       transition-all duration-300 ease-in-out"
-            style={{
-              backdropFilter: 'blur(45px)',
-              background: '#4848FF',
-              color: '#CFCEFB',
-              borderRadius: '8px',
-            }}
-          >
-            Let&apos;s Connect
-          </Link>
+          <Button
+        text="Let's Connect"
+        href="/Contact-us"
+        bgColor="#4848FF"
+        textColor="#CFCEFB"
+        hoverColor="#2E2EB5"
+      />
         </div>
       </div>
     </header>

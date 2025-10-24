@@ -74,7 +74,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
         </h2>
 
         {/* Paragraph */}
-        <p className="text-[#C2C2C2] font-normal text-[18px] leading-[28px] font-['Bai_Jamjuree'] mb-12 whitespace-nowrap">
+        <p className="text-[#C2C2C2] font-normal text-[18px] leading-[28px] font-['Bai_Jamjuree'] mb-12 whitespace-pre-line">
           {subText}
         </p>
 
