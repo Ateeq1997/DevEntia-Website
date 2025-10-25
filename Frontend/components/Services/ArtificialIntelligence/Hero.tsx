@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import Button from "../../home/Button";
-import heroBgImg from '../../../assets/images/Background-Rectangel.png';
+import Button from '../../home/Button';
+import heroBgImg from '../../../assets/images/aiback.jpg';
 
 const Hero = () => {
   const handleScroll = () => {
@@ -12,12 +12,13 @@ const Hero = () => {
   };
 
   return (
-    <header className="relative bg-[#161616] h-screen overflow-hidden">
+    <header className="relative bg-[#161616] h-[100vh] sm:h-[90vh] md:h-screen overflow-hidden">
       {/* 🔹 Background Image */}
       <Image
         src={heroBgImg}
-        alt="cloud background"
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        alt="AI Background"
+        fill
+        className="object-cover object-center"
         priority
       />
 
@@ -26,33 +27,34 @@ const Hero = () => {
 
       {/* 🔹 Content */}
       <div className="absolute inset-0 flex items-center justify-start px-6 sm:px-10 md:px-20 lg:px-28">
-        <div className="flex flex-col items-start gap-5 w-full max-w-[1100px] text-left">
-
+        <div className="flex flex-col items-start gap-4 sm:gap-6 w-full max-w-[1200px]">
           {/* Heading */}
           <h1
             className="
-              text-white font-bold leading-tight 
-              text-[2rem] sm:text-[2.6rem] md:text-[3.2rem] lg:text-[4rem]
+              text-white text-start font-bold
+              text-[2rem] sm:text-[2.6rem] md:text-[3.5rem] lg:text-[4rem]
+              leading-[1.1] sm:leading-[1.2]
+              w-full sm:max-w-[95%] md:max-w-[85%] lg:max-w-[70%]
             "
-            style={{ maxWidth: '900px', lineHeight: '1.15' }}
           >
-            Cloud Engineering.
+            AI Development Services
           </h1>
 
           {/* Paragraph */}
           <p
             className="
-              text-white/80 
-              text-base sm:text-lg md:text-[1.1rem] 
+              text-white/80 text-base sm:text-lg md:text-[1.1rem]
               leading-relaxed sm:leading-[1.6]
-              w-full max-w-[1000px]
+              w-full sm:max-w-[95%] md:max-w-[85%] lg:max-w-[65%]
             "
           >
-            Cloud technology offers the agility, scalability, and cost-efficiency required for modern digital solutions. At DevEntia, we build your cloud foundation with custom services, including cloud engineering consulting, app development, and more.
+            Partner with EffectiveSoft to unlock the full potential of artificial intelligence (AI)! 
+            Our end-to-end AI development services — from strategy and data analysis to integration and deployment — 
+            are designed to solve complex challenges across diverse industries.
           </p>
 
           {/* Button */}
-          <div className="mt-2 sm:mt-4">
+          <div className="mt-4 sm:mt-6">
             <Button
               text="Let's Connect"
               href="/Contact-us"

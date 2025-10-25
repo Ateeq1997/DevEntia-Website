@@ -29,13 +29,13 @@ const OurProcessesSection: React.FC<OurProcessesSectionProps> = ({
 
       {/* Heading */}
       <h2 className="text-black dark:text-white font-bold text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-12">
-  {subHeading}
-</h2>
-   {/* Paragraph */}
-<p className="font-['Bai_Jamjuree'] font-normal text-[18px] leading-[28px] text-[#3A3A3A] dark:text-[#C2C2C2] mb-12 whitespace-pre-line">
-  {subText}
-</p>
+        {subHeading}
+      </h2>
 
+      {/* Paragraph */}
+      <p className="font-['Bai_Jamjuree'] font-normal text-[18px] leading-[28px] text-[#3A3A3A] dark:text-[#C2C2C2] mb-12 whitespace-pre-line">
+        {subText}
+      </p>
 
       {/* Timeline */}
       <div className="relative flex flex-col gap-12 ml-6 md:ml-12">
@@ -43,6 +43,7 @@ const OurProcessesSection: React.FC<OurProcessesSectionProps> = ({
           <div key={index} className="relative flex items-start">
             {/* Circle + Line */}
             <div className="flex flex-col items-center mr-6 relative">
+              {/* Circle */}
               <div
                 className="rounded-full z-10"
                 style={{
@@ -54,27 +55,30 @@ const OurProcessesSection: React.FC<OurProcessesSectionProps> = ({
                 }}
               ></div>
 
-              {index !== processes.length - 1 ? (
-                <div
-                  className="absolute top-[34px]"
-                  style={{
-                    width: '2px',
-                    height: '160px',
-                    background:
-                      'linear-gradient(180deg, #4848FF 0%, #4848FF 70%, rgba(72, 72, 255, 0) 100%)',
-                  }}
-                ></div>
-              ) : (
-                <div
-                  className="absolute top-[34px]"
-                  style={{
-                    width: '2px',
-                    height: '60px',
-                    background:
-                      'linear-gradient(180deg, #4848FF 0%, rgba(72, 72, 255, 0) 100%)',
-                  }}
-                ></div>
-              )}
+              {/* Line */}
+         {index !== processes.length - 1 ? (
+  <div
+    className="absolute top-[34px]"
+    style={{
+      width: '2px',
+      // 🔹 Shorter line on large screens, longer on small
+      height: 'calc(250px + (max(0px, 768px - 100vw) / 4))',
+      background:
+        'linear-gradient(180deg, #4848FF 0%, #4848FF 70%, rgba(72, 72, 255, 0) 100%)',
+    }}
+  ></div>
+) : (
+  <div
+    className="absolute top-[34px]"
+    style={{
+      width: '2px',
+      height: '60px',
+      background:
+        'linear-gradient(180deg, #4848FF 0%, rgba(72, 72, 255, 0) 100%)',
+    }}
+  ></div>
+)}
+
             </div>
 
             {/* Text Content */}

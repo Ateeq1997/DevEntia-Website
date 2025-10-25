@@ -12,7 +12,7 @@ interface SolutionItem {
 
 interface SolutionsSectionProps {
   heading: string;
-  topWord?: string; // ✅ added
+  topWord?: string;
   subText: string;
   solutionsData: SolutionItem[];
 }
@@ -58,50 +58,51 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
         </svg>
       </div>
 
-      {/* Center lighter glow */}
+      {/* Center Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[60%] bg-[#2a2a85]/45 blur-3xl rounded-full"></div>
 
       {/* Section Content */}
       <div className="relative z-10">
-        {/* ✅ Dynamic top word (Services / Trends / etc.) */}
-        <p className="text-[#C2C2C2] font-medium text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-2">
+        {/* Top Word */}
+        <p className="text-[#C2C2C2] font-medium text-[20px] sm:text-[22px] md:text-[24px] leading-[32px] font-['Bai_Jamjuree'] mb-2">
           {topWord || 'Services'}
         </p>
 
         {/* Heading */}
-        <h2 className="text-white font-semibold text-[36px] leading-[44px] font-['Bai_Jamjuree'] mb-4">
+        <h2 className="text-white font-semibold text-[28px] sm:text-[32px] md:text-[36px] leading-[40px] sm:leading-[44px] font-['Bai_Jamjuree'] mb-4">
           {heading}
         </h2>
 
-        {/* Paragraph */}
-        <p className="text-[#C2C2C2] font-normal text-[18px] leading-[28px] font-['Bai_Jamjuree'] mb-12 whitespace-pre-line">
+        {/* Sub Text */}
+        <p className="text-[#C2C2C2] font-normal text-[16px] sm:text-[18px] leading-[26px] sm:leading-[28px] font-['Bai_Jamjuree'] mb-12 whitespace-pre-line">
           {subText}
         </p>
 
-        {/* Solutions grid */}
+        {/* Solutions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {solutionsData.map((solution) => (
             <div
               key={solution.id}
-              className="flex flex-col items-start p-6 rounded-3xl border border-[#99999950] bg-[#CACACA1A] md:h-[370px] w-full backdrop-blur-[1px]"
+              className="flex flex-col items-start p-6 sm:p-8 rounded-3xl border border-[#99999950] bg-[#CACACA1A] w-full backdrop-blur-[1px] hover:scale-[1.02] transition-transform duration-300"
             >
               {/* Logo */}
-              <div className="mb-4">
+              <div className="mb-4 sm:mb-6">
                 <Image
                   src={solution.logo}
                   alt={solution.title}
                   width={80}
                   height={80}
+                  className="object-contain"
                 />
               </div>
 
               {/* Title */}
-              <h3 className="text-white font-semibold text-[32px] leading-[40px] font-['Bai_Jamjuree'] mb-2">
+              <h3 className="text-white font-semibold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[32px] leading-[34px] sm:leading-[40px] font-['Bai_Jamjuree'] mb-2">
                 {solution.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[#C2C2C2] font-normal text-[18px] leading-[28px] font-['Bai_Jamjuree'] whitespace-pre-line">
+              <p className="text-[#C2C2C2] font-normal text-[15px] sm:text-[16px] md:text-[18px] leading-[24px] sm:leading-[28px] font-['Bai_Jamjuree'] whitespace-pre-line">
                 {solution.description}
               </p>
             </div>
