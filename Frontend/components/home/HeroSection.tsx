@@ -226,7 +226,7 @@ const HeroSection = () => {
 
        {/* ✅ Floating WhatsApp + Quote Button */}
 <div
-  className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[97%] max-w-[1750px] flex items-center justify-between px-4 sm:px-8 md:px-10 z-[999]"
+  className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[104%] max-w-[1800px] flex items-center justify-between px-4 sm:px-8 md:px-10 z-[999]"
 >
   {/* WhatsApp Icon */}
   <a
