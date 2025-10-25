@@ -32,7 +32,7 @@ const healthcareServices = [
   },
   {
     id: "05",
-    title: "Legacy softwarereengineering",
+    title: "Legacy softwarere engineering",
     description: `Our dedicated support ensures your financial systems remain reliable, secure, and compliant with evolving regulations.`,
   },
 ];

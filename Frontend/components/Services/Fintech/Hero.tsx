@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <header className="relative bg-[#161616] h-screen overflow-hidden">
+    <header className="relative bg-[#161616] min-h-screen overflow-hidden flex items-center">
       {/* 🔹 Background Image */}
       <Image
         src={heroBgImg}
@@ -25,29 +25,38 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/50"></div>
 
       {/* 🔹 Content */}
-      <div className="absolute inset-0 flex items-center justify-start px-8 md:px-28">
-        <div className="flex flex-col items-start gap-6 w-full max-w-none">
-
+      <div className="relative z-10 w-full flex items-center justify-start px-6 sm:px-10 md:px-20 lg:px-28 py-10 sm:py-16">
+        <div className="flex flex-col items-start gap-6 w-full max-w-[1200px]">
           {/* Heading */}
           <h1
-            className="text-white text-start font-bold leading-tight text-[2.6rem] md:text-[4rem]"
-            style={{ maxWidth: '900px', lineHeight: '1.15' }}
+            className="text-white text-start font-bold leading-tight 
+            text-[2rem] sm:text-[2.5rem] md:text-[3.2rem] lg:text-[4rem] 
+            tracking-tight"
+            style={{ lineHeight: '1.15', maxWidth: '900px' }}
           >
             Financial Software Development Solutions
           </h1>
 
-      <p className="text-white/80 text-lg md:text-[1.1rem] leading-[1.6] w-full max-w-[1100px]">
-  Banking, financial services, and insurance (BFSI) firms constantly face pressure from regulators, customers, and competitors. Custom financial software is a key solution to navigate this complexity. At DevEntia, we offer full-cycle financial software development to help BFSI organizations streamline processes, meet regulatory and market demands, and deliver seamless customer experiences.
-</p>
+          {/* Paragraph */}
+          <p
+            className="text-white/80 text-base sm:text-lg md:text-[1.1rem] 
+            leading-relaxed sm:leading-[1.6] max-w-[1100px]"
+          >
+            Banking, financial services, and insurance (BFSI) firms constantly face pressure from
+            regulators, customers, and competitors. Custom financial software is a key solution to
+            navigate this complexity. At DevEntia, we offer full-cycle financial software
+            development to help BFSI organizations streamline processes, meet regulatory and market
+            demands, and deliver seamless customer experiences.
+          </p>
 
-      {/* Button */}
+          {/* Button */}
           <Button
-        text="Let's Connect"
-        href="/Contact-us"
-        bgColor="#4848FF"
-        textColor="#CFCEFB"
-        hoverColor="#2E2EB5"
-      />
+            text="Let's Connect"
+            href="/Contact-us"
+            bgColor="#4848FF"
+            textColor="#CFCEFB"
+            hoverColor="#2E2EB5"
+          />
         </div>
       </div>
     </header>
