@@ -33,6 +33,32 @@ Welcome to <Strong class="text-black dark:text-white">Simpple.Tax</Strong>, a ne
     { id: 4, text: "Many prefer dark mode for night use." },
   ],
 
+   problemtitle: "Problem Statement",
+  problemdescription:
+    "Tax preparation can be overwhelming, time-consuming, and prone to costly errors. Many individuals and businesses struggle with complex forms, confusing regulations, and the risk of audits, leading to stress and lost opportunities for financial growth.",
+  painpoints: [
+    {
+      title: "Complex Processes",
+      description:
+        "Tax forms and legal terms are overwhelming for most users.",
+    },
+    {
+      title: "Time Consuming",
+      description:
+        "Manual filing and document organization take up valuable time.",
+    },
+    {
+      title: "Error Risk",
+      description:
+        "Small mistakes can lead to penalties, missed refunds, or audits.",
+    },
+    {
+      title: "Limited Support",
+      description:
+        "Traditional services lack real-time assistance or year-round guidance.",
+    },
+  ],
+
   },
   {
     id: 2,
@@ -54,6 +80,31 @@ overviewcontent: `
     { id: 2, text: "Analytics & campaign control" },
     { id: 3, text: "Starter, Growth, Enterprise tiers" },
     { id: 4, text: "GDPR-compliant platform" },
+  ],
+   problemtitle: "Problem Statement",
+  problemdescription:
+    "Managing employees, clients, and projects across multiple tools often leads to inefficiency, miscommunication, and lack of visibility. Businesses struggle to keep workflows organized, resulting in delays, poor performance tracking, and reduced client satisfaction.",
+  painpoints: [
+    {
+      title: "Tool Overload",
+      description:
+        "Companies juggle multiple apps for tasks, creating confusion..",
+    },
+    {
+      title: "Poor Visibility",
+      description:
+        "Managers lack clear insights into project progress and team output.",
+    },
+    {
+      title: "Inefficient Communication",
+      description:
+        "Scattered updates slow down collaboration and decision-making.",
+    },
+    {
+      title: "Complex Administration",
+      description:
+        "Manual invoicing, contracts, and reporting consume valuable time.",
+    },
   ],
   },
   {
@@ -78,6 +129,32 @@ overviewcontent: `
     { id: 3, text: "Starter, Growth, Enterprise tiers" },
     { id: 4, text: "GDPR-compliant platform" },
   ],
+  problemtitle: "Problem Statement",
+  problemdescription:
+    "Maintaining a healthy diet can be overwhelming due to lack of knowledge, poor tracking habits, and limited personalized guidance. Many people struggle to align their meals with health goals, leading to inconsistent progress and frustration.",
+  painpoints: [
+    {
+      title: "Unclear Meal Choices",
+      description:
+        "Users struggle to identify foods that match their health goals.",
+    },
+    {
+      title: "Difficult Tracking",
+      description:
+        "Logging meals and nutrition manually feels time-consuming.",
+    },
+    {
+      title: "Confusing Nutritional Data",
+      description:
+        "Nutritional details are often confusing without expert knowledge.",
+    },
+    {
+      title: "Low Accountability",
+      description:
+        "Without progress tracking or sharing, users lose motivation quickly.",
+    },
+  ],
+
   },
   {
     id: 4,
@@ -105,6 +182,31 @@ overviewimg: simmple,
     { id: 2, text: "Analytics & campaign control" },
     { id: 3, text: "Starter, Growth, Enterprise tiers" },
     { id: 4, text: "GDPR-compliant platform" },
+  ],
+   problemtitle: "Problem Statement",
+  problemdescription:
+    "Businesses often struggle to understand their audience’s decision-making behavior, which leads to generic and ineffective marketing campaigns. This lack of personalization results in lower engagement, poor conversion rates, and wasted advertising spend. A data-driven solution is needed to deliver personalized marketing based on audience psychology.",
+  painpoints: [
+    {
+      title: "No Audience Insights",
+      description:
+        "Businesses struggle to analyze customer behavior, making it hard to create data-driven strategies.",
+    },
+    {
+      title: "Generic Campaigns",
+      description:
+        "Businesses struggle to access wider markets and opportunities.",
+    },
+    {
+      title: "Wasted Ad Spend",
+      description:
+        "Companies lose money on campaigns that fail to target the right audience effectively.",
+    },
+    {
+      title: "Limited Tools",
+      description:
+        "Lack of advanced analytics and integrations prevents teams from optimizing their marketing efforts.",
+    },
   ],
   }
   

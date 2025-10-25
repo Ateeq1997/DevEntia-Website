@@ -2,7 +2,8 @@ import bgImage from "../../../assets/images/casestudy/bg.png";
 import portfolioData from "@/components/home/portfolioData";
 import CaseStudyLayout from "@/components/case-study/hersection";
 import OverviewSection from "@/components/case-study/overview";
-
+import ProblemStatement from "@/components/case-study/problemstatment";
+import Designprocess from "@/components/case-study/designprocess";
 export default function Page({ params }: { params: { id: string } }) {
   const project = portfolioData.find((p) => p.id.toString() === params.id);
 
@@ -31,6 +32,14 @@ export default function Page({ params }: { params: { id: string } }) {
            features={project.features} 
 
       />
+
+       <ProblemStatement
+        title={project.problemtitle}
+        description={project.problemdescription}
+        painpoints={project.painpoints}
+      />
+
+      <Designprocess />
       </>
   );
 }

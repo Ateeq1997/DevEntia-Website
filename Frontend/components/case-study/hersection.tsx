@@ -26,7 +26,7 @@ const CaseStudyLayout = ({
 
 }: CaseStudyLayoutProps) => {
   return (
-    <section className="relative sm:h-[80vh] md:h-[90vh] lg:h-[100vh] w-full flex flex-col justify-center  py-12 mx-auto  overflow-hidden text-white">
+    <section className="relative sm:h-[80vh] md:h-[100vh] lg:h-[45rem] w-full flex flex-col justify-center  py-12 mx-auto  overflow-hidden text-white">
       {/* ✅ Background image (must be absolute + parent relative) */}
       <div className="absolute inset-0 z-0">
         <Image
