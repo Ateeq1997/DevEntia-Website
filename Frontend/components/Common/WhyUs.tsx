@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface ServiceItem {
   id: number;
@@ -33,12 +32,11 @@ const WhyUs: React.FC<WhyUsProps> = ({ heading, services }) => {
       {/* Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
         {services.map((service) => (
-          <Link
+          <div
             key={service.id}
-            href={`/Services/${service.title.replace(/\s+/g, '')}`}
             className="group relative bg-transparent border border-black dark:border-[#404040] 
                        p-8 flex flex-col justify-start gap-6 transition-all duration-500 
-                       w-full h-full hover:scale-[1.03] hover:border-blue-500"
+                       w-full h-full hover:scale-[1.03] hover:border-blue-500 cursor-pointer"
           >
             {/* Corner + signs */}
             <span className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-black dark:text-white font-bold text-lg">+</span>
@@ -66,8 +64,10 @@ const WhyUs: React.FC<WhyUsProps> = ({ heading, services }) => {
             <h3 className="text-xl font-semibold text-black dark:text-white mt-2 group-hover:text-blue-500 transition-colors">
               {service.title}
             </h3>
-            <p className="text-black/70 dark:text-white/70 leading-relaxed break-words whitespace-pre-line">{service.description}</p>
-          </Link>
+            <p className="text-black/70 dark:text-white/70 leading-relaxed break-words whitespace-pre-line">
+              {service.description}
+            </p>
+          </div>
         ))}
       </div>
     </section>

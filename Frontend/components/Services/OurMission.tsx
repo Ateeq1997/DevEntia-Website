@@ -17,7 +17,7 @@ const OurMission = () => {
             Empowerment
           </button>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white">
-            About Our Mission
+            ABOUT OUR MISSION
           </h2>
         </div>
 

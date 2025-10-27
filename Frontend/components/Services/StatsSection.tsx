@@ -25,7 +25,7 @@ export default function StatsSection() {
               relative flex flex-col items-center justify-center
               w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80
               rounded-full border border-black dark:border-[#404040]
-              text-black dark:text-white
+              text-black dark:text-white/75
               transition-all duration-500
               bg-transparent
               shadow-[inset_0_0_30px_rgba(0,0,0,0.05),_0_0_20px_rgba(0,0,0,0.05)]

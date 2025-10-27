@@ -3,7 +3,9 @@
 import axiosInstance from '@/lib/axiosInstance';
 import CareerCard from '@/components/Career/CareerCard';
 import CareerFillters from '@/components/Career/CareerFillters';
+import JoinOurTeam from '@/components/Career/JoinourTeam';
 import Hero from '@/components/Career/Hero';
+import Contact from '@/components/home/contact';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ImSpinner8 } from 'react-icons/im';
@@ -111,7 +113,9 @@ const Page = () => {
   return (
     <>
       <Hero />
-      <div className="careers-bg">
+      <JoinOurTeam />
+      <Contact />
+      {/* <div className="careers-bg">
         <CareerFillters
           jobLength={sortedJobs.length}
           filters={filters}
@@ -138,7 +142,7 @@ const Page = () => {
             </div>
           )}
         </section>
-      </div>
+      </div> */}
     </>
   );
 };

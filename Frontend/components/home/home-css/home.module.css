@@ -326,3 +326,18 @@
     padding: 1rem !important;
   }
 }
+
+  @media (max-width: 390px) and (min-width: 360px) {
+    .mobile-buttons {
+      gap: 4px !important;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 359px) {
+    .mobile-buttons {
+      gap: 3px !important;
+      transform: translateY(-1px);
+    }
+  }
+

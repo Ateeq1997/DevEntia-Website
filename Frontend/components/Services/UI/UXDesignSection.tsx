@@ -42,6 +42,7 @@ const UXDesignSection = () => {
           <span className="block">
             <span>Meet our </span>
             <span className="text-[#4848FF]">UX design studio</span>
+             <span>.</span>
           </span>
         </h1>
       </div>
