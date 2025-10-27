@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import logoImg from "@/assets/images/logoImg.gif";
 import Image from "next/image";
+import Link from "next/link";
 
 interface MenuItem {
   title: string;
@@ -95,28 +96,34 @@ const MobileSidebar = () => {
         onClick={() => setIsOpen(false)}
       />
 
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-50 p-2 rounded-md bg-transparent text-white"
-      >
-        <div className="w-6 h-6 relative">
-          <span
-            className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
-              isOpen ? "rotate-45 top-3" : "top-1"
-            }`}
-          />
-          <span
-            className={`block w-full h-0.5 bg-current absolute top-3 transition-opacity duration-300 ${
-              isOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
-              isOpen ? "-rotate-45 top-3" : "top-5"
-            }`}
-          />
-        </div>
-      </button>
+    <button
+  onClick={() => setIsOpen(!isOpen)}
+  className={`fixed top-5 right-4 z-[9999] p-2 rounded-md transition-all duration-300`}
+>
+  <div
+    className={`w-6 h-6 relative ${
+      isOpen ? "text-white" : "text-black dark:text-white"
+    }`}
+  >
+    <span
+      className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
+        isOpen ? "rotate-45 top-3" : "top-1"
+      }`}
+    />
+    <span
+      className={`block w-full h-0.5 bg-current absolute top-3 transition-opacity duration-300 ${
+        isOpen ? "opacity-0" : "opacity-100"
+      }`}
+    />
+    <span
+      className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
+        isOpen ? "-rotate-45 top-3" : "top-5"
+      }`}
+    />
+  </div>
+</button>
+
+
 
       <nav
         className={`fixed top-0 left-0 h-screen w-full bg-black transform transition-transform duration-300 ease-in-out z-40 ${
@@ -130,7 +137,28 @@ const MobileSidebar = () => {
         <div className="divide-y mt-10 divide-gray-700 bg-black">
           {menuItems.map(renderMenuItem)}
         </div>
+         <div className="flex divide-y bg-black divide-gray-700 flex-col items-start px-6 py-4  gap-8 -translate-y-[10px] w-full">
+        <Link
+          href={"/Careers"}
+          className="hover:text-[#7471E6] transition-all text-white dark:text-gray-200 duration-300"
+        >
+          Careers
+        </Link>
+        <Link href={"/Contact-us"} className="transition-all duration-500">
+          <p
+            className="p-2 px-2 bg-[#4848FF] text-white
+               dark:bg-white dark:text-black
+               flex items-center justify-center gap-2 font-medium"
+          >
+            Contact Us
+          </p>
+        </Link>
+      
+        {/* Theme Toggle - Desktop */}
+        
+      </div>
       </nav>
+     
     </div>
   );
 };

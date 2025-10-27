@@ -60,7 +60,7 @@ const Header: React.FC = () => {
       bg-white/90 text-black dark:bg-black dark:text-white transition-colors duration-500`}
     >
       <div className="container px-[5%] lg:px-[5%] py-4">
-        <div className="flex items-center justify-between w-full flex-wrap">
+        <div className="flex items-center justify-between w-full flex-row">
           {/* ✅ Logo */}
           <Link href={"/"} className="flex items-center flex-shrink-0">
             <div className="relative w-[125px] h-10 sm:w-[110px] sm:h-9 xs:w-[95px] xs:h-8 -translate-y-[6px]">
@@ -138,13 +138,13 @@ const Header: React.FC = () => {
           </div>
 
           {/* ✅ Mobile Right Side */}
-          <div className="flex items-center md:hidden gap-3">
+          <div className="flex items-center gap-2 items-center md:hidden ">
             <ThemeToggle />
             <MobileMenu />
           </div>
         </div>
       </div>
-<hr className="bg-[#FFFFFF20] h-[1px] w-full opacity-40 absolute bottom-0 left-0 right-0" />
+{/*<hr className="bg-[#FFFFFF20] h-[1px] w-full opacity-40 absolute bottom-0 left-0 right-0" />*/}
 
     </nav>
   );

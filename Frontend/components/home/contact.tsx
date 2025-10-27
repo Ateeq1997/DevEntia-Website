@@ -4,62 +4,126 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { FaPaperclip, FaMicrophone, FaTrashAlt } from "react-icons/fa";
 import { Check } from "lucide-react";
-import contact from "../../assets/images/contact.png"; // right-side background image
-import messageLogo from "../../assets/images/message.png"; // replace with your message logo path
-import callLogo from "../../assets/images/call.png"; // replace with your call logo path
+import contact from "../../assets/images/contact.png";
+import messageLogo from "../../assets/images/message.png";
+import callLogo from "../../assets/images/call.png";
 import Button from "./Button";
+import axiosInstance from "@/lib/axiosInstance";
+import { toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+
 const Contact = () => {
-  const [fileName, setFileName] = useState("");
-  const [isRecording, setIsRecording] = useState(false);
-  const [audioURL, setAudioURL] = useState<string | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
-  // ✅ Handle file upload
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFileName(e.target.files[0].name);
-    }
-  };
+  const [formData, setFormData] = useState({
+    challenge: "",
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    nda: false,
+  });
 
-  // ✅ Start or stop voice recording
+  const [file, setFile] = useState<File | null>(null);
+  const [fileName, setFileName] = useState("");
+  const [isRecording, setIsRecording] = useState(false);
+  const [audioURL, setAudioURL] = useState("");
+  const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  // 🎙 Handle audio recording toggle
   const handleRecordToggle = async () => {
     if (isRecording) {
-      setIsRecording(false);
       mediaRecorderRef.current?.stop();
+      setIsRecording(false);
     } else {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         const mediaRecorder = new MediaRecorder(stream);
-        mediaRecorderRef.current = mediaRecorder;
-        audioChunksRef.current = [];
+        const chunks: Blob[] = [];
 
-        mediaRecorder.ondataavailable = (event) => {
-          if (event.data.size > 0) {
-            audioChunksRef.current.push(event.data);
-          }
-        };
-
+        mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
         mediaRecorder.onstop = () => {
-          const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
-          const audioUrl = URL.createObjectURL(audioBlob);
-          setAudioURL(audioUrl);
+          const blob = new Blob(chunks, { type: "audio/webm" });
+          setAudioBlob(blob);
+          setAudioURL(URL.createObjectURL(blob));
+          toast.success("🎤 Voice message recorded!");
         };
 
+        mediaRecorderRef.current = mediaRecorder;
         mediaRecorder.start();
         setIsRecording(true);
+        toast.success("🎙 Recording started...");
       } catch (error) {
-        console.error("Microphone access denied:", error);
-        alert("Unable to access microphone. Please check permissions.");
+        toast.error("Microphone access denied or unavailable.");
+        console.error(error);
       }
     }
   };
 
-  // ✅ Delete recorded voice
   const handleDeleteRecording = () => {
-    setAudioURL(null);
-    audioChunksRef.current = [];
-    setIsRecording(false);
+    setAudioBlob(null);
+    setAudioURL("");
+    toast.success("🗑️ Voice recording deleted.");
+  };
+
+  // 📎 Handle file upload
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setFileName(selectedFile.name);
+      toast.success(`📎 File attached: ${selectedFile.name}`);
+    }
+  };
+
+  // 📝 Handle input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  // 🚀 Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const data = new FormData();
+      Object.entries(formData).forEach(([key, value]) => data.append(key, String(value)));
+      if (file) data.append("file", file);
+      if (audioBlob) data.append("voice", audioBlob, "recording.webm"); // ✅ key matches backend
+
+      const res = await axiosInstance.post("/api/contact", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      toast.success("✅ Message sent successfully!");
+      console.log("Response:", res.data);
+
+      // Reset form
+      setFormData({
+        challenge: "",
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        nda: false,
+      });
+      setFile(null);
+      setFileName("");
+      setAudioURL("");
+      setAudioBlob(null);
+    } catch (err) {
+      console.error(err);
+      toast.error("❌ Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -157,42 +221,51 @@ const Contact = () => {
 
       </div>
 
-      {/* Right Side Form */}
-      <div className="flex-1 w-full">
+     <div className="flex-1 w-full">
         <h3 className="text-[26px] md:text-[36px] font-semibold font-inter">Contact us</h3>
         <p className="font-inter mt-2 mb-8 text-gray-700 dark:text-[#E4E4E7] text-[18px] sm:text-[20px]">
           Our team would love to hear from you.
         </p>
 
-        <form className="space-y-10 sm:space-y-12 w-full">
-          {/* Challenge input with ? icon */}
-         <div className="flex items-center justify-between gap-3 w-full">
-  <input
-    type="text"
-    placeholder="Your challenge/goal*"
-    className="flex-1 border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2 font-inter placeholder-gray-600 dark:placeholder-gray-400"
-  />
-  {/* Smaller "?" Circle */}
-  <span
-    className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 dark:border-gray-600 text-[10px] font-semibold text-gray-600 dark:text-gray-300 cursor-pointer hover:bg-[#4848FF] hover:text-white transition"
-    style={{ transform: "translateX(-24px)" }}
-  >
-    ?
-  </span>
-</div>
-
+        <form onSubmit={handleSubmit} className="space-y-10 sm:space-y-12 w-full">
+          {/* Challenge */}
+          <div className="flex items-center justify-between gap-3 w-full">
+            <input
+              type="text"
+              name="challenge"
+              value={formData.challenge}
+              onChange={handleChange}
+              placeholder="Your challenge/goal*"
+              required
+              className="flex-1 border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2"
+            />
+            <span
+              className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 text-[10px] text-gray-600 cursor-pointer hover:bg-[#4848FF] hover:text-white transition"
+              style={{ transform: "translateX(-24px)" }}
+            >
+              ?
+            </span>
+          </div>
 
           {/* Name & Email */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Name*"
-              className="w-full border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2 font-inter placeholder-gray-600 dark:placeholder-gray-400"
+              required
+              className="border-b border-gray-400 bg-transparent outline-none focus:border-[#4848FF] py-2"
             />
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Corporate email*"
-              className="w-full border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2 font-inter placeholder-gray-600 dark:placeholder-gray-400"
+              required
+              className="border-b border-gray-400 bg-transparent outline-none focus:border-[#4848FF] py-2"
             />
           </div>
 
@@ -200,72 +273,68 @@ const Contact = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <input
               type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
               placeholder="Phone number"
-              className="w-full border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2 font-inter placeholder-gray-600 dark:placeholder-gray-400"
+              className="border-b border-gray-400 bg-transparent outline-none focus:border-[#4848FF] py-2"
             />
             <input
               type="text"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
               placeholder="Company"
-              className="w-full border-b border-gray-400 dark:border-gray-600 bg-transparent outline-none focus:border-[#4848FF] py-2 font-inter placeholder-gray-600 dark:placeholder-gray-400"
+              className="border-b border-gray-400 bg-transparent outline-none focus:border-[#4848FF] py-2"
             />
           </div>
-{/* NDA + Attachments & Recording — Split left/right */}
-<div className="flex flex-wrap items-center justify-between text-sm font-inter">
- {/* NDA Section */}
-<div className="flex items-center gap-2">
-  <input type="checkbox" id="nda" className="accent-[#4848FF]" />
-  <label htmlFor="nda" className="whitespace-nowrap">
-    Secure data with NDA first
-  </label>
-  {/* Smaller "?" Circle */}
-  <span className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 dark:border-gray-600 text-[10px] font-semibold text-gray-600 dark:text-gray-300 cursor-pointer hover:bg-[#4848FF] hover:text-white transition">
-    ?
-  </span>
-</div>
 
-  {/* Right Side — Attach file + Record voice */}
-  <div className="flex items-center gap-5">
-    {/* Attach File */}
-    <label className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition cursor-pointer">
-      <FaPaperclip /> Attach file
-      <input type="file" onChange={handleFileChange} className="hidden" />
-    </label>
+          {/* NDA + File + Audio */}
+          <div className="flex flex-wrap items-center justify-between text-sm font-inter">
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="nda"
+                name="nda"
+                checked={formData.nda}
+                onChange={handleChange}
+                className="accent-[#4848FF]"
+              />
+              <label htmlFor="nda">Secure data with NDA first</label>
+              <span className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 text-[10px] text-gray-600 cursor-pointer hover:bg-[#4848FF] hover:text-white transition">
+                ?
+              </span>
+            </div>
 
-    {/* Show File Name */}
-    {fileName && (
-      <span className="text-xs text-gray-500 dark:text-gray-400 truncate max-w-[150px]">
-        {fileName}
-      </span>
-    )}
+            <div className="flex items-center gap-5">
+              <label className="flex items-center gap-2 text-gray-600 transition cursor-pointer">
+                <FaPaperclip /> Attach file
+                <input type="file" onChange={handleFileChange} className="hidden" />
+              </label>
+              {fileName && (
+                <span className="text-xs text-gray-500 truncate max-w-[150px]">{fileName}</span>
+              )}
+              <button
+                type="button"
+                onClick={handleRecordToggle}
+                className={`flex items-center gap-2 transition ${
+                  isRecording ? "text-[#ff4747]" : "text-gray-600 "
+                }`}
+              >
+                <FaMicrophone />
+                {isRecording ? "Recording..." : "Record voice message"}
+              </button>
+            </div>
+          </div>
 
-    {/* Record Voice Message */}
-    <button
-      type="button"
-      onClick={handleRecordToggle}
-      className={`flex items-center gap-2 transition font-inter ${
-        isRecording
-          ? "text-[#ff4747]"
-          : "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
-      }`}
-    >
-      <FaMicrophone />
-      {isRecording ? "Recording..." : "Record voice message"}
-    </button>
-  </div>
-</div>
-
-          {/* Recorded Audio */}
+          {/* Audio Player */}
           {audioURL && (
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5 mt-4 w-full sm:w-auto">
-              <audio
-                controls
-                src={audioURL}
-                className="w-full sm:w-[300px] md:w-[350px] border border-gray-400 dark:border-gray-700 rounded-md"
-              ></audio>
+            <div className="flex flex-col sm:flex-row items-center gap-3 mt-4">
+              <audio controls src={audioURL} className="w-full sm:w-[350px] border rounded-md"></audio>
               <button
                 type="button"
                 onClick={handleDeleteRecording}
-                className="flex items-center gap-2 text-sm text-red-500 hover:text-red-600 transition font-medium"
+                className="flex items-center gap-2 text-sm text-red-500 hover:text-red-600 transition"
               >
                 <FaTrashAlt size={14} /> Delete
               </button>
@@ -274,23 +343,22 @@ const Contact = () => {
 
           {/* Submit Button */}
           <div className="mt-8 w-[180px]">
-         <Button
-                 text="Send Message"
-                 //href="/Contact-us"
-                 bgColor="#4848FF"
-                 textColor="#CFCEFB"
-                 hoverColor="#2E2EB5"
-               />
-               </div>
+            <Button
+  text={loading ? "Sending..." : "Send Message"}
+  bgColor="#4848FF"
+  textColor="#CFCEFB"
+  hoverColor="#2E2EB5"
+  disabled={!formData.nda || loading}
+/>
+          </div>
 
-          {/* Disclaimer */}
-          <p className="text-[14px] text-gray-700 dark:text-[#E4E4E7] font-inter mt-4">
-            By sending the information provided in this form, you agree to the
-            processing of your personal data according to Deventia Tech’s Privacy
-            Policy and Cookies Policy.
+          <p className="text-[14px] text-gray-700 dark:text-[#E4E4E7] mt-4">
+            By sending this form, you agree to Deventia Tech’s Privacy Policy.
           </p>
         </form>
       </div>
+            <Toaster position="top-right" reverseOrder={false} />
+
     </section>
   );
 };

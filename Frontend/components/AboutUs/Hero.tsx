@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { IoArrowDownOutline } from 'react-icons/io5';
 import { MdOutlineArrowOutward } from 'react-icons/md';
 import heroBgImg from '../../assets/images/about-us-hero-bg.webp';
-
+import Button from '../home/Button';
 const Hero = () => {
   const handleScroll = () => {
     window.scrollBy({ top: window.innerHeight, left: 0, behavior: 'smooth' });
@@ -25,32 +25,20 @@ const Hero = () => {
             <h3 className="text-white/50 text-sm">
               Discover the Roots of Deventia <br /> and Our Guiding Principles
             </h3>
-            <div
-              onClick={handleScroll}
-              className=" border border-white flex items-center justify-center cursor-pointer"
-            >
-              <IoArrowDownOutline
-                size={40}
-                color="#fff"
-                className="hover:animate-bounce transition-all duration-700 ease-in-out p-2"
-              />
-            </div>
+            
           </div>
-          <h1 className="text-white text-start text-[3rem] md:text-[5rem] font-bold leading-tight">
+          <h1 className="text-white text-start text-[3rem] md:text-[90px] font-bold leading-tight">
             Uncovering Our Evolution <br className="hidden lg:block" />
             and Principles
           </h1>
-          <Link
-            href={'/Contact-us'}
-            className="flex items-center gap-2 flex-wrap hover:bg-[#4848FF] hover:scale-110 transition-all duration-700 ease-in-out"
-          >
-            <p className="p-4 bg-[#4848FF] text-white flex items-center gap-2">
-              Let&apos;s Connect
-            </p>
-            <div className="p-4 bg-[#4848FF] flex items-center justify-center">
-              <MdOutlineArrowOutward size={25} color="#fff" />
-            </div>
-          </Link>
+          <Button
+        text="Let's Connect"
+        href="/Contact-us"
+        bgColor="#4848FF"
+        textColor="#CFCEFB"
+        hoverColor="#2E2EB5"
+      />
+ 
         </div>
       </div>
     </div>
