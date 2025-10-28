@@ -145,16 +145,16 @@ const productWhyUs = [
     title: 'Experience',
     description:
       'Our experts have extensive experience using advanced technologies to build solutions of all levels of complexity.',
-    darkLogo: logo10,
-    lightLogo: logo16,
+    darkLogo: logo9,
+    lightLogo: logo15,
   },
   {
     id: 17,
     title: 'Transparency',
     description:
       'We use modern agile methodologies to maintain clear, consistent communication and transparent reporting throughout every project.',
-    darkLogo: logo9,
-    lightLogo: logo15,
+    darkLogo: logo10,
+    lightLogo: logo16,
   },
 ];
 

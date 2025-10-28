@@ -31,30 +31,32 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           'linear-gradient(to bottom, #06091a 0%, #1d1d5d 50%, #06091a 100%)',
       }}
     >
-      {/* Hexagonal Background */}
-      <div className="absolute -top-40 left-0 w-full h-[1000px] flex justify-center items-center pointer-events-none">
+      {/* ✅ Dynamic Hexagonal Background */}
+      <div className="absolute top-0 left-0 w-full h-full flex justify-center items-start pointer-events-none">
         <svg
-          className="w-[130%] h-[130%] opacity-10"
+          className="w-[150%] h-full opacity-10"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 800 600"
           fill="none"
           stroke="#cfd8ff"
+          preserveAspectRatio="none"
         >
           <pattern
             id="hexPattern"
-            width="100"
-            height="86.6"
+            width="80"
+            height="69.3"
             patternUnits="userSpaceOnUse"
-            patternTransform="scale(3)"
+            patternTransform="scale(2.5)" 
           >
             <polygon
-              points="50,0 100,25 100,75 50,100 0,75 0,25"
+              points="40,0 80,20 80,60 40,80 0,60 0,20"
               stroke="#cfd8ff"
-              strokeWidth="0.4"
+              strokeWidth="0.3"
               fill="none"
             />
           </pattern>
-          <rect width="800" height="600" fill="url(#hexPattern)" />
+          {/* Fill full dynamic area */}
+          <rect width="100%" height="100%" fill="url(#hexPattern)" />
         </svg>
       </div>
 
@@ -91,7 +93,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({
                   src={solution.logo}
                   alt={solution.title}
                   width={80}
-                  height={80}
+                  height={50}
                   className="object-contain"
                 />
               </div>

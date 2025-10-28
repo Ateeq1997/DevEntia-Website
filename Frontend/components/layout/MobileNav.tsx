@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import logoImg from "@/assets/images/logoImg.gif";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,9 +9,7 @@ interface MenuItem {
   title: string;
   link?: string;
   submenu?: MenuItem[];
-} 
-
-// just checking changes
+}
 
 const menuItems: MenuItem[] = [
   { title: "Home", link: "/" },
@@ -23,18 +20,29 @@ const menuItems: MenuItem[] = [
       { title: "RS Global Ties", link: "/Our-Portfolio/Projects/RS-Global-Ties" },
       { title: "Private CPA", link: "/Our-Portfolio/Projects/Private-CPA" },
       { title: "ISA Consulting", link: "/Our-Portfolio/Projects/ISA" },
-      // { title: "GoGetWell", link: "/Our-Portfolio/Projects/Makewell.life" },
       { title: "See All", link: "/#see-all-services" },
     ],
   },
   { title: "About Us", link: "/About-us" },
-  // { title: "Careers", link: "/Careers" },
+  { title: "Careers", link: "/Careers" },
   { title: "Contact Us", link: "/Contact-us" },
 ];
 
 const MobileSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // ✅ Detect dark/light theme
+  useEffect(() => {
+    const html = document.documentElement;
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(html.classList.contains("dark"));
+    });
+    observer.observe(html, { attributes: true, attributeFilter: ["class"] });
+    setIsDarkMode(html.classList.contains("dark"));
+    return () => observer.disconnect();
+  }, []);
 
   const toggleSubmenu = (title: string) => {
     setActiveSubmenu(activeSubmenu === title ? null : title);
@@ -43,7 +51,7 @@ const MobileSidebar = () => {
   const renderMenuItem = (item: MenuItem) => {
     if (item.submenu) {
       return (
-        <div key={item.title} className="w-full md:hidden ">
+        <div key={item.title} className="w-full md:hidden">
           <button
             onClick={() => toggleSubmenu(item.title)}
             className="flex items-center justify-between w-full py-4 px-6 text-gray-200 hover:bg-gray-800 transition-colors duration-200"
@@ -64,7 +72,7 @@ const MobileSidebar = () => {
               <a
                 key={subItem.title}
                 href={subItem.link}
-                className="block py-3 px-8 text-gray-300 hover:bg-gray-800 transition-colors duration-200 "
+                className="block py-3 px-8 text-gray-300 hover:bg-gray-800 transition-colors duration-200"
               >
                 {subItem.title}
               </a>
@@ -87,6 +95,7 @@ const MobileSidebar = () => {
 
   return (
     <div className="font-sans md:hidden lg:hidden bg-black">
+      {/* Overlay background */}
       <div
         className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 justify-end"
         style={{
@@ -130,12 +139,31 @@ const MobileSidebar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center px-2 py-6">
-          <Image src={logoImg} alt="Leventia" className="h-8 " />
+        {/* ✅ Logo section */}
+        <div className="flex items-center px-6 py-6">
+          <Image
+            unoptimized
+            src={isDarkMode ? logoImg : logoImg}
+            alt="Leventia"
+            width={150}
+            height={48}
+            className="h-16 w-auto object-contain"
+            priority
+          />
         </div>
 
-        <div className="divide-y mt-10 divide-gray-700 bg-black">
-          {menuItems.map(renderMenuItem)}
+        {/* ✅ Menu list (brighter dividers + visible last line) */}
+        <div className="bg-black border-t border-b border-gray-400 mt-4">
+          {menuItems.map((item, index) => (
+            <div
+              key={item.title}
+              className={`border-b border-gray-400 last:border-b ${
+                index === menuItems.length - 1 ? "border-b border-gray-400" : ""
+              }`}
+            >
+              {renderMenuItem(item)}
+            </div>
+          ))}
         </div>
          <div className="flex divide-y bg-black divide-gray-700 flex-col items-start px-6 py-4  gap-8 -translate-y-[10px] w-full">
         <Link

@@ -62,20 +62,27 @@ const Header: React.FC = () => {
       <div className="container px-[5%] lg:px-[5%] py-4">
         <div className="flex items-center justify-between w-full flex-row">
           {/* ✅ Logo */}
-          <Link href={"/"} className="flex items-center flex-shrink-0">
-            <div className="relative w-[125px] h-10 sm:w-[110px] sm:h-9 xs:w-[95px] xs:h-8 -translate-y-[6px]">
-              <Image
-                unoptimized
-                src={isDarkMode ? logoImg : logoImg1}
-                alt="deventia logo"
-                fill
-                className={`object-contain transition-transform duration-300 ${
-                  isDarkMode ? "scale-[2.25]" : "scale-[1.65]"
-                }`}
-                priority
-              />
-            </div>
-          </Link>
+          <div
+  className="
+    relative 
+    w-[120px] h-9
+    sm:w-[105px] sm:h-8 
+    xs:w-[90px] xs:h-7 
+    -translate-y-[6px]
+  "
+>
+  <Image
+    unoptimized
+    src={isDarkMode ? logoImg : logoImg1}
+    alt="deventia logo"
+    fill
+    className={`object-contain transition-transform duration-300 ${
+      isDarkMode ? "scale-[2]" : "scale-[1.55]"
+    }`}
+    priority
+  />
+</div>
+
 
           {/* ✅ Desktop Navigation */}
           <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">

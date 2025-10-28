@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="flex flex-col items-start gap-5 w-full max-w-[80rem]">
           
           {/* Small Text */}
-          <h3 className="text-white/50 text-xs sm:text-sm md:text-base leading-relaxed">
+          <h3 className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed">
             Unlock Opportunities Explore Our Tailored Solutions
           </h3>
 
