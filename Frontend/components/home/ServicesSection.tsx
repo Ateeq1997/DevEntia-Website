@@ -56,57 +56,57 @@ export default function ServicesSection() {
           <div className="relative dark:hidden hidden lg:block">
                 <Image src={Services} alt="img" className="object-contain w-full h-full" />
 
-                <div className="absolute -bottom-12 left-5 flex flex-row items-center gap-4">
+                <div className="absolute -bottom-10 left-5 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">1</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Planning</h2>
                        <p className="text-[#5C5E61] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className=" text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute top-24 left-36 flex flex-row items-center gap-4">
+                 <div className="absolute top-32 left-36 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">2</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Designing</h2>
                        <p className="text-[#5C5E61] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className=" text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                <div className="absolute bottom-12 left-[420px] flex flex-row items-center gap-4">
+                <div className="absolute bottom-16 left-[420px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">3</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Development</h2>
                        <p className="text-[#5C5E61] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className=" text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute top-7 right-[320px] flex flex-row items-center gap-4">
+                 <div className="absolute top-10 right-[320px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">4</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Testing</h2>
                        <p className="text-[#5C5E61] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className=" text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute bottom-32 right-[70px] flex flex-row items-center gap-4">
+                 <div className="absolute bottom-36 right-[70px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">5</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Release</h2>
                        <p className="text-[#5C5E61] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className=" text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute -top-12 -right-14 flex flex-row items-center gap-4">
+                 <div className="absolute -top-8 -right-14 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[70px] lg:text-[110px]">6</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[16px] lg:text-[20px] font-semibold">Support & Improvement</h2>
                        <p className="text-[#5C5E61] text-[12px] lg:text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className=" text-[12px] lg:text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
           </div>
@@ -120,7 +120,7 @@ export default function ServicesSection() {
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Planning</h2>
                        <p className="text-[#5C5E61] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
@@ -129,7 +129,7 @@ export default function ServicesSection() {
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Design</h2>
                        <p className="text-[#5C5E61] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@ export default function ServicesSection() {
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Development</h2>
                        <p className="text-[#5C5E61] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
@@ -147,7 +147,7 @@ export default function ServicesSection() {
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Testing</h2>
                        <p className="text-[#5C5E61] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
                  <div className="absolute bottom-16 -left-1 flex flex-row items-start gap-2">
@@ -155,7 +155,7 @@ export default function ServicesSection() {
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Release</h2>
                        <p className="text-[#5C5E61] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
                  <div className="absolute bottom-3 -right-1 flex flex-row items-start gap-2">
@@ -163,7 +163,7 @@ export default function ServicesSection() {
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Support & Improvement</h2>
                        <p className="text-[#5C5E61] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
           </div>
@@ -171,57 +171,57 @@ export default function ServicesSection() {
 <div className="hidden dark:lg:block relative">
                 <Image src={Services} alt="img" className="object-contain w-full h-full" />
 
-                <div className="absolute -bottom-12 left-5 flex flex-row items-center gap-4">
+                <div className="absolute -bottom-10 left-5 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#B1B1FE] text-[110px]">1</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Planning</h2>
                        <p className="text-[#C8CFD5] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className="text-white text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute top-24 left-36 flex flex-row items-center gap-4">
+                 <div className="absolute top-32 left-36 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#B1B1FE] text-[110px]">2</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Designing</h2>
                        <p className="text-[#C8CFD5] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className="text-white text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                <div className="absolute bottom-12 left-[420px] flex flex-row items-center gap-4">
+                <div className="absolute bottom-16 left-[420px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#B1B1FE] text-[110px]">3</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Development</h2>
                        <p className="text-[#C8CFD5] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className="text-white text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute top-7 right-[320px] flex flex-row items-center gap-4">
+                 <div className="absolute top-10 right-[320px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#B1B1FE] text-[110px]">4</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Testing</h2>
                        <p className="text-[#C8CFD5] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className="text-white text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute bottom-32 right-[70px] flex flex-row items-center gap-4">
+                 <div className="absolute bottom-36 right-[70px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#B1B1FE] text-[110px]">5</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Release</h2>
                        <p className="text-[#C8CFD5] text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className="text-white text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                 <div className="absolute -top-12 -right-14 flex flex-row items-center gap-4">
+                 <div className="absolute -top-8 -right-14 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#B1B1FE] text-[70px] lg:text-[110px]">6</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[16px] lg:text-[20px] font-semibold">Support & Improvement</h2>
                        <p className="text-[#C8CFD5] text-[12px] lg:text-[14px]">Digital agency is an high test for<br/> business website work</p>
-                       <p className="text-white text-[12px] lg:text-[14px] cursor-pointer">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
           </div>
@@ -252,7 +252,7 @@ export default function ServicesSection() {
                       <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Design</h2>
                        <p className="text-[#C8CFD5] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
@@ -263,7 +263,7 @@ export default function ServicesSection() {
                        <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Development</h2>
                        <p className="text-[#C8CFD5] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
@@ -274,7 +274,7 @@ export default function ServicesSection() {
                       <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Testing</h2>
                        <p className="text-[#C8CFD5] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
                  <div className="absolute bottom-16 -left-1 flex flex-row items-start gap-2">
@@ -284,7 +284,7 @@ export default function ServicesSection() {
                       <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Release</h2>
                        <p className="text-[#C8CFD5] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
                  <div className="absolute bottom-3 -right-1 flex flex-row items-start gap-2">
@@ -294,7 +294,7 @@ export default function ServicesSection() {
                       <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Support & Improvement</h2>
                        <p className="text-[#C8CFD5] text-[7px] md:text-[10px]">Digital agency is an high test<br/> for business website work</p>
-                       <p className=" text-[7px] cursor-pointer md:text-[10px]">Learn More +</p>
+                       {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
           </div>
