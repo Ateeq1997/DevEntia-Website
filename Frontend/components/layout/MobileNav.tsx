@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import logoImg from "@/assets/images/logoImg.gif";
 
 interface MenuItem {
   title: string;
@@ -25,7 +26,7 @@ const menuItems: MenuItem[] = [
   },
   { title: "About Us", link: "/About-us" },
   { title: "Careers", link: "/Careers" },
-  { title: "Contact Us", link: "/Contact-us" },
+ // { title: "Contact Us", link: "/Contact-us" },
 ];
 
 const MobileSidebar = () => {
@@ -166,12 +167,7 @@ const MobileSidebar = () => {
           ))}
         </div>
          <div className="flex divide-y bg-black divide-gray-700 flex-col items-start px-6 py-4  gap-8 -translate-y-[10px] w-full">
-        <Link
-          href={"/Careers"}
-          className="hover:text-[#7471E6] transition-all text-white dark:text-gray-200 duration-300"
-        >
-          Careers
-        </Link>
+      
         <Link href={"/Contact-us"} className="transition-all duration-500">
           <p
             className="p-2 px-2 bg-[#4848FF] text-white
