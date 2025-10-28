@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative bg-[#161616] h-screen">
+    <div className="relative bg-[#161616] h-[47rem]">
       <Image
         src={heroBgImg}
         alt="people"

@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 import { useParams } from 'next/navigation';
-import JoinOurTeam from '../../../components/Career/JoinourTeam';
-
+import JoinOurTeam from '@/components/Career/JoinourTeam';
 const JobDescriptionPage = () => {
   const { jobId } = useParams();
 
