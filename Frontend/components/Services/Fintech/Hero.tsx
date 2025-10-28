@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <header className="relative bg-[#161616] min-h-screen overflow-hidden flex items-center">
+    <header className="relative bg-[#161616] h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[88vh] overflow-hidden">
       {/* 🔹 Background Image */}
       <Image
         src={heroBgImg}

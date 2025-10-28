@@ -53,7 +53,7 @@ const Footer = () => {
               ["Services", "/Services"],
               ["About Us", "/About-us"],
               ["Our Portfolio", "/Our-Portfolio"],
-              ["Careers", "/Careers"],
+              // ["Careers", "/Careers"],
               ["Contacts", "/Contact-us"],
               ["Terms & Conditions", "/terms-and-conditions"],
               ["Privacy Policy", "/privacy-policy"],
@@ -141,25 +141,29 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Logo */}
-        <div className="flex justify-center items-start sm:justify-end">
-          {/* Light Mode Logo */}
-          <Image
-            src={logoImg1}
-            alt="deventia logo light"
-            width={150}
-            unoptimized
-            className="block dark:hidden scale-110"
-          />
-          {/* Dark Mode Logo */}
-          <Image
-            src={logoImg}
-            alt="deventia logo dark"
-            width={150}
-            unoptimized
-            className="hidden dark:block scale-110"
-          />
-        </div>
+
+<div className="flex justify-center items-start sm:justify-end cursor-pointer">
+  <Link href="/">
+    <div className="relative">
+      <Image
+        src={logoImg1}
+        alt="deventia logo light"
+        width={150}
+        unoptimized
+        className="block dark:hidden scale-110"
+      />
+
+      <Image
+        src={logoImg}
+        alt="deventia logo dark"
+        width={150}
+        unoptimized
+        className="hidden dark:block scale-110"
+      />
+    </div>
+  </Link>
+</div>
+
       </div>
 
       {/* Footer bottom */}

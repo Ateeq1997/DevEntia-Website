@@ -22,14 +22,11 @@ const Hero = () => {
     };
   }, []);
 
-  const handleScroll = () => {
-    window.scrollBy({ top: window.innerHeight, left: 0, behavior: 'smooth' });
-  };
-
   return (
     <section
-      className="relative flex items-center justify-center bg-[#161616] h-[100svh] overflow-hidden"
+      className="relative flex items-center justify-center bg-[#161616] overflow-hidden"
       style={{
+        height: '90svh', // Reduced hero image height
         transform: `scale(${1 / viewportScale})`,
         transformOrigin: 'top center',
       }}
@@ -40,27 +37,23 @@ const Hero = () => {
         alt="Hero Background"
         priority
         className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{ maxHeight: '100%' }} // Prevent image from overflowing
       />
 
-  {/* Content */}
-<div className="relative z-10 px-0 sm:px-4 md:px-8 lg:px-12 xl:px-16 text-left w-full max-w-[1400px] ml-[-8px] sm:ml-[-16px] md:ml-[-24px] lg:ml-[-32px]">
-  <div className="flex flex-col gap-6">
-    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-      <h3 className="text-white/60 text-sm sm:text-base md:text-lg">
-        Start doing work that matters
-      </h3>
-    </div>
+      {/* Content */}
+      <div className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 w-full max-w-[1400px] mx-auto text-left">
+        <div className="flex flex-col gap-4 sm:gap-6">
+          <h3 className="text-white/60 text-sm sm:text-base md:text-lg">
+            Start doing work that matters
+          </h3>
 
-    <h1
-      className="text-white font-bold leading-[1.1]
-        text-3xl sm:text-4xl md:text-5xl lg:text-[5rem]
-        w-full sm:max-w-[90%] md:max-w-[80%]"
-    >
-      Find your dream job.
-    </h1>
-  </div>
-</div>
-
+          <h1 className="text-white font-bold leading-tight
+            text-3xl sm:text-4xl md:text-5xl lg:text-[5rem] 
+            w-full sm:max-w-[90%] md:max-w-[80%]">
+            Find your dream job.
+          </h1>
+        </div>
+      </div>
     </section>
   );
 };

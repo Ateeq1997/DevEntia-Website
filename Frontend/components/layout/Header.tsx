@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const menuItems = [
-    { title: "Home", path: "/" },
+    // { title: "Home", path: "/" },
     { title: "Services", path: "/Services" },
     { title: "Portfolio", path: "" },
     { title: "About Us", path: "/About-us" },
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
     >
       <div className="container px-[5%] lg:px-[5%] py-4">
         <div className="flex items-center justify-between w-full flex-wrap">
-          {/* ✅ Logo */}
+
           <div
   className="
     relative 
@@ -71,6 +71,8 @@ const Header: React.FC = () => {
     -translate-y-[6px]
   "
 >
+
+<Link href="/" className="cursor-pointer">
   <Image
     unoptimized
     src={isDarkMode ? logoImg : logoImg1}
@@ -81,6 +83,8 @@ const Header: React.FC = () => {
     }`}
     priority
   />
+</Link>
+
 </div>
 
 
@@ -119,12 +123,12 @@ const Header: React.FC = () => {
             </ul>
 
 <div className="flex flex-row items-center gap-8 flex-wrap -translate-y-[10px]">
-  <Link
+  {/* <Link
     href={"/Careers"}
     className="hover:text-[#7471E6] transition-all duration-300"
   >
     Careers
-  </Link>
+  </Link> */}
 
   <Link href={"/Contact-us"} className="transition-all duration-500">
     <p
