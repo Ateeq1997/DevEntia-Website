@@ -1,5 +1,5 @@
 import Hero from "@/components/ContactUs/Hero";
-import SendMessage from "@/components/ContactUs/SendMessage";
+import SendMessage from "@/components/home/contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

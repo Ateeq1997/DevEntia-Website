@@ -48,7 +48,7 @@ const JoinOurTeam = () => {
       <div className="max-w-6xl mx-auto">
         {/* Heading and Paragraph */}
         <div className="mb-10 text-left">
-          <h2 className="text-3xl md:text-5xl font-semibold mb-3 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 leading-tight">
             Join our team
           </h2>
           <p className="text-gray-600 dark:text-[#A7ADBE] text-sm sm:text-base md:text-lg leading-relaxed">
@@ -60,7 +60,7 @@ const JoinOurTeam = () => {
         {/* Filters Row */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12 w-full">
           {/* Search Bar */}
-          <div className="relative flex-1 min-w-[220px] sm:max-w-[250px]">
+          <div className="relative flex-1 min-w-[200px] sm:max-w-[250px]">
             <FiSearch className="absolute left-3 top-3 text-[#646584]" />
             <input
               type="text"
@@ -74,7 +74,7 @@ const JoinOurTeam = () => {
           </div>
 
           {/* Job Type */}
-          <div className="relative flex-1 min-w-[220px] sm:max-w-[250px]">
+          <div className="relative flex-1 min-w-[200px] sm:max-w-[250px]">
             <select
               value={jobType}
               onChange={(e) => setJobType(e.target.value)}
@@ -93,7 +93,7 @@ const JoinOurTeam = () => {
           </div>
 
           {/* Role Select */}
-          <div className="relative flex-1 min-w-[220px] sm:max-w-[250px]">
+          <div className="relative flex-1 min-w-[200px] sm:max-w-[250px]">
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
@@ -113,40 +113,38 @@ const JoinOurTeam = () => {
         </div>
 
         {/* Job Listings */}
-      <div className="space-y-4">
-  {jobs.map((job, index) => (
-    <div
-      key={job.id}
-      className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3
-      ${
-        index % 2 === 0
-          ? 'bg-gray-100 dark:bg-[#1A1A1A]'
-          : 'bg-transparent'
-      } 
-      px-5 sm:px-6 py-4 sm:py-5 shadow-md 
-      hover:bg-gray-200 dark:hover:bg-[#1E1E1E] 
-      transition-all`}
-    >
-      <h3 className="text-lg font-medium text-black dark:text-white">
-        {job.title}
-      </h3>
+        <div className="space-y-4">
+          {jobs.map((job, index) => (
+            <div
+              key={job.id}
+              className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3
+              ${
+                index % 2 === 0
+                  ? 'bg-gray-100 dark:bg-[#1A1A1A]'
+                  : 'bg-transparent'
+              } 
+              px-5 sm:px-6 py-4 sm:py-5 shadow-md 
+              hover:bg-gray-200 dark:hover:bg-[#1E1E1E] 
+              transition-all`}
+            >
+              <h3 className="text-lg font-medium text-black dark:text-white">
+                {job.title}
+              </h3>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full sm:w-auto gap-3 sm:gap-6">
-        <div className="flex items-center text-[#646584] text-sm">
-          <FiClock className="mr-2" />
-          {job.type}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full sm:w-auto gap-3 sm:gap-6">
+                <div className="flex items-center text-[#646584] text-sm">
+                  <FiClock className="mr-2" />
+                  {job.type}
+                </div>
+                <Link href="/Careers/showjobs">
+                  <button className="bg-[#4F46E5] hover:bg-[#5F56FF] text-white font-medium px-4 py-2 text-sm sm:text-base transition-all">
+                    View Job
+                  </button>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-<Link href="/Careers/showjobs">
-  <button className="bg-[#4F46E5] hover:bg-[#5F56FF] text-white font-medium px-4 py-2 text-sm sm:text-base transition-all">
-    View Job
-  </button>
-</Link>
-
-
-      </div>
-    </div>
-  ))}
-</div>
       </div>
     </section>
   );

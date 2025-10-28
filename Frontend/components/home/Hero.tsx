@@ -42,7 +42,8 @@ const Hero = () => {
   };
 
   return (
-    <div className=" relative bg-[#0B0B0B]  h-[650px] md:h-[800px]  lg:h-[912px]">
+    <div className="relative bg-[#0B0B0B] h-[60vh] sm:h-[75vh] md:h-[70vh] lg:h-[75vh]">
+      
       {/* Gradient Background */}
 
       {/* lighting effect */}
