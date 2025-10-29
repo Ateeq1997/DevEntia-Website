@@ -59,18 +59,19 @@ const Header: React.FC = () => {
       ${isVisible ? "translate-y-0" : "-translate-y-full"}
       bg-white/90 text-black dark:bg-black dark:text-white transition-colors duration-500`}
     >
-      <div className="container px-[5%] lg:px-[5%] py-4">
-        <div className="flex items-center justify-between w-full flex-wrap">
+ <div className="container px-[5%] lg:px-[5%] py-4">
+  <div className="flex items-center justify-between w-full flex-wrap lg:flex-row">
+    {/* ✅ Logo */}
+    <div
+      className="
+        relative 
+        w-[120px] h-9
+        sm:w-[105px] sm:h-8 
+        xs:w-[90px] xs:h-7 
+        -translate-y-[6px]
+      "
+    >
 
-          <div
-  className="
-    relative 
-    w-[120px] h-9
-    sm:w-[105px] sm:h-8 
-    xs:w-[90px] xs:h-7 
-    -translate-y-[6px]
-  "
->
 
 <Link href="/" className="cursor-pointer">
   <Image
@@ -148,23 +149,14 @@ const Header: React.FC = () => {
 
           </div>
 
-{/* ✅ Mobile Right Side */}
-<div className="flex items-center md:hidden gap-3 absolute right-10 top-4">
-  {/* Theme toggle (left of menu button) */}
-  <div className="translate-y-[3px] order-1">
-    <ThemeToggle />
-  </div>
-
-  {/* Mobile menu button */}
-  <div className="order-2">
-    <MobileMenu />
-  </div>
-</div>
-
-
+          {/* ✅ Mobile Right Side */}
+          <div className="flex items-center gap-2 items-center md:hidden ">
+            <ThemeToggle />
+            <MobileMenu />
+          </div>
         </div>
       </div>
-<hr className="bg-[#FFFFFF20] h-[1px] w-full opacity-40 absolute bottom-0 left-0 right-0" />
+{/*<hr className="bg-[#FFFFFF20] h-[1px] w-full opacity-40 absolute bottom-0 left-0 right-0" />*/}
 
     </nav>
   );

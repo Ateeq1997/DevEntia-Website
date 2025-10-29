@@ -14,6 +14,7 @@ interface AnimatedButtonProps {
   icon?: ReactNode; // ✅ optional icon
   iconPosition?: "left" | "right"; // ✅ control icon placement
   onClick?: () => void; // ✅ for non-link usage
+  disabled?: boolean; // ✅ added disabled prop
 }
 
 const Button = ({
@@ -27,6 +28,7 @@ const Button = ({
   icon,
   iconPosition = "left",
   onClick,
+  disabled = false, // ✅ default false
 }: AnimatedButtonProps) => {
   const [hovered, setHovered] = useState(false);
 
@@ -48,27 +50,29 @@ const Button = ({
     : "rgba(72,72,255,0.5)";
 
   // Shared styles
-  const baseStyles = {
+  const baseStyles: React.CSSProperties = {
     color: hovered && hoverTextColor ? hoverTextColor : textColor,
     backgroundColor: bgColor,
-    boxShadow: `0 0 10px 5px ${computedShadow}`,
+    boxShadow: disabled ? "none" : `0 0 10px 5px ${computedShadow}`,
+    opacity: disabled ? 0.5 : 1,
+    cursor: disabled ? "not-allowed" : "pointer",
     backdropFilter: "blur(45px)",
-    transition: "color 400ms ease-in-out, box-shadow 400ms ease-in-out",
+    transition: "all 400ms ease-in-out",
   };
 
   const content = (
     <>
-      {/* Moving hover overlay */}
+      {/* Hover overlay (disabled = no animation) */}
       <span
         className="absolute inset-0 transition-transform duration-[600ms] ease-in-out"
         style={{
           backgroundColor: hoverColor,
-          transform: hovered ? "translateX(0)" : "translateX(-100%)",
-          transition: "transform 600ms ease-in-out",
+          transform:
+            hovered && !disabled ? "translateX(0)" : "translateX(-100%)",
         }}
       ></span>
 
-      {/* Text + Icon Row */}
+      {/* Text + Icon */}
       <span className="relative z-10 flex items-center gap-2">
         {icon && iconPosition === "left" && <span>{icon}</span>}
         {text}
@@ -82,21 +86,27 @@ const Button = ({
     "text-[14px] md:text-[16px] font-semibold font-['Bai_Jamjuree'] " +
     "min-w-[150px] text-center overflow-hidden transition-all duration-300 ease-in-out ";
 
-  return href ? (
-    <Link
-      href={href}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={sharedClasses}
-      style={baseStyles}
-    >
-      {content}
-    </Link>
-  ) : (
+  if (href) {
+    return (
+      <Link
+        href={href}
+        onMouseEnter={() => !disabled && setHovered(true)}
+        onMouseLeave={() => !disabled && setHovered(false)}
+        className={sharedClasses}
+        style={baseStyles}
+        aria-disabled={disabled}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
     <button
-      onClick={onClick}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      disabled={disabled}
+      onClick={!disabled ? onClick : undefined}
+      onMouseEnter={() => !disabled && setHovered(true)}
+      onMouseLeave={() => !disabled && setHovered(false)}
       className={sharedClasses}
       style={baseStyles}
     >

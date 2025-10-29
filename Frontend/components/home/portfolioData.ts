@@ -10,6 +10,15 @@ import aneurologo from '../../assets/images/casestudy/aneuro.png'
 import Falke from '../../assets/images/casestudy/falkelogo.png'
 import Healtiplate from '../../assets/images/casestudy/healthiplatelogo.png'
 import simmple from '../../assets/images/casestudy/simplelogo.png'
+import aneuro from '../../assets/images/casestudy/2 5553.png'
+import getsimple from '../../assets/images/casestudy/2 5554.png'
+import hplate from '../../assets/images/casestudy/Healthi Plate.png'
+import falke from '../../assets/images/casestudy/Falke1.png'
+import github from '../../assets/images/casestudy/mdi_github.png';
+import dart from '../../assets/images/casestudy/dart.png';
+import flutter from '../../assets/images/casestudy/flutter-removebg-preview 1.png';
+import react from '../../assets/images/casestudy/react.png';
+import figma from '../../assets/images/casestudy/figma.png';
 
 const portfolioData = [
   {
@@ -25,7 +34,7 @@ const portfolioData = [
     <p>
 Welcome to <Strong class="text-black dark:text-white">Simpple.Tax</Strong>, a next-generation tax platform that blends AI and expert CPAs to make filing simple, fast, and stress-free. Their mission is to transform tax preparation by offering maximum refunds with minimal effort—just upload your documents, and their system does the rest. With full audit protection, real-time support, and year-round service, Simpple.Tax empowers individuals and businesses to focus on growth rather than paperwork.
 `,   
-     overviewimg:simmple,
+     overviewimg: getsimple,
      features: [
     { id: 1, text: "Users want simple nutrition scoring." },
     { id: 2, text: "They want actionable meal suggestions." },
@@ -59,6 +68,93 @@ Welcome to <Strong class="text-black dark:text-white">Simpple.Tax</Strong>, a ne
     },
   ],
 
+  solutions: [
+      {
+        id: 1,
+        title: "Solution 1",
+        description:
+          "AI Powered Automation: Smart technology handles forms and calculations with precision.",
+      },
+      {
+        id: 2,
+        title: "Solution 2",
+        description:
+          "Fast Document Uploads: Users just upload their documents, and the system does the rest.",
+      },
+      {
+        id: 3,
+        title: "Solution 3",
+        description:
+          "Maximum Refund Guarantee: Built-in checks ensure users get every eligible refund.",
+      },
+      {
+        id: 4,
+        title: "Solution 4",
+        description:
+          "Expert + Real-Time Support: Access to CPAs and audit protection anytime during the year.",
+      },
+      {
+        id: 5,
+        title: "Solution 5",
+        description:
+          "Year-Round Service: Stay tax-ready with ongoing support beyond filing season.",
+      },
+],
+typography: {
+    colors: [
+      { name: "Cobalt Blue", code: "#1E3A8A", number: "01" },
+      { name: "Royal Blue", code: "#2563EB", number: "02" },
+      { name: "Light Blue", code: "#38BDF8", number: "03" },
+      { name: "Rich Black", code: "#0A0A0A", number: "04" },
+      { name: "Grey", code: "#F5F5F5", number: "05" },
+    ],
+    font: "Bai Jamjuree",
+    typographyWeights: [
+      "Extra Bold",
+      "Bold",
+      "Semi Bold",
+      "Medium ",
+      "Regular",
+      "Light",
+    ],
+  },
+  technologies: [
+    {
+      id: 1,
+      name: "Flutter",
+      description: "Built with Flutter for cross-platform apps.",
+      icon: flutter,
+      color: "#44C8F5",
+    },
+    {
+      id: 2,
+      name: "Dart",
+      description: "Powered by Dart for fast development.",
+      icon: dart,
+      color: "#1E9CF0",
+    },
+    {
+      id: 3,
+      name: "React",
+      description: "Made with React for dynamic web apps.",
+      icon: react,
+      color: "#61DAFB",
+    },
+    {
+      id: 4,
+      name: "Figma",
+      description: "Designed in Figma for user-friendly UI.",
+      icon: figma,
+      color: "#F24E1E",
+    },
+    {
+      id: 5,
+      name: "GitHub",
+      description: "Code hosted on GitHub for collaboration.",
+      icon: github,
+      color: "#FFFFFF",
+    },
+  ],
   },
   {
     id: 2,
@@ -74,7 +170,7 @@ overviewcontent: `
       <Strong class="text-black dark:text-white">Falke</Strong> is an all-in-one platform designed to simplify employee, project, and client management. From handling invoices and contracts to monitoring performance and providing support, Falke creates a unified space for collaboration, ensuring clarity and control at every stage of the workflow.
   </div>
 `,
-    overviewimg:simmple,
+    overviewimg:falke,
      features: [
     { id: 1, text: "Quiz-based audience insights" },
     { id: 2, text: "Analytics & campaign control" },
@@ -106,6 +202,93 @@ overviewcontent: `
         "Manual invoicing, contracts, and reporting consume valuable time.",
     },
   ],
+   solutions: [
+      {
+        id: 1,
+        title: "Solution 1",
+        description:
+          "Unified Platform: Brings employee, client, and project management under one roof.",
+      },
+      {
+        id: 2,
+        title: "Solution 2",
+        description:
+          "Automated Admin Tasks: Streamlines invoicing, contracts, and reporting for efficiency.",
+      },
+      {
+        id: 3,
+        title: "Solution 3",
+        description:
+          "Performance Tracking: Provides real-time insights into productivity and progress.",
+      },
+      {
+        id: 4,
+        title: "Solution 4",
+        description:
+          "Collaborative Tools: Enables smooth communication across teams and clients.",
+      },
+      {
+        id: 5,
+        title: "Solution 5",
+        description:
+          "End-to-End Workflow Clarity: Ensures businesses stay organized from start to finish.",
+      },
+],
+typography: {
+    colors: [
+      { name: "Cobalt Blue", code: "#1E3A8A", number: "01" },
+      { name: "Royal Blue", code: "#2563EB", number: "02" },
+      { name: "Light Blue", code: "#38BDF8", number: "03" },
+      { name: "Rich Black", code: "#0A0A0A", number: "04" },
+      { name: "Grey", code: "#F5F5F5", number: "05" },
+    ],
+    font: "Bai Jamjuree",
+     typographyWeights: [
+      "Extra Bold",
+      "Bold",
+      "Semi Bold",
+      "Medium ",
+      "Regular",
+      "Light",
+    ],
+  },
+  technologies: [
+    {
+      id: 1,
+      name: "Flutter",
+      description: "Built with Flutter for cross-platform apps.",
+      icon: flutter,
+      color: "#44C8F5",
+    },
+    {
+      id: 2,
+      name: "Dart",
+      description: "Powered by Dart for fast development.",
+      icon: dart,
+      color: "#1E9CF0",
+    },
+    {
+      id: 3,
+      name: "React",
+      description: "Made with React for dynamic web apps.",
+      icon: react,
+      color: "#61DAFB",
+    },
+    {
+      id: 4,
+      name: "Figma",
+      description: "Designed in Figma for user-friendly UI.",
+      icon: figma,
+      color: "#F24E1E",
+    },
+    {
+      id: 5,
+      name: "GitHub",
+      description: "Code hosted on GitHub for collaboration.",
+      icon: github,
+      color: "#FFFFFF",
+    },
+  ],
   },
   {
     id: 3,
@@ -122,7 +305,7 @@ overviewcontent: `
     </p>
   </div>
 `,
-        overviewimg:simmple,
+        overviewimg:hplate,
          features: [
     { id: 1, text: "Quiz-based audience insights" },
     { id: 2, text: "Analytics & campaign control" },
@@ -154,7 +337,93 @@ overviewcontent: `
         "Without progress tracking or sharing, users lose motivation quickly.",
     },
   ],
-
+  solutions: [
+      {
+        id: 1,
+        title: "Solution 1",
+        description:
+          "Goal-Based Meal Selection: Personalized meal suggestions aligned with user health targets.",
+      },
+      {
+        id: 2,
+        title: "Solution 2",
+        description:
+          "Smart Nutritional Analysis: Automatic breakdown of calories, macros, and vitamins.",
+      },
+      {
+        id: 3,
+        title: "Solution 3",
+        description:
+          "Easy Habit Tracking: Simple daily logs for meals and dietary routines.",
+      },
+      {
+        id: 4,
+        title: "Solution 4",
+        description:
+          "Progress Visualization: Charts and insights that highlight achievements over time.",
+      },
+      {
+        id: 5,
+        title: "Solution 5",
+        description:
+          "Social Sharing & Motivation: Users can share progress and stay accountable with friends.",
+      },
+],
+typography: {
+    colors: [
+      { name: "Cobalt Blue", code: "#1E3A8A", number: "01" },
+      { name: "Royal Blue", code: "#2563EB", number: "02" },
+      { name: "Light Blue", code: "#38BDF8", number: "03" },
+      { name: "Rich Black", code: "#0A0A0A", number: "04" },
+      { name: "Grey", code: "#F5F5F5", number: "05" },
+    ],
+    font: "Bai Jamjuree",
+    typographyWeights: [
+      "Extra Bold",
+      "Bold",
+      "Semi Bold",
+      "Medium ",
+      "Regular",
+      "Light",
+    ],
+  },
+technologies: [
+    {
+      id: 1,
+      name: "Flutter",
+      description: "Built with Flutter for cross-platform apps.",
+      icon: flutter,
+      color: "#44C8F5",
+    },
+    {
+      id: 2,
+      name: "Dart",
+      description: "Powered by Dart for fast development.",
+      icon: dart,
+      color: "#1E9CF0",
+    },
+    {
+      id: 3,
+      name: "React",
+      description: "Made with React for dynamic web apps.",
+      icon: react,
+      color: "#61DAFB",
+    },
+    {
+      id: 4,
+      name: "Figma",
+      description: "Designed in Figma for user-friendly UI.",
+      icon: figma,
+      color: "#F24E1E",
+    },
+    {
+      id: 5,
+      name: "GitHub",
+      description: "Code hosted on GitHub for collaboration.",
+      icon: github,
+      color: "#FFFFFF",
+    },
+  ],
   },
   {
     id: 4,
@@ -175,7 +444,7 @@ overviewcontent: `
     </p>
   </div>
 `,
-overviewimg: simmple,
+overviewimg: aneuro,
 
  features: [
     { id: 1, text: "Quiz-based audience insights" },
@@ -206,6 +475,94 @@ overviewimg: simmple,
       title: "Limited Tools",
       description:
         "Lack of advanced analytics and integrations prevents teams from optimizing their marketing efforts.",
+    },
+
+  ],
+    solutions: [
+      {
+        id: 1,
+        title: "Solution 1",
+        description:
+          "Actionable Audience Insights: Cognitive quiz categorizes users into brain types for better targeting.",
+      },
+      {
+        id: 2,
+        title: "Solution 2",
+        description:
+          "Optimized Ad Spend: Focus marketing efforts on the right audience to maximize ROI.",
+      },
+      {
+        id: 3,
+        title: "Solution 3",
+        description:
+          "Seamless Integrations: Connect with CRM systems like HubSpot to streamline lead management.",
+      },
+      {
+        id: 4,
+        title: "Solution 4",
+        description:
+          "Personalized Campaigns: Deliver tailored, neuroscience-backed content to boost engagement.",
+      },
+      {
+        id: 5,
+        title: "Solution 5",
+        description:
+          "Advanced Tools & Analytics: Access dashboards, funnel tools, and detailed reports for smarter decisions.",
+      },
+],
+typography: {
+    colors: [
+      { name: "Cobalt Blue", code: "#1E3A8A", number: "01" },
+      { name: "Royal Blue", code: "#2563EB", number: "02" },
+      { name: "Light Blue", code: "#38BDF8", number: "03" },
+      { name: "Rich Black", code: "#0A0A0A", number: "04" },
+      { name: "Grey", code: "#F5F5F5", number: "05" },
+    ],
+    font: "Bai Jamjuree",
+    typographyWeights: [
+      "Extra Bold",
+      "Bold",
+      "Semi Bold",
+      "Medium ",
+      "Regular",
+      "Light",
+    ],
+  },
+  technologies: [
+    {
+      id: 1,
+      name: "Flutter",
+      description: "Built with Flutter for cross-platform apps.",
+      icon: flutter,
+      color: "#44C8F5",
+    },
+    {
+      id: 2,
+      name: "Dart",
+      description: "Powered by Dart for fast development.",
+      icon: dart,
+      color: "#1E9CF0",
+    },
+    {
+      id: 3,
+      name: "React",
+      description: "Made with React for dynamic web apps.",
+      icon: react,
+      color: "#61DAFB",
+    },
+    {
+      id: 4,
+      name: "Figma",
+      description: "Designed in Figma for user-friendly UI.",
+      icon: figma,
+      color: "#F24E1E",
+    },
+    {
+      id: 5,
+      name: "GitHub",
+      description: "Code hosted on GitHub for collaboration.",
+      icon: github,
+      color: "#FFFFFF",
     },
   ],
   }

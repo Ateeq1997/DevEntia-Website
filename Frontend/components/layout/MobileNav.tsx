@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
-import logoImg from "@/assets/images/logoImg.png";
-import logoImg1 from "@/assets/images/blacklogo.png";
+import Link from "next/link";
+import logoImg from "@/assets/images/logoImg.gif";
 
 interface MenuItem {
   title: string;
@@ -26,7 +26,7 @@ const menuItems: MenuItem[] = [
   },
   { title: "About Us", link: "/About-us" },
   { title: "Careers", link: "/Careers" },
-  { title: "Contact Us", link: "/Contact-us" },
+ // { title: "Contact Us", link: "/Contact-us" },
 ];
 
 const MobileSidebar = () => {
@@ -106,33 +106,35 @@ const MobileSidebar = () => {
         onClick={() => setIsOpen(false)}
       />
 
-      {/* ✅ Hamburger Button (color changes based on theme) */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-4 right-4 z-50 p-2 rounded-md bg-transparent transition-colors duration-300 ${
-          isDarkMode ? "text-white" : "text-black"
-        }`}
-      >
-        <div className="w-6 h-6 relative">
-          <span
-            className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
-              isOpen ? "rotate-45 top-3" : "top-1"
-            }`}
-          />
-          <span
-            className={`block w-full h-0.5 bg-current absolute top-3 transition-opacity duration-300 ${
-              isOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
-              isOpen ? "-rotate-45 top-3" : "top-5"
-            }`}
-          />
-        </div>
-      </button>
+    <button
+  onClick={() => setIsOpen(!isOpen)}
+  className={`fixed top-5 right-4 z-[9999] p-2 rounded-md transition-all duration-300`}
+>
+  <div
+    className={`w-6 h-6 relative ${
+      isOpen ? "text-white" : "text-black dark:text-white"
+    }`}
+  >
+    <span
+      className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
+        isOpen ? "rotate-45 top-3" : "top-1"
+      }`}
+    />
+    <span
+      className={`block w-full h-0.5 bg-current absolute top-3 transition-opacity duration-300 ${
+        isOpen ? "opacity-0" : "opacity-100"
+      }`}
+    />
+    <span
+      className={`block w-full h-0.5 bg-current absolute transition-all duration-300 ${
+        isOpen ? "-rotate-45 top-3" : "top-5"
+      }`}
+    />
+  </div>
+</button>
 
-      {/* Sidebar */}
+
+
       <nav
         className={`fixed top-0 left-0 h-screen w-full bg-black transform transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -164,7 +166,23 @@ const MobileSidebar = () => {
             </div>
           ))}
         </div>
+         <div className="flex divide-y bg-black divide-gray-700 flex-col items-start px-6 py-4  gap-8 -translate-y-[10px] w-full">
+      
+        <Link href={"/Contact-us"} className="transition-all duration-500">
+          <p
+            className="p-2 px-2 bg-[#4848FF] text-white
+               dark:bg-white dark:text-black
+               flex items-center justify-center gap-2 font-medium"
+          >
+            Contact Us
+          </p>
+        </Link>
+      
+        {/* Theme Toggle - Desktop */}
+        
+      </div>
       </nav>
+     
     </div>
   );
 };
