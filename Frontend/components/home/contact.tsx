@@ -200,7 +200,7 @@ const Contact = () => {
             Call Us Directly
           </span>
           <span className="text-white/85 text-[14px] sm:text-[15px] mt-1 break-all sm:ml-0 ">
-            (+92) 344 8967017
+            +92 344-8967017
           </span>
         </div>
       </div>

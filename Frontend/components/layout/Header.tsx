@@ -59,18 +59,19 @@ const Header: React.FC = () => {
       ${isVisible ? "translate-y-0" : "-translate-y-full"}
       bg-white/90 text-black dark:bg-black dark:text-white transition-colors duration-500`}
     >
-      <div className="container px-[5%] lg:px-[5%] py-4">
-        <div className="flex items-center justify-between w-full flex-row">
-          {/* ✅ Logo */}
-          <div
-  className="
-    relative 
-    w-[120px] h-9
-    sm:w-[105px] sm:h-8 
-    xs:w-[90px] xs:h-7 
-    -translate-y-[6px]
-  "
->
+ <div className="container px-[5%] lg:px-[5%] py-4">
+  <div className="flex items-center justify-between w-full flex-wrap lg:flex-row">
+    {/* ✅ Logo */}
+    <div
+      className="
+        relative 
+        w-[120px] h-9
+        sm:w-[105px] sm:h-8 
+        xs:w-[90px] xs:h-7 
+        -translate-y-[6px]
+      "
+    >
+
 
 <Link href="/" className="cursor-pointer">
   <Image
@@ -90,37 +91,51 @@ const Header: React.FC = () => {
 
           {/* ✅ Desktop Navigation */}
           <div className="hidden md:flex lg:flex items-center justify-between flex-grow ml-12">
-            <ul className="flex space-x-8 xl:space-x-12 md:space-x-6">
-              {menuItems.map((item) => (
-                <div
-                  key={item.title}
-                  className={`relative group ${item.title === "Portfolio" ? "pb-4" : ""}`}
-                  onMouseEnter={() =>
-                    item.title === "Portfolio" && setIsDropdownVisible(true)
-                  }
-                  onMouseLeave={() =>
-                    item.title === "Portfolio" && setIsDropdownVisible(false)
-                  }
-                >
-                  <Link
-                    href={item.path}
-                    className="flex items-center hover:text-[#7471E6] transition-colors duration-200"
-                    onClick={() =>
-                      item.title === "Portfolio" &&
-                      setIsDropdownVisible(!isDropdownVisible)
-                    }
-                  >
-                    {item.title}
-                    {item.title === "Portfolio" && <AiOutlineDown className="ml-1" />}
-                  </Link>
-                  {item.title === "Portfolio" && isDropdownVisible && (
-                    <div className="absolute -left-6 top-5 mt-2 rounded-full shadow-lg p-4 z-50">
-                      <PortfolioDropDown />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </ul>
+   <ul className="flex space-x-8 xl:space-x-12 md:space-x-6">
+  {menuItems.map((item) => (
+    <div
+      key={item.title}
+      className="relative"
+      onMouseEnter={() =>
+        item.title === "Portfolio" && setIsDropdownVisible(true)
+      }
+      onMouseLeave={() =>
+        item.title === "Portfolio" && setIsDropdownVisible(false)
+      }
+    >
+      {/* Portfolio button */}
+      <div className="px-4 py-2 cursor-pointer flex items-center justify-center">
+        <Link
+          href={item.path}
+          className="flex items-center space-x-1 hover:text-[#7471E6] transition-colors duration-200"
+          onClick={(e) => {
+            if (item.title === "Portfolio") {
+              e.preventDefault(); // prevent page jump
+              setIsDropdownVisible(!isDropdownVisible);
+            }
+          }}
+        >
+          <span>{item.title}</span>
+          {item.title === "Portfolio" && (
+            <AiOutlineDown
+              className={`transition-transform duration-300 ${
+                isDropdownVisible ? "rotate-180" : "rotate-0"
+              }`}
+            />
+          )}
+        </Link>
+      </div>
+
+      {/* Dropdown menu (inside the same parent) */}
+      {item.title === "Portfolio" && isDropdownVisible && (
+        <div className="absolute left-0 top-full mt-1 z-50">
+          <PortfolioDropDown />
+        </div>
+      )}
+    </div>
+  ))}
+</ul>
+
 
 <div className="flex flex-row items-center gap-8 flex-wrap -translate-y-[10px]">
   {/* <Link

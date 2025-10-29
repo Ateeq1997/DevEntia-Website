@@ -8,42 +8,50 @@ const stats = [
   { number: '38', label1: 'Awards', label2: 'Achievement' },
 ];
 
-export default function StatsSection() {
+const StatsWithStatisticsStyle = () => {
   return (
-    <section className="w-full py-16 sm:py-20 flex justify-center bg-white dark:bg-[#161616] transition-colors duration-500">
-      <div
-        className="
-          flex flex-col sm:flex-row 
-          items-center justify-center
-          gap-0 sm:gap-0
-        "
-      >
-        {stats.map((item, index) => (
-          <div
-            key={index}
-            className={`
-              relative flex flex-col items-center justify-center
-              w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80
-              rounded-full border border-black dark:border-[#404040]
-              text-black dark:text-white/75
-              transition-all duration-500
-              bg-transparent
-              shadow-[inset_0_0_30px_rgba(0,0,0,0.05),_0_0_20px_rgba(0,0,0,0.05)]
-              dark:shadow-[inset_0_0_30px_rgba(255,255,255,0.05),_0_0_20px_rgba(255,255,255,0.05)]
-              ${index !== 0 ? '-mt-[60px] sm:mt-0 sm:-ml-[50px]' : ''}
-            `}
-          >
-            {/* Blue glow */}
-            <div className="absolute w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 bg-blue-500/25 blur-2xl rounded-full"></div>
+    <section className="relative z-[1] w-full py-16 bg-white dark:bg-[#0B0B0D] transition-colors duration-700 ease-in-out">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-4 md:px-10 lg:px-20 xl:px-32 2xl:px-40 w-full lg:max-w-[90rem] mx-auto overflow-x-hidden">
+        {/* Main stats container */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 items-center justify-center text-center lg:text-left gap-10 sm:gap-12 md:gap-14 lg:gap-16 w-full">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="relative flex flex-col gap-2 items-center lg:items-start text-center lg:text-left z-[1] w-full"
+            >
+              {/* Value with blue glow */}
+              <div className="relative flex items-center justify-center lg:justify-start">
+                <span
+                  className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] font-medium font-bai text-transparent relative"
+                  style={{
+                    WebkitTextStroke: "2px #4848FF",
+                    color: "transparent",
+                  }}
+                >
+                  {stat.number}
+                </span>
+                <span
+                  className="absolute w-[80px] sm:w-[100px] md:w-[120px] h-[80px] sm:h-[100px] md:h-[120px] rounded-full blur-2xl opacity-60"
+                  style={{
+                    background:
+                      "radial-gradient(circle, rgba(72,72,255,0.6) 0%, rgba(72,72,255,0.25) 70%, transparent 100%)",
+                  }}
+                ></span>
+              </div>
 
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2 relative z-10">
-              {item.number}
-            </h3>
-            <p className="text-xs sm:text-sm opacity-90 relative z-10">{item.label1}</p>
-            <p className="text-xs sm:text-sm opacity-90 relative z-10">{item.label2}</p>
-          </div>
-        ))}
+              {/* Line under value */}
+              <div className="h-[2px] bg-[black] dark:bg-[#CFDDE8] opacity-80 transition-colors duration-500 w-[70%] mx-auto lg:mx-0"></div>
+
+              {/* Label */}
+              <p className="text-[15px] sm:text-[18px] md:text-[20px] lg:text-[22px] mt-2 transition-colors duration-500 leading-snug text-[#4848FF] dark:text-[#CFDDE8]">
+                {stat.label1} <br /> {stat.label2}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default StatsWithStatisticsStyle;

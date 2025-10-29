@@ -1,6 +1,9 @@
 "use client";             
 
-import React from "react";
+
+import Link from 'next/link';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 interface HeroProps {
   bgImage?: string;
