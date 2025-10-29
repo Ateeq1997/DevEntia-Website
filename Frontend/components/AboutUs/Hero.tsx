@@ -47,7 +47,7 @@ const Hero = () => {
 >
   {/* WhatsApp Icon */}
   <a
-    href="https://wa.me/923001234567"
+    href="https://wa.me/923448967017"
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg transition-transform duration-300 hover:scale-110"

@@ -77,9 +77,9 @@ const Footer = () => {
           <a
             className="text-lg font-medium hover:underline hover:text-[#7471E6] text-[#0b0b0d] dark:text-white block"
             rel="stylesheet"
-            href="tel:+92316-5910564"
+            href="tel:+923448967017"
           >
-            +92316-5910564
+            +92 344-8967017
           </a>
 
           <h4 className="font-semibold text-xl text-[#374151] dark:text-white/35 my-4 md:mt-20">
@@ -123,7 +123,7 @@ const Footer = () => {
 
           <div className="flex gap-3 flex-wrap">
             <a
-              href="https://wa.me/+923165910564"
+              href="https://wa.me/+923448967017"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out text-[#4848FF] dark:text-white hover:text-[#7471E6]"
