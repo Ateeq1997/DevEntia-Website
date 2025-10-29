@@ -35,7 +35,7 @@ const page = () => {
       <Hero />
       <AboutUs />
       <OurCoreValues />
-      <MeetOurCoFounder />
+      {/*<MeetOurCoFounder />*/}
       {/* <MeetOurTeam /> */}
       <OurMissionAndVission />
       {/* <GetInTouch /> */}

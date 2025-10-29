@@ -1,44 +1,39 @@
-import Image from 'next/image';
-import mission from '../../assets/images/mission.png';
-import vission from '../../assets/images/vission.png';
+"use client";
+import Image from "next/image";
 
 const OurMissionAndVission = () => {
   return (
-    <section className="about-us-bg px-[5%]  py-12 flex-col justify-center items-center ">
-      <div className="flex gap-12 flex-col md:flex-row md:items-center ">
-        <div>
-          <h1 className="font-bold text-2xl lg:text-4xl">Our mission</h1>
-          <p className="text-lg text-[#ffffffc2] mt-4 text-justify">
-            To revolutionize the IT service industry by delivering cutting-edge
-            solutions tailored to our clients&apos; unique needs. We strive to
-            empower businesses with innovative technologies, exceptional
-            service, and unwavering commitment to excellence.
+    <section className="relative w-full py-20 text-white bg-gradient-to-r from-[#2B1363] via-[#1A103D] to-[#000000] overflow-hidden">
+      <div className="w-full px-[5%] mx-auto flex md:flex-col md:flex-row justify-between gap-12 items-center gap-12">
+        
+        {/* Left Side - Text */}
+        <div className="z-10 w-[50%]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Vision</h2>
+          <div className="w-16 h-[2px] bg-[#854CFF] mb-6"></div>
+          <p className="text-gray-300 leading-relaxed text-[15px]">
+            We’ve worked extensively in terms of geography and sector,
+            developing a variety of work — products, services, and experiences —
+            that has taught us that a well-defined visual strategy is key to
+            bring visibility, credibility, and funds to any organisation.
+            Starting in 2017, we decided to plant a tree for each client that we
+            work with.
           </p>
         </div>
-        <Image
-          src={mission}
-          alt="mission"
-          className="w-full h-auto md:w-[45%] "
-        />
-      </div>
-      <div className="flex gap-12 flex-col md:flex-row-reverse mt-12 md:items-center justify-center items-center ">
-        <div>
-          <h1 className="font-bold text-2xl lg:text-4xl">Our Vision</h1>
-          <p className="text-lg text-[#ffffffc2] mt-4 text-justify">
-            At Deventia, our vision is to be the premier choice for businesses
-            seeking transformative IT solutions. We aim to lead the industry
-            through innovation, integrity, and unparalleled dedication to our
-            clients&apos; success, driving sustainable growth and making a
-            lasting impact in the digital realm.
-          </p>
+
+        {/* Right Side - Custom Image Shape */}
+        <div className=" flex-1 justify-center items-center">
+              <Image
+                src="/about/Vision.png"
+                alt="Our Vision"
+                fill
+                className="object-contain "
+              />
+           
         </div>
-        <Image
-          src={vission}
-          alt="vission"
-          className="w-full h-auto md:w-[45%] "
-        />
+
       </div>
     </section>
   );
 };
+
 export default OurMissionAndVission;

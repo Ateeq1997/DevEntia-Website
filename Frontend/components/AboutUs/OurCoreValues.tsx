@@ -117,7 +117,7 @@ const OurCoreValues = () => {
         />
       </div>
 
-      <div className="mx-auto">
+      <div className="mx-auto z-20">
         <h2 className="text-3xl md:text-4xl lg:text-[53px] font-bold mb-6 ">
           Our Core Values
         </h2>
@@ -160,7 +160,7 @@ const OurCoreValues = () => {
         </div>
       </div>
      
-     <div className="mx-auto mt-24">
+     <div className="mx-auto mt-24 z-10">
       <h2 className="text-3xl md:text-4xl lg:text-[53px] font-bold mb-6 ">
          Our Company Ethics
         </h2>

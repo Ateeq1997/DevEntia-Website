@@ -7,7 +7,7 @@ import Group3 from "../../assets/images/Maskgroup.png"; // background glow
 import Services from "../../assets/images/services.png"; // background glow
 import Servicesimg from '../../assets/images/Group 1982249958.png';
 import Servicesimg1 from '../../assets/images/servicesimgmobile1.png';
-import lightservicesimg from '../../assets/images/Group 1982250006.png'
+import lightservicesimg from '../../assets/images/home/Group 1982250006.svg'
 
 export default function ServicesSection() {
   return (
@@ -115,7 +115,7 @@ export default function ServicesSection() {
             <div className="flex items-center justify-center">
                 <Image src={lightservicesimg} alt="img" className="object-contain " />
             </div>
-            <div className="absolute top-4 -left-1 flex flex-row items-start gap-2">
+            <div className="absolute -top-3 -left-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">1</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Planning</h2>
@@ -133,7 +133,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                <div className="absolute top-32 -left-1 flex flex-row items-start gap-2">
+                <div className="absolute top-28 -left-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">3</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Development</h2>
@@ -142,7 +142,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                 <div className="absolute bottom-32 -right-1 flex flex-row items-start gap-2">
+                 <div className="absolute bottom-28 -right-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">4</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Testing</h2>
@@ -158,7 +158,7 @@ export default function ServicesSection() {
                        {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
-                 <div className="absolute bottom-0 -right-1 flex flex-row items-start gap-2">
+                 <div className="absolute -bottom-4 -right-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">6</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Support & Improvement</h2>
