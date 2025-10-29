@@ -12,7 +12,7 @@ interface HeroContent {
 const heroContents: HeroContent[] = [
   {
     video:
-      "https://res.cloudinary.com/dhsgpxu04/video/upload/v1735372583/Man_showing_different_digital_data_around_the_world_Free_Stock_Video_Footage_xcs8h5.mp4",
+      "https://res.cloudinary.com/dhsgpxu04/video/upload/v1761735581/digital-matrix-technology-binary-code-blue-backgro-2025-10-17-00-21-17-utc_ph4evu.mp4",
     titles: [
       "Where Innovation Meets Imagination",
       "Empowering Brands Through Smart Solutions",
@@ -150,7 +150,7 @@ const HeroSection = () => {
   </video>
 
   {/* ✅ Dark Blur Overlay (50% opacity) */}
-  <div className="absolute inset-0 bg-[#0A0F3C]/50 " />
+  <div className="absolute inset-0 bg-[#0A0F3C]/30 " />
 </div>
 
 
