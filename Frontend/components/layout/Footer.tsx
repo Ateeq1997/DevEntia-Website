@@ -191,7 +191,7 @@ const Footer = () => {
         </div>
 
         <h4 className="font-semibold text-xl text-[#4848FF] dark:text-white/35 text-center">
-          © 2024 — DEVENTIA
+  © {new Date().getFullYear()} — DEVENTIA
         </h4>
       </div>
     </footer>

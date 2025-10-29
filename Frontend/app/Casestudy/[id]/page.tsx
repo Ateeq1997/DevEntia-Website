@@ -34,7 +34,10 @@ export default function Page({ params }: { params: { id: string } }) {
         bgImage={bgImage.src}
         previewImg={project.heroimg.src}
         logo={project.logo.src}
-        siteLink="https://example.com"
+        siteLink={project.siteLink}
+        app={project.app} // ✅ Pass the app flag
+        appStoreLink={project.appStoreLink} // ✅ Optional for app projects
+        playStoreLink={project.playStoreLink} // ✅ Optional for app projects
       />
 
       {/* 🧾 Overview Section */}
@@ -74,14 +77,14 @@ export default function Page({ params }: { params: { id: string } }) {
   />
 )}    
 
-<TestimonialCard
+{/*<TestimonialCard
         name="Bessie Cooper"
         role="Marketing Coordinator"
         company="HCAB"
         quote="I’m so impressed by your dedication to learning. I know it wasn’t easy when that technology solution you presented didn’t work out."
         image={img}
         video={true}
-      />
+      /> */}
 </>
   );
 }

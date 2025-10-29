@@ -129,7 +129,7 @@ const Contact = () => {
   return (
     <section className="bg-[#f5f5f5] dark:bg-black text-black dark:text-white py-16 px-[5%] flex flex-col lg:flex-row gap-12 lg:gap-16 font-inter w-full transition-colors duration-500 overflow-x-hidden">
       {/* Left Side */}
-      <div className="bg-gradient-to-b from-[#4848FF] to-[#2B2B99] px-8 sm:px-12 md:px-16 lg:px-24 pt-10 pb-16 text-white w-full lg:w-[40%] rounded-2xl shadow-lg">
+      <div className="bg-gradient-to-b from-[#4848FF] to-[#2B2B99] px-8 sm:px-12 md:px-16 lg:px-16 2xl:px-24 pt-10 pb-16 text-white w-full lg:w-[40%] rounded-2xl shadow-lg">
         <h4 className="text-[18px] font-medium mb-10 font-inter">What happens next?</h4>
 
         <ul className="space-y-10 text-sm relative">

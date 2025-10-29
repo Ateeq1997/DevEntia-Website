@@ -4,6 +4,9 @@ import Link from "next/link";
 import Button from "../home/Button";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import img from '../../assets/images/casestudy/Union.png'
+import { FaApple, FaGooglePlay } from "react-icons/fa";
+import googleplay from '../../assets/images/casestudy/Icon.png';
+
 
 interface CaseStudyLayoutProps {
   title: string;
@@ -11,19 +14,24 @@ interface CaseStudyLayoutProps {
   siteLink?: string;
   bgImage: string;
   previewImg: string;
-    logo: string;
-    logoTitle: string;
-
+  logo: string;
+  logoTitle: string;
+  app?: boolean; // ✅ true = app, false = website
+  appStoreLink?: string;
+  playStoreLink?: string;
 }
 
 const CaseStudyLayout = ({
   title,
+  desc,
   siteLink,
   bgImage,
   previewImg,
-    logo,
-    logoTitle,
-
+  logo,
+  logoTitle,
+  app = false,
+  appStoreLink,
+  playStoreLink,
 }: CaseStudyLayoutProps) => {
   return (
     <section className="relative sm:h-[80vh] md:h-[100vh] lg:h-[45rem] w-full flex flex-col justify-center  py-12 mx-auto  overflow-hidden text-white">
@@ -59,19 +67,59 @@ const CaseStudyLayout = ({
              {title} 
           </h1>
           
-          <div className="w-[150px]">
-          {siteLink && (
-           <Button
-            text="Visit Site"
-             href={siteLink}
-              bgColor="#4848FF"
-              textColor="#CFCEFB"
-              hoverColor="#2E2EB5"
- icon={<MdOutlineArrowOutward size={18} />}
-                   iconPosition="right"
-              />
-          )}
-          </div>
+          <div className="flex flex-row items-center gap-4">
+              {app ? (
+                <>
+                  {/* App Store Button */}
+                 <Link
+                    href={appStoreLink || "#"}
+                    target="_blank"
+                    className="flex items-center gap-2 px-3 py-2  bg-white text-black rounded transition-all duration-300 font-medium"
+                  >
+                    <FaApple size={36} />
+                    <div className="flex flex-col items-center ">
+                      <span className="text-[10px]">Download on the</span>
+                      <span className="text-[16px] font-inter font-semibold">App Store</span>
+                    </div>
+                    
+                  </Link>
+
+                  {/* Google Play Button */}
+                  <Link
+                    href={appStoreLink || "#"}
+                    target="_blank"
+                    className="flex items-center gap-2 px-3 py-2  bg-white text-black rounded transition-all duration-300 font-medium"
+                  >
+                    <Image
+                        src={googleplay}
+                        alt="Google Play"
+                        width={30}
+                        height={30}
+                        className="object-contain"
+                      />                    
+                      <div className="flex flex-col ">
+                      <span className="text-[10px]">GET IT ON</span>
+                      <span className="text-[16px] font-inter font-semibold">Google Play</span>
+                    </div>
+                    
+                  </Link>
+                </>
+              ) : (
+                siteLink && (
+                  <Button
+                    text="Visit Site"
+                    href={siteLink}
+                    bgColor="#4848FF"
+                    textColor="#CFCEFB"
+                    hoverColor="#2E2EB5"
+                    icon={<MdOutlineArrowOutward size={18} />}
+                    iconPosition="right"
+                    newTab={true}
+                  />
+                )
+              )}
+            </div>
+          
           </div>
         </div>
 

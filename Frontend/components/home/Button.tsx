@@ -15,6 +15,7 @@ interface AnimatedButtonProps {
   iconPosition?: "left" | "right"; // ✅ control icon placement
   onClick?: () => void; // ✅ for non-link usage
   disabled?: boolean; // ✅ added disabled prop
+  newTab?: boolean;
 }
 
 const Button = ({
@@ -29,6 +30,7 @@ const Button = ({
   iconPosition = "left",
   onClick,
   disabled = false, // ✅ default false
+  newTab = false,
 }: AnimatedButtonProps) => {
   const [hovered, setHovered] = useState(false);
 
@@ -88,8 +90,10 @@ const Button = ({
 
   if (href) {
     return (
-      <Link
+     <Link
         href={href}
+        target={newTab ? "_blank" : "_self"} // ✅ open in new tab if true
+        rel={newTab ? "noopener noreferrer" : undefined} // ✅ safe link handling
         onMouseEnter={() => !disabled && setHovered(true)}
         onMouseLeave={() => !disabled && setHovered(false)}
         className={sharedClasses}

@@ -70,8 +70,9 @@ const Ourportfolio = () => {
         className="scroll-container flex gap-4 md:gap-4 items-stretch w-full mt-6 overflow-x-hidden select-none cursor-default"
       >
         {portfolioData.map((card) => (
-          <div
+          <Link
             key={card.id}
+            href={`/Casestudy/${card.id}`} 
             className="flex-shrink-0 w-[90%] sm:w-[45%] md:w-[32%] lg:w-[24%]
                        bg-[#F5F6FA] dark:bg-[#151515] rounded-lg flex flex-col gap-4 overflow-hidden
                        transition-all duration-500 ease-in-out"
@@ -102,7 +103,7 @@ const Ourportfolio = () => {
                 {card.desc}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

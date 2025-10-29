@@ -133,22 +133,26 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-[#0B0B0B] h-[60vh] sm:h-[65vh] md:h-[70vh] lg:h-[88vh]">
+    <section className="relative bg-[#0B0B0B] h-[80vh] sm:h-[80vh] md:h-[70vh] lg:h-[40rem]">
       {/* ✅ background video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          key={heroContents[currentIndex].video}
-          autoPlay
-          muted
-          playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-            isChanging ? "opacity-10" : "opacity-60"
-          }`}
-        >
-          <source src={heroContents[currentIndex].video} type="video/mp4" />
-        </video>
-      </div>
+     <div className="absolute inset-0 z-0">
+  <video
+    ref={videoRef}
+    key={heroContents[currentIndex].video}
+    autoPlay
+    muted
+    playsInline
+    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+      isChanging ? "opacity-10" : "opacity-60"
+    }`}
+  >
+    <source src={heroContents[currentIndex].video} type="video/mp4" />
+  </video>
+
+  {/* ✅ Dark Blur Overlay (50% opacity) */}
+  <div className="absolute inset-0 bg-[#0A0F3C]/50 " />
+</div>
+
 
       {/* ✅ content */}
      <div className="relative z-10 flex flex-col items-start justify-center h-full w-full px-[5%] mx-auto ">
@@ -172,7 +176,7 @@ const HeroSection = () => {
           </AnimatePresence>
 
  <p
-  className="text-white text-lg md:text-xl max-w-[900px] leading-relaxed -mt-8 md:-mt-10"
+  className="text-white text-lg md:text-xl max-w-[900px] leading-relaxed -mt-2 md:-mt-10"
 >
   At DevEntia Tech, we craft intelligent digital solutions that turn
   bold ideas into powerful products. From custom software development
@@ -182,7 +186,7 @@ const HeroSection = () => {
 
 
 <div
-  className="flex flex-wrap gap-4 md:gap-6 mt-0 md:mt-6"
+  className="flex flex-wrap gap-4 md:gap-6 mt-6"
 >
  <Button
         text="Let's Connect"
@@ -194,7 +198,7 @@ const HeroSection = () => {
  
   <Button
         text="Explore Services"
-        href="/Contact-us"
+        href="/Services"
         bgColor="#ffffff"
         textColor="#4848FF"
         hoverColor="#4848FF"
@@ -226,7 +230,7 @@ const HeroSection = () => {
 
        {/* ✅ Floating WhatsApp + Quote Button */}
 <div
-  className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[100%] max-w-[1800px] flex items-center justify-between px-2 z-[999]"
+  className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[100%] max-w-[1770px] flex items-center justify-between px-2 z-[999]"
 >
   {/* WhatsApp Icon */}
   <a

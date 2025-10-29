@@ -5,9 +5,9 @@ import Group1 from "../../assets/images/Group1.png"; // dark mode timeline
 import Group2 from "../../assets/images/Group2.png"; // light mode timeline
 import Group3 from "../../assets/images/Maskgroup.png"; // background glow
 import Services from "../../assets/images/services.png"; // background glow
-import Servicesimg from '../../assets/images/servicesimgmobile.png';
+import Servicesimg from '../../assets/images/Group 1982249958.png';
 import Servicesimg1 from '../../assets/images/servicesimgmobile1.png';
-
+import lightservicesimg from '../../assets/images/Group 1982250006.png'
 
 export default function ServicesSection() {
   return (
@@ -54,9 +54,9 @@ export default function ServicesSection() {
           /> */}
           {/* Dark mode image */}
           <div className="relative dark:hidden hidden lg:block">
-                <Image src={Services} alt="img" className="object-contain w-full h-full" />
+                <Image src={Servicesimg} alt="img" className="object-contain w-full h-full" />
 
-                <div className="absolute -bottom-10 left-5 flex flex-row items-center gap-4">
+                <div className="absolute -bottom-32 left-5 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">1</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Planning</h2>
@@ -65,16 +65,16 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                 <div className="absolute top-32 left-36 flex flex-row items-center gap-4">
+                 <div className="absolute top-10 left-36 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">2</h1>
                     <div className="flex flex-col gap-2">
-                       <h2 className="text-[20px] font-semibold">Designing</h2>
+                       <h2 className="text-[20px] font-semibold">Design</h2>
                        <p className="text-[#5C5E61] text-[14px]">Digital agency is an high test for<br/> business website work</p>
                        {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
 
-                <div className="absolute bottom-16 left-[420px] flex flex-row items-center gap-4">
+                <div className="absolute -bottom-6 left-[420px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">3</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Development</h2>
@@ -83,7 +83,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                 <div className="absolute top-10 right-[320px] flex flex-row items-center gap-4">
+                 <div className="absolute -top-10 right-[320px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">4</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Testing</h2>
@@ -92,7 +92,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                 <div className="absolute bottom-36 right-[70px] flex flex-row items-center gap-4">
+                 <div className="absolute bottom-14 right-[70px] flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">5</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Release</h2>
@@ -101,7 +101,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                 <div className="absolute -top-8 -right-14 flex flex-row items-center gap-4">
+                 <div className="absolute -top-32 -right-14 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[70px] lg:text-[110px]">6</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[16px] lg:text-[20px] font-semibold">Support & Improvement</h2>
@@ -113,7 +113,7 @@ export default function ServicesSection() {
             
           <div className="relative dark:hidden lg:hidden block w-full md:max-w-lg mx-auto mt-12">
             <div className="flex items-center justify-center">
-                <Image src={Servicesimg1} alt="img" className="object-contain " />
+                <Image src={lightservicesimg} alt="img" className="object-contain " />
             </div>
             <div className="absolute top-4 -left-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">1</h1>
@@ -124,7 +124,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                 <div className="absolute top-14 -right-1 flex flex-row items-start gap-2">
+                 <div className="absolute top-8 -right-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">2</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Design</h2>
@@ -133,7 +133,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                <div className="absolute top-36 -left-1 flex flex-row items-start gap-2">
+                <div className="absolute top-32 -left-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">3</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Development</h2>
@@ -142,7 +142,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
 
-                 <div className="absolute bottom-36 -right-1 flex flex-row items-start gap-2">
+                 <div className="absolute bottom-32 -right-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">4</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Testing</h2>
@@ -150,7 +150,7 @@ export default function ServicesSection() {
                        {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
-                 <div className="absolute bottom-16 -left-1 flex flex-row items-start gap-2">
+                 <div className="absolute bottom-10 -left-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">5</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Release</h2>
@@ -158,7 +158,7 @@ export default function ServicesSection() {
                        {/*<p className=" text-[7px] md:text-[10px] cursor-pointer">Learn More +</p>*/}
                     </div>
                 </div>
-                 <div className="absolute bottom-3 -right-1 flex flex-row items-start gap-2">
+                 <div className="absolute bottom-0 -right-1 flex flex-row items-start gap-2">
                     <h1 className="font-bold text-[#4848FF] text-[30px] md:text-[40px] leading-none">6</h1>
                     <div className="flex flex-col gap-0">
                        <h2 className="text-[9px] md:text-[12px] font-semibold">Support & Improvement</h2>
