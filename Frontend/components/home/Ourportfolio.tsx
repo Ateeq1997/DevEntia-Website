@@ -65,15 +65,17 @@ const Ourportfolio = () => {
       </div>
 
       {/* Carousel Container */}
-      <div
+        <div
         ref={scrollRef}
-        className="scroll-container flex gap-4 md:gap-4 items-stretch w-full mt-6 overflow-x-hidden select-none cursor-default"
+        className="scroll-container flex gap-4 md:gap-6 items-stretch w-full mt-6 
+                   overflow-x-auto scrollbar-hide snap-x snap-mandatory 
+                   scroll-smooth cursor-grab active:cursor-grabbing"
       >
         {portfolioData.map((card) => (
           <Link
             key={card.id}
             href={`/Casestudy/${card.id}`} 
-            className="flex-shrink-0 w-[90%] sm:w-[45%] md:w-[32%] lg:w-[24%]
+            className="flex-shrink-0 snap-center w-[85%] sm:w-[45%] md:w-[32%] lg:w-[24%]
                        bg-[#F5F6FA] dark:bg-[#151515] rounded-lg flex flex-col gap-4 overflow-hidden
                        transition-all duration-500 ease-in-out"
           >
@@ -92,7 +94,7 @@ const Ourportfolio = () => {
                   {card.title}
                 </h3>
                 <Link
-                  href={`/Casestudy/${card.id}`} // 👈 Dynamic route
+                  href={`/Casestudy/${card.id}`} 
                   className="font-bold flex items-center gap-2 text-[16px] sm:text-[18px] lg:text-[20px]
                        text-black dark:text-white transition-colors duration-500"
                 >
