@@ -56,7 +56,7 @@ export default function ServicesSection() {
           <div className="relative dark:hidden hidden lg:block">
                 <Image src={Servicesimg} alt="img" className="object-contain w-full h-full" />
 
-                <div className="absolute -bottom-32 left-5 flex flex-row items-center gap-4">
+                <div className="absolute -bottom-[120px] left-5 flex flex-row items-center gap-4">
                     <h1 className="font-bold text-[#4848FF] text-[110px]">1</h1>
                     <div className="flex flex-col gap-2">
                        <h2 className="text-[20px] font-semibold">Planning</h2>

@@ -133,7 +133,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-[#0B0B0B] h-[80vh] sm:h-[80vh] md:h-[70vh] lg:h-[40rem]">
+    <section className="relative bg-[#0B0B0B] h-[80vh] sm:h-[80vh] md:h-[70vh] lg:h-[45rem]">
       {/* ✅ background video */}
      <div className="absolute inset-0 z-0">
   <video
