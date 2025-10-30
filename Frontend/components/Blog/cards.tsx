@@ -58,6 +58,52 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
  }, []);
   
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isSmall = window.innerWidth < 1024;
+      setIsMobileOrTablet(isSmall);
+      // compute cards per page by breakpoint (approx columns)
+      const perPage = window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : 2;
+      setCardsPerPage(perPage);
+      if (!isSmall || showAll) setVisibleCount(blogs.length);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [blogs.length, showAll]);
+
+  // Listen for slide events from hero arrows
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const direction = (e as CustomEvent).detail?.direction as 'left' | 'right' | undefined;
+      if (!direction || blogs.length === 0) return;
+      setAnimDirection(direction);
+      if (isMobileOrTablet && !showAll) {
+        const maxStartIndex = Math.max(0, blogs.length - 1);
+        const nextStartIndex = direction === 'right' ? pageStartIndex + 1 : pageStartIndex - 1;
+        if (nextStartIndex < 0 || nextStartIndex > maxStartIndex) {
+          setAnimDirection(null);
+          return;
+        }
+        setPageStartIndex(nextStartIndex);
+      } else {
+        const totalPages = Math.max(1, Math.ceil(blogs.length / cardsPerPage));
+        const currentPage = Math.floor(pageStartIndex / cardsPerPage);
+        let nextPage = direction === 'right' ? currentPage + 1 : currentPage - 1;
+        if (nextPage < 0 || nextPage >= totalPages) {
+          setAnimDirection(null);
+          return;
+        }
+        const nextStart = nextPage * cardsPerPage;
+        setPageStartIndex(nextStart);
+      }
+      window.setTimeout(() => setAnimDirection(null), 400);
+    };
+    window.addEventListener('BLOG_SLIDE', handler as EventListener);
+    return () => window.removeEventListener('BLOG_SLIDE', handler as EventListener);
+  }, [blogs.length, cardsPerPage, pageStartIndex, isMobileOrTablet, showAll]);
+
   
 
   const handleImageError = (blogId: string) => {
@@ -71,6 +117,16 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
     return item.fileUrl;
   };
 
+  useEffect(() => {
+      const handleZoom = () => {
+        const scale = window.visualViewport?.scale || 1;
+        setViewportScale(scale);
+      };
+      window.visualViewport?.addEventListener("resize", handleZoom);
+      handleZoom();
+      return () =>
+        window.visualViewport?.removeEventListener("resize", handleZoom);
+    }, []);
 
      const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
