@@ -143,7 +143,7 @@ useEffect(() => {
        <div className="flex flex-col lg:flex-row gap-8 pr-0 lg:pr-10 ">
       {/* Sidebar */}
       <div className="lg:w-1/3 hidden lg:block">
-        <div className="bg-[#E8F2FF] dark:bg-black py-12 px-12 rounded-lg sticky top-24">
+        <div className="bg-white dark:bg-black py-12 px-12 rounded-lg sticky top-24">
         <h3 className="text-lg text-black dark:text-[white] font-semibold mb-4">Share this post hello</h3>
            <div className="flex flex-row items-center gap-3 mb-6">
            <div
@@ -244,9 +244,9 @@ useEffect(() => {
        {/* Main Content */}
 <div className="lg:flex-1 lg:mt-20 mt-10">
 {blog ? (
-  <div className="max-w-none text-black dark:bg-black">
+  <div className="max-w-none text-black dark:bg-black text-black dark:text-white">
     <div 
-      className="blog-content-container"
+      className="blog-content-container "
       dangerouslySetInnerHTML={{ __html: blog.blogDescription }}
     />
     
