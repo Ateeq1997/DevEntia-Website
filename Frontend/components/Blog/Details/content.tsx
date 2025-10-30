@@ -219,7 +219,7 @@ useEffect(() => {
                 />
                 <button
                   type="submit"
-                  className="relative text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF] overflow-hidden group transition-all duration-300"
+                  className="relative text-[12px] p-2 px-6 text-white bg-[#4848FF] overflow-hidden group transition-all duration-300"
                   style={{
                     boxShadow: "0 0 5px 2px #4848FF, 0 0 0 0 #fff"
                   }}
@@ -341,7 +341,7 @@ useEffect(() => {
           <div className="mt-8 flex items-center justify-center lg:!justify-start">
             <Link href="/Book-a-demo">
               <button
-                className="relative cursor-pointer bg-[#4848FF] text-sm text-white font-medium px-6 py-3 rounded-full overflow-hidden group transition-all duration-300 shadow-[0_0_16px_4px_rgba(72,72,255,0.5)]"
+                className="relative cursor-pointer bg-[#4848FF] text-sm text-white font-medium px-6 py-3  overflow-hidden group transition-all duration-300 shadow-[0_0_16px_4px_rgba(72,72,255,0.5)]"
                 
               >
                 <span className="relative z-10">Book a Demo</span>
@@ -352,8 +352,8 @@ useEffect(() => {
         </div>
 
         <div className=" w-full lg:hidden">
-        <div className=" bg-[black] p-6 rounded-lg">
-        <h3 className="text-lg text-white font-semibold mb-4 text-center ">Share this post</h3>
+        <div className="bg-white dark:bg-[black] p-6 rounded-lg">
+        <h3 className="text-lg text-black dark:text-white font-semibold mb-4 text-center ">Share this post</h3>
            <div className="flex flex-row items-center justify-center gap-3 mb-6">
            <div
     onClick={() => {
@@ -396,8 +396,8 @@ useEffect(() => {
 </button>
 
            </div>
-             <h3 className="text-lg text-[#C8CFD5] font-semibold mb-4 text-center ">On This Page</h3>
-             <ol className="list-decimal list-outside pl-8 space-y-2 text-white marker:text-white font-semibold">
+             <h3 className="text-lg text-black dark:text-[#C8CFD5] font-semibold mb-4 text-center ">On This Page</h3>
+             <ol className="list-decimal list-outside pl-8 space-y-2 text-black dark:text-white marker:text-black dark:marker:text-white font-semibold">
              {blog?.outline?.length > 0 ? (
     blog.outline.map((item: any, index: number) => (
       <li key={index}>
@@ -420,7 +420,7 @@ useEffect(() => {
                 <input
                   type="email"
                   placeholder="Subscribe to our newsletter"
-                  className="p-3 rounded-full border border-[#FFFFFF40] bg-transparent text-[#9995AC] outline-none flex-1 text-[12px] px-6"
+                  className="p-3 rounded-full border border-gray-400 dark:border-[#FFFFFF40] bg-transparent text-[#9995AC] outline-none flex-1 text-[12px] px-6"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -428,7 +428,7 @@ useEffect(() => {
                 />
                 <button
                   type="submit"
-                  className="relative text-[12px] p-2 rounded-full px-6 text-white bg-[#4848FF] overflow-hidden group transition-all duration-300"
+                  className="relative text-[12px] p-2 rounded- px-6 text-white bg-[#4848FF] overflow-hidden group transition-all duration-300"
                  
                   disabled={submitting}
                 >
