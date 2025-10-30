@@ -64,11 +64,11 @@ const page = () => {
       <AugmentedTeam />
       {/*<BlogNews />*/}
   <Blogscard/>
-       {/* <Reviews /> */}
+       {/* <Reviews /> 
       <TechSection/>
 <CloudSection />
 <AiMlSection />
-<BlockchainSection />
+<BlockchainSection />*/}
       {/* <StatsAndPartners /> */}
      {/*  <ITProcesses /> */}
     {/*  <Hero/> */}

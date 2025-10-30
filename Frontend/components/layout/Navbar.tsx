@@ -132,6 +132,7 @@ const Navbar = () => {
                 </Link>
               </div>
             </li>
+            
             <li
               className={`p-3 ${
                 isActive("/Careers") ? "bg-[#7471E680]" : "text-white"
