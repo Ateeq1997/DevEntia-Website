@@ -6,6 +6,16 @@ const contactRoutes = require('./Routes/contact');
 
 const mongoose = require('mongoose');
 const app = express();
+const cloudinary = require('./config/Cloudinary');
+
+(async () => {
+  try {
+    const res = await cloudinary.api.ping();
+    console.log("✅ Cloudinary connected successfully:", res);
+  } catch (err) {
+    console.error("❌ Cloudinary connection failed:", err);
+  }
+})();
 
 // Validate required environment variables early
 const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
