@@ -18,7 +18,7 @@ interface Project {
 const projects: Project[] = [
   { img: testImg2, text: "Simmple Tax", href: "/Casestudy/1" },
   { img: testImg1, text: "Falke", href: "/Casestudy/2" },
-  { img: testImg, text: "Healthi Plate", href: "/Casestudy/3" },
+  { img: testImg, text: "HealthiPlate", href: "/Casestudy/3" },
   { img: testImg3, text: "Aneuro", href: "/Casestudy/4" },
 ];
 

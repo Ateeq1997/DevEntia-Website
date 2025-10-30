@@ -57,18 +57,22 @@ const AugmentedTeam = () => {
             project.
           </p>
 
-          {/* Contact button */}
-          <div className="mt-8 w-[180px]">
-         <Button
-                 text="Contact Us"
-                 href="/Contact-us"
-                 bgColor="#4848FF"
-                 textColor="#CFCEFB"
-                 hoverColor="#2E2EB5"
-                   icon={<MdOutlineArrowOutward size={18} />}
-                   iconPosition="right"
-               />
-               </div>
+       <div className="mt-8 w-[180px]">
+ <div className="mt-8 w-[180px]">
+  <Button
+    text="Contact Us"
+    href="/Contact-us"
+    bgColor="#4848FF"
+    textColor="#CFCEFB"
+    hoverColor="#2E2EB5"
+    icon={<MdOutlineArrowOutward size={18} />}
+    iconPosition="right"
+    shadowColor="transparent" // 👈 disables the glow
+  />
+</div>
+
+</div>
+
         </div>
       </div>
     </section>
