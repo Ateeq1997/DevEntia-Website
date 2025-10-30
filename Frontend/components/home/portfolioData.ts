@@ -313,18 +313,18 @@ typography: {
   {
     id: 3,
     img: project3,
-    title: "Healthi Plate",
-    desc: "Healthi Plate is a nutrition-focused mobile app that empowers users to set personal health goals and track meal progress easily.",
+    title: "HealthiPlate",
+    desc: "HealthiPlate is a nutrition-focused mobile app that empowers users to set personal health goals and track meal progress easily.",
     logo: Healtiplate,
     app: true, // ✅ Is an app
     appStoreLink: "https://apps.apple.com/app/example",
     playStoreLink: "https://play.google.com/store/apps/details?id=example",
-    Title: "Case Study for Healthi Plate App",
+    Title: "Case Study for HealthiPlate App",
     heroimg: heroimg2,
 overviewcontent: `
   <div class="text-black/70 dark:text-white/70 leading-relaxed">
     <p>
-      <Strong class="text-black dark:text-white">Healthi Plate</Strong> is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned meals, track dietary habits, and monitor progress. With smart nutritional analysis and easy sharing features, it makes healthy eating simple, personalized, and sustainable.
+      <Strong class="text-black dark:text-white">HealthiPlate</Strong> is a nutrition-focused mobile app that empowers users to set personal health goals, choose goal-aligned meals, track dietary habits, and monitor progress. With smart nutritional analysis and easy sharing features, it makes healthy eating simple, personalized, and sustainable.
     </p>
   </div>
 `,
