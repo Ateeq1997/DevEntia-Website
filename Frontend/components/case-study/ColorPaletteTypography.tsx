@@ -60,7 +60,15 @@ const ColorPaletteTypography: React.FC<TypographyProps> = ({
           backgroundImage: bgImage ? `url(${bgImage})` : "none",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/90 to-[#2563EB]/90 rounded-2xl pointer-events-none" />
+<div
+  className="
+    absolute inset-0 
+    bg-gradient-to-t from-[#1E3A8A]/90 to-[#2563EB]/90
+    dark:from-[#1E3A8A]/70 dark:to-[#2563EB]/70 
+    rounded-2xl 
+    pointer-events-none
+  "
+/>
         <div className="relative z-10 flex flex-col gap-4 items-center">
           <h3 className="font-extrabold text-[54px] md:text-[85px]  lg:text-[150px] text-white leading-tight">
             {font}

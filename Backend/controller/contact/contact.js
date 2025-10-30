@@ -49,7 +49,7 @@ exports.handleContactForm = async (req, res) => {
       service: 'gmail',
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        pass: process.env.SMTP_PASSWORD,
       },
     });
 
@@ -68,7 +68,6 @@ exports.handleContactForm = async (req, res) => {
         <p><strong>Challenge/Goal:</strong> ${challenge}</p>
         <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
         <p><strong>Company:</strong> ${company || 'N/A'}</p>
-        <p>Attached files are included below in their original formats.</p>
       `,
       attachments,
     };
