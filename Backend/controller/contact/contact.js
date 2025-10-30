@@ -52,14 +52,9 @@ exports.handleContactForm = async (req, res) => {
         pass: process.env.SMTP_PASSWORD,
       },
     });
-
-    // ✅ Send to admin and user
-    const recipients = [process.env.SMTP_USER];
-    if (email) recipients.push(email);
-
     const mailOptions = {
       from: `"Website Contact Form" <${process.env.SMTP_USER}>`,
-      to: recipients,
+      to: process.env.SMTP_USER,
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Request</h2>
