@@ -8,9 +8,9 @@ import Hero from "../../../../components/Blog/Details/hero";
 const Details =()=>{
     return(
         <div className=" ">
-          {/* <Navbar/> 
+          {/* <Navbar/> */}
 
-           <Hero/> */}
+           <Hero/> 
           <Content/>
          <div className="bg-[black] max-w-[1750px] mx-auto bg-white dark:bg-black">
           <h1 className="text-[20px] lg:text-[32px] font-bold text-black dark:text-white lg:pl-16 pt-8 text-center lg:!text-left" >Continue Reading</h1>
