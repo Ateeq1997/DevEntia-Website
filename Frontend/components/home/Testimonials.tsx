@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { testimonialsData } from "./testmonials-data";
 
 // Define platform colors with proper typing
@@ -25,6 +25,35 @@ type Testimonial = {
   clientInitials?: string;
 };
 
+// Component for text with Read More / Show Less
+const TestimonialText: React.FC<{ text: string }> = ({ text }) => {
+  const [expanded, setExpanded] = useState(false);
+  const maxHeight = 100; // Adjust height to fit your card layout
+
+  return (
+  <div className="mb-6 relative">
+      <p
+        className={`text-[#cbd5e1] text-xs md:text-[13px] lg:text-[15px] leading-relaxed overflow-hidden`}
+        style={{
+          display: "-webkit-box",
+          WebkitLineClamp: expanded ? "none" : 6, // Show 6 lines before "Read More"
+          WebkitBoxOrient: "vertical",
+        }}
+      >
+        {text}
+      </p>
+      {text.split(" ").length > 30 && ( // Only show button if text is long enough
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-1 text-blue-400 text-xs font-semibold hover:underline"
+        >
+          {expanded ? "Show Less" : "Read More"}
+        </button>
+      )}
+    </div>
+  );
+};
+
 // Component with proper prop typing
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
   return (
@@ -39,9 +68,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
         ></div>
 
         {/* Quote icon */}
-        <span className="absolute top-6 right-6 text-[50px] md:text-[60px] lg:text-[70px] text-[rgba(37,99,235,0.06)] leading-none font-serif -z-0">
-        
-        </span>
+        <span className="absolute top-6 right-6 text-[50px] md:text-[60px] lg:text-[70px] text-[rgba(37,99,235,0.06)] leading-none font-serif -z-0"></span>
 
         {/* Card content */}
         <div className="relative z-10">
@@ -53,83 +80,25 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
                 className="w-7 h-7 md:w-8 md:h-8 rounded-xl flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
                 style={{ background: platformColors[testimonial.platformColor] }}
               >
-                {testimonial.platform === "Fiverr" && (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                    <circle cx="12" cy="12" r="8" />
-                  </svg>
-                )}
-                {testimonial.platform === "Upwork" && (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                    <text
-                      x="50%"
-                      y="70%"
-                      textAnchor="middle"
-                      fontSize="14"
-                      fontWeight="bold"
-                    >
-                      U
-                    </text>
-                  </svg>
-                )}
-                {testimonial.platform === "LinkedIn" && (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                    <text
-                      x="50%"
-                      y="70%"
-                      textAnchor="middle"
-                      fontSize="12"
-                      fontWeight="bold"
-                    >
-                      in
-                    </text>
-                  </svg>
-                )}
-                {testimonial.platform === "Facebook" && (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                    <text
-                      x="50%"
-                      y="70%"
-                      textAnchor="middle"
-                      fontSize="14"
-                      fontWeight="bold"
-                    >
-                      f
-                    </text>
-                  </svg>
-                )}
-                {testimonial.platform === "Google" && (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                    <text
-                      x="50%"
-                      y="70%"
-                      textAnchor="middle"
-                      fontSize="14"
-                      fontWeight="bold"
-                    >
-                      G
-                    </text>
-                  </svg>
-                )}
+                {testimonial.platform === "Fiverr" && <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="8" /></svg>}
+                {testimonial.platform === "Upwork" && <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><text x="50%" y="70%" textAnchor="middle" fontSize="14" fontWeight="bold">U</text></svg>}
+                {testimonial.platform === "LinkedIn" && <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><text x="50%" y="70%" textAnchor="middle" fontSize="12" fontWeight="bold">in</text></svg>}
+                {testimonial.platform === "Facebook" && <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><text x="50%" y="70%" textAnchor="middle" fontSize="14" fontWeight="bold">f</text></svg>}
+                {testimonial.platform === "Google" && <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><text x="50%" y="70%" textAnchor="middle" fontSize="14" fontWeight="bold">G</text></svg>}
               </div>
-              <span className="text-xs md:text-sm font-semibold text-[#e2e8f0]">
-                {testimonial.platform}
-              </span>
+              <span className="text-xs md:text-sm font-semibold text-[#e2e8f0]">{testimonial.platform}</span>
             </div>
 
             {/* Stars */}
             <div className="flex gap-1">
               {[...Array(testimonial.rating)].map((_, i) => (
-                <span key={i} className="text-[#fbbf24] text-base">
-                  ★
-                </span>
+                <span key={i} className="text-[#fbbf24] text-base">★</span>
               ))}
             </div>
           </div>
 
-          {/* Testimonial Text */}
-          <p className="text-[#cbd5e1] text-xs md:text-[13px] lg:text-[15px] leading-relaxed mb-6">
-            {testimonial.text}
-          </p>
+          {/* Testimonial Text with Read More */}
+          <TestimonialText text={testimonial.text} />
 
           {/* Client Info */}
           <div className="flex items-center gap-3.5 pt-5 border-t border-[rgba(37,99,235,0.15)]">
@@ -143,12 +112,8 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 
             {/* Client Details */}
             <div className="flex-1">
-              <div className="font-bold text-sm md:text-base text-[#f1f5f9] mb-0.5">
-                {testimonial.clientName}
-              </div>
-              <div className="text-[11px] md:text-xs text-[#64748b]">
-                {testimonial.clientRole}
-              </div>
+              <div className="font-bold text-sm md:text-base text-[#f1f5f9] mb-0.5">{testimonial.clientName}</div>
+              <div className="text-[11px] md:text-xs text-[#ffffff]">{testimonial.clientRole}</div>
             </div>
 
             {/* Verified Badge */}
@@ -167,117 +132,83 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 export default function Testimonials() {
   return (
     <section className="relative py-20 md:py-24 lg:py-28 overflow-hidden bg-[#ffffff] dark:bg-[#0b0b0d] text-[#0b0b0d] dark:text-white transition-colors duration-500">
-      {/* Background Animation */}
-      {/* <div className="fixed inset-0 z-0 bg-gradient-radial from-[#0f1419] via-[#000000] to-[#000000] hidden dark:block"> */}
-        <div className="absolute inset-0 z-0 bg-gradient-radial from-[#0f1419] via-[#000000] to-[#000000] hidden dark:block">
+      {/* Section Header */}
+      
+     <div className="text-center mb-12 md:mb-16 animate-fadeIn px-5">
+ <span className="inline-block px-6 py-2.5 rounded-full text-xs font-bold tracking-[2px] uppercase mb-6 text-black dark:text-white">
+  ✦ TESTIMONIALS ✦
+</span>
 
-        {/* Floating orbs */}
-        <div className="absolute w-[500px] h-[500px] bg-[#2563eb] rounded-full -top-[200px] -right-[100px] blur-[80px] opacity-[0.08] animate-float"></div>
-        <div className="absolute w-[400px] h-[400px] bg-[#1d4ed8] rounded-full -bottom-[150px] -left-[100px] blur-[80px] opacity-[0.08] animate-float-delayed"></div>
+  <h2 className="text-4xl md:text-5xl lg:text-[56px] font-black mb-5 leading-tight tracking-tight text-black dark:text-white">
+    What Our Clients Say
+  </h2>
+
+  <p className="text-base md:text-lg max-w-[600px] mx-auto text-black dark:text-white">
+    Trusted by businesses worldwide to deliver exceptional digital solutions
+  </p>
+</div>
+
+
+      {/* Testimonials Wrapper - Full Width */}
+      <div className="w-full overflow-hidden">
+        {/* First Row - Scroll Left */}
+        <div className="flex gap-4 md:gap-5 mb-4 md:mb-5 animate-scrollLeft hover:pause">
+          {testimonialsData.row1.map((testimonial) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+          ))}
+          {testimonialsData.row1.map((testimonial) => (
+            <TestimonialCard key={`dup-${testimonial.id}`} testimonial={testimonial} />
+          ))}
+        </div>
+
+        {/* Second Row - Scroll Right */}
+        <div className="flex gap-4 md:gap-5 animate-scrollRight hover:pause">
+          {testimonialsData.row2.map((testimonial) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+          ))}
+          {testimonialsData.row2.map((testimonial) => (
+            <TestimonialCard key={`dup-${testimonial.id}`} testimonial={testimonial} />
+          ))}
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 px-5 md:px-8 lg:px-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16 animate-fadeIn">
-          <span className="inline-block px-6 py-2.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.3)] rounded-full text-xs font-bold text-[#60a5fa] tracking-[2px] uppercase mb-6">
-            ✦ TESTIMONIALS ✦
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-[56px] font-black mb-5 bg-gradient-to-r from-white via-[#93c5fd] to-[#2563eb] bg-clip-text text-transparent leading-tight tracking-tight">
-            What Our Clients Say
-          </h2>
-          <p className="text-base md:text-lg text-[#94a3b8] max-w-[600px] mx-auto">
-            Trusted by businesses worldwide to deliver exceptional digital solutions
-          </p>
-        </div>
-
-        {/* Testimonials Wrapper */}
-        <div
-          className="overflow-hidden"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
-          }}
+      {/* CTA Section */}
+      <div className="text-center mt-12 md:mt-16">
+        <a
+          href="/Contact-us"
+          className="inline-flex items-center gap-2.5 px-8 md:px-10 py-3.5 md:py-4 bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] text-white font-bold text-sm md:text-base rounded-2xl transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_30px_rgba(37,99,235,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.5)] border border-[rgba(37,99,235,0.3)]"
         >
-          {/* First Row - Scroll Left */}
-          <div className="flex gap-4 md:gap-5 mb-4 md:mb-5 animate-scrollLeft hover:pause">
-            {testimonialsData.row1.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
-            {testimonialsData.row1.map((testimonial) => (
-              <TestimonialCard key={`dup-${testimonial.id}`} testimonial={testimonial} />
-            ))}
-          </div>
-
-          {/* Second Row - Scroll Right */}
-          <div className="flex gap-4 md:gap-5 animate-scrollRight hover:pause">
-            {testimonialsData.row2.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
-            {testimonialsData.row2.map((testimonial) => (
-              <TestimonialCard key={`dup-${testimonial.id}`} testimonial={testimonial} />
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-12 md:mt-16">
-          <a
-            href="/Contact-us"
-            className="inline-flex items-center gap-2.5 px-8 md:px-10 py-3.5 md:py-4 bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] text-white font-bold text-sm md:text-base rounded-2xl transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_30px_rgba(37,99,235,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.5)] border border-[rgba(37,99,235,0.3)]"
+          <span>Start Your Project</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-4 h-4 md:w-[18px] md:h-[18px]"
           >
-            <span>Start Your Project</span>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4 md:w-[18px] md:h-[18px]"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
       </div>
 
       {/* Custom Styles for Animations */}
       <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(40px, -40px); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes scrollLeft {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes scrollRight {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
+        @keyframes float {0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, -40px); }}
+        @keyframes fadeIn {from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); }}
+        @keyframes scrollLeft {0% { transform: translateX(0); } 100% { transform: translateX(-50%); }}
+        @keyframes scrollRight {0% { transform: translateX(-50%); } 100% { transform: translateX(0); }}
         .animate-float { animation: float 25s ease-in-out infinite; }
         .animate-float-delayed { animation: float 25s ease-in-out infinite; animation-delay: -12s; }
         .animate-fadeIn { animation: fadeIn 0.8s ease-out; }
         .animate-scrollLeft { animation: scrollLeft 30s linear infinite; will-change: transform; }
         .animate-scrollRight { animation: scrollRight 30s linear infinite; will-change: transform; }
         .animate-scrollLeft:hover, .animate-scrollRight:hover { animation-play-state: paused; }
-        @media (max-width: 1024px) {
-          .animate-scrollLeft, .animate-scrollRight { animation-duration: 28s; }
-        }
-        @media (max-width: 768px) {
-          .animate-scrollLeft, .animate-scrollRight { animation-duration: 18s; }
-        }
-        @media (max-width: 480px) {
-          .animate-scrollLeft, .animate-scrollRight { animation-duration: 16s; }
-        }
+        @media (max-width: 1024px) { .animate-scrollLeft, .animate-scrollRight { animation-duration: 28s; } }
+        @media (max-width: 768px) { .animate-scrollLeft, .animate-scrollRight { animation-duration: 18s; } }
+        @media (max-width: 480px) { .animate-scrollLeft, .animate-scrollRight { animation-duration: 16s; } }
         .hover\\:pause:hover { animation-play-state: paused !important; }
       `}</style>
     </section>

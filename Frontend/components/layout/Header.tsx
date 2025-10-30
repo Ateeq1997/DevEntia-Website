@@ -16,6 +16,7 @@ const Header: React.FC = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   const menuItems = [
     // { title: "Home", path: "/" },
@@ -59,7 +60,7 @@ const Header: React.FC = () => {
       ${isVisible ? "translate-y-0" : "-translate-y-full"}
       bg-white/90 text-black dark:bg-black dark:text-white transition-colors duration-500`}
     >
- <div className="container px-[5%] lg:px-[5%] py-4">
+ <div className="container px-[5%] lg:px-[5%] py-2.5">
   <div className="flex items-center justify-between w-full flex-wrap lg:flex-row">
     {/* ✅ Logo */}
     <div
@@ -145,15 +146,62 @@ const Header: React.FC = () => {
     Careers
   </Link> */}
 
-  <Link href={"/Contact-us"} className="transition-all duration-500">
-    <p
-      className="p-2 px-2 bg-[#4848FF] text-white
-         dark:bg-white dark:text-black
-         flex items-center justify-center gap-2 font-medium"
+ <Link
+      href="/Contact-us"
+      className="relative inline-block overflow-hidden transition-all duration-500"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      Contact Us
-    </p>
-  </Link>
+      {/* Animated overlay (white in light mode, blue in dark mode) */}
+      <span
+        className="absolute inset-0 transition-transform duration-[600ms] ease-in-out 
+        bg-white dark:bg-[#4848FF]"
+        style={{
+          transform: hovered ? "translateX(0)" : "translateX(-100%)",
+        }}
+      ></span>
+
+      {/* Text layer */}
+      <p
+        className={`relative z-10 p-2 px-5 font-semibold flex items-center justify-center gap-2
+        transition-all duration-500
+        bg-[#4848FF] text-white dark:bg-white dark:text-black`}
+        style={{
+          marginTop: "6px", // <-- moves it slightly down
+          color: hovered
+            ? "var(--hover-text-color)"
+            : undefined,
+          backgroundColor: hovered
+            ? "var(--hover-bg-color)"
+            : undefined,
+        }}
+      >
+        <span
+          className={`
+            transition-colors duration-500
+            ${
+              hovered
+                ? "text-[#4848FF] dark:text-white"
+                : "text-white dark:text-black"
+            }
+          `}
+        >
+          Contact Us
+        </span>
+      </p>
+
+      {/* Custom CSS vars to switch theme-based hover colors */}
+      <style jsx>{`
+        :root {
+          --hover-bg-color: white;
+          --hover-text-color: #4848ff;
+        }
+        .dark {
+          --hover-bg-color: #4848ff;
+          --hover-text-color: white;
+        }
+      `}</style>
+    </Link>
 
   {/* Theme Toggle - Desktop */}
   <div className="hidden md:flex items-center">
