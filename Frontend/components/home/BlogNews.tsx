@@ -6,6 +6,7 @@ import blog2 from "../../assets/images/blog5.png";
 import blog3 from "../../assets/images/blog6.png";
 import Link from "next/link";
 import { MdOutlineArrowForward, MdOutlineArrowBack } from "react-icons/md";
+import axiosInstance from "@/lib/axiosInstance";
 
 type Post = {
   id: string;

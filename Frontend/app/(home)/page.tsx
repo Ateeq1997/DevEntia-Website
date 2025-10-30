@@ -62,8 +62,8 @@ const page = () => {
      {/* <Projects />*/}
       <PositiveImpactSection />
       <AugmentedTeam />
-      <BlogNews />
-  
+      {/*<BlogNews />*/}
+  <Blogscard/>
        {/* <Reviews /> */}
       <TechSection/>
 <CloudSection />
@@ -72,7 +72,7 @@ const page = () => {
       {/* <StatsAndPartners /> */}
      {/*  <ITProcesses /> */}
     {/*  <Hero/> */}
-     {/* <Blogscard/>
+     {/* 
       <Reviews />
       <Tech/>  */}
           <Testimonials />

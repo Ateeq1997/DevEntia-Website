@@ -134,7 +134,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="relative w-full max-w-[1750px] px-4 md:px-6  mx-auto  py-8 bg-black  " style={{ fontFamily: '"Bai Jamjuree", serif' }}>
+    <div className="relative bg-white dark:bg-black w-full max-w-[1750px] px-4 md:px-6  mx-auto  py-8 bg-black  " style={{ fontFamily: '"Bai Jamjuree", serif' }}>
       <div      
        onClick={() => router.back()}
          className="absolute left-6 w-12 h-12 flex item-center justify-center top-[-18px] z-10 bg-[#358E92] rounded-full p-4 shadow-lg lg:hidden " >
@@ -143,8 +143,8 @@ useEffect(() => {
        <div className="flex flex-col lg:flex-row gap-8 pr-0 lg:pr-10 ">
       {/* Sidebar */}
       <div className="lg:w-1/3 hidden lg:block">
-        <div className="bg-[black] py-12 px-12 rounded-lg sticky top-24">
-        <h3 className="text-lg text-[white] font-semibold mb-4">Share this post hello</h3>
+        <div className="bg-[#E8F2FF] dark:bg-black py-12 px-12 rounded-lg sticky top-24">
+        <h3 className="text-lg text-black dark:text-[white] font-semibold mb-4">Share this post hello</h3>
            <div className="flex flex-row items-center gap-3 mb-6">
            <div
     onClick={() => {
@@ -187,12 +187,12 @@ useEffect(() => {
 </button>
 
            </div>
-             <h3 className="text-lg text-[#C8CFD5] font-semibold mb-4">On This Page</h3>
-             <ol className="list-decimal list-outside pl-8 space-y-2 text-white marker:text-white font-semibold text-[16px]">
+             <h3 className="text-lg text-black dark:text-[#C8CFD5] font-semibold mb-4">On This Page</h3>
+             <ol className="list-decimal list-outside pl-8 space-y-2 text-black dark:text-white marker:text-black dark:marker:text-white font-semibold text-[16px]">
              {blog?.outline?.length > 0 ? (
     blog.outline.map((item: any, index: number) => (
       <li key={index}>
-        <a href={item.href} className="text-[#C8CFD5] hover:underline text-[16px]">
+        <a href={item.href} className="text-black dark:text-[#C8CFD5] hover:underline text-[16px]">
           {item.label}
         </a>
       </li>
@@ -211,7 +211,7 @@ useEffect(() => {
                 <input
                   type="email"
                   placeholder="Subscribe to our newsletter"
-                  className="p-3 rounded-full border border-[#FFFFFF40] bg-transparent text-[#9995AC] outline-none flex-1 text-[12px] px-6 "
+                  className="p-3 rounded-full border border-gray-400 dark:border-[#FFFFFF40] bg-transparent text-[#9995AC] outline-none flex-1 text-[12px] px-6 "
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -244,7 +244,7 @@ useEffect(() => {
        {/* Main Content */}
 <div className="lg:flex-1 lg:mt-20 mt-10">
 {blog ? (
-  <div className="max-w-none text-white">
+  <div className="max-w-none text-black dark:bg-black">
     <div 
       className="blog-content-container"
       dangerouslySetInnerHTML={{ __html: blog.blogDescription }}
