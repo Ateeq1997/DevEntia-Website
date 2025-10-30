@@ -167,8 +167,8 @@ const Footer = () => {
       </div>
 
       {/* Footer bottom */}
-      <div className="mt-16 sm:mt-20 mb-8 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 text-center">
-        <div>
+      <div className="mt-16 sm:mt-20 mb-8 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 ">
+        <div className="flex flex-col items-start">
           <p className="font-medium text-lg text-[#4848FF] dark:text-white/35">
             <span
               onClick={() => router.push("/terms-and-conditions")}
