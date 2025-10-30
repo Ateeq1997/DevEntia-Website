@@ -141,7 +141,7 @@ export default function BlogNews() {
         {/* Carousel */}
         <div
           ref={scrollRef}
-          className="mt-10 flex gap-6 overflow-hidden select-none"
+          className="mt-10 flex gap-6 overflow-auto lg:overflow-hidden scroll-smooth no-scrollbar  select-none"
           onWheel={(e) => e.preventDefault()}
           onTouchMove={(e) => e.preventDefault()}
         >

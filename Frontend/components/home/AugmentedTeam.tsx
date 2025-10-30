@@ -50,7 +50,7 @@ const AugmentedTeam = () => {
           </h1>
           <p className="text-lg mt-4 text-left sm:text-justify text-[#333333] dark:text-[#A7ADBE] ">
             This outsourcing model implies enhancing your staff structure with
-            talents provided by a vendor, EffectiveSoft. The skilled personnel
+            talents provided by a vendor, DevEntia Tech. The skilled personnel
             are added to your development team that is managed by your project
             manager. Enhancing a team with outsourced staff usually involves a
             short-term cooperation necessary to meet technical needs of a

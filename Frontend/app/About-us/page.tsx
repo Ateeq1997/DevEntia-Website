@@ -6,6 +6,8 @@ import MeetOurCoFounder from '@/components/AboutUs/MeetOurCoFounder';
 import OurCoreValues from '@/components/AboutUs/OurCoreValues';
 import OurMissionAndVission from '@/components/AboutUs/OurMissionAndVission';
 import { Metadata } from 'next';
+import MeetOurTeam from '@/components/AboutUs/MeetOurTeam';
+import Newsletter from '@/components/AboutUs/newsletter';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -36,8 +38,9 @@ const page = () => {
       <AboutUs />
       <OurCoreValues />
       {/*<MeetOurCoFounder />*/}
-      {/* <MeetOurTeam /> */}
       <OurMissionAndVission />
+       <MeetOurTeam />
+       <Newsletter/>
       {/* <GetInTouch /> */}
     </>
   );
