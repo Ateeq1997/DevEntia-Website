@@ -339,9 +339,9 @@ useEffect(() => {
                        
           {/* CTA Button */}
           <div className="mt-8 flex items-center justify-center lg:!justify-start">
-            <Link href="/Book-a-demo">
+            <Link href="/Contact-us">
               <button
-                className="relative cursor-pointer bg-[#4848FF] text-sm text-white font-medium px-6 py-3  overflow-hidden group transition-all duration-300 shadow-[0_0_16px_4px_rgba(72,72,255,0.5)]"
+                className="relative cursor-pointer bg-[#4848FF] text-sm text-white font-medium px-6 py-3  overflow-hidden group transition-all duration-300 "
                 
               >
                 <span className="relative z-10">Book a Demo</span>

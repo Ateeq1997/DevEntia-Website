@@ -67,7 +67,7 @@ const AugmentedTeam = () => {
     hoverColor="#2E2EB5"
     icon={<MdOutlineArrowOutward size={18} />}
     iconPosition="right"
-    shadowColor="transparent" // 👈 disables the glow
+   // shadowColor="transparent" // 👈 disables the glow
   />
 </div>
 
