@@ -131,7 +131,7 @@ const Footer = () => {
               <FaWhatsapp />
             </a>
             <a
-              href="https://www.google.com"
+              href="/Contact-us"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border-2 border-black/10 dark:border-white/25 rounded-full hover:scale-125 transition-all duration-700 ease-in-out text-[#4848FF] dark:text-white hover:text-[#7471E6]"

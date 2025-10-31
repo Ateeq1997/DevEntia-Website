@@ -8,8 +8,8 @@ import services4 from '../../assets/images/services4.webp';
 import GetInTouch from '@/components/AboutUs/GetInTouch';
 import OurMission from '@/components/Services/OurMission';
 import { Metadata } from 'next';
+import StatsSection from '@/components/home/statistics';
 import ServicesSection from '@/components/Services/ServicesSection';
-import StatsSection from '@/components/Services/StatsSection';
 import Testimonials from '@/components/home/Testimonials';
 import Contact from '@/components/home/contact';
 
