@@ -98,41 +98,44 @@ const Hero = () => {
       </Head>
 
       {/* Hero Section */}
-      <div className="relative max-w-[1750px] px-4 md:px-6 lg:px-12 2xl:px-24 mx-auto min-h-[39rem]  text-black dark:text-white overflow-visible bg-white dark:bg-black">
-       {/* Background Image (instead of Video) */}
-<div className="absolute inset-0 z-0">
-  <img
-    src="/blogs/saas-concept-collage.jpg" 
-    alt="Background"
-    className="w-full h-full object-cover"
-    style={{
-     // borderRadius: '25px',
-      boxShadow: '0px 37.32px 139.96px 0px #358E9226',
-    }}
-  />
+<div className="relative max-w-[1750px] px-4 md:px-6 lg:px-12 2xl:px-24 mx-auto min-h-[39rem] text-black dark:text-white overflow-hidden bg-white dark:bg-black">
+
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src="/blogs/saas-concept-collage.jpg"
+      alt="Background"
+      className="w-full h-full object-cover"
+      style={{
+        boxShadow: '0px 37.32px 139.96px 0px #358E9226',
+      }}
+    />
+  </div>
+
+  {/* Blue Overlay */}
+  <div className="absolute inset-0 bg-blue-800/90 dark:bg-blue-800/40 z-[1] mix-blend-multiply"></div>
+
+  {/* Foreground Content */}
+  <div className="absolute inset-0 z-10 flex items-center">
+    <div className="px-6 md:px-12 lg:px-24 2xl:px-32 w-full md:w-[70%] flex flex-col gap-4 items-start text-left text-white">
+      <h1 className="hidden md:block text-[24px] md:text-[48px] font-semibold leading-tight">
+        {blogTitle}
+      </h1>
+
+      {/* Mobile Heading */}
+      <h1
+        className="block md:hidden text-[24px] font-semibold leading-tight"
+        dangerouslySetInnerHTML={{ __html: createMobileHeading(blogTitle || '') }}
+      />
+
+      {/* Description */}
+      <p className="text-[9px] md:text-[16px] font-normal">
+        {seoDescription}
+      </p>
+    </div>
+  </div>
 </div>
-  <div className="absolute inset-0 bg-blue-700/60 dark:bg-blue-800/40 z-[1] mix-blend-multiply"></div>
 
-
-
-        {/* Foreground Content */}
-        <div className="relative z-10 px-4 md:px-6 lg:px-12 2xl:px-24 max-w-[1550px] mx-auto ">
-          <div className="lg:w-[86%] flex flex-col gap-3 items-start justify-center text-left text-white">
-            <h1 className="hidden md:block text-[24px] md:text-[48px] font-semibold leading-tight mt-32">
-              {blogTitle}
-            </h1>
-
-            {/* Mobile Heading */}
-            <h1
-              className="block md:hidden text-[24px] font-semibold leading-tight"
-              dangerouslySetInnerHTML={{ __html: createMobileHeading(blogTitle || '') }}
-            />
-
-            {/* Truncated Description */}
-            <p className="text-[9px] md:text-[16px] font-normal">{seoDescription}</p>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

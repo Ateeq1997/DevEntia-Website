@@ -115,22 +115,23 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
 const getImageSrc = (item: BlogItem) => {
   if (!item.fileUrl) {
     console.warn(`⚠️ No fileUrl for blog "${item.blogTitle}"`);
-    return ''; // no fallback, just return empty
+    return '';
   }
 
-  // ✅ Already a full URL (e.g., Cloudinary)
+  // ✅ Direct Cloudinary URL
   if (item.fileUrl.startsWith('http')) {
     console.log(`🌐 Using remote image for "${item.blogTitle}":`, item.fileUrl);
     return item.fileUrl;
   }
 
-  // ✅ Convert relative path to API absolute URL (for dev/prod)
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.deventiatech.com';
+  // ✅ Use the same base URL as axiosInstance
+  const baseUrl = 'https://devapi.deventiatech.com'; // match your axiosInstance
   const fullUrl = `${baseUrl.replace(/\/$/, '')}/${item.fileUrl.replace(/^\//, '')}`;
-  console.log(`🔗 Constructed API image URL for "${item.blogTitle}":`, fullUrl);
+  console.log(`🔗 Constructed image URL for "${item.blogTitle}":`, fullUrl);
 
   return fullUrl;
 };
+
  
 
   useEffect(() => {
@@ -234,14 +235,18 @@ const getImageSrc = (item: BlogItem) => {
   >
     {/* ✅ Blog Image */}
     <div className="w-full h-44 md:h-52 relative rounded-none lg:rounded-lg overflow-hidden">
-      <Image
-        src={getImageSrc(blog)}
-        alt={blog.blogTitle}
-        fill
-        sizes="(max-width: 768px) 100vw, 33vw"
-        style={{ objectFit: "cover" }}
-        onError={() => handleImageError(blog._id)}
-      />
+     {getImageSrc(blog) && (
+  <Image
+    src={getImageSrc(blog)}
+    alt={blog.blogTitle}
+    fill
+    sizes="(max-width: 768px) 100vw, 33vw"
+    style={{ objectFit: "cover" }}
+    onError={() => handleImageError(blog._id)}
+    unoptimized={process.env.NODE_ENV === "development"} // ✅ bypass domain check in dev
+  />
+)}
+
     </div>
 
     {/* ✅ Content */}

@@ -1,5 +1,17 @@
 const nextConfig = {
   images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "devapi.deventiatech.com",
+        pathname: "/**",
+      },
+    ],
     domains: [
       "i.ibb.co",
       "l-ldesign.com.au",
