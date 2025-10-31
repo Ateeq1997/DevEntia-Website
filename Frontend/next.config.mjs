@@ -11,21 +11,19 @@ const nextConfig = {
     ],
   },
   webpack: (config, { isServer }) => {
-    // For MP4 files
     config.module.rules.push({
       test: /\.(mp4)$/,
       use: [
         {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            outputPath: 'assets/videos', // Output path for videos
-            publicPath: '/_next/assets/videos', // Public URL for videos
-            esModule: false, // To handle ES Modules correctly
+            outputPath: "assets/videos",
+            publicPath: "/_next/assets/videos",
+            esModule: false,
           },
         },
       ],
     });
-
     return config;
   },
 };

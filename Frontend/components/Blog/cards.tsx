@@ -37,26 +37,28 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [viewportScale, setViewportScale] = useState(1);
 
-   useEffect(() => {
+  useEffect(() => {
   const fetchBlogs = async () => {
     try {
       const { data } = await axiosInstance.get('/blog');
-      console.log("Blogs",data);
+      console.log("📥 Raw blogs from API:", data);
+
       const publishedBlogs = data.filter((blog: BlogItem) => blog.status === 'published');
-      console.log("Published blogs with fileUrls:", publishedBlogs.map((blog: BlogItem) => ({ 
-        id: blog._id, 
-        title: blog.blogTitle, 
-        fileUrl: blog.fileUrl,
-        isValidUrl: blog.fileUrl && blog.fileUrl.startsWith('http')
+
+      console.log("✅ Published blogs with URLs:", publishedBlogs.map((b: BlogItem) => ({
+        id: b._id,
+        title: b.blogTitle,
+        fileUrl: b.fileUrl,
       })));
+
       setBlogs(publishedBlogs);
     } catch (err) {
-      console.error('Failed to fetch blogs:', err);
+      console.error('❌ Failed to fetch blogs:', err);
     }
-  }
+  };
   fetchBlogs();
- }, []);
-  
+}, []);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -110,12 +112,26 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
     setImageErrors(prev => new Set(prev).add(blogId));
   };
 
-  const getImageSrc = (item: BlogItem) => {
-    if (imageErrors.has(item._id)) {
-      return '/chooseImage.png'; // Fallback image
-    }
+const getImageSrc = (item: BlogItem) => {
+  if (!item.fileUrl) {
+    console.warn(`⚠️ No fileUrl for blog "${item.blogTitle}"`);
+    return ''; // no fallback, just return empty
+  }
+
+  // ✅ Already a full URL (e.g., Cloudinary)
+  if (item.fileUrl.startsWith('http')) {
+    console.log(`🌐 Using remote image for "${item.blogTitle}":`, item.fileUrl);
     return item.fileUrl;
-  };
+  }
+
+  // ✅ Convert relative path to API absolute URL (for dev/prod)
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.deventiatech.com';
+  const fullUrl = `${baseUrl.replace(/\/$/, '')}/${item.fileUrl.replace(/^\//, '')}`;
+  console.log(`🔗 Constructed API image URL for "${item.blogTitle}":`, fullUrl);
+
+  return fullUrl;
+};
+ 
 
   useEffect(() => {
       const handleZoom = () => {
@@ -210,7 +226,7 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
                    {blogs.map((blog) => (
   <article
     key={blog._id}
-    className="min-w-[90%] sm:min-w-[60%] md:min-w-[40%] lg:min-w-[32%] relative 
+    className="min-w-[95%] sm:min-w-[60%] md:min-w-[40%] lg:min-w-[32%] h-[500px] relative 
                bg-transparent 
                border border-[#00000026] dark:border-[#F2F3F6] 
                rounded-2xl overflow-hidden hover:shadow-lg 
@@ -237,31 +253,32 @@ const Blogscard: React.FC<BlogscardProps> = ({ showAll = false }) => {
         {stripHtml(blog.blogDescription).slice(0, 120)}...
       </p>
 
-      <div className="flex items-center justify-between mt-12">
-        {/* ✅ Read More Link */}
-        <Link
-          href={`/Blog/Details/${blog._id}`}
-          className="inline-flex items-center gap-2 text-sm 
-                     text-[#4848FF] hover:text-[#2c2cff]
-                     dark:text-gray-200 dark:hover:text-white
-                     transition-colors"
-        >
-          Read More
-          <MdOutlineArrowForward
-            className="text-[#4848FF] dark:text-gray-200 transition-transform duration-300"
-            style={{ transform: "rotate(-50deg)" }}
-          />
-        </Link>
+      <div className="flex items-center w-[88%] justify-between absolute bottom-8 z-10">
+  {/* ✅ Read More Link */}
+  <Link
+    href={`/Blog/Details/${blog._id}`}
+    className="inline-flex items-center gap-2 text-sm 
+               text-[#4848FF] hover:text-[#2c2cff]
+               dark:text-gray-200 dark:hover:text-white
+               transition-colors"
+  >
+    Read More
+    <MdOutlineArrowForward
+      className="text-[#4848FF] dark:text-gray-200 transition-transform duration-300"
+      style={{ transform: "rotate(-50deg)" }}
+    />
+  </Link>
 
-        {/* ✅ Date */}
-        <span
-          className="bg-[#4848FF] text-white 
-                     dark:bg-white dark:text-black
-                     text-xs px-4 py-1.5 shadow"
-        >
-          {formatDate(blog.createdAt)}
-        </span>
-      </div>
+  {/* ✅ Date */}
+  <span
+    className="bg-[#4848FF] text-white 
+               dark:bg-white dark:text-black
+               text-xs px-4 py-1.5 shadow"
+  >
+    {formatDate(blog.createdAt)}
+  </span>
+</div>
+
     </div>
   </article>
 ))}
