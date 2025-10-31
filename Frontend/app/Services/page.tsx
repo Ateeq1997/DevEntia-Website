@@ -1,183 +1,93 @@
-import Hero from '@/components/Services/Hero';
-import ServicesCard from '@/components/Services/ServicesCard';
-import { FaRegSquareCheck } from 'react-icons/fa6';
-import services1 from '../../assets/images/services1.webp';
-import services2 from '../../assets/images/services2.webp';
-import services3 from '../../assets/images/services3.webp';
-import services4 from '../../assets/images/services4.webp';
-import GetInTouch from '@/components/AboutUs/GetInTouch';
-import OurMission from '@/components/Services/OurMission';
-import { Metadata } from 'next';
-import StatsSection from '@/components/home/statistics';
-import ServicesSection from '@/components/Services/ServicesSection';
-import Testimonials from '@/components/home/Testimonials';
-import Contact from '@/components/home/contact';
+import Hero from "@/components/Services/Hero";
+import ServicesCard from "@/components/Services/ServicesCard";
+import { FaRegSquareCheck } from "react-icons/fa6";
+import services1 from "../../assets/images/services1.webp";
+import services2 from "../../assets/images/services2.webp";
+import services3 from "../../assets/images/services3.webp";
+import services4 from "../../assets/images/services4.webp";
+import GetInTouch from "@/components/AboutUs/GetInTouch";
+import OurMission from "@/components/Services/OurMission";
+import { Metadata } from "next";
+import StatsSection from "@/components/home/statistics";
+import ServicesSection from "@/components/Services/ServicesSection";
+import Testimonials from "@/components/home/Testimonials";
+import Contact from "@/components/home/contact";
 
 export const metadata: Metadata = {
-  title: 'Our Services',
+  title: "IT Services: Software, Cloud, AI & Web Development | DevEntia",
   description:
-    'Explore the comprehensive IT solutions offered by DevEntia Tech Pvt. Ltd. We specialize in planning, design, development, and testing services to elevate your business with cutting-edge technology.',
+    "Explore DevEntia's comprehensive IT services: healthcare software, fintech solutions, cloud engineering, AI development, and UI/UX design. Tailored for startups and enterprises.",
+  keywords: [
+    "IT services company",
+    "software development services",
+    "cloud engineering",
+    "enterprise software solutions",
+    "technology consulting",
+  ],
   openGraph: {
-    title: 'Our Services',
+    title: "IT Services: Software, Cloud, AI & Web Development | DevEntia",
     description:
-      'Explore the comprehensive IT solutions offered by DevEntia Tech Pvt. Ltd. We specialize in planning, design, development, and testing services to elevate your business with cutting-edge technology.',
-    siteName: 'DevEntia Tech Pvt. Ltd',
+      "Explore DevEntia's comprehensive IT services: healthcare software, fintech solutions, cloud engineering, AI development, and UI/UX design. Tailored for startups and enterprises.",
+    url: "https://dev.deventiatech.com/Services",
+    siteName: "DevEntia Tech",
+    type: "website",
+    locale: "en_US",
     images: [
       {
-        url: 'https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417304/services_ulnrx5.jpg',
+        url: "https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417304/services_ulnrx5.jpg",
         width: 1200,
         height: 630,
-        alt: 'DevEntia Tech Pvt. Ltd Services Overview',
+        alt: "DevEntia Tech IT Services Overview",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+  },
+  alternates: {
+    canonical: "https://dev.deventiatech.com/Services",
   },
 };
 
-const page = () => {
+const ServicesPage = () => {
+  // -------- Structured Data (Schema.org) --------
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Comprehensive IT Solutions & Software Development Services",
+    provider: {
+      "@type": "Organization",
+      name: "DevEntia Tech",
+      url: "https://dev.deventiatech.com/",
+      logo: "https://dev.deventiatech.com/logo.png",
+    },
+    serviceType: [
+      "Custom Software Development",
+      "Cloud Engineering",
+      "AI & ML Development",
+      "Web Development",
+      "Technology Consulting",
+    ],
+    areaServed: "Worldwide",
+    description:
+      "DevEntia Tech offers expert IT services, including custom software, cloud solutions, and AI-powered applications for startups and enterprises.",
+    url: "https://dev.deventiatech.com/Services",
+  };
+
   return (
     <>
       <Hero />
-      {/* <div className="p-[5%] ">
-        <h1 className="font-bold text-2xl md:text-4xl">Our Services</h1>
-        <p className="text-[#ACACAC] text-lg mt-4">
-          we offer tailored IT solutions designed to propel your business
-          forward. From software development to cybersecurity, trust us to
-          deliver innovation and excellence.
-        </p>
-      </div> */}
+
       <ServicesSection />
-<OurMission />
-<StatsSection />
-<Testimonials />
-<Contact />
-      {/* <ServicesCard
-        title="Plan"
-        flexReverse={false}
-        Checkboxes={
-          <>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Brain Storming
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Mind Mapping
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Industry Analysis
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Charting a Course
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Agile Strategy
-            </p>
-          </>
-        }
-        exploreLink={'/Services/Plan'}
-        img={services1}
+      <OurMission />
+      <StatsSection />
+      <Testimonials />
+      <Contact />
+
+      {/* -------- JSON-LD Structured Data for SEO -------- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <ServicesCard
-        title="Design"
-        flexReverse={true}
-        Checkboxes={
-          <>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              User Experience(UX)
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              User Interface(UI)
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Web Design
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Mobile Application
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Design Prototypes
-            </p>
-          </>
-        }
-        exploreLink={'/Services/Design-service'}
-        img={services2}
-      />
-      <ServicesCard
-        title="Development"
-        flexReverse={false}
-        Checkboxes={
-          <>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Full Stack Development
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Machine Learning
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Development Support
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Deployment Services
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Admin Panel Development
-            </p>
-          </>
-        }
-        exploreLink={'/Services/Development'}
-        img={services3}
-      />
-      <ServicesCard
-        title="Testing"
-        flexReverse={true}
-        Checkboxes={
-          <>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Quality assurance
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Functional Testing
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Performance Testing
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Compatibility Testing
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Security Testing
-            </p>
-            <p className="text-[#E6E6E6] flex gap-2 items-center text-lg mt-2">
-              <FaRegSquareCheck className="text-[#8A88EC]" size={22} />
-              Usability Testing
-            </p>
-          </>
-        }
-        exploreLink={'/Services/Testing'}
-        img={services4}
-      /> */}
-      {/* <GetInTouch /> */}
     </>
   );
 };
-export default page;
+
+export default ServicesPage;
