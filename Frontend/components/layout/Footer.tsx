@@ -33,6 +33,7 @@ const Footer = () => {
   ];
 
   return (
+    <div className="bg-white dark:bg-black w-full">
     <footer
       className="p-[5%] relative transition-colors duration-500
              bg-white dark:bg-[#161616] text-[#0b0b0d] dark:text-white
@@ -195,6 +196,7 @@ const Footer = () => {
         </h4>
       </div>
     </footer>
+    </div>
   );
 };
 

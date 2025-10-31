@@ -2,8 +2,6 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require('express');
 const contactRoutes = require('./Routes/contact');
-
-
 const mongoose = require('mongoose');
 const app = express();
 const cloudinary = require('./config/Cloudinary');
@@ -30,7 +28,6 @@ const loginRoutes = require('./Routes/login.js');
 const jobApplyRoutes = require('./Routes/jobApply.js');
 const jobRoutes = require('./Routes/job.js');
 const blogRoutes = require('./Routes/BlogRoute');
-
 const cors = require('cors');
 
 app.use(express.json());
@@ -56,7 +53,6 @@ app.use('/', jobApplyRoutes);
 app.use('/', jobRoutes);
 app.use('/', blogRoutes);
 app.use('/api/contact', contactRoutes);
-
 // database
 mongoose
   .connect(

@@ -60,14 +60,15 @@ export default function RootLayout({
         <title>DevEntia Tech</title>
       </Head> */}
       <body className={`tracking-wider font-bai`}>
-        <main className="max-w-[1750px] mx-auto">
+        <main className="w-full bg-white dark:bg-black">
+          <div className='max-w-[1750px] mx-auto'>
           <Head>
             <link rel="icon" href="/favicon.ico" sizes="any" />
           </Head>
           <ConditionalLayout>
             {children}
           </ConditionalLayout>
-          
+          </div>
         </main>
       </body>
     </html>

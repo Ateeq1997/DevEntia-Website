@@ -298,12 +298,12 @@
 // module.exports = sendMail;
 
 
-
 const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
+const Newsletter = require("../../Model/newsletter");
 
 // Configure the transporter with your Gmail credentials
 const transporter = nodemailer.createTransport({
@@ -318,12 +318,21 @@ const transporter = nodemailer.createTransport({
 async function sendEmail(senderEmail, message, subject, phoneNumber, fullName, isNewsletter = false) {
   try {
     let mailOptions;
-    
+
     if (isNewsletter) {
-      // Newsletter subscription - send welcome email to customer
+      // 🧠 Step 1: Save the subscriber email in DB
+      const existing = await Newsletter.findOne({ email: senderEmail });
+      if (!existing) {
+        await Newsletter.create({ email: senderEmail });
+        console.log(`✅ New subscriber saved: ${senderEmail}`);
+      } else {
+        console.log(`⚠️ Subscriber already exists: ${senderEmail}`);
+      }
+
+      // 🧠 Step 2: Send welcome email to subscriber
       mailOptions = {
         from: process.env.SMTP_USER || 'deventialimited@gmail.com',
-        to: senderEmail, // Send TO the customer's email
+        to: senderEmail,
         subject: '🎉 Welcome to DevEntia Tech Newsletter!',
         text: `Thank you for subscribing to our newsletter! We'll keep you updated with the latest tech insights and company news.`,
         html: `
@@ -347,11 +356,11 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName, i
           </div>
         `,
       };
-      
-      // Also send notification to company (optional)
+
+      // 🧠 Step 3: Send notification to company
       const notificationMail = {
         from: process.env.SMTP_USER || 'deventialimited@gmail.com',
-        to: ['deventialimited@gmail.com'], // Only company email
+        to: ['deventialimited@gmail.com'],
         subject: '📧 New Newsletter Subscription',
         text: `New newsletter subscription from: ${senderEmail}`,
         html: `
@@ -364,8 +373,7 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName, i
           </div>
         `,
       };
-      
-      // Send both emails
+
       await transporter.sendMail(notificationMail);
     } else {
       // Regular contact form - send to company
@@ -375,7 +383,6 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName, i
           'contact@deventiatech.com',
           'deventialimited@gmail.com',
           'abdulmajid1m2@gmail.com',
-
         ],
         subject: '🔔 New Customer Inquiry',
         text: message,
@@ -397,41 +404,33 @@ async function sendEmail(senderEmail, message, subject, phoneNumber, fullName, i
         `,
       };
     }
-    
+
     const info = await transporter.sendMail(mailOptions);
-    console.log('Message sent: %s', info.messageId);
+    console.log('📨 Message sent:', info.messageId);
     return info;
   } catch (error) {
     throw new Error(`Error sending acknowledgment email: ${error.message}`);
   }
 }
 
-// Backward compatibility: if any legacy code calls sendNotificationEmail,
-// route it to the new unified sendEmail helper to avoid ReferenceError.
-const sendNotificationEmail = (...args) => sendEmail(...args);
-
-// Express route handler to send emails
+// Express route handler
 const sendMail = async (req, res) => {
-  console.log('mail data: ', req.body);
+  console.log('📩 Mail data:', req.body);
   const { senderEmail, message, subject, phoneNumber, fullName, isNewsletter } = req.body;
 
-  // Check if this is a newsletter subscription
   const isNewsletterSub = isNewsletter || (subject === 'Newsletter Subscription' && message === 'Newsletter subscription request');
 
   if (isNewsletterSub) {
-    // Newsletter subscription - only email is required
     if (!senderEmail) {
       return res.status(400).json({ message: 'Email is required for newsletter subscription.' });
     }
   } else {
-    // Regular contact form - all fields required
     if (!senderEmail || !message || !subject || !phoneNumber || !fullName) {
       return res.status(400).json({ message: 'All fields are required for contact form.' });
     }
   }
 
   try {
-    // Send the email using unified helper
     const info = await sendEmail(
       senderEmail,
       message || 'Newsletter subscription request',
@@ -440,12 +439,15 @@ const sendMail = async (req, res) => {
       fullName || 'Newsletter Subscriber',
       isNewsletterSub
     );
+
     res.status(200).json({
-      message: isNewsletterSub ? 'Newsletter subscription successful!' : 'Mail has been sent successfully',
+      message: isNewsletterSub
+        ? 'Newsletter subscription successful and saved in database!'
+        : 'Mail sent successfully',
       messageId: info?.messageId || null,
     });
   } catch (error) {
-    console.error('Error sending emails:', error);
+    console.error('❌ Error sending emails:', error);
     res.status(500).json({
       message: 'Error sending emails',
       error: error.toString(),
@@ -453,4 +455,29 @@ const sendMail = async (req, res) => {
   }
 };
 
-module.exports = sendMail;
+const getSubscribers = async (req, res) => {
+  try {
+    const subscribers = await Newsletter.find().sort({ createdAt: -1 });
+    if (!subscribers.length) {
+      return res.status(404).json({ message: "No subscribers found" });
+    }
+
+    res.status(200).json({
+      message: "Subscribers fetched successfully",
+      count: subscribers.length,
+      data: subscribers,
+    });
+  } catch (error) {
+    console.error("Error fetching subscribers:", error);
+    res.status(500).json({
+      message: "Server error while fetching subscribers",
+      error: error.message,
+    });
+  }
+};
+
+// ✅ Export both functions properly
+module.exports = {
+  sendMail,
+  getSubscribers,
+};

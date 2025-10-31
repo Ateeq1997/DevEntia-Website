@@ -5,16 +5,16 @@ import { useState, ReactNode } from "react";
 
 interface AnimatedButtonProps {
   text: string;
-  href?: string; // ✅ optional
+  href?: string; // optional link
   bgColor?: string;
   textColor?: string;
   hoverTextColor?: string;
-  shadowColor?: string;
+ // shadowColor?: string;
   hoverColor?: string;
-  icon?: ReactNode; // ✅ optional icon
-  iconPosition?: "left" | "right"; // ✅ control icon placement
-  onClick?: () => void; // ✅ for non-link usage
-  disabled?: boolean; // ✅ added disabled prop
+  icon?: ReactNode;
+  iconPosition?: "left" | "right";
+  onClick?: () => void; // ✅ optional click handler
+  disabled?: boolean;
   newTab?: boolean;
 }
 
@@ -24,17 +24,16 @@ const Button = ({
   bgColor = "#4848FF",
   textColor = "#CFCEFB",
   hoverTextColor,
-  shadowColor,
+  //shadowColor,
   hoverColor = "#1E1EBE",
   icon,
   iconPosition = "left",
   onClick,
-  disabled = false, // ✅ default false
+  disabled = false,
   newTab = false,
 }: AnimatedButtonProps) => {
   const [hovered, setHovered] = useState(false);
 
-  // Detect if color is light
   const isLightColor = (hex: string) => {
     const c = hex.replace("#", "");
     const rgb = parseInt(c, 16);
@@ -44,18 +43,16 @@ const Button = ({
     return (r * 299 + g * 587 + b * 114) / 1000 > 180;
   };
 
-  // Auto shadow based on bg color brightness
-  const computedShadow = shadowColor
-    ? shadowColor
-    : isLightColor(bgColor)
-    ? "rgba(255,255,255,0.4)"
-    : "rgba(72,72,255,0.5)";
+ // const computedShadow = shadowColor
+   // ? shadowColor
+   // : isLightColor(bgColor)
+   // ? "rgba(255,255,255,0.4)"
+   // : "rgba(72,72,255,0.5)";
 
-  // Shared styles
   const baseStyles: React.CSSProperties = {
     color: hovered && hoverTextColor ? hoverTextColor : textColor,
     backgroundColor: bgColor,
-    boxShadow: disabled ? "none" : `0 0 10px 5px ${computedShadow}`,
+    //boxShadow: disabled ? "none" : `0 0 10px 5px ${computedShadow}`,
     opacity: disabled ? 0.5 : 1,
     cursor: disabled ? "not-allowed" : "pointer",
     backdropFilter: "blur(45px)",
@@ -64,7 +61,6 @@ const Button = ({
 
   const content = (
     <>
-      {/* Hover overlay (disabled = no animation) */}
       <span
         className="absolute inset-0 transition-transform duration-[600ms] ease-in-out"
         style={{
@@ -72,9 +68,7 @@ const Button = ({
           transform:
             hovered && !disabled ? "translateX(0)" : "translateX(-100%)",
         }}
-      ></span>
-
-      {/* Text + Icon */}
+      />
       <span className="relative z-10 flex items-center gap-2">
         {icon && iconPosition === "left" && <span>{icon}</span>}
         {text}
@@ -86,14 +80,14 @@ const Button = ({
   const sharedClasses =
     "relative flex items-center justify-center gap-2 px-5 py-3 " +
     "text-[14px] md:text-[16px] font-semibold font-['Bai_Jamjuree'] " +
-    "min-w-[150px] text-center overflow-hidden transition-all duration-300 ease-in-out ";
+    "min-w-[150px] text-center overflow-hidden transition-all duration-300 ease-in-out";
 
   if (href) {
     return (
-     <Link
+      <Link
         href={href}
-        target={newTab ? "_blank" : "_self"} // ✅ open in new tab if true
-        rel={newTab ? "noopener noreferrer" : undefined} // ✅ safe link handling
+        target={newTab ? "_blank" : "_self"}
+        rel={newTab ? "noopener noreferrer" : undefined}
         onMouseEnter={() => !disabled && setHovered(true)}
         onMouseLeave={() => !disabled && setHovered(false)}
         className={sharedClasses}
@@ -107,8 +101,9 @@ const Button = ({
 
   return (
     <button
+      type="button"
       disabled={disabled}
-      onClick={!disabled ? onClick : undefined}
+      onClick={onClick} // ✅ optional, no need for check
       onMouseEnter={() => !disabled && setHovered(true)}
       onMouseLeave={() => !disabled && setHovered(false)}
       className={sharedClasses}
