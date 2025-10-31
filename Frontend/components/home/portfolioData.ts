@@ -34,7 +34,7 @@ const portfolioData = [
     desc: "Simple.Tax is a next-generation tax platform that blends AI and expert CPAs to make filing simple, fast, and stress-free.",
    logo: simmple,
        app: false, // ✅ Not an app
-    siteLink: "https://example-website.com", // ✅ Normal site link
+    siteLink: "https://www.simpple.tax", // ✅ Normal site link
    Title: "Case Study for Simple Tax Website",
     heroimg: heroimg4,
     overviewcontent: `
@@ -463,7 +463,7 @@ technologies: [
     desc: "Aneuro is an AI-driven app for personalized brain health insights and cognitive training programs tailored to each user.",
     logo: aneurologo,
      app: false, 
-    siteLink: "https://example-website.com", 
+    siteLink: "https://aneuro.io/", 
     Title: "Case Study for Aneuro Website",
     heroimg: heroimg1,
 overviewcontent: `

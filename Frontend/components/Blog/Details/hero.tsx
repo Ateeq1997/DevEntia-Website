@@ -102,18 +102,16 @@ const Hero = () => {
 
   {/* Background Image */}
   <div className="absolute inset-0 z-0">
-    <img
-      src="/blogs/saas-concept-collage.jpg"
-      alt="Background"
-      className="w-full h-full object-cover"
-      style={{
-        boxShadow: '0px 37.32px 139.96px 0px #358E9226',
-      }}
-    />
+     <img
+    src="/blogs/saas-concept-collage.jpg"
+    alt="Background"
+    className="w-full h-full object-cover opacity-50"
+   
+  />
   </div>
 
   {/* Blue Overlay */}
-  <div className="absolute inset-0 bg-blue-800/90 dark:bg-blue-800/40 z-[1] mix-blend-multiply"></div>
+  <div className="absolute inset-0 bg-blue-700/60 dark:bg-blue-800/40 z-[1] mix-blend-multiply"></div>
 
   {/* Foreground Content */}
   <div className="absolute inset-0 z-10 flex items-center">
