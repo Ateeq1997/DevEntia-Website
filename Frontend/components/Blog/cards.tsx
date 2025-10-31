@@ -243,7 +243,7 @@ const getImageSrc = (item: BlogItem) => {
     sizes="(max-width: 768px) 100vw, 33vw"
     style={{ objectFit: "cover" }}
     onError={() => handleImageError(blog._id)}
-    unoptimized={process.env.NODE_ENV === "development"} // ✅ bypass domain check in dev
+    //unoptimized={process.env.NODE_ENV === "development"} // ✅ bypass domain check in dev
   />
 )}
 

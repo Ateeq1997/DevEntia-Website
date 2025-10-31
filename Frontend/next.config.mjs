@@ -1,15 +1,27 @@
+/** @type {import('next').NextConfig} */
+
 const nextConfig = {
   images: {
-    remotePatterns: [
+   remotePatterns: [
       {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
       },
       {
-        protocol: "https",
-        hostname: "devapi.deventiatech.com",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'devapi.deventiatech.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.deventiatech.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
       },
     ],
     domains: [
