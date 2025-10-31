@@ -225,67 +225,65 @@ const getImageSrc = (item: BlogItem) => {
                    onTouchMove={(e) => e.preventDefault()}
                  >
                    {blogs.map((blog) => (
-  <article
-    key={blog._id}
-    className="min-w-[95%] sm:min-w-[60%] md:min-w-[40%] lg:min-w-[32%] h-[500px] relative 
-               bg-transparent 
-               border border-[#00000026] dark:border-[#F2F3F6] 
-               rounded-2xl overflow-hidden hover:shadow-lg 
-               transition-transform transform px-8 py-6"
-  >
-    {/* ✅ Blog Image */}
-    <div className="w-full h-44 md:h-52 relative rounded-none lg:rounded-lg overflow-hidden">
-     {getImageSrc(blog) && (
-  <Image
-    src={getImageSrc(blog)}
-    alt={blog.blogTitle}
-    fill
-    sizes="(max-width: 768px) 100vw, 33vw"
-    style={{ objectFit: "cover" }}
-    onError={() => handleImageError(blog._id)}
-    //unoptimized={process.env.NODE_ENV === "development"} // ✅ bypass domain check in dev
-  />
-)}
+ <article
+  key={blog._id}
+  className="w-full md:w-[360px] lg:w-[430px] 
+             h-[500px] relative bg-transparent 
+             border border-[#00000026] dark:border-[#F2F3F6] 
+             rounded-2xl overflow-hidden hover:shadow-lg 
+             transition-transform transform shrink-0 
+             px-8 py-6"
+>
+  {/* ✅ Blog Image */}
+  <div className="w-full h-44 md:h-52 relative rounded-none lg:rounded-lg overflow-hidden">
+    {getImageSrc(blog) && (
+      <img
+        src={getImageSrc(blog)}
+        alt={blog.blogTitle}
+        className="w-full h-full object-cover"
+        onError={() => handleImageError(blog._id)}
+        loading="lazy"
+      />
+    )}
+  </div>
 
+  {/* ✅ Content */}
+  <div className="py-0">
+    <h3 className="text-lg font-semibold mb-2 text-black dark:text-white mt-8 mb-3">
+      {blog.blogTitle}
+    </h3>
+    <p className="text-gray-800 dark:text-gray-300 text-sm leading-relaxed mb-6 line-clamp-3">
+      {stripHtml(blog.blogDescription).slice(0, 120)}...
+    </p>
+
+    <div className="flex items-center w-[88%] justify-between absolute bottom-8 z-10">
+      {/* ✅ Read More Link */}
+      <Link
+        href={`/Blog/Details/${blog._id}`}
+        className="inline-flex items-center gap-2 text-sm 
+                   text-[#4848FF] hover:text-[#2c2cff]
+                   dark:text-gray-200 dark:hover:text-white
+                   transition-colors"
+      >
+        Read More
+        <MdOutlineArrowForward
+          className="text-[#4848FF] dark:text-gray-200 transition-transform duration-300"
+          style={{ transform: "rotate(-50deg)" }}
+        />
+      </Link>
+
+      {/* ✅ Date */}
+      <span
+        className="bg-[#4848FF] text-white 
+                   dark:bg-white dark:text-black
+                   text-xs px-4 py-1.5 shadow"
+      >
+        {formatDate(blog.createdAt)}
+      </span>
     </div>
+  </div>
+</article>
 
-    {/* ✅ Content */}
-    <div className="py-0">
-      <h3 className="text-lg font-semibold mb-2 text-black dark:text-white mt-8 mb-3">
-        {blog.blogTitle}
-      </h3>
-      <p className="text-gray-800 dark:text-gray-300 text-sm leading-relaxed mb-6 line-clamp-3">
-        {stripHtml(blog.blogDescription).slice(0, 120)}...
-      </p>
-
-      <div className="flex items-center w-[88%] justify-between absolute bottom-8 z-10">
-  {/* ✅ Read More Link */}
-  <Link
-    href={`/Blog/Details/${blog._id}`}
-    className="inline-flex items-center gap-2 text-sm 
-               text-[#4848FF] hover:text-[#2c2cff]
-               dark:text-gray-200 dark:hover:text-white
-               transition-colors"
-  >
-    Read More
-    <MdOutlineArrowForward
-      className="text-[#4848FF] dark:text-gray-200 transition-transform duration-300"
-      style={{ transform: "rotate(-50deg)" }}
-    />
-  </Link>
-
-  {/* ✅ Date */}
-  <span
-    className="bg-[#4848FF] text-white 
-               dark:bg-white dark:text-black
-               text-xs px-4 py-1.5 shadow"
-  >
-    {formatDate(blog.createdAt)}
-  </span>
-</div>
-
-    </div>
-  </article>
 ))}
 
                  </div>
