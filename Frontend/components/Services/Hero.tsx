@@ -61,6 +61,7 @@ const Hero = () => {
               bgColor="#4848FF"
               textColor="#CFCEFB"
               hoverColor="#2E2EB5"
+             
             />
           </div>
         </div>
