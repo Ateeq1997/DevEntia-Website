@@ -220,9 +220,7 @@ useEffect(() => {
                 <button
                   type="submit"
                   className="relative text-[12px] p-2 px-6 text-white bg-[#4848FF] overflow-hidden group transition-all duration-300"
-                  style={{
-                    boxShadow: "0 0 5px 2px #4848FF, 0 0 0 0 #fff"
-                  }}
+                 
                   disabled={submitting}
                 >
                   <span className="relative z-10">{submitting ? "Subscribing..." : "Subscribe"}</span>
@@ -401,7 +399,7 @@ useEffect(() => {
              {blog?.outline?.length > 0 ? (
     blog.outline.map((item: any, index: number) => (
       <li key={index}>
-        <a href={item.href} className="text-[#C8CFD5] hover:underline text-[16px]">
+        <a href={item.href} className="text-black dark:text-[#C8CFD5] hover:underline text-[16px]">
           {item.label}
         </a>
       </li>
