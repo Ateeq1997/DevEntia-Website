@@ -13,6 +13,39 @@ import logo1 from '@/assets/images/Healthcare.png';
 import logo2 from '@/assets/images/Retail.svg.png';
 import logo3 from '@/assets/images/maunfacturing.png';
 import logo4 from '@/assets/images/Finance.png';
+import { Metadata } from 'next';
+
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "Product Engineering Services - MVP to Scale | DevEntia Tech",
+  description:
+    "End-to-end product engineering from concept to launch. DevEntia builds MVPs, scales products, and provides continuous development for startups and enterprises.",
+  keywords: [
+    "product engineering services",
+    "MVP development",
+    "product scaling",
+    "agile product development",
+    "software product lifecycle",
+  ],
+  openGraph: {
+    title: "Product Engineering Services - MVP to Scale | DevEntia Tech",
+    description:
+      "End-to-end product engineering from concept to launch. DevEntia builds MVPs, scales products, and provides continuous development for startups and enterprises.",
+    url: "https://dev.deventiatech.com/Services/ProductEngineering",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417327/product-engineering-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Product Engineering Services by DevEntia",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
 
 // ✅ Product-specific data
 const productServices = [
@@ -198,6 +231,10 @@ const productWhyUs = [
 function Page() {
   return (
     <div>
+       {/* H1 for SEO */}
+      <h1 className="sr-only">
+        Full-Cycle Product Engineering Services for Digital Innovation
+      </h1>
       <Hero />
 
       <ServicesSection

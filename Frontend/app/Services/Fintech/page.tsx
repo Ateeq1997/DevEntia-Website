@@ -13,6 +13,39 @@ import logo1 from '@/assets/images/ai.png';
 import logo2 from '@/assets/images/block.png';
 import logo3 from '@/assets/images/Iot.png';
 import logo4 from '@/assets/images/cloud.png';
+import { Metadata } from 'next';
+
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "Fintech Software Development - Banking & Payment Solutions",
+  description:
+    "Build secure fintech applications with DevEntia: payment gateways, digital banking, cryptocurrency platforms, and financial management systems. PCI-DSS compliant.",
+  keywords: [
+    "fintech app development",
+    "payment gateway integration",
+    "digital banking solutions",
+    "cryptocurrency development",
+    "financial software development",
+  ],
+  openGraph: {
+    title: "Fintech Software Development - Banking & Payment Solutions",
+    description:
+      "Build secure fintech applications with DevEntia: payment gateways, digital banking, cryptocurrency platforms, and financial management systems. PCI-DSS compliant.",
+    url: "https://dev.deventiatech.com/Services/Fintech",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417327/fintech-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Fintech Software Solutions by DevEntia",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
 
 // ✅ Fintech-specific data
 const fintechServices = [
@@ -193,6 +226,10 @@ const fintechWhyUs = [
 function Page() {
   return (
     <div>
+           {/* H1 for SEO */}
+      <h1 className="sr-only">
+        Secure Fintech Software Development for Modern Banking
+      </h1>
       <Hero />
 
       <ServicesSection

@@ -8,10 +8,41 @@ import WhatMyClientSay from '@/components/OurPortfolio/CaseStudy/WhatMyClientSay
 import isaLogo from '../../../../assets/images/RS-global-logo.webp';
 import isaDesk from '../../../../assets/images/RS-desktop.webp';
 import isaDesk1 from '../../../../assets/images/RS-desktop1.webp';
+import { Metadata } from 'next';
 
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "RS Global Ties Project - International Business Platform",
+  description:
+    "Discover how DevEntia built RS Global Ties' international business platform. Full-stack web development with real-time features, scalable architecture, and modern UI.",
+  keywords: [
+    "business platform development",
+    "international business software",
+    "enterprise web application",
+  ],
+  openGraph: {
+    title: "RS Global Ties Project - International Business Platform",
+    description:
+      "Discover how DevEntia built RS Global Ties' international business platform. Full-stack web development with real-time features, scalable architecture, and modern UI.",
+    url: "https://dev.deventiatech.com/Our-Portfolio/Projects/RS-Global-Ties",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://dev.deventiatech.com/assets/images/RS-global-logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "RS Global Ties Project",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 const page = () => {
   return (
     <>
+     {/* H1 for SEO */}
+      <h1 className="sr-only">RS Global Ties - Connecting Businesses Worldwide</h1>
       <Hero
         projectLogo={isaLogo}
         projectName="RS Global Ties"

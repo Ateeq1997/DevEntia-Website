@@ -13,6 +13,39 @@ import logo1 from '@/assets/images/Healthcare.png';
 import logo2 from '@/assets/images/Retail.svg.png';
 import logo3 from '@/assets/images/maunfacturing.png';
 import logo4 from '@/assets/images/Finance.png';
+import { Metadata } from 'next';
+
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "AI Development Services - Machine Learning & Automation",
+  description:
+    "Custom AI and machine learning solutions: predictive analytics, chatbots, computer vision, NLP, and intelligent automation to transform your business operations.",
+  keywords: [
+    "AI development services",
+    "machine learning solutions",
+    "AI chatbot development",
+    "predictive analytics",
+    "computer vision solutions",
+  ],
+  openGraph: {
+    title: "AI Development Services - Machine Learning & Automation",
+    description:
+      "Custom AI and machine learning solutions: predictive analytics, chatbots, computer vision, NLP, and intelligent automation to transform your business operations.",
+    url: "https://dev.deventiatech.com/Services/ArtificialIntelligence",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417327/ai-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AI Services by DevEntia",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
 
 // ✅ Product-specific data
 const productServices = [
@@ -161,6 +194,10 @@ const productWhyUs = [
 function Page() {
   return (
     <div>
+       {/* H1 for SEO */}
+      <h1 className="sr-only">
+        Custom AI & Machine Learning Solutions for Business Growth
+      </h1>
       <Hero />
 
       <ServicesSection

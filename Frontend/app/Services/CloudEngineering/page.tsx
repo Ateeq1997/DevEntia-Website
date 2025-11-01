@@ -15,7 +15,38 @@ import logo3 from '@/assets/images/Healthcare.svg.png';
 import logo4 from '@/assets/images/Logistics.svg.png';
 import logo5 from '@/assets/images/Enterprise.svg (1).png';
 import logo6 from '@/assets/images/Retail.svg (1).png';
+import { Metadata } from 'next';
 
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "Cloud Engineering Services - AWS, Azure & GCP Solutions",
+  description:
+    "Expert cloud engineering services: AWS, Azure, and GCP. Cloud migration, architecture design, DevOps, microservices, and Kubernetes solutions for scalable applications.",
+  keywords: [
+    "cloud engineering services",
+    "AWS development",
+    "cloud migration services",
+    "DevOps consulting",
+    "Kubernetes solutions",
+  ],
+  openGraph: {
+    title: "Cloud Engineering Services - AWS, Azure & GCP Solutions",
+    description:
+      "Expert cloud engineering services: AWS, Azure, and GCP. Cloud migration, architecture design, DevOps, microservices, and Kubernetes solutions for scalable applications.",
+    url: "https://dev.deventiatech.com/Services/CloudEngineering",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417327/cloud-engineering-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cloud Engineering Services by DevEntia",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 // ✅ Cloud-specific data
 const cloudServices = [
   {
@@ -209,6 +240,11 @@ const cloudWhyUs = [
 function Page() {
   return (
     <div>
+       {/* H1 for SEO */}
+      <h1 className="sr-only">
+        Enterprise Cloud Engineering & Migration Services
+      </h1>
+
       <Hero />
 
       <ServicesSection

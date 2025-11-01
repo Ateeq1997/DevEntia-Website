@@ -8,10 +8,41 @@ import WhatMyClientSay from '@/components/OurPortfolio/CaseStudy/WhatMyClientSay
 import isaLogo from '../../../../assets/images/ISA Logo.webp';
 import isaDesk from '../../../../assets/images/isa-desktop.webp';
 import isaDesk1 from '../../../../assets/images/isa-desktop1.webp';
+import { Metadata } from 'next';
 
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "ISA Project - Education Management Platform Case Study",
+  description:
+    "Learn how DevEntia developed ISA's education management platform with student tracking, course management, and analytics. Modern EdTech solution for institutions.",
+  keywords: [
+    "education management system",
+    "EdTech development",
+    "learning management platform",
+  ],
+  openGraph: {
+    title: "ISA Project - Education Management Platform Case Study",
+    description:
+      "Learn how DevEntia developed ISA's education management platform with student tracking, course management, and analytics. Modern EdTech solution for institutions.",
+    url: "https://dev.deventiatech.com/Our-Portfolio/Projects/ISA",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://dev.deventiatech.com/assets/images/ISA Logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "ISA Project",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 const page = () => {
   return (
     <>
+        {/* H1 for SEO */}
+      <h1 className="sr-only">ISA - Transforming Education Through Technology</h1>
       <Hero
         projectLogo={isaLogo}
         projectName="ISA Consulting"

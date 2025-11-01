@@ -10,10 +10,43 @@ import isaDesk from '../../../../assets/images/cpa-desktop.webp';
 import isaDesk1 from '../../../../assets/images/cpa-desktop1.webp';
 import light from '../../../../assets/images/cpa-light.webp';
 import dark from '../../../../assets/images/cpa-dark.webp';
+import { Metadata } from 'next';
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "Private CPA Project - Accounting & Tax Management System",
+  description:
+    "See how DevEntia built a comprehensive CPA management platform with client portals, document management, and automated workflows for accounting professionals.",
+  keywords: [
+    "accounting software development",
+    "CPA practice management",
+    "tax management system",
+  ],
+  openGraph: {
+    title: "Private CPA Project - Accounting & Tax Management System",
+    description:
+      "See how DevEntia built a comprehensive CPA management platform with client portals, document management, and automated workflows for accounting professionals.",
+    url: "https://dev.deventiatech.com/Our-Portfolio/Projects/Private-CPA",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://dev.deventiatech.com/assets/images/cpa Logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Private CPA Project",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
+
 
 const page = () => {
   return (
     <>
+       {/* H1 for SEO */}
+      <h1 className="sr-only">Private CPA - Modern Accounting Practice Management</h1>
       <Hero
         projectLogo={isaLogo}
         projectName="Private CPA"

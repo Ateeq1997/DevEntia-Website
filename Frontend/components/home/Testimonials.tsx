@@ -6,7 +6,7 @@ import { testimonialsData } from "./testmonials-data";
 
 // Import your icons as images
 import Facebook from "@/assets/images/facebook.png";
-import Upwork from "@/assets/images/upwork-48.png";
+import Upwork from "@/assets/images/uplogo1.png";
 import Freelancer from "@/assets/images/freelancer-icon.png";
 import Fiver from "@/assets/images/fiver.png";
 import Linkedin from "@/assets/images/linkedin.png";
@@ -14,19 +14,18 @@ import Linkedin from "@/assets/images/linkedin.png";
 // Platform colors
 const platformColors: Record<string, string> = {
   fiverr: "linear-gradient(135deg, #1dbf73, #16a05d)",
-  upwork: "linear-gradient(135deg, #f1faf0ff, #e2ebe0ff)",
+  // upwork: "linear-gradient(135deg, #f1faf0ff, #e2ebe0ff)",
   linkedin: "linear-gradient(135deg, #0077b5, #005885)",
   facebook: "linear-gradient(135deg, #1877f2, #0d5ecc)",
   google: "linear-gradient(135deg, #4285f4, #2a75f3)",
 };
 
-// Platform icons as images
 const platformIcons: Record<string, JSX.Element> = {
-  facebook: <Image src={Facebook} alt="Facebook" width={16} height={16} />,
-  linkedin: <Image src={Linkedin} alt="LinkedIn" width={16} height={16} />,
-  upwork: <Image src={Upwork} alt="Upwork" width={24} height={24} />,
-  freelancer: <Image src={Freelancer} alt="Freelancer" width={32} height={32} />,
-  fiverr: <Image src={Fiver} alt="Fiverr" width={16} height={16} />,
+  facebook: <Image src={Facebook} alt="Facebook" width={55} height={55} className="rounded-full object-cover" />,
+  linkedin: <Image src={Linkedin} alt="LinkedIn" width={55} height={55} className="rounded-full object-cover" />,
+  upwork: <Image src={Upwork} alt="Upwork" width={60} height={60} className="rounded-full object-cover" />,
+  freelancer: <Image src={Freelancer} alt="Freelancer" width={60} height={60} className="rounded-full object-cover" />,
+  fiverr: <Image src={Fiver} alt="Fiverr" width={55} height={55} className="rounded-full object-cover" />,
 };
 
 // Testimonial type
@@ -59,14 +58,15 @@ const TestimonialPopup: React.FC<{ testimonial: Testimonial; onClose: () => void
 
       {/* Platform + Title */}
       <div className="flex items-center gap-3 mb-4">
-        <div
-          className="w-9 h-9 rounded-xl flex items-center justify-center shadow-md"
-          style={{ background: platformColors[testimonial.platformColor] }}
-        >
-          {platformIcons[testimonial.platformColor] || (
-            <span className="text-white text-sm font-bold">{testimonial.platform[0]}</span>
-          )}
-        </div>
+       <div
+  className="w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center shadow-md"
+  style={{ background: platformColors[testimonial.platformColor] }}
+>
+  {platformIcons[testimonial.platformColor] || (
+    <span className="text-white text-xs font-bold">{testimonial.platform[0]}</span>
+  )}
+</div>
+
         <span className="text-base font-semibold">{testimonial.platform}</span>
       </div>
 
@@ -105,18 +105,19 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; onReadMore: () => vo
   testimonial,
   onReadMore,
 }) => (
-  <div className="relative min-w-[280px] max-w-[280px] md:min-w-[360px] md:max-w-[360px] lg:min-w-[400px] lg:max-w-[400px] h-[380px] flex-shrink-0 group">
+  <div className="relative min-w-[380px] max-w-[280px] md:min-w-[360px] md:max-w-[360px] lg:min-w-[400px] lg:max-w-[400px] h-[390px] flex-shrink-0 group">
     <div className="relative h-full rounded-2xl p-6 md:p-7 lg:p-8 transition-all duration-500 hover:-translate-y-2 border border-[rgba(37,99,235,0.2)] backdrop-blur-[10px] bg-[#F0F0F0] dark:bg-[#F0F0F01A] text-black dark:text-white hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#1d4ed8] hover:text-white dark:hover:text-white flex flex-col">
       {/* Platform */}
       <div className="flex items-center gap-2 mb-4">
         <div
-          className="w-7 h-7 md:w-8 md:h-8 rounded-xl flex items-center justify-center shadow-md"
-          style={{ background: platformColors[testimonial.platformColor] }}
-        >
-          {platformIcons[testimonial.platformColor] || (
-            <span className="text-white text-xs font-bold">{testimonial.platform[0]}</span>
-          )}
-        </div>
+  className="w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center shadow-md"
+  style={{ background: platformColors[testimonial.platformColor] }}
+>
+  {platformIcons[testimonial.platformColor] || (
+    <span className="text-white text-xs font-bold">{testimonial.platform[0]}</span>
+  )}
+</div>
+
         <span className="text-xs md:text-sm font-semibold text-black dark:text-white group-hover:text-white transition-colors">
           {testimonial.platform}
         </span>

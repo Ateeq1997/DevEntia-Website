@@ -7,8 +7,38 @@ import OurProcessesSection from '@/components/Common/OurProcessesSection';
 import IndustriesSection from '@/components/Services/Healthcare/IndustriesSection';
 import Testimonials from '@/components/home/Testimonials';
 import Contact from '@/components/home/contact';
+import { Metadata } from 'next';
 
-
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "Healthcare Software Development - HIPAA Compliant Solutions",
+  description:
+    "DevEntia develops secure healthcare software: EHR systems, telemedicine apps, patient portals, and medical practice management. HIPAA-compliant, cloud-based solutions.",
+  keywords: [
+    "healthcare software development",
+    "HIPAA compliant software",
+    "telemedicine app development",
+    "EHR system development",
+    "medical practice software",
+  ],
+  openGraph: {
+    title: "Healthcare Software Development - HIPAA Compliant Solutions",
+    description:
+      "DevEntia develops secure healthcare software: EHR systems, telemedicine apps, patient portals, and medical practice management. HIPAA-compliant, cloud-based solutions.",
+    url: "https://dev.deventiatech.com/Services/Healthcare",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417326/healthcare-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Healthcare Software Solutions by DevEntia",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 const healthcareServices = [
   {
     id: "01",
@@ -96,6 +126,11 @@ const healthcareProcesses = [
 function Page() {
   return (
     <div>
+  
+      {/* H1 for SEO */}
+      <h1 className="sr-only">
+        HIPAA-Compliant Healthcare Software Development Services
+      </h1>
       <Hero />
 
       {/* Services Section */}

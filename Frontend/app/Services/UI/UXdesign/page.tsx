@@ -17,7 +17,38 @@ import logo3 from '@/assets/images/kit.png';
 import logo4 from '@/assets/images/usability.png';
 import logo5 from '@/assets/images/access.png';
 import logo6 from '@/assets/images/3d.png';
+import { Metadata } from 'next';
 
+// -------- SEO Metadata --------
+export const metadata: Metadata = {
+  title: "UI/UX Design Services - User-Centered Digital Experiences",
+  description:
+    "Professional UI/UX design services: mobile apps, websites, and SaaS platforms. User research, wireframing, prototyping, and design systems that convert users.",
+  keywords: [
+    "UI/UX design services",
+    "mobile app design",
+    "website design agency",
+    "user experience design",
+    "design system development",
+  ],
+  openGraph: {
+    title: "UI/UX Design Services - User-Centered Digital Experiences",
+    description:
+      "Professional UI/UX design services: mobile apps, websites, and SaaS platforms. User research, wireframing, prototyping, and design systems that convert users.",
+    url: "https://dev.deventiatech.com/Services/UI/UXdesign",
+    siteName: "DevEntia Tech Pvt. Ltd",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhsgpxu04/image/upload/v1722417327/ui-ux-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "UI/UX Design Services by DevEntia",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 // ✅ UI-specific data
 const uiServices = [
   {
@@ -207,6 +238,10 @@ const uiWhyUs = [
 function Page() {
   return (
     <div>
+       {/* H1 for SEO */}
+      <h1 className="sr-only">
+        Creating Intuitive UI/UX Designs That Users Love
+      </h1>
       <Hero />
 
       <ServicesSection
